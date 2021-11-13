@@ -6,7 +6,7 @@ class TestPlayerSystem(MpfGameTestCase):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\Tom\\Desktop\\hp-adventures'
+        return 'C:\\Users\\TP-OPS\\Desktop\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'
