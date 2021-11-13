@@ -1,0 +1,171 @@
+#config_version=5
+mode:           
+  start_events: start_mode_field_quidditch_stadium
+  stop_events: stop_mode_field_quidditch_stadium
+  priority: 300
+
+shots:
+  sh_pop_left:
+    hit_events: sh_core_pop_left_hit
+  sh_pop_right:
+    hit_events: sh_core_pop_right_hit
+  sh_pop_bottom:
+    hit_events: sh_core_pop_bottom_hit
+  sh_quidditch_stadium:
+    profile: sp_quidditch_stadium
+    advance_events: start_quidditch_debut
+    hit_events: sh_pop_left_hit, sh_pop_right_hit, sh_pop_bottom_hit
+    show_tokens:
+      led: l_ws2812_shot_quidditch
+      color_name: yellow
+
+shot_profiles:
+  sp_quidditch_stadium:
+    advance_on_hit: false
+    states:
+      - name: unlit
+        show: light_off
+        sync_ms: 500
+      - name: lit
+        show: flash_normal
+        sync_ms: 500
+
+counters:
+  lb_quidditch_learning_count:
+    count_events: sh_quidditch_stadium_hit
+    count_complete_value: 5
+    start_enabled: true
+    disable_on_complete: true
+    events_when_complete: quidditch_learning_count_completed
+
+state_machines:
+  sm_quidditch:
+    starting_state: learning
+    persist_state: true
+    states:
+      learning:
+        label:
+      debut:
+        label:
+        events_when_started: start_quidditch_debut
+      player:
+        label:
+    transitions:
+      - source: learning
+        target: debut
+        events: quidditch_learning_count_completed
+      - source: debut
+        target: player
+        events:
+
+show_player:
+  start_quidditch_debut:
+    flash_normal:
+      key: debut
+      action: play
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_mis_quidditch
+        color_name: (current_player.house_theme_led)
+  sh_pop_left_hit: 
+    flash_normal:
+      key: pop_left
+      action: play
+      loops: 0
+      show_tokens:
+        led: l_pop_left
+        color_name: white
+  sh_pop_right_hit: 
+    flash_normal:
+      key: pop_right
+      action: play
+      loops: 0
+      show_tokens:
+        led: l_pop_right
+        color_name: white
+  sh_pop_bottom_hit: 
+    flash_normal:
+      key: pop_bottom
+      action: play
+      loops: 0
+      show_tokens:
+        led: l_pop_bottom
+        color_name: white
+
+# # var_mc_ variables are used for mpf-mc for showing on slides.
+# variable_player:
+#   mode_field_quidditch_stadium_started:
+#     var_mc_max_debut_count:
+#       int: settings.quidditch_debut_count
+#       action: set
+#     var_mc_max_return_count:
+#       int: settings.quidditch_return_count
+#       action: set
+#   logicblock_lb_quidditch_debut_count_hit:
+#     var_score: 10
+#     var_mc_quidditch_debut_count:
+#       int: device.counters.lb_quidditch_debut_count.value
+#       action: set
+#   logicblock_lb_quidditch_return_count_hit:
+#     var_score: 100
+#     var_mc_quidditch_return_count:
+#       int: device.counters.lb_quidditch_return_count.value
+#       action: set
+
+# slide_player:
+#   logicblock_lb_quidditch_debut_count_hit: 
+#     sl_quidditch_debut_count:
+#       expire: 0.7s
+#   logicblock_lb_quidditch_return_count_hit: 
+#     sl_quidditch_return_count:
+#       expire: 0.7s
+
+
+# slides:
+#   # Main slide center position is as follows;
+#   # x: left+575     # (x = 1250 - 100 = 1150)
+#   # y: top-315      # (y =  700 -  70 =  630)
+#   # anchor_x: middle
+#   # anchor_y: middle
+#   sl_quidditch_debut_count:
+#     - type: text
+#       font_name: harry-potter
+#       text: Quidditch Debut
+#       font_size: 60
+#       color: score_text_default
+#       x: left+575
+#       y: top-280
+#       anchor_x: middle
+#       anchor_y: middle
+#     - type: text
+#       font_name: harry-potter
+#       text: (player|var_mc_quidditch_debut_count) of (player|var_mc_max_debut_count)
+#       font_size: 60
+#       color: score_text_default
+#       x: left+575
+#       y: top-350
+#       anchor_x: middle
+#       anchor_y: middle
+#     - widget: widget_main_back_(current_player.house_theme_name)
+#   sl_quidditch_return_count:
+#     - type: text
+#       font_name: harry-potter
+#       text: Quidditch Return
+#       font_size: 60
+#       color: score_text_default
+#       x: left+575
+#       y: top-280
+#       anchor_x: middle
+#       anchor_y: middle
+#     - type: text
+#       font_name: harry-potter
+#       text: (player|var_mc_quidditch_return_count) of (player|var_mc_max_return_count)
+#       font_size: 60
+#       color: score_text_default
+#       x: left+575
+#       y: top-350
+#       anchor_x: middle
+#       anchor_y: middle
+#     - widget: widget_main_back_(current_player.house_theme_name)
+

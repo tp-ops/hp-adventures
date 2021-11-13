@@ -1,0 +1,43 @@
+#config_version=5
+achievements:
+  # Note # Hit the pop bumpers 100 times to make your quidditch debut. Quidditch mode will start. To start Quidditch mode again on next ball you only have to hit the pop bumpers 25 times.
+  achv_quidditch_debut:
+    enable_events: mode_global_started{device.achievements.achv_quidditch_debut.state!="completed"}
+    start_events: mode_global_started{device.achievements.achv_quidditch_debut.state!="completed"}
+    stop_events: mode_quidditch_will_stop
+    complete_events: quidditch_debut_completed
+    restart_on_next_ball_when_started: true
+      
+  # Note # Complete 10 quidditch games within one ball to become a Master of Quidditch. Score a total of 1.000.000 points per pop bumper hit
+  achv_master_of_quidditch:
+    enable_events: mode_quidditch_started
+    start_events: mode_quidditch_started
+    stop_events: mode_quidditch_will_stop
+    complete_events: you_are_a_master_of_quidditch
+    restart_on_next_ball_when_started: false
+      
+  achv_gw_godric_gryffindor:
+    enable_events: mode_field_greatest_wizards_started
+    start_events: mode_field_greatest_wizards_started
+    stop_events: mode_field_greatest_wizards_will_stop
+    restart_on_next_ball_when_started: false
+      
+  achv_gw_helga_hufflepuff:
+    enable_events: mode_field_greatest_wizards_started
+    start_events: mode_field_greatest_wizards_started
+    stop_events: mode_field_greatest_wizards_will_stop
+    restart_on_next_ball_when_started: false
+      
+  achv_gw_rowena_ravenclaw:
+    enable_events: mode_field_greatest_wizards_started
+    start_events: mode_field_greatest_wizards_started
+    stop_events: mode_field_greatest_wizards_will_stop
+    complete_events: you_are_a_master_of_quidditch
+    restart_on_next_ball_when_started: false
+      
+  achv_gw_salazar_slytherin:
+    enable_events: mode_field_greatest_wizards_started
+    start_events: mode_field_greatest_wizards_started
+    stop_events: mode_field_greatest_wizards_will_stop
+    complete_events: you_are_a_master_of_quidditch
+    restart_on_next_ball_when_started: false

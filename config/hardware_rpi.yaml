@@ -1,0 +1,36 @@
+#config_version=5
+raspberry_pi:
+  ip: 172.17.17.26
+  port: 8888
+  
+switches:
+  s_start_button:
+    platform: rpi
+    type: NC
+    number: 23
+    debounce: normal
+    ignore_window_ms: 500
+    tags: start
+  s_coin:
+    platform: virtual
+    number:
+  s_service_door:
+    platform: virtual
+    number:
+    tags: service_door_open, power_off
+  s_service_enter:
+    platform: virtual
+    number:
+    tags: service_enter
+  s_service_esc:
+    platform: virtual
+    number:
+    tags: service_esc
+  s_service_up:
+    platform: virtual
+    number:
+    tags: service_up
+  s_service_down:
+    platform: virtual
+    number:
+    tags: service_down

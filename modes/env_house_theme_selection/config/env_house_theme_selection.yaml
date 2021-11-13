@@ -1,0 +1,352 @@
+#config_version=5
+mode:
+  start_events: ball_starting{ball==1}
+  stop_events: stop_mode_env_house_theme_selection
+  code: mpf.modes.carousel.code.carousel.Carousel
+  priority: 700
+
+mode_settings:
+  selectable_items: gryffindor, hufflepuff, ravenclaw, slytherin
+  select_item_events: s_start_button_active
+  next_item_events: s_fl_right_a_active
+  previous_item_events: s_fl_left_a_active
+
+variable_player:
+  env_house_theme_selection_gryffindor_highlighted:
+    # using for displaying
+    house_theme_title:
+      action: set
+      string: Gryffindor
+    # using for internal code
+    house_theme_name:
+      action: set
+      string: gryffindor
+    house_theme_logo:
+      action: set
+      string: logo_gryffindor
+    house_theme_led:
+      action: set
+      string: gryffindor_led
+  env_house_theme_selection_hufflepuff_highlighted:
+    # using for displaying
+    house_theme_title:
+      action: set
+      string: Hufflepuff
+    # using for internal code
+    house_theme_name:
+      action: set
+      string: hufflepuff
+    house_theme_logo:
+      action: set
+      string: logo_hufflepuff
+    house_theme_led:
+      action: set
+      string: hufflepuff_led
+  env_house_theme_selection_ravenclaw_highlighted:
+    # using for displaying
+    house_theme_title:
+      action: set
+      string: Ravenclaw
+    # using for internal code
+    house_theme_name:
+      action: set
+      string: ravenclaw
+    house_theme_logo:
+      action: set
+      string: logo_ravenclaw
+    house_theme_led:
+      action: set
+      string: ravenclaw_led
+  env_house_theme_selection_slytherin_highlighted:
+    # using for displaying
+    house_theme_title:
+      action: set
+      string: Slytherin
+    # using for internal code
+    house_theme_name:
+      action: set
+      string: slytherin
+    house_theme_logo:
+      action: set
+      string: logo_slytherin
+    house_theme_led:
+      action: set
+      string: slytherin_led
+
+event_player:
+  env_house_theme_selection_gryffindor_selected: stop_mode_env_house_theme_selection, start_mode_base
+  env_house_theme_selection_hufflepuff_selected: stop_mode_env_house_theme_selection, start_mode_base
+  env_house_theme_selection_ravenclaw_selected: stop_mode_env_house_theme_selection, start_mode_base
+  env_house_theme_selection_slytherin_selected: stop_mode_env_house_theme_selection, start_mode_base
+   
+slide_player:
+  env_house_theme_selection_gryffindor_highlighted: 
+    sl_theme_gryffindor:
+      target: window
+  env_house_theme_selection_hufflepuff_highlighted: 
+    sl_theme_hufflepuff:
+      target: window
+  env_house_theme_selection_ravenclaw_highlighted:
+    sl_theme_ravenclaw:
+      target: window
+  env_house_theme_selection_slytherin_highlighted:
+    sl_theme_slytherin:
+      target: window
+
+show_player:
+  slide_sl_theme_gryffindor_active:
+    theme_show:
+      action: play
+      key: theme_show
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        leds: theme_lights
+        color_name: (current_player.house_theme_led)
+  slide_sl_theme_hufflepuff_active:
+    theme_show:
+      action: play
+      key: theme_show
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        leds: theme_lights
+        color_name: (current_player.house_theme_led)
+  slide_sl_theme_ravenclaw_active:
+    theme_show:
+      action: play
+      key: theme_show
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        leds: theme_lights
+        color_name: (current_player.house_theme_led)
+  slide_sl_theme_slytherin_active:
+    theme_show:
+      action: play
+      key: theme_show
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        leds: theme_lights
+        color_name: (current_player.house_theme_led)
+
+slides:
+  sl_theme_gryffindor:
+    widgets:
+      - type: text
+        font_name: harry-potter
+        text: Choose your house wisely
+        font_size: 72
+        color: white
+        x: middle
+        y: top-60
+        anchor_x: middle
+        anchor_y: top
+      - type: text
+        font_name: harry-potter
+        text: then press START again
+        font_size: 40
+        color: white
+        x: middle
+        y: top-140
+        anchor_x: middle
+        anchor_y: top
+      - type: text
+        font_name: harry-potter
+        text: Gryffindor
+        font_size: 100
+        color: gryffindor_gold
+        x: middle
+        y: bottom+125
+        anchor_x: middle
+        anchor_y: bottom
+      - type: text
+        font_name: harry-potter
+        text: NEXT /
+        font_size: 40
+        color: white
+        x: right-50
+        y: bottom+50
+        anchor_x: right
+        anchor_y: bottom
+      - type: text
+        font_name: harry-potter
+        text: \ PREV
+        font_size: 40
+        color: white
+        x: left+50
+        y: bottom+50
+        anchor_x: left
+        anchor_y: bottom
+      - type: image
+        image: logo_full_gryffindor
+      - type: image
+        image: back_full_gryffindor
+  sl_theme_hufflepuff:
+    widgets:
+      - type: text
+        font_name: harry-potter
+        text: Choose your house wisely
+        font_size: 72
+        color: white
+        x: middle
+        y: top-60
+        anchor_x: middle
+        anchor_y: top
+      - type: text
+        font_name: harry-potter
+        text: then press START again
+        font_size: 40
+        color: white
+        x: middle
+        y: top-140
+        anchor_x: middle
+        anchor_y: top
+      - type: text
+        font_name: harry-potter
+        text: Hufflepuff
+        font_size: 100
+        color: hufflepuff_black
+        x: middle
+        y: bottom+125
+        anchor_x: middle
+        anchor_y: bottom
+      - type: text
+        font_name: harry-potter
+        text: NEXT /
+        font_size: 40
+        color: white
+        x: right-50
+        y: bottom+50
+        anchor_x: right
+        anchor_y: bottom
+      - type: text
+        font_name: harry-potter
+        text: \ PREV
+        font_size: 40
+        color: white
+        x: left+50
+        y: bottom+50
+        anchor_x: left
+        anchor_y: bottom
+      - type: image
+        image: logo_full_hufflepuff
+      - type: image
+        image: back_full_hufflepuff
+  sl_theme_ravenclaw:
+    widgets:
+      - type: text
+        font_name: harry-potter
+        text: Choose your house wisely
+        font_size: 72
+        color: white
+        x: middle
+        y: top-60
+        anchor_x: middle
+        anchor_y: top
+      - type: text
+        font_name: harry-potter
+        text: then press START again
+        font_size: 40
+        color: white
+        x: middle
+        y: top-140
+        anchor_x: middle
+        anchor_y: top
+      - type: text
+        font_name: harry-potter
+        text: Ravenclaw
+        font_size: 100
+        color: ravenclaw_bronze
+        x: middle
+        y: bottom+125
+        anchor_x: middle
+        anchor_y: bottom
+      - type: text
+        font_name: harry-potter
+        text: NEXT /
+        font_size: 40
+        color: white
+        x: right-50
+        y: bottom+50
+        anchor_x: right
+        anchor_y: bottom
+      - type: text
+        font_name: harry-potter
+        text: \ PREV
+        font_size: 40
+        color: white
+        x: left+50
+        y: bottom+50
+        anchor_x: left
+        anchor_y: bottom
+      - type: image
+        image: logo_full_ravenclaw
+      - type: image
+        image: back_full_ravenclaw
+  sl_theme_slytherin:
+    widgets:
+      - type: text
+        font_name: harry-potter
+        text: Choose your house wisely
+        font_size: 72
+        color: white
+        x: middle
+        y: top-60
+        anchor_x: middle
+        anchor_y: top
+      - type: text
+        font_name: harry-potter
+        text: then press START again
+        font_size: 40
+        color: white
+        x: middle
+        y: top-140
+        anchor_x: middle
+        anchor_y: top
+      - type: text
+        font_name: harry-potter
+        text: Slytherin
+        font_size: 100
+        color: slytherin_silver
+        x: middle
+        y: bottom+125
+        anchor_x: middle
+        anchor_y: bottom
+      - type: text
+        font_name: harry-potter
+        text: NEXT /
+        font_size: 40
+        color: white
+        x: right-50
+        y: bottom+50
+        anchor_x: right
+        anchor_y: bottom
+      - type: text
+        font_name: harry-potter
+        text: \ PREV
+        font_size: 40
+        color: white
+        x: left+50
+        y: bottom+50
+        anchor_x: left
+        anchor_y: bottom
+      - type: image
+        image: logo_full_slytherin
+      - type: image
+        image: back_full_slytherin
+
+shows:
+  theme_show:
+    - duration: 0.25
+      lights:
+        (leds):
+          color: (color_name)
+          fade: 0.25
+    - duration: 0.25
+      lights:
+        (leds):
+          color: off
+
+

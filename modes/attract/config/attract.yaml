@@ -1,0 +1,26 @@
+#config_version=5
+event_player:
+  s_start_button_active: sw_add_player
+   
+show_player:
+  mode_attract_started: 
+    # attract_display_loop:
+    #   action: play
+    #   loops: -1
+    attract_light_loop:
+      action: play
+      loops: -1
+  mode_attract_will_stop:
+    # attract_display_loop:
+    #   action: stop
+    attract_light_loop:
+      action: stop
+
+sound_player:
+  mode_attract_started:
+    theme_song:
+      action: play
+      loops: -1
+  mode_attract_will_stop:
+    theme_song:
+      action: stop

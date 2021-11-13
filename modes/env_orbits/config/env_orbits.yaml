@@ -1,0 +1,37 @@
+#config_version=5
+mode:
+  start_events: start_mode_env_orbits
+  stop_events: stop_mode_env_orbits
+  priority: 700
+
+
+# DIV Castle MUST BE DISABLED WHEN DIV Forrest is ENABLED
+# DIV Castle CAN ONLY BE DISABLED WHEN DIV Forrest IS ENABLED
+# DIV Forrest WILL BE ENABLED BY MODE Forbidden Forrest
+
+
+# DIV Castle ENABLED AND DIV Forrest DISABLED
+# Left orbit big (DIV Castle MUST BE ACTIVE)
+# Right orbit big (DIV Castle MUST BE ACTIVE)
+# Left orbit small (DIV Castle MUST BE DISACTIVE)
+# Right orbit small (DIV Castle MUST BE DISACTIVE)
+
+
+# DIV Forrest ENABLED THUS DIV Castle DISABLED
+# Forbidden forest vuk
+# Left orbit small
+# Right orbit small
+
+sequence_shots:
+  sq_shot_left_orbit_big:
+    switch_sequence: s_orbit_left, s_orbit_right
+    sequence_timeout: 3s
+  sq_shot_right_orbit_big:
+    switch_sequence: s_orbit_right, s_orbit_left
+    sequence_timeout: 3s
+  sq_shot_left_orbit_small:
+    switch_sequence: s_div_castle, s_orbit_right
+    sequence_timeout: 3s
+  sq_shot_right_orbit_small:
+    switch_sequence: s_orbit_right, s_div_castle
+    sequence_timeout: 3s

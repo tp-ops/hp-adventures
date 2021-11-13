@@ -1,0 +1,35 @@
+#show_version=5
+- duration: 4s
+  slides:
+    press_start:
+      target: window
+      widgets:
+      - type: Text
+        text: PRESS START
+        color: red
+        animations:
+          show_slide:                # animation trigger event
+            - property: x
+              value: 50
+              relative: True
+              duration: 1s
+            - property: y
+              value: -50
+              relative: True
+              duration: 1s
+            - property: rotation
+              value: 45
+              relative: True
+              duration: 500ms
+      - type: image
+        image: back_full_graystyle
+- duration: 3s
+  slides:
+    credits_slide:
+      target: window
+      widgets:
+      - type: text
+        text: (machine|credits_string)
+        color: red
+      - type: image
+        image: back_full_graystyle

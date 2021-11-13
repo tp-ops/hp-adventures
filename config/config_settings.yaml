@@ -1,0 +1,87 @@
+#config_version=5
+settings:
+  #|================|#
+  #| debug settings |#
+  #|================|# 
+  debug_mode:
+    label: Debugging ON/OF
+    values:
+      true: "ON"
+      false: "OFF (default)"
+    default: false
+    key_type: str
+    sort: 10
+
+  #|======================|#
+  #| config mode settings |#
+  #|======================|# 
+  balls_per_game:
+    label: balls_per_game
+    values:
+      3: "3 balls (default)"
+      5: "5 balls"
+    default: 3
+    key_type: int
+    sort: 100
+  warnings_to_tilt:
+    label: Number of tilt warnings
+    values:
+      0: "no warnings"
+      1: "1 warning"
+      2: "2 warnings"
+      3: "3 warnings (default)"
+      5: "5 warnings"
+    default: 3
+    key_type: int
+    sort: 600
+  #|=======================================|#
+  #| field_quidditch_stadium mode settings |#
+  #|=======================================|# 
+  quidditch_debut_count:
+    label: quidditch_debut_count
+    values:
+      25: "25 bumper hits"
+      50: "50 bumper hits (default)"
+      75: "75 bumper hits"
+    default: 50
+    key_type: int
+    sort: 601
+  quidditch_return_count:
+    label: quidditch_return_count
+    values:
+      10: "10 bumper hits"
+      25: "25 bumper hits (default)"
+      40: "40 bumper hits"
+    default: 25
+    key_type: int
+    sort: 602
+  #|=================================|#
+  #| mission_quidditch mode settings |#
+  #|=================================|# 
+  quidditch_game_bumper_count:
+    label: quidditch_game_bumper_count
+    values:
+      5: "5 bumper hits"
+      10: "10 bumper hits (default)"
+      15: "15 bumper hits"
+    default: 10
+    key_type: int
+    sort: 701
+  quidditch_game_left_ramp_count:
+    label: quidditch_game_left_ramp_count
+    values:
+      1: "1 right ramp hit"
+      2: "2 right ramp hits (default)"
+      3: "3 right ramp hits"
+    default: 2
+    key_type: int
+    sort: 702
+  quidditch_game_completed_count:
+    label: quidditch_game_completed_count
+    values:
+      5: "5 quidditch games"
+      10: "10 quidditch games (default)"
+      15: "15 quidditch games"
+    default: 10
+    key_type: int
+    sort: 703

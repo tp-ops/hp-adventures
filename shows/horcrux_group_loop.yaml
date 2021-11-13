@@ -1,0 +1,328 @@
+#show_version=5
+- time: 0
+  lights:
+    l_ws2812_hor_book: white
+    l_ws2812_hor_ring: white
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: white
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: white
+    l_ws2812_hor_ring: white
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: white
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: white
+    l_ws2812_hor_ring: white
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+#part 2 right cicel then left circel
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: white
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: white
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: off
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: white
+- time: +0.2
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+#part 3 one by one on then one by one off
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: white
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: white
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: white
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: white
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: white
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: white
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: white
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: white
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: white
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: white
+    l_ws2812_hor_ring: white
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: white
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: white
+    l_ws2812_hor_neckles: white
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: white
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: white
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: white
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: white
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: white
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: white
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: white
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: white
+    l_ws2812_hor_nagini: off
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: white
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: white
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.1
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: white
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off
+- time: +0.1
+  duration: 0.1
+  lights:
+    l_ws2812_hor_book: off
+    l_ws2812_hor_ring: off
+    l_ws2812_hor_neckles: off
+    l_ws2812_hor_cup: off
+    l_ws2812_hor_harry: off
+    l_ws2812_hor_diadeem: off
+    l_ws2812_hor_nagini: off

@@ -1,0 +1,45 @@
+#config_version=5
+mode:
+    start_events: start_mode_global
+    stop_events: stop_mode_global, ball_will_end
+    priority: 200  
+  
+config:
+  - global_main_entrance_hall.yaml
+
+event_player:
+  # # Note # Field mode will stay running because selection for golden snitch
+  # # Note # Quidditch mode ends when ball drains, so no stop events are necessarily
+  # quidditch_debut_completed: start_mode_mission_quidditch
+  # quidditch_return_completed: start_mode_mission_quidditch
+
+  
+  # Note # From docs
+  mode_global_started:
+    - start_mode_skill_shots
+  mode_global_will_stop:
+    - stop_mode_skill_shots
+    - stop_mode_field_main_entrance_hall
+    - stop_mode_field_chamber_of_secrets
+    - stop_mode_field_diagon_alley
+    - stop_mode_field_quidditch_stadium
+    - stop_mode_field_ministry_of_magic
+    - stop_mode_field_house_cup
+    - stop_mode_field_platform_nine_three_quarters
+    - stop_mode_field_clock_tower_entrance_hall
+  start_field_modes:
+    - start_mode_field_main_entrance_hall
+    - start_mode_field_chamber_of_secrets
+    - start_mode_field_diagon_alley
+    - start_mode_field_quidditch_stadium
+    - start_mode_field_ministry_of_magic
+    - start_mode_field_house_cup
+    - start_mode_field_platform_nine_three_quarters
+    - start_mode_field_clock_tower_entrance_hall  
+
+    # - stop_missions
+  # mode_type_mission_started:
+    # - stop_mode_field
+  # mode_type_mission_stopped{not mode["global"].stopping}:
+    # - start_mode_field
+  # Note End #

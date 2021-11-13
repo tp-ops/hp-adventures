@@ -1,0 +1,45 @@
+#config_version=5
+mode:
+  start_events: start_mode_mission_spells
+  stop_events: stop_mode_mission_spells
+  priority: 400
+
+sequence_shots:
+  sq_shot_spells_ramp:
+    switch_sequence: s_spells_ramp_entry, s_right_wire_ramp_small
+    sequence_timeout: 3s
+
+counters:
+  spells_level_up_counter:
+    count_events: sq_shot_spells_ramp_hit
+    count_complete_value: 5
+    start_enabled: true
+    restart_events: restart_spells_level_up_counter
+    disable_on_complete: true
+    events_when_complete: spells_level_up
+
+state_machines:
+  sm_spells_level:
+    persist_state: true
+    starting_state: level_1
+    states:
+      level_1:
+        label:
+      level_2:
+        label:
+        events_when_started: restart_spells_level_up_counter
+      level_3:
+        label:
+        events_when_started: restart_spells_level_up_counter
+    transitions:
+      - source: level_1
+        target: level_2
+        events: spells_level_up
+      - source: level_2
+        target: level_3
+        events: spells_level_up
+
+sound_player:
+   sq_shot_spells_ramp_hit:
+      swoosh4:
+         action: play

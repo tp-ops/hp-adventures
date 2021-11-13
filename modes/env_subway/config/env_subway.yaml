@@ -1,0 +1,29 @@
+#config_version=5
+mode:
+  start_events: start_mode_env_subway
+  stop_events: stop_mode_env_subway
+  priority: 700
+
+state_machines:
+  # used balldevice_bd_subway_vuk_selector_ball_eject_success to reset the server again (center position), see hardware_pololu.yaml
+  sm_subway_vuk_selector:
+    starting_state: left
+    states:
+      left:
+        label:
+      right:
+        label:
+    transitions:
+      - source: left
+        target: right
+        events: change_subway_vuk_selector_state, s_tar_c_right_active
+      - source: right
+        target: left
+        events: change_subway_vuk_selector_state, s_tar_c_left_active
+
+
+event_player:
+  balldevice_bd_subway_vuk_selector_ball_eject_success: change_subway_vuk_selector_state
+  balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="left"}: subway_vuk_selector_go_left    # Trough Conditional Events
+  balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="right"}: subway_vuk_selector_go_right  # Trough Conditional Events
+  # balldevice_bd_subway_vuk_selector_ejecting_ball: subway_vuk_selector_go_(device.state_machines.sm_subway_vuk_selector.state)  # Trough Dynamic Events

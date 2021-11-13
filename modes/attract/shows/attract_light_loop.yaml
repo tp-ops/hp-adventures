@@ -1,0 +1,25 @@
+#show_version=5
+- duration: 9
+  shows:
+    all_lights_loop:
+      action: play
+- duration: 8
+  shows:
+    all_lights_loop: #all_lights_loop:
+      action: stop
+    group_lights_loop:
+      action: play
+- duration: 10
+  shows:  
+    group_lights_loop:
+      action: stop
+    horcrux_group_loop:
+      action: play
+    ministry_group_loop:
+      action: play
+- duration: 0.1
+  shows:  
+    horcrux_group_loop:
+      action: stop
+    ministry_group_loop:
+      action: stop

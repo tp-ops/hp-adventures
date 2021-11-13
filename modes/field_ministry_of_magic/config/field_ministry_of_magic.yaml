@@ -1,0 +1,266 @@
+#config_version=5
+#|=================================================================================|#
+#| FIELD MODE | Ministry of Magic                                                  |#
+#|=================================================================================|#
+#| This mode represents the Ministry of Magic. There are four multiball to play.   |#
+#| Complete all four mission modes and the next time you get in......              |#
+#|=================================================================================|#
+#| -- Setup -- (May need a simplefied redesign)                                    |#
+#| To get in you first have to pass to |3 
+#| gates (drop targets).                                                               |#
+#|                                                                                 |#
+#| -- Achievements --                                                              |#
+#| Lorum Ipsum                                                                     |#
+#|=================================================================================|#
+#| Author       | TP-OPS                                                           |#
+#| Release date | 18-04-2020                                                       |#
+#| Version      | 1.0.0-dev.1                                                      |#
+#|=================================================================================|#
+#| -- Version history --                                                           |#
+#| xx-xx-2020 | 1.0.0 | First release                                              |#
+#|=================================================================================|#
+
+mode:
+  start_events: start_mode_field_ministry_of_magic
+  stop_events: stop_mode_field_ministry_of_magic
+  priority: 310
+  code: mpf.modes.carousel.code.carousel.Carousel
+
+mode_settings:
+  #selectable_items: carousel_item_ministry_1{current_player.score>100}
+  selectable_items: carousel_item_ministry_1, carousel_item_ministry_2, carousel_item_ministry_3, carousel_item_ministry_4
+  select_item_events: dummy
+  next_item_events: s_fl_right_a_active, s_sling_left_active, s_sling_right_active
+  
+shots:
+  sh_ministry_vuk:
+    hit_events: sh_core_vuk_bottom_hit
+
+sequences:
+  seq_ministry_1:
+    events:
+      - drop_target_bank_dtb_ministry_mixed
+      - sh_ministry_vuk_hit
+      - drop_target_bank_dtb_ministry_mixed
+      - sh_ministry_vuk_hit
+    enable_events: mode_field_ministry_of_magic_started
+    events_when_complete: logicblock_seq_ministry_1_complete
+    persist_state: true
+    reset_on_complete: false
+  seq_ministry_2:
+    events:
+      - drop_target_bank_dtb_ministry_down
+      - sh_ministry_vuk_hit
+      - drop_target_bank_dtb_ministry_down
+      - sh_ministry_vuk_hit
+    enable_events: logicblock_seq_ministry_1_complete
+    events_when_complete: logicblock_seq_ministry_2_complete
+    persist_state: true
+    reset_on_complete: false
+  seq_ministry_3:
+    events:
+      - drop_target_bank_dtb_ministry_mixed
+      - drop_target_bank_dtb_ministry_down
+      - sh_ministry_vuk_hit
+      - drop_target_bank_dtb_ministry_mixed
+      - drop_target_bank_dtb_ministry_down
+      - sh_ministry_vuk_hit
+    enable_events: logicblock_seq_ministry_2_complete
+    events_when_complete: logicblock_seq_ministry_3_complete
+    persist_state: true
+    reset_on_complete: false
+  seq_ministry_4:
+    events:
+      - drop_target_bank_dtb_ministry_mixed
+      - drop_target_bank_dtb_ministry_down
+      - sh_ministry_vuk_hit
+      - drop_target_bank_dtb_ministry_mixed
+      - drop_target_bank_dtb_ministry_down
+      - sh_ministry_vuk_hit
+    enable_events: logicblock_seq_ministry_3_complete
+    events_when_complete: logicblock_seq_ministry_4_complete
+    persist_state: true
+    reset_on_complete: false
+  seq_ministry_5:
+    events:
+      - drop_target_bank_dtb_ministry_mixed
+      - drop_target_bank_dtb_ministry_down
+      - sh_ministry_vuk_hit
+      - drop_target_bank_dtb_ministry_mixed
+      - drop_target_bank_dtb_ministry_down
+      - sh_ministry_vuk_hit
+    enable_events: logicblock_seq_ministry_4_complete
+    events_when_complete: logicblock_seq_ministry_5_complete
+    persist_state: true
+    reset_on_complete: false
+
+timers:
+  seq_ministry_3_countdown:
+    #bcp: True
+    start_value: 10
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: logicblock_seq_ministry_3_hit.2{step==1}
+        action: start
+      - event: logicblock_seq_ministry_3_hit.1{step==2}
+        action: stop
+  seq_ministry_4_countdown:
+    #bcp: True
+    start_value: 10
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: logicblock_seq_ministry_4_hit.2{step==1}
+        action: start
+      - event: logicblock_seq_ministry_4_hit.1{step==2}
+        action: stop
+  seq_ministry_5_countdown:
+    #bcp: True
+    start_value: 10
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: logicblock_seq_ministry_5_hit.2{step==1}
+        action: start
+      - event: logicblock_seq_ministry_5_hit.1{step==2}
+        action: stop
+
+show_player:
+  # Note # Shot & Multiball lights
+  # Note # Sequence 1 - Shot light
+  logicblock_seq_ministry_1_hit.4{step==1}:
+    flash_normal:
+      action: play
+      #key: min_1_1
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_shot_ministry
+        color_name: (current_player.house_theme_led)
+  logicblock_seq_ministry_1_hit.3{step==2}:
+    flash_normal:
+      action: play
+      #key: min_1_2
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_mis_ministry
+        color_name: (current_player.house_theme_led)
+        
+  sh_ministry_vuk_hit(logicblock_seq_ministry_1_hit(step==2)).2:
+    flash_normal:
+      action: stop
+      #key: ministry_off
+      loops: -1
+      show_tokens:
+        led: l_ws2812_shot_ministry
+        color_name: off
+  logicblock_seq_ministry_1_hit.2{step==3}:
+    flash_normal:
+      action: play
+      #key: min_1_3
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_shot_ministry, l_ws2812_mis_ministry
+        color_name: (current_player.house_theme_led)
+  logicblock_seq_ministry_1_hit.1{step==4}:
+    flash_normal:
+      action: stop
+      #key: min_1_4
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_shot_ministry, l_ws2812_mis_ministry
+        color_name: (current_player.house_theme_led)
+  
+  # Note # Sequence 2
+  logicblock_seq_ministry_2_hit.4{step==1}:
+    flash_normal:
+      action: play
+      #key: min_2_1
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_shot_ministry
+        color_name: (current_player.house_theme_led)
+  logicblock_seq_ministry_2_hit.3{step==2}:
+    flash_normal:
+        action: play
+        #key: min_2_2
+        loops: -1
+        sync_ms: 500
+        show_tokens:
+          led: l_ws2812_mis_ministry
+          color_name: (current_player.house_theme_led)
+  sh_ministry_vuk_hit(logicblock_seq_ministry_2_hit(step==2)).1:
+    flash_normal:
+      action: stop
+      #key: ministry_off
+      loops: -1
+      show_tokens:
+        led: l_ws2812_shot_ministry
+        color_name: off
+  logicblock_seq_ministry_2_hit.2{step==3}:
+    flash_normal:
+      action: play
+      #key: min_2_3
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_shot_ministry, l_ws2812_mis_ministry
+        color_name: (current_player.house_theme_led)
+  logicblock_seq_ministry_2_hit.1{step==4}:
+    flash_normal:
+      action: stop
+      #key: min_2_4
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_shot_ministry, l_ws2812_mis_ministry
+        color_name: (current_player.house_theme_led)
+  
+  # Note # Mission lights
+  field_ministry_of_magic_carousel_item_ministry_1_highlighted:
+    flash_normal:
+      action: play
+      key: flash_normal_ministry
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_mis_triwizard_tournament
+        color_name: (current_player.house_theme_led)
+  field_ministry_of_magic_carousel_item_ministry_2_highlighted:
+    flash_normal:
+      action: play
+      key: flash_normal_ministry
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_mis_unforgivable_cursus
+        color_name: (current_player.house_theme_led)
+  field_ministry_of_magic_carousel_item_ministry_3_highlighted:
+    flash_normal:
+      action: play
+      key: flash_normal_ministry
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_mis_hall_of_prophecy
+        color_name: (current_player.house_theme_led)
+  field_ministry_of_magic_carousel_item_ministry_4_highlighted:
+    flash_normal:
+      action: play
+      key: flash_normal_ministry
+      loops: -1
+      sync_ms: 500
+      show_tokens:
+        led: l_ws2812_mis_order_of_the_phoenix
+        color_name: (current_player.house_theme_led)

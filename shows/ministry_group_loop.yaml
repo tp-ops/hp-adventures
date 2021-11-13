@@ -1,0 +1,196 @@
+#show_version=5
+- time: 0
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: blue
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: blue
+    l_ws2812_mis_hall_of_prophecy: blue
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: blue
+    l_ws2812_mis_hall_of_prophecy: blue
+    l_ws2812_mis_order_of_the_phoenix: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: blue
+    l_ws2812_mis_hall_of_prophecy: blue
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: blue
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+#second
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+    l_ws2812_mis_unforgivable_cursus: blue
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: blue
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: blue
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+    l_ws2812_mis_unforgivable_cursus: blue
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+#third
+- time: +0.2
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+- time: +0.2
+  lights:
+    l_ws2812_mis_unforgivable_cursus: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_unforgivable_cursus: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_unforgivable_cursus: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_unforgivable_cursus: off
+- time: +0.2
+  lights:
+    l_ws2812_mis_hall_of_prophecy: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_hall_of_prophecy: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_hall_of_prophecy: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_hall_of_prophecy: off
+- time: +0.2
+  lights:
+    l_ws2812_mis_order_of_the_phoenix: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_order_of_the_phoenix: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.2
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: blue
+    l_ws2812_mis_hall_of_prophecy: blue
+    l_ws2812_mis_order_of_the_phoenix: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: blue
+    l_ws2812_mis_hall_of_prophecy: blue
+    l_ws2812_mis_order_of_the_phoenix: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: blue
+    l_ws2812_mis_hall_of_prophecy: blue
+    l_ws2812_mis_order_of_the_phoenix: blue
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off
+- time: +0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: blue
+    l_ws2812_mis_unforgivable_cursus: blue
+    l_ws2812_mis_hall_of_prophecy: blue
+    l_ws2812_mis_order_of_the_phoenix: blue
+- time: +0.1
+  duration: 0.1
+  lights:
+    l_ws2812_mis_triwizard_tournament: off
+    l_ws2812_mis_unforgivable_cursus: off
+    l_ws2812_mis_hall_of_prophecy: off
+    l_ws2812_mis_order_of_the_phoenix: off

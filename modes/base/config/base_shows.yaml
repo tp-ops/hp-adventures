@@ -1,0 +1,85 @@
+#config_version=5
+#|=================================================================================|#
+#| BASE MODE | Shows                                                               |#
+#|=================================================================================|#
+#| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula |#
+#| eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient |#
+#| montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,                |#
+#| pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.            |#
+#|=================================================================================|#
+#| -- Setup --                                                                     |#
+#| Lorum Ipsum                                                                     |#
+#|                                                                                 |#
+#| -- Achievements --                                                              |#
+#| Lorum Ipsum                                                                     |#
+#|=================================================================================|#
+#| Author       | TP-OPS                                                           |#
+#| Release date | 18-04-2020                                                       |#
+#| Version      | 1.0.0-dev.1                                                      |#
+#|=================================================================================|#
+#| -- Version history --                                                           |#
+#| xx-xx-2020 | 1.0.0 | First release                                              |#
+#|=================================================================================|#
+
+shows:
+
+  flash_slow:
+    - duration: 0.5
+      lights:
+        (led):
+          color: (color_name)
+          fade: 0.5
+    - duration: 0.5
+      lights:
+        (led):
+          color: stop
+          fade: 0.5
+              
+  flash_normal:
+    - duration: 0.25
+      lights:
+        (led):
+          color: (color_name)
+          fade: 0.25
+    - duration: 0.25
+      lights:
+        (led):
+          color: stop
+          fade: 0.25       
+
+  flash_heartbeat:
+    - duration: 0.25
+      lights:
+        (led):
+          color: (color_name)
+          fade: 0.25
+    - duration: 0.25
+      lights:
+        (led):
+          color: stop
+          fade: 0.25
+  
+  blink_once:
+    - time: 0
+      lights:
+        (led):
+          color: (color_name)
+          fade: 0.25
+    - time: +1
+      lights:
+        (led):
+          color: stop
+          fade: 0.25
+
+              
+  light_on:
+    - time: 0
+      lights:
+        (led):
+          color: (color_name)
+          fade: 0.25
+              
+  light_off:
+    - time: 0
+      lights:
+          (led): stop

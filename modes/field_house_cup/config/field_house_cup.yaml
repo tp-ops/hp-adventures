@@ -1,0 +1,106 @@
+#config_version=5
+#|=================================================================================|#
+#| FIELD MODE | House Cup                                                          |#
+#|=================================================================================|#
+#| This mode represents the four houses and the yearly house cup competition.      |#
+#| Complete all four house mission modes and a mini wizird mode will start.        |#
+#|=================================================================================|#
+#| -- Setup --                                                                     |#
+#| Used four shots based on captiva_ball core shot. One shot profile is available  |#
+#| for each of the four shots. This shot profile, sp_house_cup, has four states.   |#
+#| Each time this mode start the next shot advance to lit. Another way to advance  |#
+#| the next shot to lit is trough to event master_of_death, see that mode for more |#
+#| info on that. To track this a counter lb_house_cup_to_lit_count is used.        |#
+#| When you hit core shot captive_ball all lit shots advance to active and will    |#
+#| start mission modes. When the ball drains all active shots will advance to      |#    
+#| played and the mission modes will also stop, whether completed or not.          |#
+#|                                                                                 |#
+#| -- Achievements --                                                              |#
+#| Lorum Ipsum                                                                     |#
+#|=================================================================================|#
+#| Author       | TP-OPS                                                           |#
+#| Release date | 18-04-2020                                                       |#
+#| Version      | 1.0.0-dev.1                                                      |#
+#|=================================================================================|#
+#| -- Version history --                                                           |#
+#| xx-xx-2020 | 1.0.0 | First release                                              |#
+#|=================================================================================|#
+
+mode:           
+  start_events: start_mode_field_house_cup
+  stop_events: stop_mode_field_house_cup
+  priority: 310
+    
+shot_profiles:
+  sp_house_cup:
+    advance_on_hit: false
+    states:
+      - name: unlit
+        show: light_off
+        sync_ms: 500
+      - name: lit
+        show: flash_normal
+        sync_ms: 500
+      - name: active
+        show: flash_slow
+        sync_ms: 500
+      - name: played
+        show: light_on
+        sync_ms: 500
+
+shots:
+  sh_hc_godric_gryffindor:
+    advance_events: advance_shot_godric_gryffindor
+    profile: sp_house_cup
+    show_tokens:
+      led: l_ws2812_mis_gryffindor
+      color_name: gryffindor_led
+  sh_hc_helga_hufflepuff:
+    advance_events: advance_shot_helga_hufflepuff
+    profile: sp_house_cup
+    show_tokens:
+      led: l_ws2812_mis_hufflepuff
+      color_name: hufflepuff_led
+  sh_hc_rowena_ravenclaw:
+    advance_events: advance_shot_rowena_ravenclaw
+    profile: sp_house_cup
+    show_tokens:
+      led: l_ws2812_mis_ravenclaw
+      color_name: ravenclaw_led
+  sh_hc_salazar_slytherin:
+    advance_events: advance_shot_salazar_slytherin
+    profile: sp_house_cup
+    show_tokens:
+      led: l_ws2812_mis_slytherin
+      color_name: slytherin_led
+            
+counters:
+  lb_house_cup_to_lit_count:
+    enable_events: mode_field_house_cup_started
+    count_events: update_hc_lit_count
+    starting_count: 1
+    count_complete_value: 4
+    count_interval: 1
+    direction: up
+    persist_state: true
+    reset_on_complete: false
+        
+event_player:
+  mode_field_house_cup_started.4{device.counters.lb_house_cup_to_lit_count.value==1 and current_player.shot_sh_hc_godric_gryffindor==0}: advance_shot_godric_gryffindor, update_hc_lit_count
+  mode_field_house_cup_started.3{device.counters.lb_house_cup_to_lit_count.value==2 and current_player.shot_sh_hc_helga_hufflepuff==0}: advance_shot_helga_hufflepuff, update_hc_lit_count
+  mode_field_house_cup_started.2{device.counters.lb_house_cup_to_lit_count.value==3 and current_player.shot_sh_hc_rowena_ravenclaw==0}: advance_shot_rowena_ravenclaw, update_hc_lit_count
+  mode_field_house_cup_started.1{device.counters.lb_house_cup_to_lit_count.value==4 and current_player.shot_sh_hc_salazar_slytherin==0}: advance_shot_salazar_slytherin, update_hc_lit_count
+  
+  master_of_death.3{device.counters.lb_house_cup_to_lit_count.value==2 and current_player.shot_sh_hc_helga_hufflepuff==0}: advance_shot_helga_hufflepuff, update_hc_lit_count
+  master_of_death.2{device.counters.lb_house_cup_to_lit_count.value==3 and current_player.shot_sh_hc_rowena_ravenclaw==0}: advance_shot_rowena_ravenclaw, update_hc_lit_count
+  master_of_death.1{device.counters.lb_house_cup_to_lit_count.value==4 and current_player.shot_sh_hc_salazar_slytherin==0}: advance_shot_salazar_slytherin, update_hc_lit_count
+  
+  sh_core_captive_ball_hit.4{current_player.shot_sh_hc_godric_gryffindor==1}: advance_shot_godric_gryffindor
+  sh_core_captive_ball_hit.3{current_player.shot_sh_hc_helga_hufflepuff==1}: advance_shot_helga_hufflepuff
+  sh_core_captive_ball_hit.2{current_player.shot_sh_hc_rowena_ravenclaw==1}: advance_shot_rowena_ravenclaw
+  sh_core_captive_ball_hit.1{current_player.shot_sh_hc_salazar_slytherin==1}: advance_shot_salazar_slytherin
+  
+  mode_field_house_cup_will_stop.4{current_player.shot_sh_hc_godric_gryffindor==2}: advance_shot_godric_gryffindor
+  mode_field_house_cup_will_stop.3{current_player.shot_sh_hc_helga_hufflepuff==2}: advance_shot_helga_hufflepuff
+  mode_field_house_cup_will_stop.2{current_player.shot_sh_hc_rowena_ravenclaw==2}: advance_shot_rowena_ravenclaw
+  mode_field_house_cup_will_stop.1{current_player.shot_sh_hc_salazar_slytherin==2}: advance_shot_salazar_slytherin

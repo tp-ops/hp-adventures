@@ -1,0 +1,50 @@
+#config_version=5
+keyboard:
+  s:
+    switch: s_start_button
+  z:
+    switch: s_fl_left_a
+  /:
+    switch: s_fl_right_a
+  x:
+    switch: s_sling_left
+  d:
+    switch: s_drain
+  p:
+    switch: s_plunger_lane
+  t:
+    switch: s_tar_platform
+  b:
+    switch: s_pop_left
+  1:
+    event: enable_div_tower_entry
+  2:
+    event: disable_div_tower_entry
+  3:
+    event: activate_div_tower_entry
+  4:
+    event: deactivate_div_tower_entry
+  5:
+    event: enable_div_tower_pensieve
+  6:
+    event: disable_div_tower_pensieve
+  7:
+    event: activate_div_tower_pensieve
+  8:
+    event: deactivate_div_tower_pensieve
+  9:
+    switch: s_diagon_alley
+  0:
+    switch: s_vuk_top  
+  n:
+    event: start_mode_field_clock_tower_entrance_hall
+  m:
+    event: stop_mode_field_clock_tower_entrance_hall
+  e:
+    switch: s_service_enter
+  left:
+    switch: s_service_esc
+  up:
+    switch: s_service_up
+  down:
+    switch: s_service_down

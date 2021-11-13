@@ -1,0 +1,13 @@
+#config_version=5
+config:
+  #- hardware_accelerometer.yaml
+  - hardware_fadecandy.yaml
+  - hardware_opp.yaml
+  - hardware_pololu.yaml
+  - hardware_rpi.yaml
+  - keyboard.yaml
+
+hardware:
+  platform: opp, fadecandy, pololu_maestro, rpi, virtual
+  # OPP board revision
+  driverboards: gen2

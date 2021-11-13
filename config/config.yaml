@@ -1,0 +1,68 @@
+#config_version=5
+config:
+  - config_assets.yaml
+  - config_credits.yaml
+  - config_display.yaml
+  - config_mechanisms.yaml
+  - config_settings.yaml
+  - config_sound.yaml
+  - config_widget_styles.yaml
+  - hardware.yaml
+    
+virtual_platform_start_active_switches:
+  - s_trough_1
+  - s_trough_2
+  - s_trough_3
+  - s_trough_4
+  - s_trough_5
+
+machine:
+  balls_installed: 5
+  min_balls: 5
+
+game:
+  balls_per_game: settings.balls_per_game
+  max_players: 4
+  add_player_switch_tag: add_player
+
+modes:
+  #|==========================|#
+  #| NOTE | Envoirement modes |#
+  #|==========================|# 
+  - service
+  - credits
+  - env_house_theme_selection
+  - env_orbits
+  - env_subway
+  - skill_shots
+
+  #|====================|#
+  #| NOTE | Logic modes |#
+  #|====================|# 
+  - base
+  - global
+
+  #|====================|#
+  #| NOTE | Field modes |#
+  #|====================|# 
+  - field_chamber_of_secrets
+  - field_clock_tower_entrance_hall
+  - field_diagon_alley
+  - field_quidditch_stadium
+  - field_main_entrance_hall
+  - field_ministry_of_magic
+  - field_house_cup
+  - field_platform_nine_three_quarters
+  - field_spells_ramp
+
+  #|======================|#
+  #| NOTE | Mission modes |#
+  #|======================|# 
+  - mission_quidditch
+  - mission_deathly_hallows
+  - mission_hagrids_place
+  - mission_spells
+  #- house_gryffindor
+  #- house_hufflepuf
+  #- house_ravenclaw
+  #- house_slydirin

@@ -1,0 +1,331 @@
+#config_version=5
+named_colors:
+  # Original colors for the four houses
+  gryffindor_red: [127, 9, 9]         # 7F0909
+  gryffindor_gold: [255, 197, 0]      # FFC500
+  hufflepuff_yellow: [238, 225, 23]   # EEE117 
+  hufflepuff_black: [0, 0, 0]         # 000000
+  ravenclaw_blue: [0, 10, 144]        # 000A90
+  ravenclaw_bronze: [148, 107, 45]    # 946B2D
+  slytherin_green: [13, 98, 23]       # 0D6217
+  slytherin_silver: [170, 170, 170]   # AAAAAA
+  # Custom colors used
+  score_text_default: [255, 255, 255] # White  
+  gryffindor_led: [255, 0, 0]         # Red
+  hufflepuff_led: [255, 255, 0]       # Yellow 
+  ravenclaw_led: [0, 0, 255]          # Blue
+  slytherin_led: [0, 153, 76]         # Green
+
+lights:
+  # String 0 on FadeCandy, numbers 0-63
+  l_ws2812_shot_forrest:
+    platform: fadecandy
+    number: 0
+    type: grb
+    tags: shot_lights 
+  l_ws2812_mis_forrest:
+    platform: fadecandy
+    number: 1
+    type: grb 
+    tags: mission_lights, theme_lights
+  l_ws2812_shot_sword:
+    platform: fadecandy
+    number: 2
+    type: grb
+    tags: shot_lights 
+  l_ws2812_tar_sword:
+    platform: fadecandy
+    number: 3
+    type: grb
+    tags: target_lights
+  l_ws2812_shot_quidditch:
+    platform: fadecandy
+    number: 4
+    type: grb
+    tags: shot_lights
+  l_ws2812_mis_quidditch:
+    platform: fadecandy
+    number: 5
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_goldensnitch:
+    platform: fadecandy
+    number: 6
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_tar_light_diagon_alley:
+    platform: fadecandy
+    number: 7
+    type: grb
+    tags: target_lights
+  l_ws2812_lane_fl_left:
+    platform: fadecandy
+    number: 8
+    type: grb
+    tags: lane_lights
+  l_ws2812_lane_dr_left:
+    platform: fadecandy
+    number: 9
+    type: grb
+    tags: lane_lights
+  # String 1 on FadeCandy, numbers 64-127
+  l_ws2812_hor_book:
+    platform: fadecandy
+    number: 64
+    type: grb
+    tags: horcrux_lights
+  l_ws2812_hor_ring:
+    platform: fadecandy
+    number: 65
+    type: grb
+    tags: horcrux_lights
+  l_ws2812_hor_ring_destroy:
+    platform: fadecandy
+    number: 66
+    type: grb
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_book_destroy:
+    platform: fadecandy
+    number: 67
+    type: grb
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_neckles:
+    platform: fadecandy
+    number: 68
+    type: grb
+    tags: horcrux_lights
+  l_ws2812_voldemort:
+    platform: fadecandy
+    number: 69
+    type: grb
+  l_ws2812_hor_cup:
+    platform: fadecandy
+    number: 70
+    type: grb
+    tags: horcrux_lights
+  l_ws2812_hor_cup_destroy:
+    platform: fadecandy
+    number: 71
+    type: grb
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_neckles_destroy:
+    platform: fadecandy
+    number: 72
+    type: grb
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_harry:
+    platform: fadecandy
+    number: 73
+    type: grb
+    tags: horcrux_lights
+  l_ws2812_hor_diadeem:
+    platform: fadecandy
+    number: 74
+    type: grb
+    tags: horcrux_lights
+  l_ws2812_hor_diadeem_destroy:
+    platform: fadecandy
+    number: 75
+    type: grb
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_harry_destroy:
+    platform: fadecandy
+    number: 76
+    type: grb
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_nagini:
+    platform: fadecandy
+    number: 77
+    type: grb
+    tags: horcrux_lights
+  l_ws2812_hor_nagini_destroy:
+    platform: fadecandy
+    number: 78
+    type: grb
+    tags: horcrux_destroy_lights
+  l_ws2812_shoot_again:
+    platform: fadecandy
+    number: 79
+    type: grb
+  # String 2 on FadeCandy, numbers 128-191
+  l_ws2812_shot_right_orbit:
+    platform: fadecandy
+    number: 128
+    type: grb
+    tags: shot_lights
+  l_ws2812_mis_gringotts_bank:
+    platform: fadecandy
+    number: 129
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_ravenclaw:
+    platform: fadecandy
+    number: 130
+    type: grb
+    tags: house_lights
+  l_ws2812_mis_gryffindor:
+    platform: fadecandy
+    number: 131
+    type: grb
+    tags: house_lights
+  l_ws2812_mis_hufflepuff:
+    platform: fadecandy
+    number: 132
+    type: grb
+    tags: house_lights
+  l_ws2812_mis_slytherin:
+    platform: fadecandy
+    number: 133
+    type: grb
+    tags: house_lights
+  l_ws2812_lightning_right:
+    platform: fadecandy
+    number: 134
+    type: grb
+    tags: lightning_lights
+  l_ws2812_mis_triwizard_tournament:
+    platform: fadecandy
+    number: 135
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_unforgivable_cursus:
+    platform: fadecandy
+    number: 136
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_hall_of_prophecy:
+    platform: fadecandy
+    number: 137
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_order_of_the_phoenix:
+    platform: fadecandy
+    number: 138
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_shot_ministry:
+    platform: fadecandy
+    number: 139
+    type: grb
+    tags: shot_lights
+  l_ws2812_mis_ministry:
+    platform: fadecandy
+    number: 140
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_daily_prophet:
+    platform: fadecandy
+    number: 141
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_lane_fl_right:
+    platform: fadecandy
+    number: 142
+    type: grb
+    tags: lane_lights
+  l_ws2812_lane_dr_right:
+    platform: fadecandy
+    number: 143
+    type: grb
+    tags: lane_lights
+  l_ws2812_skillshot:
+    platform: fadecandy
+    number: 144
+    type: grb
+    tags: skill_shot_lights
+  # String 3 on FadeCandy, numbers 192-255
+  l_ws2812_tar_wand:
+    platform: fadecandy
+    number: 192
+    type: grb
+    tags: target_lights
+  l_ws2812_shot_daigon:
+    platform: fadecandy
+    number: 193
+    type: grb
+    tags: shot_lights
+  l_ws2812_shot_gringots:
+    platform: fadecandy
+    number: 194
+    type: grb
+    tags: shot_lights
+  l_ws2812_tar_stone:
+    platform: fadecandy
+    number: 195
+    type: grb
+    tags: target_lights
+  l_ws2812_tar_cloak:
+    platform: fadecandy
+    number: 196
+    type: grb
+    tags: target_lights
+  l_ws2812_mis_chamber:
+    platform: fadecandy
+    number: 197
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_basilisk:
+    platform: fadecandy
+    number: 198
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_shot_right_ramp:
+    platform: fadecandy
+    number: 199
+    type: grb
+    tags: shot_lights
+  l_ws2812_mis_spells:
+    platform: fadecandy
+    number: 200
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_rubeus_hagrid:
+    platform: fadecandy
+    number: 201
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_tower:
+    platform: fadecandy
+    number: 202
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_dumbledores_office:
+    platform: fadecandy
+    number: 203
+    type: grb
+    tags: mission_lights, theme_lights
+  l_ws2812_shot_left_ramp:
+    platform: fadecandy
+    number: 204
+    type: grb
+    tags: shot_lights
+  l_ws2812_tar_platform:
+    platform: fadecandy
+    number: 205
+    type: grb
+    tags: target_lights
+  l_ws2812_lightning_left:
+    platform: fadecandy
+    number: 206
+    type: grb
+    tags: lightning_lights
+  l_ws2812_lightning_bottom:
+    platform: fadecandy
+    number: 207
+    type: grb
+    tags: lightning_lights
+  l_ws2812_tar_nimbus:
+    platform: fadecandy
+    number: 208
+    type: grb
+    tags: target_lights
+  l_ws2812_clock_tower:
+    platform: fadecandy
+    number: 256
+    type: grb
+    tags: lightning_lights
+  l_ws2812_castle_door:
+    platform: fadecandy
+    number: 320
+    type: grb
+    tags: target_lights

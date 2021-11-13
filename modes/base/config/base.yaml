@@ -1,0 +1,176 @@
+#config_version=5
+#|=================================================================================|#
+#| BASE MODE |                                                                     |#
+#|=================================================================================|#
+#| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula |#
+#| eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient |#
+#| montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,                |#
+#| pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.            |#
+#|=================================================================================|#
+#| -- Setup --                                                                     |#
+#| Lorum Ipsum                                                                     |#
+#|                                                                                 |#
+#| -- Achievements --                                                              |#
+#| Lorum Ipsum                                                                     |#
+#|=================================================================================|#
+#| Author       | TP-OPS                                                           |#
+#| Release date | 18-04-2020                                                       |#
+#| Version      | 1.0.0-dev.1                                                      |#
+#|=================================================================================|#
+#| -- Version history --                                                           |#
+#| xx-xx-2020 | 1.0.0 | First release                                              |#
+#|=================================================================================|#
+
+mode:
+  start_events: ball_starting{ball>1}, start_mode_base
+  stop_events: ball_ending
+  priority: 100
+  
+config:
+- base_achievements.yaml
+- base_shots.yaml
+- base_shows.yaml
+- base_widgets.yaml
+
+# ball_saves:
+#   default:
+#     active_time: 2s
+#     grace_period: 2s
+#     hurry_up_time: 2s
+#     enable_events:
+#       - mode_base_started
+#     timer_start_events:
+#       - balldevice_bd_plunger_lane_ball_eject_success
+#     disable_events:
+#       - ball_will_end
+#     auto_launch: true
+#     balls_to_save: 1
+
+event_player:
+  # Switch start button back to allow adding players again
+  s_start_button_active:
+    - sw_add_player
+  mode_base_started:
+    - flippers_on
+    - start_mode_global
+    - start_mode_env_orbits
+    - start_mode_env_subway
+  mode_base_will_stop:
+    - stop_mode_global
+    - stop_mode_env_orbits
+    - stop_mode_env_subway
+  mode_type_wizard_started:
+    - stop_mode_global
+  mode_type_wizard_stopped{not mode["base"].stopping}:
+    - start_mode_global
+
+slide_player:
+  # Show always a slide with only a background when no other slide is active
+  mode_base_started: 
+    sl_main_theme_background:
+      target: lcd_main
+    sl_side_theme_background:
+      target: lcd_side
+  mode_base_started{game.num_players==1}: 
+    sl_score_one_player:
+      target: lcd_score 
+  mode_base_started{game.num_players==2}: 
+    sl_score_two_players:
+      target: lcd_score
+  mode_base_started{game.num_players==3}: 
+    sl_score_three_players:
+      target: lcd_score  
+  mode_base_started{game.num_players==4}: 
+    sl_score_four_players:
+      target: lcd_score  
+  player_added{num==2}:
+    sl_score_one_player:
+      action: remove
+    sl_score_two_players:
+      target: lcd_score
+      action: play
+  player_added{num==3}:
+    sl_score_two_players:
+      action: remove
+    sl_score_three_players:
+      target: lcd_score
+      action: play
+  player_added{num==4}:
+    sl_score_three_players:
+      action: remove
+    sl_score_four_players:
+      target: lcd_score
+      action: play
+  ball_will_end:
+    sl_main_theme_background:
+      action: remove
+    sl_side_theme_background:
+      action: remove
+    sl_score_one_player:
+      action: remove
+    sl_score_two_players:
+      action: remove
+    sl_score_three_players:
+      action: remove
+    sl_score_four_players:
+      action: remove
+
+slides:
+  sl_main_theme_background:
+    - widget: widget_main_back_(current_player.house_theme_name)
+  sl_side_theme_background:
+    - widget: widget_side_back_(current_player.house_theme_name)
+  sl_score_one_player:
+    - widget: widget_active_player_info
+    - widget: widget_active_player_score
+    - widget: widget_active_player_score_change
+    - widget: widget_player_1_title_logo_(players[0].house_theme_name)
+    - widget: widget_player_1_title
+    - widget: widget_player_1_score
+    #- widget: widget_active_player_logo_(current_player.house_theme_name)
+    - widget: widget_score_back_(current_player.house_theme_name)
+  sl_score_two_players:
+    - widget: widget_active_player_info
+    - widget: widget_active_player_score
+    - widget: widget_active_player_score_change
+    - widget: widget_player_1_title_logo_(players[0].house_theme_name)
+    - widget: widget_player_1_title
+    - widget: widget_player_1_score
+    - widget: widget_player_2_title_logo_(players[1].house_theme_name)
+    - widget: widget_player_2_title
+    - widget: widget_player_2_score
+    #- widget: widget_active_player_logo_(current_player.house_theme_name)
+    - widget: widget_score_back_(current_player.house_theme_name)
+  sl_score_three_players:
+    - widget: widget_active_player_info
+    - widget: widget_active_player_score
+    - widget: widget_active_player_score_change
+    - widget: widget_player_1_title_logo_(players[0].house_theme_name)
+    - widget: widget_player_1_title
+    - widget: widget_player_1_score
+    - widget: widget_player_2_title_logo_(players[1].house_theme_name)
+    - widget: widget_player_2_title
+    - widget: widget_player_2_score
+    - widget: widget_player_3_title_logo_(players[2].house_theme_name)
+    - widget: widget_player_3_title
+    - widget: widget_player_3_score
+    #- widget: widget_active_player_logo_(current_player.house_theme_name)
+    - widget: widget_score_back_(current_player.house_theme_name)
+  sl_score_four_players:
+    - widget: widget_active_player_info
+    - widget: widget_active_player_score
+    - widget: widget_active_player_score_change
+    - widget: widget_player_1_title_logo_(players[0].house_theme_name)
+    - widget: widget_player_1_title
+    - widget: widget_player_1_score
+    - widget: widget_player_2_title_logo_(players[1].house_theme_name)
+    - widget: widget_player_2_title
+    - widget: widget_player_2_score
+    - widget: widget_player_3_title_logo_(players[2].house_theme_name)
+    - widget: widget_player_3_title
+    - widget: widget_player_3_score
+    - widget: widget_player_4_title_logo_(players[3].house_theme_name)
+    - widget: widget_player_4_title
+    - widget: widget_player_4_score
+    #- widget: widget_active_player_logo_(current_player.house_theme_name)
+    - widget: widget_score_back_(current_player.house_theme_name)

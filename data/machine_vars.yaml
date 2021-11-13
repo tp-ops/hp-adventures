@@ -1,0 +1,9 @@
+free_play:
+  expire: null
+  value: true
+master_volume:
+  expire: null
+  value: 0.5
+player1_score:
+  expire: null
+  value: 0

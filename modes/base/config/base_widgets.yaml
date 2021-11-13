@@ -1,0 +1,361 @@
+#config_version=5
+widgets:
+  # Backgrounds for main window slides.
+  widget_main_back_gryffindor:
+    - type: image
+      image: back_main_gryffindor
+  widget_main_back_hufflepuff:
+    - type: image
+      image: back_main_hufflepuff
+  widget_main_back_ravenclaw:
+    - type: image
+      image: back_main_ravenclaw
+  widget_main_back_slytherin:
+    - type: image
+      image: back_main_slytherin
+  # Backgrounds for side window slides.
+  widget_side_back_gryffindor:
+    - type: image
+      image: back_side_gryffindor
+  widget_side_back_hufflepuff:
+    - type: image
+      image: back_side_hufflepuff
+  widget_side_back_ravenclaw:
+    - type: image
+      image: back_side_ravenclaw
+  widget_side_back_slytherin:
+    - type: image
+      image: back_side_slytherin
+  # Backgrounds for score window slide.
+  widget_score_back_gryffindor:
+    - type: image
+      image: back_score_gryffindor
+  widget_score_back_hufflepuff:
+    - type: image
+      image: back_score_hufflepuff
+  widget_score_back_ravenclaw:
+    - type: image
+      image: back_score_ravenclaw
+  widget_score_back_slytherin:
+    - type: image
+      image: back_score_slytherin
+  # Active player number and ball count used on score slide.
+  widget_active_player_info:
+    - type: text
+      text: (player|house_theme_title)
+      color: score_text_default
+      font_size: 72
+      font_name: harry-potter
+      x: middle+625
+      y: top-30
+      anchor_x: middle
+      anchor_y: top
+    - type: text
+      text: Player (player|number)  Ball (player|ball)
+      color: score_text_default
+      font_size: 48
+      font_name: harry-potter
+      x: middle+625
+      y: bottom+40
+      anchor_x: middle
+      anchor_y: bottom
+  # Big size active player's score used on score slide.
+  widget_active_player_score:
+    - type: text
+      text: (player|var_score)
+      color: score_text_default
+      font_size: 100
+      font_name: harry-potter
+      min_digits: 2
+      number_grouping: true
+      x: middle+250
+      y: middle
+      anchor_x: right
+      anchor_y: middle
+  widget_active_player_score_change:
+    - type: text
+      text: (player|var_score_last)
+      color: score_text_default
+      font_size: 25
+      font_name: harry-potter
+      x: middle+150
+      y: middle
+      anchor_x: right
+      anchor_y: middle
+  # Big size active player's logo on score slide.
+  # This has been replaced by logo embedded in different bachground images.
+  # Still it maybe usable so it's only comment-out
+  
+  # widget_active_player_logo_gryffindor:
+  #   - type: image
+  #     image: logo_active_player_gryffindor
+  #     x: right-300
+  #     y: middle
+  #     anchor_x: right
+  #     anchor_y: middle
+  # widget_active_player_logo_hufflepuff:
+  #   - type: image
+  #     image: logo_active_player_hufflepuff
+  #     x: right-300
+  #     y: middle
+  #     anchor_x: right
+  #     anchor_y: middle
+  # widget_active_player_logo_ravenclaw:
+  #   - type: image
+  #     image: logo_active_player_ravenclaw
+  #     x: right-300
+  #     y: middle
+  #     anchor_x: right
+  #     anchor_y: middle
+  # widget_active_player_logo_slytherin:
+  #   - type: image
+  #     image: logo_active_player_slytherin
+  #     x: right-300
+  #     y: middle
+  #     anchor_x: right
+  #     anchor_y: middle
+
+  # Player 1 title, score & logo for when it is not playing, used on score slide.
+  widget_player_1_title:
+    - type: text
+      text: PLAYER 1
+      color: score_text_default
+      font_size: 32
+      font_name: harry-potter
+      min_digits: 2
+      number_grouping: true
+      x: left+65
+      y: bottom+140
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_1_score:
+    - type: text
+      text: (player1|var_score)
+      color: score_text_default
+      font_size: 32
+      font_name: harry-potter
+      min_digits: 2
+      number_grouping: true
+      x: left+375
+      y: bottom+140
+      anchor_x: right
+      anchor_y: bottom
+  # Tranparent logo_0 widget is used as player logo for when player 1 has not choosen a house yet. 
+  widget_player_1_title_logo_0:
+    - type: image
+      image: logo_player_title_unknown
+      x: left+15
+      y: bottom+140
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_1_title_logo_gryffindor:
+    - type: image
+      image: logo_player_title_gryffindor
+      x: left+15
+      y: bottom+140
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_1_title_logo_hufflepuff:
+    - type: image
+      image: logo_player_title_hufflepuff
+      x: left+15
+      y: bottom+140
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_1_title_logo_ravenclaw:
+    - type: image
+      image: logo_player_title_ravenclaw
+      x: left+15
+      y: bottom+140
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_1_title_logo_slytherin:
+    - type: image
+      image: logo_player_title_slytherin
+      x: left+15
+      y: bottom+140
+      anchor_x: left
+      anchor_y: bottom
+  # Player 2 title, score & logo for when it is not playing, used on score slide.
+  widget_player_2_title:
+    - type: text
+      text: PLAYER 2
+      color: score_text_default
+      font_size: 32
+      font_name: harry-potter
+      min_digits: 2
+      number_grouping: true
+      x: left+65
+      y: bottom+100
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_2_score:
+    - type: text
+      text: (player2|var_score)
+      color: score_text_default
+      font_size: 32
+      font_name: harry-potter
+      min_digits: 2
+      number_grouping: true
+      x: left+375
+      y: bottom+100
+      anchor_x: right
+      anchor_y: bottom
+  # Tranparent logo_0 widget is used as player logo for when player 2 has not choosen a house yet. 
+  widget_player_2_title_logo_0:
+    - type: image
+      image: logo_player_title_unknown
+      x: left+15
+      y: bottom+100
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_2_title_logo_gryffindor:
+    - type: image
+      image: logo_player_title_gryffindor
+      x: left+15
+      y: bottom+100
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_2_title_logo_hufflepuff:
+    - type: image
+      image: logo_player_title_hufflepuff
+      x: left+15
+      y: bottom+100
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_2_title_logo_ravenclaw:
+    - type: image
+      image: logo_player_title_ravenclaw
+      x: left+15
+      y: bottom+100
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_2_title_logo_slytherin:
+    - type: image
+      image: logo_player_title_slytherin
+      x: left+15
+      y: bottom+100
+      anchor_x: left
+      anchor_y: bottom
+  # Player 3 title, score & logo for when it is not playing, used on score slide. 
+  widget_player_3_title:
+    - type: text
+      text: PLAYER 3
+      color: score_text_default
+      font_size: 32
+      font_name: harry-potter
+      min_digits: 2
+      number_grouping: true
+      x: left+65
+      y: bottom+60
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_3_score:
+    - type: text
+      text: (player3|var_score)
+      color: score_text_default
+      font_size: 32
+      font_name: harry-potter
+      min_digits: 2
+      number_grouping: true
+      x: left+375
+      y: bottom+60
+      anchor_x: right
+      anchor_y: bottom
+  # Tranparent logo_0 widget is used as player logo for when player 3 has not choosen a house yet.
+  widget_player_3_title_logo_0:
+    - type: image
+      image: logo_player_title_unknown
+      x: left+15
+      y: bottom+60
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_3_title_logo_gryffindor:
+    - type: image
+      image: logo_player_title_gryffindor
+      x: left+15
+      y: bottom+60
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_3_title_logo_hufflepuff:
+    - type: image
+      image: logo_player_title_hufflepuff
+      x: left+15
+      y: bottom+60
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_3_title_logo_ravenclaw:
+    - type: image
+      image: logo_player_title_ravenclaw
+      x: left+15
+      y: bottom+60
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_3_title_logo_slytherin:
+    - type: image
+      image: logo_player_title_slytherin
+      x: left+15
+      y: bottom+60
+      anchor_x: left
+      anchor_y: bottom
+  # Player 4 title, score & logo for when it is not playing, used on score slide.
+  widget_player_4_title:
+    - type: text
+      text: PLAYER 4
+      color: score_text_default
+      font_size: 32
+      font_name: harry-potter
+      min_digits: 2
+      number_grouping: true
+      x: left+65
+      y: bottom+20
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_4_score:
+    - type: text
+      text: (player4|var_score)
+      color: score_text_default
+      font_size: 32
+      font_name: harry-potter
+      min_digits: 2
+      number_grouping: true
+      x: left+375
+      y: bottom+20
+      anchor_x: right
+      anchor_y: bottom
+  # Tranparent logo_0 widget is used as player logo for when player 4 has not choosen a house yet. 
+  widget_player_4_title_logo_0:
+    - type: image
+      image: logo_player_title_unknown
+      x: left+15
+      y: bottom+20
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_4_title_logo_gryffindor:
+    - type: image
+      image: logo_player_title_gryffindor
+      x: left+15
+      y: bottom+20
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_4_title_logo_hufflepuff:
+    - type: image
+      image: logo_player_title_hufflepuff
+      x: left+15
+      y: bottom+20
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_4_title_logo_ravenclaw:
+    - type: image
+      image: logo_player_title_ravenclaw
+      x: left+15
+      y: bottom+20
+      anchor_x: left
+      anchor_y: bottom
+  widget_player_4_title_logo_slytherin:
+    - type: image
+      image: logo_player_title_slytherin
+      x: left+15
+      y: bottom+20
+      anchor_x: left
+      anchor_y: bottom

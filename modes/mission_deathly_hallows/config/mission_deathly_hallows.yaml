@@ -1,0 +1,61 @@
+#config_version=5
+#|=================================================================================|#
+#| MISSION MODE | Deathly hallows                                                  |#
+#|=================================================================================|#
+#| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula |#
+#| eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient |#
+#| montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,                |#
+#| pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.            |#
+#|=================================================================================|#
+#| -- Setup --                                                                     |#
+#| Lorum Ipsum                                                                     |#
+#|                                                                                 |#
+#| -- Achievements --                                                              |#
+#| Lorum Ipsum                                                                     |#
+#|=================================================================================|#
+#| Author       | TP-OPS                                                           |#
+#| Release date | 18-04-2020                                                       |#
+#| Version      | 1.0.0-dev.1                                                      |#
+#|=================================================================================|#
+#| -- Version history --                                                           |#
+#| xx-xx-2020 | 1.0.0 | First release                                              |#
+#|=================================================================================|#
+
+mode:
+  start_events: start_mode_mission_deathly_hallows
+  stop_events: stop_mode_mission_deathly_hallows
+  priority: 400
+
+shot_profiles:
+  sp_deathly_hallows:
+    loop: true
+    states:
+      - name: lit
+        show: flash_normal
+      - name: hit
+        show: light_on
+
+shots:
+  sh_elder_wand:
+    hit_events: sh_core_tar_wand_hit
+    profile: sp_deathly_hallows
+    show_tokens:
+      led: l_ws2812_tar_wand
+      color_name: red
+  sh_invisibility_cloak:
+    hit_events: sh_core_tar_cloak_hit
+    profile: sp_deathly_hallows
+    show_tokens:
+      led: l_ws2812_tar_cloak
+      color_name: red
+  sh_resurrection_stone:
+    hit_events: sh_core_tar_stone_hit
+    profile: sp_deathly_hallows
+    show_tokens:
+      led: l_ws2812_tar_stone
+      color_name: red
+
+shot_groups:
+  sg_deathly_hallows:
+    shots: sh_elder_wand, sh_invisibility_cloak, sh_resurrection_stone
+    rotate_right_events: s_fl_right_a_active

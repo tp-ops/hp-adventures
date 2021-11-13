@@ -1,0 +1,50 @@
+#config_version=5
+mode:           
+  start_events: start_mode_field_diagon_alley
+  stop_events: stop_mode_field_diagon_alley
+  priority: 300
+
+sequence_shots:
+  sq_shot_diagon_alley:
+    switch_sequence: s_diagon_alley, s_vuk_top
+    sequence_timeout: 2s
+
+shots:
+  sh_light_diagon_alley:
+    advance_events: sh_diagon_alley_sp_diagon_alley_lit_hit
+    restart_events: sh_light_diagon_alley_sp_light_diagon_alley_lit_hit
+    switch: s_tar_light_diagon_alley
+    profile: sp_light_diagon_alley
+    show_tokens:
+      led: l_ws2812_tar_light_diagon_alley
+      color_name: yellow
+  sh_diagon_alley:
+    restart_events: mode_field_diagon_alley_started, sh_light_diagon_alley_sp_light_diagon_alley_lit_hit
+    hit_events: sq_shot_diagon_alley_hit
+    profile: sp_diagon_alley
+    show_tokens:
+      led: l_ws2812_shot_daigon
+      color_name: yellow
+
+shot_profiles:
+  sp_light_diagon_alley:
+    advance_on_hit: false
+    states:
+      - name: unlit
+        show: light_off
+        sync_ms: 500
+      - name: lit
+        show: flash_normal
+        sync_ms: 500
+  sp_diagon_alley:
+    states:
+      - name: lit
+        show: flash_normal
+        sync_ms: 500
+      - name: unlit
+        show: light_off
+        sync_ms: 500
+
+variable_player:
+  sq_shot_diagon_alley_hit:
+    var_gold: 100

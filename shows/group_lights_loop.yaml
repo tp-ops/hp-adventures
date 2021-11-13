@@ -1,0 +1,60 @@
+#show_version=5
+- time: 0
+  lights:
+    shot_lights: 
+      color: yellow
+      fade: 200ms
+    target_lights:
+      color: off
+    mission_lights:
+      color: off
+    horcrux_lights:
+      color: off
+- time: +1
+  lights:
+    shot_lights: 
+      color: off
+      fade: 200ms
+    target_lights: 
+      color: red
+      fade: 200ms
+    mission_lights:
+      color: off
+    horcrux_lights:
+      color: off
+- time: +1
+  lights:
+    shot_lights:
+      color: off
+    target_lights:
+      color: off
+      fade: 200ms
+    mission_lights:
+      color: blue
+      fade: 200ms
+    horcrux_lights:
+      color: off
+- time: +1
+  lights:
+    shot_lights:
+      color: off
+    target_lights:
+      color: off
+    mission_lights:
+      color: off
+      fade: 200ms
+    horcrux_lights:
+      color: white
+      fade: 200ms
+- time: +1
+  duration: 0.2
+  lights:
+    shot_lights:
+      color: off
+    target_lights:
+      color: off
+    mission_lights:
+      color: off
+    horcrux_lights:
+      color: off
+      fade: 200ms

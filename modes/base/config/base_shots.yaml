@@ -1,0 +1,66 @@
+#config_version=5
+shots:
+  sh_core_pop_left:
+    switches: s_pop_left
+    enable_events: mode_base_started
+    profile: sp_core_shots
+  sh_core_pop_right:
+    switches: s_pop_right
+    enable_events: mode_base_started
+    profile: sp_core_shots
+  sh_core_pop_bottom:
+    switches: s_pop_bottom
+    enable_events: mode_base_started
+    profile: sp_core_shots
+  sh_core_tar_platform:
+    switches: s_tar_platform
+    enable_events: mode_base_started
+    profile: sp_core_shots
+  sh_core_tar_sword:
+    switches: s_tar_sword
+    enable_events: mode_base_started
+    profile: sp_core_shots
+  sh_core_clock_tower_entry:
+    switches: s_tower_ramp_entry
+    enable_events: mode_base_started
+    profile: sp_core_shots
+  sh_core_clock_tower_bell:
+    switches: s_tower
+    enable_events: mode_base_started
+    profile: sp_core_shots
+  
+  sh_core_captive_ball:
+    switches: s_captive_ball
+    enable_events: mode_base_started
+  
+  sh_core_vuk_bottom:
+    switches: s_vuk_bottom
+    enable_events: mode_base_started
+  
+  sh_core_castle_door:
+    switches: s_castle_door
+    enable_events: mode_base_started
+
+  sh_core_main_entrance_hall:
+    switches: s_subway_vuk_selector
+    enable_events: mode_base_started
+
+  sh_core_chamber_of_secrets:
+    switches: s_subway_vuk_left_buffer_chamber
+    enable_events: mode_base_started
+  
+  sh_core_tar_cloak:
+    switches: s_tar_cloak
+    enable_events: mode_base_started
+  sh_core_tar_stone:
+    switches: s_tar_stone
+    enable_events: mode_base_started    
+  sh_core_tar_wand:
+    switches: s_tar_wand
+    enable_events: mode_base_started
+
+shot_profiles:
+  sp_core_shots:
+    advance_on_hit: false
+    states:
+      - name: core

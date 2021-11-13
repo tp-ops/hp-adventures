@@ -1,0 +1,61 @@
+#config_version=5
+# On-screen Window
+window:
+  width: 1600
+  height: 900
+  title: Harry Potter Pinball Adventures
+  resizable: true
+  fullscreen: false
+  borderless: false
+  exit_on_escape: true
+  show_cursor: false
+  source_display: window
+
+# Targets displays for showing slides.
+displays:
+  window:
+    width: 1600
+    height: 900
+  lcd_main:
+    default: true
+    width: 1250
+    height: 700
+  lcd_side:
+    width: 350
+    height: 700
+  lcd_score:
+    width: 1600
+    height: 200
+
+slides:
+  window_slide_container:
+    widgets:
+      - type: display
+        source_display: lcd_main
+        width: 1250
+        height: 700
+        anchor_x: left
+        anchor_y: bottom
+        x: left
+        y: bottom+200
+      - type: display
+        source_display: lcd_side
+        width: 350
+        height: 700
+        anchor_x: left
+        anchor_y: bottom
+        x: left+1250
+        y: bottom+200
+      - type: display
+        source_display: lcd_score
+        width: 1600
+        height: 200
+        anchor_x: left
+        anchor_y: bottom
+        x: left
+        y: bottom
+
+slide_player:
+  init_done:
+    window_slide_container:
+      target: window

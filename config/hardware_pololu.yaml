@@ -1,0 +1,49 @@
+#config_version=5
+pololu_maestro:
+  port: /dev/ttyPOLOLU1
+  
+servos:
+  servo_subway_left_vuk_buffer:
+    platform: pololu_maestro
+    number: 9
+    servo_min: 0.0
+    servo_max: 1.0
+    reset_position: 0.0
+    reset_events: machine_reset_phase_3, ball_starting, ball_will_end, service_mode_entered, reset_subway_servos, reset_servo_subway_left_vuk_buffer
+    positions:
+      0.0: balldevice_bd_subway_vuk_left_buffer_ball_eject_success
+      1.0: balldevice_bd_subway_vuk_left_buffer_ejecting_ball
+    debug: false
+  servo_subway_vuk_selector:
+    platform: pololu_maestro
+    number: 10
+    servo_min: 0.0
+    servo_max: 1.0
+    reset_position: 0.5
+    reset_events: machine_reset_phase_3, ball_starting, ball_will_end, service_mode_entered, reset_subway_servos, reset_servo_subway_vuk_selector, balldevice_bd_subway_vuk_selector_ball_eject_success
+    positions:
+      0.0: subway_vuk_selector_go_left
+      1.0: subway_vuk_selector_go_right
+    debug: false
+  servo_subway_right_vuk_buffer:
+    platform: pololu_maestro
+    number: 11
+    servo_min: 0.0
+    servo_max: 1.0
+    reset_position: 1.0
+    reset_events: machine_reset_phase_3, ball_starting, ball_will_end, service_mode_entered, reset_subway_servos, reset_servo_subway_right_vuk_buffer
+    positions:
+      0.0: balldevice_bd_subway_vuk_right_buffer_ejecting_ball
+      1.0: balldevice_bd_subway_vuk_right_buffer_ball_eject_success
+    debug: false
+  servo_subway_left_vuk_buffer_chamber:
+    platform: pololu_maestro
+    number: 8
+    servo_min: 0.0
+    servo_max: 1.0
+    reset_position: 0.0
+    reset_events: machine_reset_phase_3, ball_starting, ball_will_end, service_mode_entered, reset_subway_servos, reset_servo_subway_vuk_left_buffer_chamber
+    positions:
+      0.0: balldevice_bd_subway_vuk_left_buffer_chamber_ejecting_ball
+      1.0: balldevice_bd_subway_vuk_left_buffer_chamber_ball_eject_success
+    debug: false

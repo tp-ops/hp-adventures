@@ -1,0 +1,99 @@
+#config_version=5
+#|=================================================================================|#
+#| MISSION MODE | Quidditch                                                        |#
+#|=================================================================================|#
+#| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula |#
+#| eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient |#
+#| montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,                |#
+#| pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.            |#
+#|=================================================================================|#
+#| -- Setup --                                                                     |#
+#| Lorum Ipsum                                                                     |#
+#|                                                                                 |#
+#| -- Achievements --                                                              |#
+#| Master of Quidditch                                                             |#
+#|=================================================================================|#
+#| Author       | TP-OPS                                                           |#
+#| Release date | 18-04-2020                                                       |#
+#| Version      | 1.0.0-dev.1                                                      |#
+#|=================================================================================|#
+#| -- Version history --                                                           |#
+#| xx-xx-2020 | 1.0.0 | First release                                              |#
+#|=================================================================================|#
+
+
+# every bumper shot award 10000
+# every completed quidditch game +1 multiplier with a max of 10 wich makes you master of quidditch
+# OR CATCH GOLDEN SNITCH 3 TIMES AND BECOME ALSO A MASTER OF QUIDDITCH
+# complete game by every 25 shots and 2 left ramp shots
+# when nimbus 2000 is active another multiplier is active
+# when nimbus en quidditch achievements are true, golden snitch mode kicks-in
+# golden snitch mode - catch snitch wich random goes trough the playfield within a certain of time
+
+mode:
+  start_events: start_mode_mission_quidditch
+  stop_events: stop_mode_mission_quidditch
+  priority: 320
+
+shots:
+  sh_quidditch_game:
+    hit_events: sh_core_pop_bumpers_hit
+    
+counters:
+  # Note # Make 25 pop bumper shots as part of a quidditch game
+  lb_quidditch_game_bumper_count:
+    enable_events: mode_mission_quidditch_started
+    count_events: sh_quidditch_game_hit
+    starting_count: 0
+    count_complete_value: settings.quidditch_game_bumper_count
+    count_interval: 1
+    direction: up
+    persist_state: false
+    restart_events: just_played_a_quidditch_game
+    debug: false
+  # Note # Make 2 left ramp shots as part of a quidditch game    
+  lb_quidditch_game_left_ramp_count:
+    enable_events: mode_mission_quidditch_started
+    count_events: s_ramp_left_entry_active
+    starting_count: 0
+    count_complete_value: settings.quidditch_game_left_ramp_count
+    count_interval: 1
+    direction: up
+    persist_state: false
+    restart_events: just_played_a_quidditch_game
+    debug: false
+  # Note # Total quidditch games played per ball, used for the score multiplier with a maximum of 10 which makes you a Master of Quidditch.
+  lb_quidditch_game_completed_count:
+    enable_events: mode_mission_quidditch_started
+    count_events: just_played_a_quidditch_game
+    starting_count: 0
+    count_complete_value: settings.quidditch_game_completed_count
+    count_interval: 1
+    direction: up
+    persist_state: true
+    reset_on_complete: false
+    events_when_complete: you_are_a_master_of_quidditch 
+    debug: false
+    
+accruals:
+  # Note # To finish a quidditch game you have to complete the two counters above
+  lb_quidditch_game_accrual:
+    enable_events: mode_mission_quidditch_started
+    events:
+      - logicblock_lb_quidditch_game_bumper_count_complete
+      - logicblock_lb_quidditch_game_left_ramp_count_complete
+    reset_on_complete: true
+    events_when_complete: just_played_a_quidditch_game
+    restart_events: just_played_a_quidditch_game
+    debug: false
+
+variable_player:
+  # Note # Block the normal score from global mode
+  sh_quidditch_stadium_hit:
+    score: 0|block
+  # Note # Score for normal Quidditch mode operation
+  sh_quidditch_game_hit.2{device.achievements.achv_master_of_quidditch.state!="completed"}:
+    score: 10000 * (device.counters.lb_quidditch_game_completed_count.value + 1)
+  # Note # Score when you are a Master of Quidditch
+  sh_quidditch_game_hit.1{device.achievements.achv_master_of_quidditch.state=="completed"}:
+    score: 1000000

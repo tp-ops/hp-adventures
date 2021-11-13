@@ -1,0 +1,10 @@
+#config_version=5
+mode:
+  start_events: start_mode_mission_hagrids_place
+  stop_events: stop_mode_mission_hagrids_place
+  priority: 320
+
+sequence_shots:
+  sq_shot_hagrids_place:
+    switch_sequence: s_spells_ramp_entry, s_hagrid
+    sequence_timeout: 3s

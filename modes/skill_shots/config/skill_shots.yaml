@@ -1,0 +1,60 @@
+#config_version=5
+mode:
+  start_events: start_mode_skill_shots
+  stop_events: stop_mode_skill_shots
+  priority: 600
+
+shots:
+  sh_skill_shot_platform:
+    disable_events: skill_shot_plunger_success, skill_shot_plunger_failed
+    advance_events: mode_skill_shots_started
+    hit_events: sh_core_tar_platform_hit
+    persist_enable: false
+    profile: sp_skill_shot_plunger
+  sh_skill_shot_sword:
+    disable_events: skill_shot_plunger_success, skill_shot_plunger_failed
+    advance_events: mode_skill_shots_started
+    hit_events: sh_core_tar_sword_hit
+    persist_enable: false
+    profile: sp_skill_shot_plunger
+
+shot_profiles:
+  sp_skill_shot_plunger:
+    states:
+      - name: unlit
+        show: light_off
+      - name: lit
+        show: flash_normal
+        show_tokens:
+          led: l_ws2812_skillshot, l_ws2812_tar_platform, l_ws2812_tar_sword
+          color_name: red
+
+timers:
+  t_skill_shot_plunger_timeout:
+    start_value: 0
+    end_value: 3     # set the timeout of your skill shot here
+    direction: up
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - action: start
+        event: balldevice_bd_plunger_ball_eject_success
+
+state_machines:
+  sm_skill_shot_plunger:
+    states:
+      start:
+        label:
+      success:
+        label:
+        events_when_started: skill_shot_plunger_success, start_field_modes
+      failed:
+        label:
+        events_when_started: skill_shot_plunger_failed, start_field_modes
+    transitions:
+      - source: start
+        target: success
+        events: sh_skill_shot_platform_lit_hit, sh_skill_shot_sword_lit_hit
+      - source: start
+        target: failed
+        events: timer_t_skill_shot_plunger_timeout_complete

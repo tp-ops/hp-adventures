@@ -1,0 +1,66 @@
+#config_version=5
+slide_player:
+  credits_added:
+    credit_added_slide:
+      target: window
+      expire: 2s
+  not_enough_credits:
+    not_enough_credits_slide:
+      target: window
+      expire: 2s
+  enabling_free_play:
+    enabling_free_play_slide:
+      target: window
+      expire: 2s
+  enabling_credit_play:
+    enabling_credit_play_slide:
+      target: window
+      expire: 2s
+  max_credits_reached:
+    max_credits_reached_slide:
+      target: window
+      expire: 2s
+  player_added:
+    player_added_slide:
+      target: window
+      expire: 0.75s
+
+slides:
+  credit_added_slide:
+    widgets:
+    - type: text
+      text: (machine|credits_string)
+  not_enough_credits_slide:
+    widgets:
+    - type: text
+      text: Not enough credits
+      y: middle
+    - type: text
+      text: (machine|credits_string)
+      y: bottom+200
+    - type: text
+      text: INSERT COINS
+      y: bottom+150
+  enabling_free_play_slide:
+    widgets:
+    - type: text
+      text: ENABLING FREE PLAY
+  enabling_credit_play_slide:
+    widgets:
+    - type: text
+      text: ENABLING CREDIT PLAY
+    - type: text
+      text: (machine|credits_string)
+  max_credits_reached_slide:
+    widgets:
+    - type: text
+      text: MAX CREDITS REACHED
+  player_added_slide:
+    widgets:
+    - type: text
+      font_name: harry-potter
+      text: PLAYER ADDED
+      font_size: 60
+      color: white
+    - type: image
+      image: back_full_graystyle
