@@ -2,7 +2,7 @@
 mode:           
   start_events: start_mode_field_main_entrance_hall
   stop_events: stop_mode_field_main_entrance_hall
-  priority: 310
+  priority: 300
 
 
 shot_profiles:

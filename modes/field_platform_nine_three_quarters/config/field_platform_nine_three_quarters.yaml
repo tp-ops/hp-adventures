@@ -1,41 +1,5 @@
 #config_version=5
-
-#|=================================================================================|#
-#| FIELD MODE | Platform 9 3/4                                                     |#
-#|=================================================================================|#
-#| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula |#
-#| eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient |#
-#| montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,                |#
-#| pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.            |#
-#|=================================================================================|#
-#| -- Setup --                                                                     |#
-#| Lorum Ipsum                                                                     |#
-#|                                                                                 |#
-#| -- Achievements --                                                              |#
-#| Lorum Ipsum                                                                     |#
-#|=================================================================================|#
-#| Author       | TP-OPS                                                           |#
-#| Release date | 18-04-2020                                                       |#
-#| Version      | 1.0.0-dev.1                                                      |#
-#|=================================================================================|#
-#| -- Version history --                                                           |#
-#| xx-xx-2020 | 1.0.0 | First release                                              |#
-#|=================================================================================|#
-
 mode: 
     start_events: start_mode_field_platform_nine_three_quarters
     stop_events: stop_mode_field_platform_nine_three_quarters, stop_missions
-    priority: 310
-    
-# event_player:
-    # logicblock_counter_platform_nine_three_quarters_hits_complete: just_arrived_at_platform_nine_three_quarters
-    # achievement_achv_platform_nine_three_quarters_state_completed: stop_mode_platform_nine_three_quarters
-
-# counters:
-    # counter_platform_nine_three_quarters_hits:
-        # starting_count: 0
-        # count_complete_value: 1
-        # direction: up
-        # count_events: sh_platform_nine_three_quarters_hit
-        # enable_events: mode_platform_nine_three_quarters_started
-
+    priority: 300

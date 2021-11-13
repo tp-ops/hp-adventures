@@ -1,26 +1,4 @@
 #config_version=5
-#|=================================================================================|#
-#| MISSION MODE | Quidditch                                                        |#
-#|=================================================================================|#
-#| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula |#
-#| eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient |#
-#| montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,                |#
-#| pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.            |#
-#|=================================================================================|#
-#| -- Setup --                                                                     |#
-#| Lorum Ipsum                                                                     |#
-#|                                                                                 |#
-#| -- Achievements --                                                              |#
-#| Master of Quidditch                                                             |#
-#|=================================================================================|#
-#| Author       | TP-OPS                                                           |#
-#| Release date | 18-04-2020                                                       |#
-#| Version      | 1.0.0-dev.1                                                      |#
-#|=================================================================================|#
-#| -- Version history --                                                           |#
-#| xx-xx-2020 | 1.0.0 | First release                                              |#
-#|=================================================================================|#
-
 
 # every bumper shot award 10000
 # every completed quidditch game +1 multiplier with a max of 10 wich makes you master of quidditch

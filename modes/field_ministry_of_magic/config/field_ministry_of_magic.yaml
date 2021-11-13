@@ -1,25 +1,4 @@
 #config_version=5
-#|=================================================================================|#
-#| FIELD MODE | Ministry of Magic                                                  |#
-#|=================================================================================|#
-#| This mode represents the Ministry of Magic. There are four multiball to play.   |#
-#| Complete all four mission modes and the next time you get in......              |#
-#|=================================================================================|#
-#| -- Setup -- (May need a simplefied redesign)                                    |#
-#| To get in you first have to pass to |3 
-#| gates (drop targets).                                                               |#
-#|                                                                                 |#
-#| -- Achievements --                                                              |#
-#| Lorum Ipsum                                                                     |#
-#|=================================================================================|#
-#| Author       | TP-OPS                                                           |#
-#| Release date | 18-04-2020                                                       |#
-#| Version      | 1.0.0-dev.1                                                      |#
-#|=================================================================================|#
-#| -- Version history --                                                           |#
-#| xx-xx-2020 | 1.0.0 | First release                                              |#
-#|=================================================================================|#
-
 mode:
   start_events: start_mode_field_ministry_of_magic
   stop_events: stop_mode_field_ministry_of_magic
