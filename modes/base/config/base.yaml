@@ -31,11 +31,9 @@ event_player:
   mode_base_started:
     - flippers_on
     - start_mode_global
-    - start_mode_env_orbits
     - start_mode_env_subway
   mode_base_will_stop:
     - stop_mode_global
-    - stop_mode_env_orbits
     - stop_mode_env_subway
   mode_type_wizard_started:
     - stop_mode_global

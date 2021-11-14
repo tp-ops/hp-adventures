@@ -32,7 +32,6 @@ modes:
   - service
   - credits
   - env_house_theme_selection
-  - env_orbits
   - env_subway
   - skill_shots
 
@@ -45,6 +44,7 @@ modes:
   #|====================|#
   #| NOTE | Field modes |#
   #|====================|# 
+  - field_orbits
   - field_chamber_of_secrets
   - field_clock_tower_entrance_hall
   - field_diagon_alley

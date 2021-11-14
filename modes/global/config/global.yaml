@@ -18,6 +18,7 @@ event_player:
   mode_global_started:
     - start_mode_skill_shots
   mode_global_will_stop:
+    - stop_mode_field_orbits
     - stop_mode_skill_shots
     - stop_mode_field_main_entrance_hall
     - stop_mode_field_chamber_of_secrets
@@ -28,6 +29,7 @@ event_player:
     - stop_mode_field_platform_nine_three_quarters
     - stop_mode_field_clock_tower_entrance_hall
   start_field_modes:
+    - start_mode_field_orbits
     - start_mode_field_main_entrance_hall
     - start_mode_field_chamber_of_secrets
     - start_mode_field_diagon_alley
