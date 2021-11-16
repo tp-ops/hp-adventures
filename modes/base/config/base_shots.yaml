@@ -28,7 +28,22 @@ shots:
     switches: s_tower
     enable_events: mode_base_started
     profile: sp_core_shots
+  sh_core_left_orbit_lane:
+    switches: s_orbit_left
+    enable_events: mode_base_started
+    profile: sp_core_shots
+  sh_core_right_orbit_lane:
+    switches: s_orbit_right
+    enable_events: mode_base_started
+    profile: sp_core_shots
+  sh_core_castle_orbit_lane:
+    switches: s_div_castle
+    enable_events: mode_base_started
+    profile: sp_core_shots
   
+
+
+
   sh_core_captive_ball:
     switches: s_captive_ball
     enable_events: mode_base_started

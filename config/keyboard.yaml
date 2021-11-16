@@ -17,13 +17,13 @@ keyboard:
   b:
     switch: s_pop_left
   1:
-    event: enable_div_tower_entry
+    event: start_mode_field_orbits
   2:
-    event: disable_div_tower_entry
+    event: stop_mode_field_orbits
   3:
-    event: activate_div_tower_entry
+    event: activate_div_castle
   4:
-    event: deactivate_div_tower_entry
+    event: deactivate_div_castle
   5:
     event: enable_div_tower_pensieve
   6:
@@ -33,9 +33,9 @@ keyboard:
   8:
     event: deactivate_div_tower_pensieve
   9:
-    switch: s_diagon_alley
+    switch: s_orbit_left
   0:
-    switch: s_vuk_top  
+    switch: s_orbit_right
   n:
     event: start_mode_field_clock_tower_entrance_hall
   m:

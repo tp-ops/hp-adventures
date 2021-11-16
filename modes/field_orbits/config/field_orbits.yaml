@@ -5,23 +5,44 @@ mode:
   priority: 300
 
 
-# DIV Castle MUST BE DISABLED WHEN DIV Forrest is ENABLED
-# DIV Castle CAN ONLY BE DISABLED WHEN DIV Forrest IS ENABLED
-# DIV Forrest WILL BE ENABLED BY MODE Forbidden Forrest
+# DIV Castle MUST BE DEACTIVE WHEN DIV Forrest is ACTIVE
+# DIV Forrest WILL BE ACTIVATED BY MODE Forbidden Forrest
 
+# DIV Castle ACTIVE AND DIV Forrest DEACTIVE
+# Left orbit big (DIV Castle MUST BE ACTIVATED)
+# Right orbit big (DIV Castle MUST BE ACTIVATED)
+# Left orbit small (DIV Castle MUST BE DEACTIVE)
+# Right orbit small (DIV Castle MUST BE DEACTIVE)
 
-# DIV Castle ENABLED AND DIV Forrest DISABLED
-# Left orbit big (DIV Castle MUST BE ACTIVE)
-# Right orbit big (DIV Castle MUST BE ACTIVE)
-# Left orbit small (DIV Castle MUST BE DISACTIVE)
-# Right orbit small (DIV Castle MUST BE DISACTIVE)
-
-
-# DIV Forrest ENABLED THUS DIV Castle DISABLED
+# DIV Forrest ACTIVATED THUS DIV Castle DEACTIVATED
 # Forbidden forest vuk
 # Left orbit small
 # Right orbit small
 
+# My orbit sequence_shots can't be used to activate/deactivate diverter div_castle because both left/right sequence_shots using the same switches and you can not enable or disable these sequence_shots.
+# As a solution a normal shot for each orbit lane is created. These shots activates diverter div_castle (through event_player and shot_hit events) and disables each other orbit lane shot (through shot disable_events) so these do not activate the diverter again.
+# At the end the sequence_shot_hit or _timeout events deactivate diverter div_castle (through event_player and sequence_shot events) and enables each other orbit lane shots (through shot enable_events) again.
+
+shots:
+  sh_left_orbit_lane:
+    enable_events: 
+      - enable_sh_left_orbit_lane
+      - sq_shot_right_orbit_big_hit
+      - sq_shot_right_orbit_big_timeout
+    disable_events: 
+      - sh_right_orbit_lane_hit
+    hit_events: 
+      - sh_core_left_orbit_lane_hit
+  sh_right_orbit_lane:
+    enable_events: 
+      - enable_sh_right_orbit_lane
+      - sq_shot_left_orbit_big_hit
+      - sq_shot_left_orbit_big_timeout
+    disable_events: 
+      - sh_left_orbit_lane_hit
+    hit_events:
+      - sh_core_right_orbit_lane_hit
+    
 sequence_shots:
   sq_shot_left_orbit_big:
     switch_sequence: s_orbit_left, s_orbit_right
@@ -35,3 +56,27 @@ sequence_shots:
   sq_shot_right_orbit_small:
     switch_sequence: s_orbit_right, s_div_castle
     sequence_timeout: 3s
+
+event_player:
+  mode_field_orbits_started:
+    - enable_div_castle
+    - enable_div_forest
+    - enable_sh_left_orbit_lane
+    - enable_sh_right_orbit_lane
+  stop_mode_field_orbits:
+    - deactivate_div_castle
+    - deactivate_div_forest
+    - disable_div_castle|0.1s
+    - disable_div_forest|0.1s
+  sh_left_orbit_lane_hit:
+    - activate_div_castle
+  sh_right_orbit_lane_hit:
+    - activate_div_castle
+  sq_shot_left_orbit_big_hit:
+    - deactivate_div_castle
+  sq_shot_right_orbit_big_hit:
+    - deactivate_div_castle
+  sq_shot_left_orbit_big_timeout:
+    - deactivate_div_castle
+  sq_shot_right_orbit_big_timeout:
+    - deactivate_div_castle

@@ -176,19 +176,19 @@ diverters:
     deactivate_events: deactivate_div_tower_pensieve{device.diverters.div_tower_entry.active==True}
     debug: false
   div_castle:
-    enable_events: ball_started
-    disable_events: ball_ended
+    enable_events: enable_div_castle
+    disable_events: disable_div_castle
     activation_coil: c_div_castle
-    activate_events: test_div_castle_active
-    deactivate_events: test_div_castle_deactive
-    debug: true
+    activate_events: activate_div_castle
+    deactivate_events: deactivate_div_castle
+    debug: false
   div_forest:
-    enable_events: ball_started
-    disable_events: ball_ended
+    enable_events: enable_div_forest
+    disable_events: disable_div_forest
     activation_coil: c_div_forest
-    activate_events: test_div_forest_active
-    deactivate_events: test_div_forest_deactive
-    debug: true
+    activate_events: activate_div_forest
+    deactivate_events: deactivate_div_forest
+    debug: false
   div_castle_door:
     enable_events: ball_started
     disable_events: ball_ended
