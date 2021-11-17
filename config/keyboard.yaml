@@ -31,9 +31,9 @@ keyboard:
   7:
     event: activate_div_tower_pensieve
   8:
-    event: deactivate_div_tower_pensieve
-  9:
     switch: s_orbit_left
+  9:
+    switch: s_div_castle
   0:
     switch: s_orbit_right
   n:

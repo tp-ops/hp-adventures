@@ -45,6 +45,7 @@ modes:
   #| NOTE | Field modes |#
   #|====================|# 
   - field_orbits
+  - field_orbits_alternative
   - field_chamber_of_secrets
   - field_clock_tower_entrance_hall
   - field_diagon_alley

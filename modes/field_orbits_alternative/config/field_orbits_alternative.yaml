@@ -1,7 +1,7 @@
 #config_version=5
 mode:
-  start_events: start_mode_field_orbits
-  stop_events: stop_mode_field_orbits
+  start_events: start_mode_field_orbits_alternative
+  stop_events: stop_mode_field_orbits_alternative
   priority: 300
 
 # DIV Castle MUST BE DEACTIVE WHEN DIV Forrest is ACTIVE
@@ -23,15 +23,15 @@ mode:
 # At the end the sequence_shot_hit or _timeout events deactivate diverter div_castle (through event_player and sequence_shot events) and enables each other orbit lane shots (through shot enable_events) again.
 
 # Left-Right-Big      = sq_shot_left_orbit_big
-# Right-Left-Big      = sq_shot_right_orbit_big
 # Left-Right-Small    = sq_shot_left_orbit_small
+# Right-Left-Small    = sq_shot_right_orbit_small
 
 shots:
   sh_left_orbit_lane:
     enable_events: 
       - enable_sh_left_orbit_lane
-      - sq_shot_right_orbit_big_hit
-      - sq_shot_right_orbit_big_timeout
+      - sq_shot_right_orbit_small_hit
+      - sq_shot_right_orbit_small_timeout
       - sq_shot_left_orbit_small_hit
       - sq_shot_left_orbit_small_timeout
     disable_events: 
@@ -56,8 +56,8 @@ shots:
       - enable_sh_castle_orbit_lane
       - sq_shot_left_orbit_big_hit
       - sq_shot_left_orbit_big_timeout
-      - sq_shot_right_orbit_big_hit
-      - sq_shot_right_orbit_big_timeout
+      - sq_shot_right_orbit_small_hit
+      - sq_shot_right_orbit_small_timeout
     disable_events: 
       - sh_left_orbit_lane_hit
       - sh_right_orbit_lane_hit
@@ -68,28 +68,25 @@ sequence_shots:
   sq_shot_left_orbit_big:
     switch_sequence: s_orbit_left, s_orbit_right
     sequence_timeout: 3s
-  sq_shot_right_orbit_big:
-    switch_sequence: s_orbit_right, s_orbit_left
-    sequence_timeout: 3s
   sq_shot_left_orbit_small:
     switch_sequence: s_div_castle, s_orbit_right
     sequence_timeout: 3s
+  sq_shot_right_orbit_small:
+    switch_sequence: s_orbit_right, s_div_castle
+    sequence_timeout: 3s
 
 event_player:
-  mode_field_orbits_started:
+  mode_field_orbits_alternative_started:
     - enable_div_castle
     - enable_div_forest
     - enable_sh_left_orbit_lane
     - enable_sh_right_orbit_lane
     - enable_sh_castle_orbit_lane
-  stop_mode_field_orbits:
+  stop_mode_field_orbits_alternative:
     - deactivate_div_castle
     - deactivate_div_forest
     - disable_div_castle|0.1s
     - disable_div_forest|0.1s
   sh_left_orbit_lane_hit:
-    - activate_div_castle
-    - deactivate_div_castle|2s
-  sh_right_orbit_lane_hit:
     - activate_div_castle
     - deactivate_div_castle|2s
