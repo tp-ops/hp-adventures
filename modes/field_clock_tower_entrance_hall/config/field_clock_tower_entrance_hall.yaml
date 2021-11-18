@@ -11,14 +11,13 @@
 # div 2 deactive  -> div 1 can be deactivated     (pensieve_closed so tower can be opened)
 # div 2 active    -> div 1 must be active         (pensieve_open)
 
-# mag_tower will be grabbing when s_tower_ramp_entry is active
-# div 1 wil be activated when sq_shot_clock_tower (s_tower_ramp_entry -> s_tower) is hit (tower now closed)
-# bd_tower did not catch the ball so div 1 will be deactivated when s_wire_ramp_left is active (tower now open)
-# bd_tower did catch the ball so div 2 can be activated (tower now closed)
+# div 1 wil be activated when sh_clock_tower is hit (tower now closed)
+# mag_tower will be grabbing when event sh_clock_tower_entry_sp_clock_tower_entry_lit_hit is fired
+# when bd_clock_tower did not catch the ball, div 1 will be deactivated when s_wire_ramp_left is active (tower now open)
+# when bd_clock_tower did catch the ball, div 2 can be activated (tower still closed)
 
 # is div 2 deactive when bd_tower ejects the ball then div 1 will be deactivated when s_wire_ramp_left is active (tower now open)
-# is div 2 active when bd_tower ejects the ball then div 2 will be deactivated when s_wire_ramp_right_2 is active (pensieve now closed)
-# div 1 will be deactivated when div 2 is deactivated (tower now open)
+# is div 2 active when bd_tower ejects the ball (pensieve_open) then div 2 will be deactivated when s_wire_ramp_right_2 is active (pensieve now closed)
 
 mode:           
   start_events: start_mode_field_clock_tower_entrance_hall
@@ -26,13 +25,14 @@ mode:
   priority: 300
 
 shots:
-  # This shot is used to let the magnet grabbing and can be disabled when bd_tower has a ball so the magnet will no be activated again
+  # This shot is used to let the magnet grabbing and can be set to unlit when bd_clock_tower has a ball so the magnet will not be activated again
   sh_clock_tower_entry:
     hit_events: sh_core_clock_tower_entry_hit
     profile: sp_clock_tower_entry
   # This shot is used to activate div 1
   sh_clock_tower:
     hit_events: sh_core_clock_tower_bell_hit
+    profile: sp_clock_tower_entry
 
 shot_profiles:
   sp_clock_tower_entry:
@@ -43,6 +43,11 @@ shot_profiles:
       - name: lit
         show: flash_normal
 
+ball_holds:
+  bh_clock_tower:
+    balls_to_hold: 1
+    hold_devices: bd_clock_tower
+    release_one_events: release_ball
 
 state_machines:
   sm_clock_tower:
@@ -76,3 +81,6 @@ state_machines:
         target: tower_open
         events: diverter_div_tower_entry_deactivating
 
+event_player:
+  sh_clock_tower_entry_sp_clock_tower_entry_lit_hit: mag_clock_tower_grab_ball
+  sh_clock_tower_hit: activate_div_tower_entry

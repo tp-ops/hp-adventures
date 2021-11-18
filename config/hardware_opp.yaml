@@ -65,7 +65,7 @@ coils:
   c_drop_3er:
     platform: opp
     number: 2-0-10
-    default_pulse_ms: 50
+    default_pulse_ms: 25
   c_trough_release:
     platform: opp
     number: 2-0-11
@@ -132,6 +132,7 @@ coils:
     platform: opp
     number: 4-0-9
     default_pulse_ms: 4
+    default_hold_power: 0.1
   c_div_castle:
     platform: opp
     number: 4-0-10
@@ -228,13 +229,9 @@ switches:
   s_sling_right:
     platform: opp
     number: 0-0-26
-    debounce: normal
-    ignore_window_ms: 200
   s_sling_left:
     platform: opp
     number: 0-0-27
-    debounce: normal
-    ignore_window_ms: 200
   # OPP CHAIN 2 BOARD 0
   s_tar_nimbus:
     platform: opp
@@ -424,4 +421,16 @@ lights:
   l_side_right:
     platform: opp
     number: 1-0-26
+    subtype: matrix
+  l_side_drain:
+    platform: opp
+    number: 1-0-27
+    subtype: matrix
+  l_side_left:
+    platform: opp
+    number: 1-0-28
+    subtype: matrix
+  l_side_right:
+    platform: opp
+    number: 1-0-29
     subtype: matrix
