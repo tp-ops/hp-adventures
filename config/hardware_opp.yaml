@@ -426,11 +426,11 @@ lights:
     platform: opp
     number: 1-0-27
     subtype: matrix
-  l_side_left:
+  l_side_top_left:
     platform: opp
     number: 1-0-28
     subtype: matrix
-  l_side_right:
+  l_side_top_right:
     platform: opp
     number: 1-0-29
     subtype: matrix
