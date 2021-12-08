@@ -27,51 +27,51 @@ mode:
 # Right-Left-Small    = sq_shot_right_orbit_small
 
 shots:
-  sh_left_orbit_lane:
+  sh_left_orbit_lane_alt:
     enable_events: 
-      - enable_sh_left_orbit_lane
-      - sq_shot_right_orbit_small_hit
-      - sq_shot_right_orbit_small_timeout
-      - sq_shot_left_orbit_small_hit
-      - sq_shot_left_orbit_small_timeout
+      - enable_sh_left_orbit_lane_alt
+      - sq_shot_right_orbit_small_alt_hit
+      - sq_shot_right_orbit_small_alt_timeout
+      - sq_shot_left_orbit_small_alt_hit
+      - sq_shot_left_orbit_small_alt_timeout
     disable_events: 
-      - sh_right_orbit_lane_hit
-      - sh_castle_orbit_lane_hit
+      - sh_right_orbit_lane_alt_hit
+      - sh_castle_orbit_lane_alt_hit
     hit_events: 
       - sh_core_left_orbit_lane_hit
-  sh_right_orbit_lane:
+  sh_right_orbit_lane_alt:
     enable_events: 
-      - enable_sh_right_orbit_lane
-      - sq_shot_left_orbit_big_hit
-      - sq_shot_left_orbit_big_timeout
-      - sq_shot_left_orbit_small_hit
-      - sq_shot_left_orbit_small_timeout
+      - enable_sh_right_orbit_lane_alt
+      - sq_shot_left_orbit_big_alt_hit
+      - sq_shot_left_orbit_big_alt_timeout
+      - sq_shot_left_orbit_small_alt_hit
+      - sq_shot_left_orbit_small_alt_timeout
     disable_events: 
-      - sh_left_orbit_lane_hit
-      - sh_castle_orbit_lane_hit
+      - sh_left_orbit_lane_alt_hit
+      - sh_castle_orbit_lane_alt_hit
     hit_events:
       - sh_core_right_orbit_lane_hit
-  sh_castle_orbit_lane:
+  sh_castle_orbit_lane_alt:
     enable_events: 
-      - enable_sh_castle_orbit_lane
-      - sq_shot_left_orbit_big_hit
-      - sq_shot_left_orbit_big_timeout
-      - sq_shot_right_orbit_small_hit
-      - sq_shot_right_orbit_small_timeout
+      - enable_sh_castle_orbit_lane_alt
+      - sq_shot_left_orbit_big_alt_hit
+      - sq_shot_left_orbit_big_alt_timeout
+      - sq_shot_right_orbit_small_alt_hit
+      - sq_shot_right_orbit_small_alt_timeout
     disable_events: 
-      - sh_left_orbit_lane_hit
-      - sh_right_orbit_lane_hit
+      - sh_left_orbit_lane_alt_hit
+      - sh_right_orbit_lane_alt_hit
     hit_events:
       - sh_core_castle_orbit_lane_hit
     
 sequence_shots:
-  sq_shot_left_orbit_big:
+  sq_shot_left_orbit_big_alt:
     switch_sequence: s_orbit_left, s_orbit_right
     sequence_timeout: 3s
-  sq_shot_left_orbit_small:
+  sq_shot_left_orbit_small_alt:
     switch_sequence: s_div_castle, s_orbit_right
     sequence_timeout: 3s
-  sq_shot_right_orbit_small:
+  sq_shot_right_orbit_small_alt:
     switch_sequence: s_orbit_right, s_div_castle
     sequence_timeout: 3s
 
@@ -79,14 +79,14 @@ event_player:
   mode_field_orbits_alternative_started:
     - enable_div_castle
     - enable_div_forest
-    - enable_sh_left_orbit_lane
-    - enable_sh_right_orbit_lane
-    - enable_sh_castle_orbit_lane
+    - enable_sh_left_orbit_lane_alt
+    - enable_sh_right_orbit_lane_alt
+    - enable_sh_castle_orbit_lane_alt
   stop_mode_field_orbits_alternative:
     - deactivate_div_castle
     - deactivate_div_forest
     - disable_div_castle|0.1s
     - disable_div_forest|0.1s
-  sh_left_orbit_lane_hit:
+  sh_left_orbit_lane_alt_hit:
     - activate_div_castle
     - deactivate_div_castle|2s
