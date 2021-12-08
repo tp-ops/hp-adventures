@@ -17,9 +17,22 @@
       action: play
     ministry_group_loop:
       action: play
-- duration: 0.1
+- duration: 5
   shows:  
     horcrux_group_loop:
       action: stop
     ministry_group_loop:
       action: stop
+    rainbow_loop:
+      action: play
+- duration: 5
+  shows:
+    rainbow_loop:
+      action: stop
+    zigzag_loop:
+      action: play
+- duration: 0.1
+  shows:
+    zigzag_loop:
+      action: stop
+
