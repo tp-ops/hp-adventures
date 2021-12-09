@@ -4,212 +4,212 @@
     l_ws2812_lane_dr_left: 
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_lane_fl_left: 
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_tar_light_diagon_alley:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_goldensnitch:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_shot_quidditch:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_tar_nimbus:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_shot_quidditch:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_shot_sword:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_tar_sword:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_forrest:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_shot_forrest:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_tar_platform:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_tower:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_dumbledores_office:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_shot_left_ramp:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_clock_tower:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_basilisk:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_chamber:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_tar_cloak:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_tar_stone:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_castle_door:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_shot_gringots:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_shot_daigon:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_tar_wand:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_shot_right_orbit:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_gringotts_bank:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_shot_right_ramp:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_rubeus_hagrid:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_spells:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_gryffindor:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_hufflepuff:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_ravenclaw:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_slytherin:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_triwizard_tournament:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_unforgivable_cursus:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_hall_of_prophecy:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_order_of_the_phoenix:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_shot_ministry:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_ministry:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_mis_daily_prophet:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_lane_fl_right:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   lights:
     l_ws2812_lane_dr_right:
       color: white
       fade: 200ms
-- time: +0.2
+- time: '+0.2'
   duration: 1
   lights:
     l_ws2812_skillshot:

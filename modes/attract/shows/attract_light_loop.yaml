@@ -29,6 +29,12 @@
   shows:
     rainbow_loop:
       action: stop
+    color_boom_loop:
+      action: play
+- duration: 5
+  shows:
+    color_boom_loop:
+      action: stop
     zigzag_loop:
       action: play
 - duration: 0.1
