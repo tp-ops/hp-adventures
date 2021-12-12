@@ -7,6 +7,7 @@ opp:
     2: /dev/ttyOPP-2
     3: /dev/ttyOPP-3
     4: /dev/ttyOPP-4
+  debug: true
 
 #|====================================|#
 #| - COIL SAFETY - DO NOT BURN THEM - |#
@@ -382,55 +383,69 @@ lights:
     platform: opp
     number: 1-0-16
     subtype: matrix
+    debug: true
   l_pop_right:
     platform: opp
     number: 1-0-17
     subtype: matrix
+    debug: true
   l_pop_bottom:
     platform: opp
     number: 1-0-18
     subtype: matrix
+    debug: true
   l_flip_lane_left:
     platform: opp
     number: 1-0-19
     subtype: matrix
+    debug: true
   l_flip_lane_right:
     platform: opp
     number: 1-0-20
     subtype: matrix
+    debug: true
   l_sling_left:
     platform: opp
     number: 1-0-21
     subtype: matrix
+    debug: true
   l_sling_right:
     platform: opp
     number: 1-0-22
     subtype: matrix
+    debug: true
   l_spot_ling_left:
     platform: opp
     number: 1-0-23
     subtype: matrix
+    debug: true
   l_spot_sling_right:
     platform: opp
     number: 1-0-24
     subtype: matrix
+    debug: true
   l_side_left:
     platform: opp
     number: 1-0-25
     subtype: matrix
+    debug: true
   l_side_right:
     platform: opp
     number: 1-0-26
     subtype: matrix
+    debug: true
   l_side_drain:
     platform: opp
     number: 1-0-27
     subtype: matrix
+    debug: true
   l_side_top_left:
     platform: opp
     number: 1-0-28
     subtype: matrix
+    debug: true
   l_side_top_right:
     platform: opp
     number: 1-0-29
     subtype: matrix
+    debug: true
