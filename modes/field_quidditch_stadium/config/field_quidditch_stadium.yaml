@@ -4,22 +4,84 @@ mode:
   stop_events: stop_mode_field_quidditch_stadium
   priority: 300
 
+shot_groups:
+  sg_quidditch_statium_qualify:
+    shots: sh_pop_left_qualify, sh_pop_right_qualify, sh_pop_bottom_qualify
+
 shots:
+  sh_pop_left_qualify:
+    enable_events: mode_field_quidditch_stadium_started
+    disable_events: sg_quidditch_statium_qualify_hit_complete
+    reset_events: mode_field_quidditch_stadium_will_stop
+    hit_events: sh_core_pop_left_hit
+    profile: sp_quidditch_qualify
+    show_tokens:
+      led: l_pop_left
+      color_name: white
+  sh_pop_right_qualify:
+    enable_events: mode_field_quidditch_stadium_started
+    disable_events: sg_quidditch_statium_qualify_hit_complete
+    reset_events: mode_field_quidditch_stadium_will_stop
+    hit_events: sh_core_pop_right_hit
+    profile: sp_quidditch_qualify
+    show_tokens:
+      led: l_pop_right
+      color_name: white
+  sh_pop_bottom_qualify:
+    enable_events: mode_field_quidditch_stadium_started
+    disable_events: sg_quidditch_statium_qualify_hit_complete
+    reset_events: mode_field_quidditch_stadium_will_stop
+    hit_events: sh_core_pop_bottom_hit
+    profile: sp_quidditch_qualify
+    show_tokens:
+      led: l_pop_bottom
+      color_name: white
   sh_pop_left:
+    enable_events: sg_quidditch_statium_qualify_hit_complete
     hit_events: sh_core_pop_left_hit
   sh_pop_right:
+    enable_events: sg_quidditch_statium_qualify_hit_complete
     hit_events: sh_core_pop_right_hit
   sh_pop_bottom:
+    enable_events: sg_quidditch_statium_qualify_hit_complete
     hit_events: sh_core_pop_bottom_hit
   sh_quidditch_stadium:
     profile: sp_quidditch_stadium
-    advance_events: start_quidditch_debut
-    hit_events: sh_pop_left_hit, sh_pop_right_hit, sh_pop_bottom_hit
+    reset_events: mode_field_quidditch_stadium_will_stop
+    advance_events: sg_quidditch_statium_qualify_hit_complete, quidditch_pop_bumper_count_completed
+    hit_events: 
+      - sh_pop_left_hit
+      - sh_pop_right_hit
+      - sh_pop_bottom_hit
     show_tokens:
       led: l_ws2812_shot_quidditch
       color_name: yellow
+  sh_quidditch_orbit:
+    profile: sp_quidditch_orbit
+    reset_events: mode_field_quidditch_stadium_will_stop
+    advance_events: sg_quidditch_statium_qualify_hit_complete
+    hit_events: 
+      - sq_shot_left_orbit_big_hit
+      - sq_shot_left_orbit_big_alt_hit
+    show_tokens:
+      led: l_ws2812_shot_forrest
+      color_name: yellow
+  sh_mis_quidditch:
+    profile: sp_mis_quidditch
+    persist_enable: true
+    advance_events:
+      - mode_field_quidditch_stadium_started{device.shots.sh_mis_quidditch.state_name == 'unlit'}
+    show_tokens:
+      led: l_ws2812_mis_quidditch
+      color_name: (current_player.house_theme_led)
 
 shot_profiles:
+  sp_quidditch_qualify:
+    states:
+      - name: lit
+        show: flash_normal
+      - name: hit
+        show: light_on
   sp_quidditch_stadium:
     advance_on_hit: false
     states:
@@ -29,45 +91,58 @@ shot_profiles:
       - name: lit
         show: flash_normal
         sync_ms: 500
+      - name: hit
+        show: light_off
+        sync_ms: 500
+  sp_quidditch_orbit:
+    advance_on_hit: true
+    states:
+      - name: unlit
+        show: light_off
+        sync_ms: 500
+      - name: lit
+        show: flash_normal
+        sync_ms: 500
+      - name: hit
+        show: light_off
+        sync_ms: 500
+  sp_mis_quidditch:
+    advance_on_hit: false
+    states:
+      - name: unlit
+        show: light_off
+        sync_ms: 500
+      - name: lit
+        show: flash_normal
+        sync_ms: 500
+      - name: active
+        show: flash_slow
+        sync_ms: 500
+      - name: completed
+        show: on
+        sync_ms: 500
+
+accruals:
+  lb_quidditch_accrual:
+    enable_events: sg_quidditch_statium_qualify_hit_complete
+    events:
+      - quidditch_pop_bumper_count_completed
+      - sh_quidditch_orbit_lit_hit
+    reset_on_complete: true
+    events_when_complete: you_are_a_quidditch_player
 
 counters:
-  lb_quidditch_learning_count:
+  lb_quidditch_pop_bumper_count:
+    enable_events: sg_quidditch_statium_qualify_hit_complete
+    disable_events: mode_field_quidditch_stadium_will_stop
     count_events: sh_quidditch_stadium_hit
-    count_complete_value: 5
-    start_enabled: true
+    count_complete_value: 10
+    start_enabled: false
     disable_on_complete: true
-    events_when_complete: quidditch_learning_count_completed
-
-state_machines:
-  sm_quidditch:
-    starting_state: learning
     persist_state: true
-    states:
-      learning:
-        label:
-      debut:
-        label:
-        events_when_started: start_quidditch_debut
-      player:
-        label:
-    transitions:
-      - source: learning
-        target: debut
-        events: quidditch_learning_count_completed
-      - source: debut
-        target: player
-        events:
+    events_when_complete: quidditch_pop_bumper_count_completed
 
 show_player:
-  start_quidditch_debut:
-    flash_normal:
-      key: debut
-      action: play
-      loops: -1
-      sync_ms: 500
-      show_tokens:
-        led: l_ws2812_mis_quidditch
-        color_name: (current_player.house_theme_led)
   sh_pop_left_hit: 
     flash_normal:
       key: pop_left
@@ -92,6 +167,12 @@ show_player:
       show_tokens:
         led: l_pop_bottom
         color_name: white
+
+# Counter -> logic_block_timer (complete all counters within this time)
+# Counter ->  control_events:
+#              - event: add_five_event
+#                action: add
+#                value: 5
 
 # # var_mc_ variables are used for mpf-mc for showing on slides.
 # variable_player:
