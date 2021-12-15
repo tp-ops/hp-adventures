@@ -46,6 +46,8 @@ shots:
     enable_events: sg_quidditch_statium_qualify_hit_complete
     hit_events: sh_core_pop_bottom_hit
   sh_quidditch_stadium:
+    enable_events: sg_quidditch_statium_qualify_hit_complete
+    disable_events: mode_field_quidditch_stadium_will_stop
     profile: sp_quidditch_stadium
     reset_events: mode_field_quidditch_stadium_will_stop
     advance_events: sg_quidditch_statium_qualify_hit_complete, quidditch_pop_bumper_count_completed
@@ -57,8 +59,10 @@ shots:
       led: l_ws2812_shot_quidditch
       color_name: yellow
   sh_quidditch_orbit:
+    enable_events: sg_quidditch_statium_qualify_hit_complete
+    disable_events: mode_field_quidditch_stadium_will_stop
     profile: sp_quidditch_orbit
-    reset_events: mode_field_quidditch_stadium_will_stop
+    reset_events: mode_field_quidditch_stadium_will_stop{device.shots.sh_quidditch_orbit.state_name == 'lit'}
     advance_events: sg_quidditch_statium_qualify_hit_complete
     hit_events: 
       - sq_shot_left_orbit_big_hit
@@ -125,6 +129,7 @@ shot_profiles:
 accruals:
   lb_quidditch_accrual:
     enable_events: sg_quidditch_statium_qualify_hit_complete
+    persist_state: true
     events:
       - quidditch_pop_bumper_count_completed
       - sh_quidditch_orbit_lit_hit
