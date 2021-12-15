@@ -1,6 +1,6 @@
 from mpf.tests.MpfGameTestCase import MpfGameTestCase
 
-class TestAttractMode(MpfGameTestCase):
+class test_mode_attract(MpfGameTestCase):
 
     def get_config_file(self):
         return 'config.yaml'
@@ -11,7 +11,7 @@ class TestAttractMode(MpfGameTestCase):
     def get_platform(self):
         return 'smart_virtual'
 
-    def test_AttractLoadingAndUnloading(self):
+    def test_mode_attract(self):
 
         self.get_options()
         self.assertModeRunning("attract")

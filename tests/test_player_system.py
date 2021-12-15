@@ -1,6 +1,6 @@
 from mpf.tests.MpfGameTestCase import MpfGameTestCase
 
-class TestPlayerSystem(MpfGameTestCase):
+class test_player_system(MpfGameTestCase):
 
     def get_config_file(self):
         return 'config.yaml'
@@ -11,7 +11,7 @@ class TestPlayerSystem(MpfGameTestCase):
     def get_platform(self):
         return 'smart_virtual'
 
-    def test_SinglePlayerGame(self):
+    def test_single_player_game(self):
 
         self.get_options()
         
@@ -52,7 +52,7 @@ class TestPlayerSystem(MpfGameTestCase):
         self.assertModeNotRunning("game")
         self.assertGameIsNotRunning()
 
-    def test_MultiPlayerGame(self):
+    def test_multi_player_game(self):
 
         self.get_options()
         

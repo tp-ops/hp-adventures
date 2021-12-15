@@ -1,6 +1,6 @@
 from mpf.tests.MpfGameTestCase import MpfGameTestCase
 
-class test_Mode_env_house_theme_selection(MpfGameTestCase):
+class test_mode_env_house_theme_selection(MpfGameTestCase):
 
     def get_config_file(self):
         return 'config.yaml'
@@ -11,7 +11,7 @@ class test_Mode_env_house_theme_selection(MpfGameTestCase):
     def get_platform(self):
         return 'smart_virtual'
 
-    def test_Mode_env_house_theme_selection_CarouselAndPlayerVars(self):
+    def test_mode_env_house_theme_selection_carousel_and_player_vars(self):
 
         self.get_options()
         

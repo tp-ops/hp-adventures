@@ -1,6 +1,6 @@
 from mpf.tests.MpfGameTestCase import MpfGameTestCase
 
-class test_Mode_field_diagon_alley(MpfGameTestCase):
+class test_mode_field_diagon_alley(MpfGameTestCase):
 
     def get_config_file(self):
         return 'config.yaml'
@@ -11,7 +11,7 @@ class test_Mode_field_diagon_alley(MpfGameTestCase):
     def get_platform(self):
         return 'smart_virtual'
 
-    def test_Mode_field_diagon_alley(self):
+    def test_mode_field_diagon_alley(self):
 
         self.get_options()
 
