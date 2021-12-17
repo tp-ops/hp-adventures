@@ -137,7 +137,7 @@ accruals:
     events_when_complete: you_are_a_quidditch_player
 
 counters:
-  lb_quidditch_pop_bumper_count:
+  lb_quidditch_pop_bumper_counter:
     enable_events: sg_quidditch_statium_qualify_hit_complete
     disable_events: mode_field_quidditch_stadium_will_stop
     count_events: sh_quidditch_stadium_hit

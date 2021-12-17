@@ -69,9 +69,9 @@ class test_mode_field_quidditch_stadium(MpfGameTestCase):
         self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
 
         # Are both counter quidditch_pop_bumper_count and accrual quidditch_accrual disabled ?
-        self.assertFalse(self.machine.counters["lb_quidditch_pop_bumper_count"].enabled)
+        self.assertFalse(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
         self.assertFalse(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_count"].value)
+        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
 
@@ -126,9 +126,9 @@ class test_mode_field_quidditch_stadium(MpfGameTestCase):
         self.assertTrue(self.machine.shots["sh_mis_quidditch"].enabled)
 
         # Are both counter quidditch_pop_bumper_count and accrual quidditch_accrual enabled ?
-        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_count"].enabled)
+        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
         self.assertTrue(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_count"].value)
+        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
 
@@ -137,21 +137,21 @@ class test_mode_field_quidditch_stadium(MpfGameTestCase):
         self.hit_and_release_switch("s_pop_right")
         self.hit_and_release_switch("s_pop_bottom")
         self.advance_time_and_run(1)
-        self.assertEqual(3, self.machine.counters["lb_quidditch_pop_bumper_count"].value)
+        self.assertEqual(3, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
         self.hit_and_release_switch("s_pop_left")
         self.hit_and_release_switch("s_pop_right")
         self.hit_and_release_switch("s_pop_bottom")
         self.advance_time_and_run(1)
-        self.assertEqual(6, self.machine.counters["lb_quidditch_pop_bumper_count"].value)
+        self.assertEqual(6, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
         self.hit_and_release_switch("s_pop_left")
         self.hit_and_release_switch("s_pop_right")
         self.hit_and_release_switch("s_pop_bottom")
         self.advance_time_and_run(1)
-        self.assertEqual(9, self.machine.counters["lb_quidditch_pop_bumper_count"].value)
+        self.assertEqual(9, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
         
@@ -163,8 +163,8 @@ class test_mode_field_quidditch_stadium(MpfGameTestCase):
         self.reset_mock_events()
 
         # Counter completed and disabled
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_count"].value)
-        self.assertFalse(self.machine.counters["lb_quidditch_pop_bumper_count"].enabled)
+        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
+        self.assertFalse(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
         
         # Accrual updated
         self.assertEqual(True,self.machine.accruals["lb_quidditch_accrual"].value[0])
@@ -271,9 +271,9 @@ class test_mode_field_quidditch_stadium(MpfGameTestCase):
         self.assertEqual("hit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
         
         # Check counter and accrual
-        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_count"].enabled)
+        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
         self.assertTrue(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_count"].value)
+        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
         
@@ -291,7 +291,7 @@ class test_mode_field_quidditch_stadium(MpfGameTestCase):
         self.hit_and_release_switch("s_pop_bottom")
         self.advance_time_and_run(1)
 
-        self.assertEqual(6, self.machine.counters["lb_quidditch_pop_bumper_count"].value)
+        self.assertEqual(6, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
 
@@ -339,9 +339,9 @@ class test_mode_field_quidditch_stadium(MpfGameTestCase):
         self.assertEqual("hit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
         
         # Check if counter still is at 7 (last qulify shot counts too so it will be 7 instead of 6)
-        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_count"].enabled)
+        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
         self.assertTrue(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(7, self.machine.counters["lb_quidditch_pop_bumper_count"].value)
+        self.assertEqual(7, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
         self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
         self.assertEqual(True,self.machine.accruals["lb_quidditch_accrual"].value[1])
 

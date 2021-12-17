@@ -58,8 +58,8 @@ class test_mode_field_spells_ramp(MpfGameTestCase):
         self.assertEqual("unlit", self.machine.shots["sh_spells_light"].state_name)
 
         # Check qualify counter
-        self.assertEqual(True, self.machine.counters["spells_light_qualify_counter"].enabled)
-        self.assertEqual(0, self.machine.counters["spells_light_qualify_counter"].value)
+        self.assertEqual(True, self.machine.counters["lb_spells_light_qualify_counter"].enabled)
+        self.assertEqual(0, self.machine.counters["lb_spells_light_qualify_counter"].value)
         
         # Check qualify timer
         self.assertEqual(False, self.machine.timers["right_ramp_light_qualify_timer"].running)
@@ -76,16 +76,16 @@ class test_mode_field_spells_ramp(MpfGameTestCase):
             self.advance_time_and_run(1)
 
         # Check qualify counter
-        self.assertEqual(True, self.machine.counters["spells_light_qualify_counter"].enabled)
-        self.assertEqual(9, self.machine.counters["spells_light_qualify_counter"].value)
+        self.assertEqual(True, self.machine.counters["lb_spells_light_qualify_counter"].enabled)
+        self.assertEqual(9, self.machine.counters["lb_spells_light_qualify_counter"].value)
 
         # Shot 10
-        self.mock_event("spells_light_qualify_counter_completed")
+        self.mock_event("lb_spells_light_qualify_counter_completed")
         self.hit_and_release_switch("s_spells_ramp_entry")
         self.advance_time_and_run(1)
         self.hit_and_release_switch("s_right_wire_ramp_small")
         self.advance_time_and_run(1)
-        self.assertEventCalled("spells_light_qualify_counter_completed")
+        self.assertEventCalled("lb_spells_light_qualify_counter_completed")
         self.reset_mock_events()
 
         # Ensure that shots are in proper shot_state
@@ -95,8 +95,8 @@ class test_mode_field_spells_ramp(MpfGameTestCase):
         self.assertEqual("lit", self.machine.shots["sh_spells_light"].state_name)
 
         # Check qualify counter
-        self.assertEqual(False, self.machine.counters["spells_light_qualify_counter"].enabled)
-        self.assertEqual(0, self.machine.counters["spells_light_qualify_counter"].value)
+        self.assertEqual(False, self.machine.counters["lb_spells_light_qualify_counter"].enabled)
+        self.assertEqual(0, self.machine.counters["lb_spells_light_qualify_counter"].value)
         
         # Check qualify timer
         self.assertEqual(False, self.machine.timers["right_ramp_light_qualify_timer"].running)
@@ -117,8 +117,8 @@ class test_mode_field_spells_ramp(MpfGameTestCase):
         self.assertEqual("lit", self.machine.shots["sh_spells_light"].state_name)
 
         # Check qualify counter
-        self.assertEqual(False, self.machine.counters["spells_light_qualify_counter"].enabled)
-        self.assertEqual(0, self.machine.counters["spells_light_qualify_counter"].value)
+        self.assertEqual(False, self.machine.counters["lb_spells_light_qualify_counter"].enabled)
+        self.assertEqual(0, self.machine.counters["lb_spells_light_qualify_counter"].value)
         
         # Check qualify timer
         self.assertEqual(True, self.machine.timers["right_ramp_light_qualify_timer"].running)
@@ -141,8 +141,8 @@ class test_mode_field_spells_ramp(MpfGameTestCase):
         self.assertEqual("unlit", self.machine.shots["sh_spells_light"].state_name)
 
         # Check qualify counter
-        self.assertEqual(True, self.machine.counters["spells_light_qualify_counter"].enabled)
-        self.assertEqual(0, self.machine.counters["spells_light_qualify_counter"].value)
+        self.assertEqual(True, self.machine.counters["lb_spells_light_qualify_counter"].enabled)
+        self.assertEqual(0, self.machine.counters["lb_spells_light_qualify_counter"].value)
         
         # Check qualify timer
         self.assertEqual(False, self.machine.timers["right_ramp_light_qualify_timer"].running)
@@ -167,8 +167,8 @@ class test_mode_field_spells_ramp(MpfGameTestCase):
         self.assertEqual("unlit", self.machine.shots["sh_spells_light"].state_name)
 
         # Check qualify counter
-        self.assertEqual(True, self.machine.counters["spells_light_qualify_counter"].enabled)
-        self.assertEqual(0, self.machine.counters["spells_light_qualify_counter"].value)
+        self.assertEqual(True, self.machine.counters["lb_spells_light_qualify_counter"].enabled)
+        self.assertEqual(0, self.machine.counters["lb_spells_light_qualify_counter"].value)
         
         # Check qualify timer
         self.assertEqual(False, self.machine.timers["right_ramp_light_qualify_timer"].running)

@@ -23,7 +23,7 @@ shots:
     enable_events: mode_field_spells_ramp_started
     disable_events: mode_field_spells_ramp_will_stop
     restart_events: timer_right_ramp_light_qualify_timer_complete
-    advance_events: spells_light_qualify_counter_completed
+    advance_events: lb_spells_light_qualify_counter_completed
     profile: sp_spells_light
     show_tokens:
       led: l_ws2812_mis_spells
@@ -53,13 +53,13 @@ shot_profiles:
         sync_ms: 500
 
 counters:
-  spells_light_qualify_counter:
+  lb_spells_light_qualify_counter:
     count_events: sq_shot_spells_ramp_hit
     count_complete_value: 10
     start_enabled: true
     restart_events: timer_right_ramp_light_qualify_timer_complete
     disable_on_complete: true
-    events_when_complete: spells_light_qualify_counter_completed
+    events_when_complete: lb_spells_light_qualify_counter_completed
 
 timers:
   right_ramp_light_qualify_timer:
