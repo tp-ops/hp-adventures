@@ -28,6 +28,7 @@ event_player:
     - stop_mode_field_house_cup
     - stop_mode_field_platform_nine_three_quarters
     - stop_mode_field_clock_tower_entrance_hall
+    - stop_mode_field_spells_ramp
   start_field_modes:
     - start_mode_field_orbits
     - start_mode_field_main_entrance_hall
@@ -38,6 +39,7 @@ event_player:
     - start_mode_field_house_cup
     - start_mode_field_platform_nine_three_quarters
     - start_mode_field_clock_tower_entrance_hall  
+    - start_mode_field_spells_ramp
 
     # - stop_missions
   # mode_type_mission_started:

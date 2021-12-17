@@ -2,4 +2,101 @@
 mode:           
   start_events: start_mode_field_spells_ramp
   stop_events: stop_mode_field_spells_ramp
-  priority: 310
+  priority: 300
+
+sequence_shots:
+  sq_shot_spells_ramp:
+    switch_sequence: s_spells_ramp_entry, s_right_wire_ramp_small
+    sequence_timeout: 3s
+
+shots:
+  sh_right_ramp_light:
+    enable_events: mode_field_spells_ramp_started
+    disable_events: mode_field_spells_ramp_will_stop
+    restart_events: timer_right_ramp_light_qualify_timer_complete
+    advance_events: sq_shot_spells_ramp_hit{device.shots.sh_spells_light.state_name == 'lit'}
+    profile: sp_right_ramp_light
+    show_tokens:
+      led: l_ws2812_shot_right_ramp
+      color_name: yellow
+  sh_spells_light:
+    enable_events: mode_field_spells_ramp_started
+    disable_events: mode_field_spells_ramp_will_stop
+    restart_events: timer_right_ramp_light_qualify_timer_complete
+    advance_events: spells_light_qualify_counter_completed
+    profile: sp_spells_light
+    show_tokens:
+      led: l_ws2812_mis_spells
+      color_name: (current_player.house_theme_led)
+
+shot_profiles:
+  sp_right_ramp_light:
+    advance_on_hit: false
+    states:
+      - name: unlit
+        show: light_off
+        sync_ms: 500
+      - name: lit
+        show: flash_normal
+        sync_ms: 500
+  sp_spells_light:
+    advance_on_hit: false
+    states:
+      - name: unlit
+        show: light_off
+        sync_ms: 500
+      - name: lit
+        show: flash_normal
+        sync_ms: 500
+      - name: active
+        show: flash_slow
+        sync_ms: 500
+
+counters:
+  spells_light_qualify_counter:
+    count_events: sq_shot_spells_ramp_hit
+    count_complete_value: 10
+    start_enabled: true
+    restart_events: timer_right_ramp_light_qualify_timer_complete
+    disable_on_complete: true
+    events_when_complete: spells_light_qualify_counter_completed
+
+timers:
+  right_ramp_light_qualify_timer:
+    start_value: 0
+    end_value: 15
+    direction: up
+    control_events:
+      - action: start
+        event: sq_shot_spells_ramp_hit{device.shots.sh_spells_light.state_name == 'lit'}
+      - action: reset
+        event: timer_right_ramp_light_qualify_timer_complete
+
+state_machines:
+  sm_spells_level:
+    persist_state: true
+    starting_state: level_1
+    states:
+      level_1:
+        label:
+      level_2:
+        label:
+      level_3:
+        label:
+      level_4:
+        label:
+      level_5:
+        label:
+    transitions:
+      - source: level_1
+        target: level_2
+        events: timer_right_ramp_light_qualify_timer_complete
+      - source: level_2
+        target: level_3
+        events: timer_right_ramp_light_qualify_timer_complete
+      - source: level_3
+        target: level_4
+        events: timer_right_ramp_light_qualify_timer_complete
+      - source: level_4
+        target: level_5
+        events: timer_right_ramp_light_qualify_timer_complete
