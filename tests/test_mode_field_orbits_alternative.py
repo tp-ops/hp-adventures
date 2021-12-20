@@ -1,6 +1,6 @@
 from mpf.tests.MpfGameTestCase import MpfGameTestCase
 
-class test_mode_field_orbits_alternative(MpfGameTestCase):
+class test_shots(MpfGameTestCase):
 
     def get_config_file(self):
         return 'config.yaml'
@@ -11,7 +11,57 @@ class test_mode_field_orbits_alternative(MpfGameTestCase):
     def get_platform(self):
         return 'smart_virtual'
 
-    def test_mode_field_orbits_left_orbit_big_alt(self):
+    def test_auto_stop_mode(self):
+
+        self.get_options()
+       
+        # Ensure that Attract mode is running and game mode not
+        self.assertModeRunning("attract")
+        self.assertModeNotRunning("game")
+        self.assertGameIsNotRunning()
+        
+        # Hit 'Start' button to start a game
+        self.hit_and_release_switch("s_start_button")
+        self.advance_time_and_run(1)
+        self.assertEqual(1, self.machine.game.num_players)
+        self.assertPlayerCount(1)
+        self.advance_time_and_run(1)
+
+        # Ensure that Mode env_house_theme_selection is running
+        self.assertModeNotRunning("attract")
+        self.assertModeRunning("game") 
+        self.assertGameIsRunning()
+        self.assertModeRunning("env_house_theme_selection")
+        self.assertModeNotRunning("base")
+
+        # Hit 'Start' button to select a theme
+        self.hit_and_release_switch("s_start_button")
+        self.advance_time_and_run(1)
+        self.assertModeNotRunning("env_house_theme_selection")
+        self.assertModeRunning("base")
+
+        # Advance skillshot platform
+        self.post_event("sh_skill_shot_platform_lit_hit")
+        self.advance_time_and_run(1)
+
+        # Stop default running mode field_orbits 
+        self.stop_mode("field_orbits")
+        self.assertModeNotRunning("field_orbits")
+
+        # Start mode field_orbit_alternative
+        self.start_mode("field_orbits_alternative")
+
+        # Ensure that mode field_orbits_alternative is running and field_orbits is not running
+        self.assertModeRunning("field_orbits_alternative")
+
+        # Start mode field_orbit
+        self.start_mode("field_orbits")
+
+        # Ensure that mode field_orbits is running and field_orbits_alternative is not running
+        self.assertModeRunning("field_orbits")
+        self.assertModeNotRunning("field_orbits_alternative")
+
+    def test_left_orbit_big_alt(self):
 
         self.get_options()
 
@@ -171,7 +221,7 @@ class test_mode_field_orbits_alternative(MpfGameTestCase):
         self.assertEqual(False, self.machine.diverters.div_castle.active)
         self.assertEqual(False, self.machine.diverters.div_forest.active)
 
-    def test_mode_field_orbits_left_orbit_small(self):
+    def test_left_orbit_small_alt(self):
 
         self.get_options()
 
@@ -307,7 +357,7 @@ class test_mode_field_orbits_alternative(MpfGameTestCase):
         self.assertEqual(False, self.machine.diverters.div_castle.active)
         self.assertEqual(False, self.machine.diverters.div_forest.active)
 
-    def test_mode_field_orbits_right_orbit_small(self):
+    def test_right_orbit_small_alt(self):
 
         self.get_options()
 

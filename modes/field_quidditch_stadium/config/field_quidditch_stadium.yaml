@@ -49,8 +49,9 @@ shots:
     enable_events: sg_quidditch_statium_qualify_hit_complete
     disable_events: mode_field_quidditch_stadium_will_stop
     profile: sp_quidditch_stadium
-    reset_events: mode_field_quidditch_stadium_will_stop
-    advance_events: sg_quidditch_statium_qualify_hit_complete, quidditch_pop_bumper_count_completed
+    advance_events:
+      - sg_quidditch_statium_qualify_hit_complete{device.shots.sh_quidditch_stadium.state_name == 'unlit'}
+      - quidditch_pop_bumper_count_completed
     hit_events: 
       - sh_pop_left_hit
       - sh_pop_right_hit
@@ -62,8 +63,7 @@ shots:
     enable_events: sg_quidditch_statium_qualify_hit_complete
     disable_events: mode_field_quidditch_stadium_will_stop
     profile: sp_quidditch_orbit
-    reset_events: mode_field_quidditch_stadium_will_stop{device.shots.sh_quidditch_orbit.state_name == 'lit'}
-    advance_events: sg_quidditch_statium_qualify_hit_complete
+    advance_events: sg_quidditch_statium_qualify_hit_complete{device.shots.sh_quidditch_orbit.state_name == 'unlit'}
     hit_events: 
       - sq_shot_left_orbit_big_hit
       - sq_shot_left_orbit_big_alt_hit
@@ -138,7 +138,9 @@ accruals:
 
 counters:
   lb_quidditch_pop_bumper_counter:
-    enable_events: sg_quidditch_statium_qualify_hit_complete
+    enable_events:
+      - sg_quidditch_statium_qualify_hit_complete{device.shots.sh_quidditch_stadium.state_name == 'unlit'}
+      - sg_quidditch_statium_qualify_hit_complete{device.shots.sh_quidditch_stadium.state_name == 'lit'}
     disable_events: mode_field_quidditch_stadium_will_stop
     count_events: sh_quidditch_stadium_hit
     count_complete_value: 10

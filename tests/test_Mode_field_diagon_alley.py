@@ -1,6 +1,6 @@
 from mpf.tests.MpfGameTestCase import MpfGameTestCase
 
-class test_mode_field_diagon_alley(MpfGameTestCase):
+class test_game_logic(MpfGameTestCase):
 
     def get_config_file(self):
         return 'config.yaml'
@@ -100,5 +100,3 @@ class test_mode_field_diagon_alley(MpfGameTestCase):
         self.assertEqual("unlit", self.machine.shots["sh_light_diagon_alley"].state_name)
         self.assertEqual("lit", self.machine.shots["sh_diagon_alley"].state_name)
         self.reset_mock_events()
-        
-

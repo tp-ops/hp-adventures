@@ -1,6 +1,6 @@
 from mpf.tests.MpfMachineTestCase import MpfMachineTestCase
 
-class test_machine_hardware_limits_clock_tower(MpfMachineTestCase):
+class test_hardware_limits(MpfMachineTestCase):
 
     def get_config_file(self):
         return 'config.yaml'
@@ -11,7 +11,7 @@ class test_machine_hardware_limits_clock_tower(MpfMachineTestCase):
     def get_platform(self):
         return 'smart_virtual'
 
-    def test_machine_hardware_limits_clock_tower(self):
+    def test_clock_tower_diverters(self):
 
         self.get_options()
 
@@ -40,7 +40,6 @@ class test_machine_hardware_limits_clock_tower(MpfMachineTestCase):
         self.assertEqual(False, self.machine.diverters.div_tower_entry.active)
         self.assertEqual(False, self.machine.diverters.div_tower_pensieve.active)
 
-        
         self.post_event("enable_div_tower_entry")
         self.post_event("enable_div_tower_pensieve")
         self.advance_time_and_run(1)

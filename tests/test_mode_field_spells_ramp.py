@@ -1,6 +1,6 @@
 from mpf.tests.MpfGameTestCase import MpfGameTestCase
 
-class test_mode_field_spells_ramp(MpfGameTestCase):
+class test_game_logic(MpfGameTestCase):
 
     def get_config_file(self):
         return 'config.yaml'
