@@ -15,7 +15,7 @@
       color: white
     l_sling_right:
       color: white
-    l_spot_ling_left:
+    l_spot_sling_left:
       color: white
     l_spot_sling_right:
       color: white
@@ -43,7 +43,7 @@
       color: stop
     l_sling_right:
       color: stop
-    l_spot_ling_left:
+    l_spot_sling_left:
       color: stop
     l_spot_sling_right:
       color: stop

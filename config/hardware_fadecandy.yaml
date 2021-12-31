@@ -21,311 +21,373 @@ lights:
   l_ws2812_shot_forrest:
     platform: fadecandy
     number: 0
+    subtype: led
     type: grb
     tags: shot_lights 
   l_ws2812_mis_forrest:
     platform: fadecandy
     number: 1
+    subtype: led
     type: grb 
     tags: mission_lights, theme_lights
   l_ws2812_shot_sword:
     platform: fadecandy
     number: 2
+    subtype: led
     type: grb
     tags: shot_lights 
   l_ws2812_tar_sword:
     platform: fadecandy
     number: 3
+    subtype: led
     type: grb
     tags: target_lights
   l_ws2812_shot_quidditch:
     platform: fadecandy
     number: 4
+    subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_mis_quidditch:
     platform: fadecandy
     number: 5
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_goldensnitch:
     platform: fadecandy
     number: 6
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_tar_light_diagon_alley:
     platform: fadecandy
     number: 7
+    subtype: led
     type: grb
     tags: target_lights
   l_ws2812_lane_fl_left:
     platform: fadecandy
     number: 8
+    subtype: led
     type: grb
     tags: lane_lights
   l_ws2812_lane_dr_left:
     platform: fadecandy
     number: 9
+    subtype: led
     type: grb
     tags: lane_lights
   # String 1 on FadeCandy, numbers 64-127
   l_ws2812_hor_book:
     platform: fadecandy
     number: 64
+    subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_ring:
     platform: fadecandy
     number: 65
+    subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_ring_destroy:
     platform: fadecandy
     number: 66
+    subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_book_destroy:
     platform: fadecandy
     number: 67
+    subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_neckles:
     platform: fadecandy
     number: 68
+    subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_voldemort:
     platform: fadecandy
     number: 69
+    subtype: led
     type: grb
   l_ws2812_hor_cup:
     platform: fadecandy
     number: 70
+    subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_cup_destroy:
     platform: fadecandy
     number: 71
+    subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_neckles_destroy:
     platform: fadecandy
     number: 72
+    subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_harry:
     platform: fadecandy
     number: 73
+    subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_diadeem:
     platform: fadecandy
     number: 74
+    subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_diadeem_destroy:
     platform: fadecandy
     number: 75
+    subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_harry_destroy:
     platform: fadecandy
     number: 76
+    subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_nagini:
     platform: fadecandy
     number: 77
+    subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_nagini_destroy:
     platform: fadecandy
     number: 78
+    subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_shoot_again:
     platform: fadecandy
     number: 79
+    subtype: led
     type: grb
   # String 2 on FadeCandy, numbers 128-191
   l_ws2812_shot_right_orbit:
     platform: fadecandy
     number: 128
+    subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_mis_gringotts_bank:
     platform: fadecandy
     number: 129
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_ravenclaw:
     platform: fadecandy
     number: 130
+    subtype: led
     type: grb
     tags: house_lights
   l_ws2812_mis_gryffindor:
     platform: fadecandy
     number: 131
+    subtype: led
     type: grb
     tags: house_lights
   l_ws2812_mis_hufflepuff:
     platform: fadecandy
     number: 132
+    subtype: led
     type: grb
     tags: house_lights
   l_ws2812_mis_slytherin:
     platform: fadecandy
     number: 133
+    subtype: led
     type: grb
     tags: house_lights
   l_ws2812_lightning_right:
     platform: fadecandy
     number: 134
+    subtype: led
     type: grb
     tags: lightning_lights
   l_ws2812_mis_triwizard_tournament:
     platform: fadecandy
     number: 135
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_unforgivable_cursus:
     platform: fadecandy
     number: 136
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_hall_of_prophecy:
     platform: fadecandy
     number: 137
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_order_of_the_phoenix:
     platform: fadecandy
     number: 138
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_shot_ministry:
     platform: fadecandy
     number: 139
+    subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_mis_ministry:
     platform: fadecandy
     number: 140
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_daily_prophet:
     platform: fadecandy
     number: 141
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_lane_fl_right:
     platform: fadecandy
     number: 142
+    subtype: led
     type: grb
     tags: lane_lights
   l_ws2812_lane_dr_right:
     platform: fadecandy
     number: 143
+    subtype: led
     type: grb
     tags: lane_lights
   l_ws2812_skillshot:
     platform: fadecandy
     number: 144
+    subtype: led
     type: grb
     tags: skill_shot_lights
   # String 3 on FadeCandy, numbers 192-255
   l_ws2812_tar_wand:
     platform: fadecandy
     number: 192
+    subtype: led
     type: grb
     tags: target_lights
   l_ws2812_shot_daigon:
     platform: fadecandy
     number: 193
+    subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_shot_gringots:
     platform: fadecandy
     number: 194
+    subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_tar_stone:
     platform: fadecandy
     number: 195
+    subtype: led
     type: grb
     tags: target_lights
   l_ws2812_tar_cloak:
     platform: fadecandy
     number: 196
+    subtype: led
     type: grb
     tags: target_lights
   l_ws2812_mis_chamber:
     platform: fadecandy
     number: 197
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_basilisk:
     platform: fadecandy
     number: 198
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_shot_right_ramp:
     platform: fadecandy
     number: 199
+    subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_mis_spells:
     platform: fadecandy
     number: 200
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_rubeus_hagrid:
     platform: fadecandy
     number: 201
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_tower:
     platform: fadecandy
     number: 202
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_dumbledores_office:
     platform: fadecandy
     number: 203
+    subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_shot_left_ramp:
     platform: fadecandy
     number: 204
+    subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_tar_platform:
     platform: fadecandy
     number: 205
+    subtype: led
     type: grb
     tags: target_lights
   l_ws2812_lightning_left:
     platform: fadecandy
     number: 206
+    subtype: led
     type: grb
     tags: lightning_lights
   l_ws2812_lightning_bottom:
     platform: fadecandy
     number: 207
+    subtype: led
     type: grb
     tags: lightning_lights
   l_ws2812_tar_nimbus:
     platform: fadecandy
     number: 208
+    subtype: led
     type: grb
     tags: target_lights
   l_ws2812_clock_tower:
     platform: fadecandy
     number: 256
+    subtype: led
     type: grb
     tags: lightning_lights
   l_ws2812_castle_door:
     platform: fadecandy
     number: 320
+    subtype: led
     type: grb
     tags: target_lights
