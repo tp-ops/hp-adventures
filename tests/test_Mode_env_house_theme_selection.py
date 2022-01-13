@@ -1,17 +1,17 @@
 from mpf.tests.MpfGameTestCase import MpfGameTestCase
 
-class test_mode_env_house_theme_selection(MpfGameTestCase):
+class test_house_theme_selection(MpfGameTestCase):
 
     def get_config_file(self):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\TP-OPS\\Desktop\\hp-adventures'
+        return 'C:\\Users\\TP-OPS\\Desktop\\Source Code\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'
 
-    def test_mode_env_house_theme_selection_carousel_and_player_vars(self):
+    def test_carousel_and_player_vars(self):
 
         self.get_options()
         

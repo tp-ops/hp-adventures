@@ -6,7 +6,7 @@ class test_game_logic(MpfGameTestCase):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\TP-OPS\\Desktop\\hp-adventures'
+        return 'C:\\Users\\TP-OPS\\Desktop\\Source Code\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'
@@ -15,34 +15,18 @@ class test_game_logic(MpfGameTestCase):
 
         self.get_options()
 
-        # Ensure that Attract mode is running and game mode not
-        self.assertModeRunning("attract")
-        self.assertModeNotRunning("game")
-        self.assertGameIsNotRunning()
-        
         # Hit 'Start' button to start a game
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertEqual(1, self.machine.game.num_players)
-        self.assertPlayerCount(1)
-        self.advance_time_and_run(1)
-
-        # Ensure that Mode env_house_theme_selection is running
-        self.assertModeNotRunning("attract")
-        self.assertModeRunning("game") 
-        self.assertGameIsRunning()
-        self.assertModeRunning("env_house_theme_selection")
-        self.assertModeNotRunning("base")
 
         # Hit 'Start' button to select a theme
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertModeNotRunning("env_house_theme_selection")
-        self.assertModeRunning("base")
 
         # Advance skillshot platform
-        self.post_event("sh_skill_shot_platform_lit_hit")
-        self.advance_time_and_run(1)
+        self.release_switch_and_run("s_plunger_lane", 11)
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+        self.advance_time_and_run(15)
 
         # Ensure that mode field_quidditch_statium is running
         self.assertModeRunning("field_quidditch_stadium")
@@ -136,36 +120,18 @@ class test_game_logic(MpfGameTestCase):
 
         self.get_options()
 
-        # Ensure that Attract mode is running and game mode not
-        self.assertModeRunning("attract")
-        self.assertModeNotRunning("game")
-        self.assertGameIsNotRunning()
-        
         # Hit 'Start' button to start a game
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertEqual(1, self.machine.game.num_players)
-        self.assertPlayerCount(1)
-        self.advance_time_and_run(1)
-
-        # Ensure that Mode env_house_theme_selection is running
-        self.assertModeNotRunning("attract")
-        self.assertModeRunning("game") 
-        self.assertGameIsRunning()
-        self.assertModeRunning("env_house_theme_selection")
-        self.assertModeNotRunning("base")
 
         # Hit 'Start' button to select a theme
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertModeNotRunning("env_house_theme_selection")
-        self.assertModeRunning("base")
 
         # Advance skillshot platform
         self.release_switch_and_run("s_plunger_lane", 11)
         self.assertBallsOnPlayfield(1, playfield='playfield')
         self.advance_time_and_run(15)
-
 
         # Ensure that mode field_quidditch_statium is running
         self.assertModeRunning("field_quidditch_stadium")
@@ -222,34 +188,18 @@ class test_game_logic(MpfGameTestCase):
 
         self.get_options()
 
-        # Ensure that Attract mode is running and game mode not
-        self.assertModeRunning("attract")
-        self.assertModeNotRunning("game")
-        self.assertGameIsNotRunning()
-        
         # Hit 'Start' button to start a game
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertEqual(1, self.machine.game.num_players)
-        self.assertPlayerCount(1)
-        self.advance_time_and_run(1)
-
-        # Ensure that Mode env_house_theme_selection is running
-        self.assertModeNotRunning("attract")
-        self.assertModeRunning("game") 
-        self.assertGameIsRunning()
-        self.assertModeRunning("env_house_theme_selection")
-        self.assertModeNotRunning("base")
 
         # Hit 'Start' button to select a theme
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertModeNotRunning("env_house_theme_selection")
-        self.assertModeRunning("base")
 
         # Advance skillshot platform
-        self.post_event("sh_skill_shot_platform_lit_hit")
-        self.advance_time_and_run(1)
+        self.release_switch_and_run("s_plunger_lane", 11)
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+        self.advance_time_and_run(15)
 
         # Ensure that mode field_quidditch_statium is running
         self.assertModeRunning("field_quidditch_stadium")
@@ -357,30 +307,13 @@ class test_game_logic(MpfGameTestCase):
 
         self.get_options()
 
-        # Ensure that Attract mode is running and game mode not
-        self.assertModeRunning("attract")
-        self.assertModeNotRunning("game")
-        self.assertGameIsNotRunning()
-        
         # Hit 'Start' button to start a game
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertEqual(1, self.machine.game.num_players)
-        self.assertPlayerCount(1)
-        self.advance_time_and_run(1)
-
-        # Ensure that Mode env_house_theme_selection is running
-        self.assertModeNotRunning("attract")
-        self.assertModeRunning("game") 
-        self.assertGameIsRunning()
-        self.assertModeRunning("env_house_theme_selection")
-        self.assertModeNotRunning("base")
 
         # Hit 'Start' button to select a theme
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertModeNotRunning("env_house_theme_selection")
-        self.assertModeRunning("base")
 
         # Advance skillshot platform
         self.release_switch_and_run("s_plunger_lane", 11)
@@ -539,30 +472,13 @@ class test_game_logic(MpfGameTestCase):
 
         self.get_options()
 
-        # Ensure that Attract mode is running and game mode not
-        self.assertModeRunning("attract")
-        self.assertModeNotRunning("game")
-        self.assertGameIsNotRunning()
-        
         # Hit 'Start' button to start a game
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertEqual(1, self.machine.game.num_players)
-        self.assertPlayerCount(1)
-        self.advance_time_and_run(1)
-
-        # Ensure that Mode env_house_theme_selection is running
-        self.assertModeNotRunning("attract")
-        self.assertModeRunning("game") 
-        self.assertGameIsRunning()
-        self.assertModeRunning("env_house_theme_selection")
-        self.assertModeNotRunning("base")
 
         # Hit 'Start' button to select a theme
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertModeNotRunning("env_house_theme_selection")
-        self.assertModeRunning("base")
 
         # Advance skillshot platform
         self.release_switch_and_run("s_plunger_lane", 11)
@@ -662,30 +578,13 @@ class test_game_logic(MpfGameTestCase):
 
         self.get_options()
 
-        # Ensure that Attract mode is running and game mode not
-        self.assertModeRunning("attract")
-        self.assertModeNotRunning("game")
-        self.assertGameIsNotRunning()
-        
         # Hit 'Start' button to start a game
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertEqual(1, self.machine.game.num_players)
-        self.assertPlayerCount(1)
-        self.advance_time_and_run(1)
-
-        # Ensure that Mode env_house_theme_selection is running
-        self.assertModeNotRunning("attract")
-        self.assertModeRunning("game") 
-        self.assertGameIsRunning()
-        self.assertModeRunning("env_house_theme_selection")
-        self.assertModeNotRunning("base")
 
         # Hit 'Start' button to select a theme
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-        self.assertModeNotRunning("env_house_theme_selection")
-        self.assertModeRunning("base")
 
         # Advance skillshot platform
         self.release_switch_and_run("s_plunger_lane", 11)
