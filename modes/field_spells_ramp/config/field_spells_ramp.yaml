@@ -13,7 +13,9 @@ shots:
   sh_right_ramp_light:
     enable_events: mode_field_spells_ramp_started
     disable_events: mode_field_spells_ramp_will_stop
-    restart_events: timer_right_ramp_light_qualify_timer_complete
+    restart_events: 
+      - timer_right_ramp_light_qualify_timer_complete
+      - mode_field_spells_ramp_will_stop
     advance_events: sq_shot_spells_ramp_hit{device.shots.sh_spells_light.state_name == 'lit'}
     profile: sp_right_ramp_light
     show_tokens:
@@ -22,7 +24,9 @@ shots:
   sh_spells_light:
     enable_events: mode_field_spells_ramp_started
     disable_events: mode_field_spells_ramp_will_stop
-    restart_events: timer_right_ramp_light_qualify_timer_complete
+    restart_events: 
+      - timer_right_ramp_light_qualify_timer_complete
+      - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
     advance_events: lb_spells_light_qualify_counter_completed
     profile: sp_spells_light
     show_tokens:
@@ -57,8 +61,11 @@ counters:
     count_events: sq_shot_spells_ramp_hit
     count_complete_value: 10
     start_enabled: true
-    restart_events: timer_right_ramp_light_qualify_timer_complete
+    persist_state: true
     disable_on_complete: true
+    restart_events: 
+      - timer_right_ramp_light_qualify_timer_complete
+      - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
     events_when_complete: lb_spells_light_qualify_counter_completed
 
 timers:
@@ -90,13 +97,21 @@ state_machines:
     transitions:
       - source: level_1
         target: level_2
-        events: timer_right_ramp_light_qualify_timer_complete
+        events: 
+          - timer_right_ramp_light_qualify_timer_complete
+          - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
       - source: level_2
         target: level_3
-        events: timer_right_ramp_light_qualify_timer_complete
+        events:  
+          - timer_right_ramp_light_qualify_timer_complete
+          - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
       - source: level_3
         target: level_4
-        events: timer_right_ramp_light_qualify_timer_complete
+        events:  
+          - timer_right_ramp_light_qualify_timer_complete
+          - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
       - source: level_4
         target: level_5
-        events: timer_right_ramp_light_qualify_timer_complete
+        events:  
+          - timer_right_ramp_light_qualify_timer_complete
+          - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
