@@ -1,7 +1,7 @@
 #config_version=5
 
 # HARDWARE MECHANISM LIMITATIONS
-# div_tower_entry (div 1) AND div_tower_pensieve (div 2) ARE ENABLED WHEN MODE field_clock_tower_entrance_hall STARTS
+# div_tower_entry (div 1) AND div_tower_pensieve (div 2) ARE ENABLED WHEN MODE field_clock_tower STARTS
 # div_tower_entry (div 1) CAN ONLY BE DEACTIVATED WHEN div_tower_pensieve (div 2) IS DEACTIVE
 # div_tower_pensieve (div 2) CAN ONLY BE ACTIVATED WHEN div_tower_entry (div 1) IS ENABLED AND ACTIVE AND WHEN bd_tower HAS A BALL (s_tower)
 # div_tower_pensieve (div 2) CAN ONLY BE DEACTIVATED WHEN div_tower_entry (div 1) IS ENABLED AND ACTIVE AND WHEN bd_tower HAS NO BALL (s_tower)
@@ -20,7 +20,7 @@
 # is div 2 active when bd_tower ejects the ball (pensieve_open) then div 2 will be deactivated when s_wire_ramp_right_2 is active (pensieve now closed)
 
 mode:           
-  start_events: start_mode_field_clock_tower_entrance_hall
+  start_events: start_mode_field_clock_tower
   stop_events: reset_clock_tower_completed
   priority: 300
 
