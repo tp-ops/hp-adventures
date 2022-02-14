@@ -1,0 +1,59 @@
+#config_version=5
+mode:           
+  start_events: start_mode_field_castle_level_1
+  stop_events: stop_mode_field_castle_level_1
+  priority: 300
+
+config:
+  - field_castle_level_1_slides.yaml
+
+# hit door to lit
+# hit again and let magnet grap the ball
+# when grabbed open will be opened
+# when shot is made the door will closed
+# reset shot
+shot_profiles:
+  sp_castle_door:
+    advance_on_hit: false
+    states:
+      - name: unlit
+        show: flames
+      - name: lit
+        show: flash_normal
+      - name: open
+        show: flash_heartbeat
+
+shots:
+  sh_castle_door:
+    advance_events: sh_core_castle_door_hit
+    profile: sp_castle_door
+
+state_machines:
+  sm_level_1_progress:
+    starting_state: part_1
+    persist_state: true
+    states:
+      part_1:
+        label: Albus Dumbledore
+      part_2:
+        label: Forbidden Forest
+      part_3:
+        label: You know who
+    transitions:
+      - source: part_1
+        target: part_2
+        events: level_1_part_completed, test_event
+      - source: part_2
+        target: part_3
+        events: level_1_part_completed, test_event
+
+slide_player:
+  mode_field_castle_level_1_started{device.state_machines.sm_level_1_progress.state == 'part_1'}: 
+    sl_part_1:
+      expire: 3s
+  mode_field_castle_level_1_started{device.state_machines.sm_level_1_progress.state == 'part_2'}: 
+    sl_part_2:
+      expire: 3s
+  mode_field_castle_level_1_started{device.state_machines.sm_level_1_progress.state == 'part_3'}: 
+    sl_part_3:
+      expire: 3s

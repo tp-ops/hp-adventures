@@ -47,10 +47,10 @@ modes:
   - field_orbits
   - field_orbits_alternative
   - field_chamber_of_secrets
-  - field_clock_tower_entrance_hall
+  - field_clock_tower
   - field_diagon_alley
   - field_quidditch_stadium
-  - field_main_entrance_hall
+  - field_castle_level_1
   - field_ministry_of_magic
   - field_house_cup
   - field_platform_nine_three_quarters

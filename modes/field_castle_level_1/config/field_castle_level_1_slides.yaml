@@ -1,0 +1,97 @@
+#config_version=5
+slides:
+  # Main slide center position is as follows;
+  # x: left+575     # (x = 1250 - 100 = 1150)
+  # y: top-315      # (y =  700 -  70 =  630)
+  # anchor_x: middle
+  # anchor_y: middle
+  sl_part_1:
+    widgets:
+    - type: text
+      font_name: harry-potter
+      text: LEVEL 1
+      font_size: 80
+      color: score_text_default
+      x: left+575
+      y: top-100
+      anchor_x: middle
+      anchor_y: middle
+    - type: text
+      font_name: harry-potter
+      text: Hogwarts School of Witchcraft and Wizardry
+      font_size: 55
+      color: score_text_default
+      x: left+575
+      y: top-200
+      anchor_x: middle
+      anchor_y: middle
+    - type: text
+      font_name: harry-potter
+      text: Albus Dumbledore
+      font_size: 100
+      color: score_text_default
+      x: left+575
+      y: top-350
+      anchor_x: middle
+      anchor_y: middle
+    - widget: widget_main_back_(current_player.house_theme_name)
+  sl_part_2:
+    widgets:
+    - type: text
+      font_name: harry-potter
+      text: LEVEL 1
+      font_size: 60
+      color: score_text_default
+      x: left+575
+      y: top-100
+      anchor_x: middle
+      anchor_y: middle
+    - type: text
+      font_name: harry-potter
+      text: Hogwarts School of Witchcraft and Wizardry
+      font_size: 60
+      color: score_text_default
+      x: left+575
+      y: top-150
+      anchor_x: middle
+      anchor_y: middle
+    - type: text
+      font_name: harry-potter
+      text: Forbidden Forest
+      font_size: 40
+      color: score_text_default
+      x: left+575
+      y: top-250
+      anchor_x: middle
+      anchor_y: middle
+    - widget: widget_main_back_(current_player.house_theme_name)
+  sl_part_3:
+    widgets:
+    - type: text
+      font_name: harry-potter
+      text: LEVEL 1
+      font_size: 60
+      color: score_text_default
+      x: left+575
+      y: top-100
+      anchor_x: middle
+      anchor_y: middle
+    - type: text
+      font_name: harry-potter
+      text: Hogwarts School of Witchcraft and Wizardry
+      font_size: 60
+      color: score_text_default
+      x: left+575
+      y: top-150
+      anchor_x: middle
+      anchor_y: middle
+    - type: text
+      font_name: harry-potter
+      text: You know who
+      font_size: 40
+      color: score_text_default
+      x: left+575
+      y: top-250
+      anchor_x: middle
+      anchor_y: middle
+    - widget: widget_main_back_(current_player.house_theme_name)

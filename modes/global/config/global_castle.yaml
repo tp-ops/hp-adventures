@@ -1,0 +1,42 @@
+#config_version=5
+event_player:
+  start_field_modes{device.state_machines.sm_castle_main_progress.state == 'level_1'}:
+    - start_mode_field_castle_level_1
+  start_field_modes{device.state_machines.sm_castle_main_progress.state == 'level_2'}:
+    - start_mode_field_castle_level_2
+  start_field_modes{device.state_machines.sm_castle_main_progress.state == 'level_3'}:
+    - start_mode_field_castle_level_3
+  mode_global_will_stop:
+    - stop_mode_field_castle_level_1
+    - stop_mode_field_castle_level_2
+    - stop_mode_field_castle_level_3
+
+
+
+# first time in Hogwarts Castle you get intro about the greatest wizards (maybe at this point you have to choose a house)
+# after intro you get an overview of progress, this will be shown everytime afterwards
+# at some point you unlock level 2 - You know Who, you learn about voldermort
+# at some point you unlock level 3 - Dark Magic, you learn about some dark magic
+# at some point you unlock level 4 - Horcrux overview, you learn about horcruxes
+state_machines:
+  sm_castle_main_progress:
+    starting_state: level_1
+    states:
+      level_1:
+        label: Hogwarts school of Witchcraft and Wizardry
+      level_2:
+        label: Heir of Slytherin
+      level_3:
+        label: Dark Arts
+      level_4:
+        label: Horcrux Overview
+    transitions:
+      - source: level_1
+        target: level_2
+        events: sm_castle_start_completed
+      - source: level_2
+        target: level_3
+        events: sm_castle_level_2_completed
+      - source: level_3
+        target: level_4
+        events: sm_castle_level_3_completed
