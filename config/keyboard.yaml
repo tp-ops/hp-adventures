@@ -14,6 +14,8 @@ keyboard:
     switch: s_plunger_lane
   t:
     switch: s_tar_platform
+  g:
+    event: test_event
   b:
     switch: s_pop_left
   1:

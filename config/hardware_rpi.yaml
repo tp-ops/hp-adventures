@@ -1,6 +1,6 @@
 #config_version=5
 raspberry_pi:
-  ip: 172.17.17.26
+  ip: 192.168.0.101
   port: 8888
   
 switches:

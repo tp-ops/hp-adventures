@@ -7,16 +7,18 @@ show_player:
     # attract_display_loop:
     #   action: play
     #   loops: -1
-    stop_incand_blink:
-      action: play
-      loops: 1
     attract_light_loop:
       action: play
       loops: -1
+    stop_incand_blink:
+      action: play
+      loops: 1
   mode_attract_will_stop:
     # attract_display_loop:
     #   action: stop
     attract_light_loop:
+      action: stop
+    stop_incand_blink:
       action: stop
 
 sound_player:

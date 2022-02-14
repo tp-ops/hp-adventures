@@ -36,7 +36,18 @@ shows:
         (led):
           color: stop
           fade: 0.25
-  
+  flames:
+    - duration: 0.25
+      lights:
+        (led):
+          color: (color_name)
+          fade: 0.25
+    - duration: 0.25
+      lights:
+        (led):
+          color: stop
+          fade: 0.25
+
   blink_once:
     - time: 0
       lights:

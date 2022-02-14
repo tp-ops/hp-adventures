@@ -5,10 +5,10 @@ mode:
   priority: 100
   
 config:
-- base_achievements.yaml
-- base_shots.yaml
-- base_shows.yaml
-- base_widgets.yaml
+  - base_achievements.yaml
+  - base_shots.yaml
+  - base_shows.yaml
+  - base_widgets.yaml
 
 # ball_saves:
 #   default:
