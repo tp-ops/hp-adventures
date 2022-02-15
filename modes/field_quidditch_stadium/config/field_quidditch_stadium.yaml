@@ -65,8 +65,8 @@ shots:
     profile: sp_quidditch_orbit
     advance_events: sg_quidditch_statium_qualify_hit_complete{device.shots.sh_quidditch_orbit.state_name == 'unlit'}
     hit_events: 
-      - sq_shot_left_orbit_big_hit
-      - sq_shot_left_orbit_big_alt_hit
+      - sq_shot_orbit_big_left_hit
+      - sq_shot_orbit_big_left_alt_hit
     show_tokens:
       led: l_ws2812_shot_forrest
       color_name: yellow

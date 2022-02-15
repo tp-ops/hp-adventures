@@ -22,56 +22,56 @@ mode:
 # As a solution a normal shot for each orbit lane is created. These shots activates diverter div_castle (through event_player and shot_hit events) and disables each other orbit lane shot (through shot disable_events) so these do not activate the diverter again.
 # At the end the sequence_shot_hit or _timeout events deactivate diverter div_castle (through event_player and sequence_shot events) and enables each other orbit lane shots (through shot enable_events) again.
 
-# Left-Right-Big      = sq_shot_left_orbit_big
-# Left-Right-Small    = sq_shot_left_orbit_small
-# Right-Left-Small    = sq_shot_right_orbit_small
+# Left-Right-Big      = sq_shot_orbit_big_left
+# Left-Right-Small    = sq_shot_orbit_small_left
+# Right-Left-Small    = sq_shot_orbit_small_right
 
 shots:
-  sh_left_orbit_lane_alt:
+  sh_orbit_lane_left_alt:
     enable_events: 
-      - enable_sh_left_orbit_lane_alt
-      - sq_shot_right_orbit_small_alt_hit
-      - sq_shot_right_orbit_small_alt_timeout
-      - sq_shot_left_orbit_small_alt_hit
-      - sq_shot_left_orbit_small_alt_timeout
+      - enable_sh_orbit_lane_left_alt
+      - sq_shot_orbit_small_right_alt_hit
+      - sq_shot_orbit_small_right_alt_timeout
+      - sq_shot_orbit_small_left_alt_hit
+      - sq_shot_orbit_small_left_alt_timeout
     disable_events: 
-      - sh_right_orbit_lane_alt_hit
-      - sh_castle_orbit_lane_alt_hit
+      - sh_orbit_lane_right_alt_hit
+      - sh_orbit_lane_castle_alt_hit
     hit_events: 
-      - sh_core_left_orbit_lane_hit
-  sh_right_orbit_lane_alt:
+      - sh_core_orbit_lane_left_hit
+  sh_orbit_lane_right_alt:
     enable_events: 
-      - enable_sh_right_orbit_lane_alt
-      - sq_shot_left_orbit_big_alt_hit
-      - sq_shot_left_orbit_big_alt_timeout
-      - sq_shot_left_orbit_small_alt_hit
-      - sq_shot_left_orbit_small_alt_timeout
+      - enable_sh_orbit_lane_right_alt
+      - sq_shot_orbit_big_left_alt_hit
+      - sq_shot_orbit_big_left_alt_timeout
+      - sq_shot_orbit_small_left_alt_hit
+      - sq_shot_orbit_small_left_alt_timeout
     disable_events: 
-      - sh_left_orbit_lane_alt_hit
-      - sh_castle_orbit_lane_alt_hit
+      - sh_orbit_lane_left_alt_hit
+      - sh_orbit_lane_castle_alt_hit
     hit_events:
-      - sh_core_right_orbit_lane_hit
-  sh_castle_orbit_lane_alt:
+      - sh_core_orbit_lane_right_hit
+  sh_orbit_lane_castle_alt:
     enable_events: 
-      - enable_sh_castle_orbit_lane_alt
-      - sq_shot_left_orbit_big_alt_hit
-      - sq_shot_left_orbit_big_alt_timeout
-      - sq_shot_right_orbit_small_alt_hit
-      - sq_shot_right_orbit_small_alt_timeout
+      - enable_sh_orbit_lane_castle_alt
+      - sq_shot_orbit_big_left_alt_hit
+      - sq_shot_orbit_big_left_alt_timeout
+      - sq_shot_orbit_small_right_alt_hit
+      - sq_shot_orbit_small_right_alt_timeout
     disable_events: 
-      - sh_left_orbit_lane_alt_hit
-      - sh_right_orbit_lane_alt_hit
+      - sh_orbit_lane_left_alt_hit
+      - sh_orbit_lane_right_alt_hit
     hit_events:
-      - sh_core_castle_orbit_lane_hit
+      - sh_core_orbit_lane_castle_hit
     
 sequence_shots:
-  sq_shot_left_orbit_big_alt:
+  sq_shot_orbit_big_left_alt:
     switch_sequence: s_orbit_left, s_orbit_right
     sequence_timeout: 3s
-  sq_shot_left_orbit_small_alt:
+  sq_shot_orbit_small_left_alt:
     switch_sequence: s_div_castle, s_orbit_right
     sequence_timeout: 3s
-  sq_shot_right_orbit_small_alt:
+  sq_shot_orbit_small_right_alt:
     switch_sequence: s_orbit_right, s_div_castle
     sequence_timeout: 3s
 
@@ -79,14 +79,14 @@ event_player:
   mode_field_orbits_alternative_started:
     - enable_div_castle
     - enable_div_forest
-    - enable_sh_left_orbit_lane_alt
-    - enable_sh_right_orbit_lane_alt
-    - enable_sh_castle_orbit_lane_alt
+    - enable_sh_orbit_lane_left_alt
+    - enable_sh_orbit_lane_right_alt
+    - enable_sh_orbit_lane_castle_alt
   stop_mode_field_orbits_alternative:
     - deactivate_div_castle
     - deactivate_div_forest
     - disable_div_castle|0.1s
     - disable_div_forest|0.1s
-  sh_left_orbit_lane_alt_hit:
+  sh_orbit_lane_left_alt_hit:
     - activate_div_castle
     - deactivate_div_castle|2s

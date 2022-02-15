@@ -597,16 +597,16 @@ class test_game_logic(MpfGameTestCase):
         self.assertModeNotRunning("field_orbits_alternative")
 
         # Mock events comming from mode field_orbits and field_orbits_alternative
-        self.mock_event("sq_shot_left_orbit_big_hit")
-        self.mock_event("sq_shot_left_orbit_big_alt_hit")
+        self.mock_event("sq_shot_orbit_big_left_hit")
+        self.mock_event("sq_shot_orbit_big_left_alt_hit")
         
         # Test field_orbits mode connection
         self.hit_and_release_switch("s_orbit_left")
         self.advance_time_and_run(1)
         self.hit_and_release_switch("s_orbit_right")
         self.advance_time_and_run(1)
-        self.assertEventCalled("sq_shot_left_orbit_big_hit")
-        self.assertEventNotCalled("sq_shot_left_orbit_big_alt_hit")
+        self.assertEventCalled("sq_shot_orbit_big_left_hit")
+        self.assertEventNotCalled("sq_shot_orbit_big_left_alt_hit")
         self.reset_mock_events()
 
         # Change active field_orbits to field_orbits_alternative
@@ -618,14 +618,14 @@ class test_game_logic(MpfGameTestCase):
         self.assertModeNotRunning("field_orbits")
 
         # Mock events comming from mode field_orbits and field_orbits_alternative
-        self.mock_event("sq_shot_left_orbit_big_hit")
-        self.mock_event("sq_shot_left_orbit_big_alt_hit")
+        self.mock_event("sq_shot_orbit_big_left_hit")
+        self.mock_event("sq_shot_orbit_big_left_alt_hit")
         
         # Test field_orbits mode connection
         self.hit_and_release_switch("s_orbit_left")
         self.advance_time_and_run(1)
         self.hit_and_release_switch("s_orbit_right")
         self.advance_time_and_run(1)
-        self.assertEventCalled("sq_shot_left_orbit_big_alt_hit")
-        self.assertEventNotCalled("sq_shot_left_orbit_big_hit")
+        self.assertEventCalled("sq_shot_orbit_big_left_alt_hit")
+        self.assertEventNotCalled("sq_shot_orbit_big_left_hit")
         self.reset_mock_events()
