@@ -72,14 +72,15 @@ widgets:
       y: middle
       anchor_x: right
       anchor_y: middle
-  widget_active_player_score_change:
+  # Small size active player's last score useer on score slide.
+  widget_active_player_last_score:
     - type: text
-      text: (player|var_score_last)
+      text: (player|var_last_score)
       color: score_text_default
       font_size: 25
       font_name: harry-potter
       x: middle+150
-      y: middle
+      y: middle-50
       anchor_x: right
       anchor_y: middle
   # Big size active player's logo on score slide.

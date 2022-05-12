@@ -40,6 +40,16 @@ event_player:
   mode_type_wizard_stopped{not mode["base"].stopping}:
     - start_mode_global
 
+variable_player:
+  # s_pop_left_active:
+  #   var_score: 500
+  # s_pop_right_active:
+  #   var_score: 50
+  player_var_score:
+    var_last_score:
+      int: (change)
+      action: set
+
 slide_player:
   # Show always a slide with only a background when no other slide is active
   mode_base_started: 
@@ -52,13 +62,13 @@ slide_player:
       target: lcd_score 
   mode_base_started{game.num_players==2}: 
     sl_score_two_players:
-      target: lcd_score
+      target: lcd_score 
   mode_base_started{game.num_players==3}: 
     sl_score_three_players:
-      target: lcd_score  
+      target: lcd_score 
   mode_base_started{game.num_players==4}: 
     sl_score_four_players:
-      target: lcd_score  
+      target: lcd_score 
   player_added{num==2}:
     sl_score_one_player:
       action: remove
@@ -99,7 +109,7 @@ slides:
   sl_score_one_player:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
-    - widget: widget_active_player_score_change
+    - widget: widget_active_player_last_score
     - widget: widget_player_1_title_logo_(players[0].house_theme_name)
     - widget: widget_player_1_title
     - widget: widget_player_1_score
@@ -108,7 +118,7 @@ slides:
   sl_score_two_players:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
-    - widget: widget_active_player_score_change
+    - widget: widget_active_player_last_score
     - widget: widget_player_1_title_logo_(players[0].house_theme_name)
     - widget: widget_player_1_title
     - widget: widget_player_1_score
@@ -120,7 +130,7 @@ slides:
   sl_score_three_players:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
-    - widget: widget_active_player_score_change
+    - widget: widget_active_player_last_score
     - widget: widget_player_1_title_logo_(players[0].house_theme_name)
     - widget: widget_player_1_title
     - widget: widget_player_1_score
@@ -135,7 +145,7 @@ slides:
   sl_score_four_players:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
-    - widget: widget_active_player_score_change
+    - widget: widget_active_player_last_score
     - widget: widget_player_1_title_logo_(players[0].house_theme_name)
     - widget: widget_player_1_title
     - widget: widget_player_1_score
