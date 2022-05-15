@@ -41,10 +41,9 @@ event_player:
     - start_mode_global
 
 variable_player:
-  # s_pop_left_active:
-  #   var_score: 500
-  # s_pop_right_active:
-  #   var_score: 50
+  # Create a new variable 'var_last_score' to show this on a slide to show the last score scored.
+  # So when a player scores some points, the 'change' value from 'var_score' will be set to this variable.
+  # One score slides there's a widget showing this value.
   player_var_score:
     var_last_score:
       int: (change)
@@ -57,18 +56,8 @@ slide_player:
       target: lcd_main
     sl_side_theme_background:
       target: lcd_side
-  mode_base_started{game.num_players==1}: 
-    sl_score_one_player:
-      target: lcd_score 
-  mode_base_started{game.num_players==2}: 
-    sl_score_two_players:
-      target: lcd_score 
-  mode_base_started{game.num_players==3}: 
-    sl_score_three_players:
-      target: lcd_score 
-  mode_base_started{game.num_players==4}: 
-    sl_score_four_players:
-      target: lcd_score 
+  # Each number of player(s) has its own score slide with correspondenting count of 'player score' widgets.
+  # When a extra player is added to the game, the score display has to show to the correspondenting player number slide and remove the existing one.
   player_added{num==2}:
     sl_score_one_player:
       action: remove
@@ -87,6 +76,20 @@ slide_player:
     sl_score_four_players:
       target: lcd_score
       action: play
+  # Also each time a new ball has started, the game must show the correct slide correspondinting to the number of players.
+  mode_base_started{game.num_players==1}: 
+    sl_score_one_player:
+      target: lcd_score 
+  mode_base_started{game.num_players==2}: 
+    sl_score_two_players:
+      target: lcd_score 
+  mode_base_started{game.num_players==3}: 
+    sl_score_three_players:
+      target: lcd_score 
+  mode_base_started{game.num_players==4}: 
+    sl_score_four_players:
+      target: lcd_score
+  # Remove all slides at the end of each ball.
   ball_will_end:
     sl_main_theme_background:
       action: remove
@@ -102,10 +105,12 @@ slide_player:
       action: remove
 
 slides:
+  # Default main and side slides
   sl_main_theme_background:
     - widget: widget_main_back_(current_player.house_theme_name)
   sl_side_theme_background:
     - widget: widget_side_back_(current_player.house_theme_name)
+  # Score slide used for one player.
   sl_score_one_player:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
@@ -115,6 +120,7 @@ slides:
     - widget: widget_player_1_score
     #- widget: widget_active_player_logo_(current_player.house_theme_name)
     - widget: widget_score_back_(current_player.house_theme_name)
+  # Score slide used for two players.
   sl_score_two_players:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
@@ -127,6 +133,7 @@ slides:
     - widget: widget_player_2_score
     #- widget: widget_active_player_logo_(current_player.house_theme_name)
     - widget: widget_score_back_(current_player.house_theme_name)
+  # Score slide used for three players.
   sl_score_three_players:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
@@ -142,6 +149,7 @@ slides:
     - widget: widget_player_3_score
     #- widget: widget_active_player_logo_(current_player.house_theme_name)
     - widget: widget_score_back_(current_player.house_theme_name)
+  # Score slide used for four players.
   sl_score_four_players:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
