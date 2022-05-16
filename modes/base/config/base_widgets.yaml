@@ -1,6 +1,6 @@
 #config_version=5
 widgets:
-  # Backgrounds for main window slides.
+  # Backgrounds for main window slides. Each theme has its own widget. Wich one will be used is determined by the varirable house_theme
   widget_main_back_gryffindor:
     - type: image
       image: back_main_gryffindor
@@ -13,7 +13,7 @@ widgets:
   widget_main_back_slytherin:
     - type: image
       image: back_main_slytherin
-  # Backgrounds for side window slides.
+  # Backgrounds for side window slides. Each theme has its own widget. Wich one will be used is determined by the varirable house_theme
   widget_side_back_gryffindor:
     - type: image
       image: back_side_gryffindor
@@ -26,7 +26,7 @@ widgets:
   widget_side_back_slytherin:
     - type: image
       image: back_side_slytherin
-  # Backgrounds for score window slide.
+  # Backgrounds for score window slide. Each theme has its own widget. Wich one will be used is determined by the varirable house_theme
   widget_score_back_gryffindor:
     - type: image
       image: back_score_gryffindor
@@ -39,7 +39,7 @@ widgets:
   widget_score_back_slytherin:
     - type: image
       image: back_score_slytherin
-  # Active player number and ball count used on score slide.
+  # Active player number, ball count and house_theme_name used on score slide.
   widget_active_player_info:
     - type: text
       text: (player|house_theme_title)
@@ -86,7 +86,6 @@ widgets:
   # Big size active player's logo on score slide.
   # This has been replaced by logo embedded in different bachground images.
   # Still it maybe usable so it's only comment-out
-  
   # widget_active_player_logo_gryffindor:
   #   - type: image
   #     image: logo_active_player_gryffindor
@@ -116,7 +115,7 @@ widgets:
   #     anchor_x: right
   #     anchor_y: middle
 
-  # Player 1 title, score & logo for when it is not playing, used on score slide.
+  # Player 1 title, score & house_theme_logo for when it is not playing, used on score slide.
   widget_player_1_title:
     - type: text
       text: PLAYER 1
@@ -141,6 +140,7 @@ widgets:
       y: bottom+140
       anchor_x: right
       anchor_y: bottom
+  # For displaying house_theme_logo, each posible value has it own widget.
   # Tranparent logo_0 widget is used as player logo for when player 1 has not choosen a house yet. 
   widget_player_1_title_logo_0:
     - type: image
@@ -177,7 +177,7 @@ widgets:
       y: bottom+140
       anchor_x: left
       anchor_y: bottom
-  # Player 2 title, score & logo for when it is not playing, used on score slide.
+  # Player 2 title, score & house_theme_logo for when it is not playing, used on score slide.
   widget_player_2_title:
     - type: text
       text: PLAYER 2
@@ -202,6 +202,7 @@ widgets:
       y: bottom+100
       anchor_x: right
       anchor_y: bottom
+  # For displaying house_theme_logo, each posible value has it own widget.
   # Tranparent logo_0 widget is used as player logo for when player 2 has not choosen a house yet. 
   widget_player_2_title_logo_0:
     - type: image
@@ -238,7 +239,7 @@ widgets:
       y: bottom+100
       anchor_x: left
       anchor_y: bottom
-  # Player 3 title, score & logo for when it is not playing, used on score slide. 
+  # Player 3 title, score & house_theme_logo for when it is not playing, used on score slide. 
   widget_player_3_title:
     - type: text
       text: PLAYER 3
@@ -263,6 +264,7 @@ widgets:
       y: bottom+60
       anchor_x: right
       anchor_y: bottom
+  # For displaying house_theme_logo, each posible value has it own widget.
   # Tranparent logo_0 widget is used as player logo for when player 3 has not choosen a house yet.
   widget_player_3_title_logo_0:
     - type: image
@@ -299,7 +301,7 @@ widgets:
       y: bottom+60
       anchor_x: left
       anchor_y: bottom
-  # Player 4 title, score & logo for when it is not playing, used on score slide.
+  # Player 4 title, score & house_theme_logo for when it is not playing, used on score slide.
   widget_player_4_title:
     - type: text
       text: PLAYER 4
@@ -324,6 +326,7 @@ widgets:
       y: bottom+20
       anchor_x: right
       anchor_y: bottom
+  # For displaying house_theme_logo, each posible value has it own widget.
   # Tranparent logo_0 widget is used as player logo for when player 4 has not choosen a house yet. 
   widget_player_4_title_logo_0:
     - type: image
