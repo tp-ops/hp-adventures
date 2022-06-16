@@ -11,25 +11,58 @@ config:
 # hit again and let magnet grap the ball
 # when grabbed open will be opened
 # when shot is made the door will closed
+# when missed door will be left open until shot is made
 # reset shot
+shots:
+  sh_castle_door:
+    advance_events: sh_core_castle_door_hit
+    profile: sp_castle_door
+    show_tokens:
+      led: l_ws2812_castle_door
+      color_name: flames
+  sh_castle_main_entrance:
+    advance_events: sh_core_castle_main_entrance_hit
+    profile: sp_castle_main_entrance
+  sh_castle_part_1_clock_tower:
+    advance_events: sh_core_castle_main_entrance_hit
+    profile: sp_castle_part_1_ct
+  sh_castle_part_2_forbidden_forest:
+    advance_events: sh_core_castle_main_entrance_hit
+    profile: sp_castle_part_2_ff
+
+
+
 shot_profiles:
   sp_castle_door:
     advance_on_hit: false
     states:
       - name: unlit
         show: flames
+        sync_ms: 500
       - name: lit
         show: flash_normal
+        sync_ms: 500
       - name: open
         show: flash_heartbeat
-
-shots:
-  sh_castle_door:
-    advance_events: sh_core_castle_door_hit
-    profile: sp_castle_door
+        sync_ms: 500
+  sp_castle_main_entrance:
+    advance_on_hit: false
+    states:
+      - name: unlit
+      - name: lit
+  sp_castle_part_1_ct:
+    advance_on_hit: false
+    states:
+      - name: unlit
+      - name: lit
+  sp_castle_part_2_ff:
+    advance_on_hit: false
+    states:
+      - name: unlit
+      - name: lit
 
 state_machines:
-  sm_level_1_progress:
+  sm_castle_level_1_progress:
     starting_state: part_1
     persist_state: true
     states:
@@ -48,12 +81,12 @@ state_machines:
         events: level_1_part_completed, test_event
 
 slide_player:
-  mode_field_castle_level_1_started{device.state_machines.sm_level_1_progress.state == 'part_1'}: 
+  mode_field_castle_level_1_started{device.state_machines.sm_castle_level_1_progress.state == 'part_1'}: 
     sl_part_1:
       expire: 3s
-  mode_field_castle_level_1_started{device.state_machines.sm_level_1_progress.state == 'part_2'}: 
+  mode_field_castle_level_1_started{device.state_machines.sm_castle_level_1_progress.state == 'part_2'}: 
     sl_part_2:
       expire: 3s
-  mode_field_castle_level_1_started{device.state_machines.sm_level_1_progress.state == 'part_3'}: 
+  mode_field_castle_level_1_started{device.state_machines.sm_castle_level_1_progress.state == 'part_3'}: 
     sl_part_3:
       expire: 3s

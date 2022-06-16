@@ -28,19 +28,27 @@ shots:
     switches: s_tower
     enable_events: mode_base_started
     profile: sp_core_shots
-  sh_core_left_orbit_lane:
+  sh_core_orbit_lane_left:
     switches: s_orbit_left
     enable_events: mode_base_started
     profile: sp_core_shots
-  sh_core_right_orbit_lane:
+  sh_core_orbit_lane_right:
     switches: s_orbit_right
     enable_events: mode_base_started
     profile: sp_core_shots
-  sh_core_castle_orbit_lane:
+  sh_core_orbit_lane_castle:
     switches: s_div_castle
     enable_events: mode_base_started
     profile: sp_core_shots
-  
+  sh_core_castle_door:
+    switches: s_castle_door
+    enable_events: mode_base_started
+    profile: sp_core_shots
+  sh_core_castle_main_entrance:
+    switches: s_subway_vuk_selector
+    enable_events: mode_base_started
+    profile: sp_core_shots
+
 
 
 
@@ -51,14 +59,8 @@ shots:
   sh_core_vuk_bottom:
     switches: s_vuk_bottom
     enable_events: mode_base_started
-  
-  sh_core_castle_door:
-    switches: s_castle_door
-    enable_events: mode_base_started
 
-  sh_core_main_entrance_hall:
-    switches: s_subway_vuk_selector
-    enable_events: mode_base_started
+
 
   sh_core_chamber_of_secrets:
     switches: s_subway_vuk_left_buffer_chamber
