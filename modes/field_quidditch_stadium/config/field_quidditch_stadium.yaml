@@ -175,6 +175,14 @@ show_player:
         led: l_pop_bottom
         color_name: white
 
+sound_player:
+  sh_quidditch_stadium_hit:
+    pop_bumper_pool:
+      action: play
+  sh_quidditch_orbit_lit_hit:
+    mysterious_03:
+      action: play
+
 # Counter -> logic_block_timer (complete all counters within this time)
 # Counter ->  control_events:
 #              - event: add_five_event

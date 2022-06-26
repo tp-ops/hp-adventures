@@ -48,3 +48,11 @@ shot_profiles:
 variable_player:
   sq_shot_diagon_alley_hit:
     var_gold: 100
+
+sound_player:
+  sh_diagon_alley_sp_diagon_alley_lit_hit:
+    mysterious_01:
+      action: play
+  sh_light_diagon_alley_sp_light_diagon_alley_lit_hit:
+    mysterious_02:
+      action: play

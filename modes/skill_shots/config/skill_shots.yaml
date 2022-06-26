@@ -40,6 +40,10 @@ timers:
       - action: start
         event: balldevice_bd_plunger_ball_eject_success
 
+
+# Skill vairable for score multiplier
+
+
 state_machines:
   sm_skill_shot_plunger:
     states:
@@ -58,3 +62,8 @@ state_machines:
       - source: start
         target: failed
         events: timer_t_skill_shot_plunger_timeout_complete
+
+sound_player:
+  skill_shot_plunger_success:
+    locomotive_01:
+      action: play

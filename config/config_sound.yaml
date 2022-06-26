@@ -1,17 +1,138 @@
 #config_version=5
 sound_system:
-  master_volume: 0.8
+  master_volume: 1.0
   tracks:
     music:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.6
+      volume: 0.4
     voice:
       type: standard
       simultaneous_sounds: 1
-      volume: 0.8
+      volume: 1.0
     sfx:
       type: standard
       simultaneous_sounds: 8
-      volume: 0.7
+      volume: 1.0
 
+sound_pools:
+  pop_bumper_pool:
+    type: random
+    track: sfx
+    sounds:
+      - bell_01
+      - bell_02
+      - bell_03
+  laser_pool:
+    type: random
+    track: sfx
+    sounds:
+      - laser_01
+      - laser_02
+      - laser_03
+      - laser_04
+      - laser_05
+      - laser_06
+      - laser_07
+  swoosh_pool:
+    type: random
+    track: sfx
+    sounds:
+      - swoosh_01
+      - swoosh_02
+      - swoosh_03
+      - swoosh_04
+      - swoosh_05
+      - swoosh_06
+
+
+sounds:
+# Music track
+  mystery_loop:
+    file: mystery_loop.wav
+    track: music
+# SFX track
+  locomotive_01:
+    file: locomotive_01.wav
+    track: sfx
+  gong_01:
+    file: gong_01.wav
+    track: sfx
+  gong_02:
+    file: gong_02.wav
+    track: sfx
+  gong_03:
+    file: gong_03.wav
+    track: sfx
+  gong_04:
+    file: gong_04.wav
+    track: sfx
+  bell_01:
+    file: bell_01.wav
+    track: sfx
+  bell_02:
+    file: bell_02.wav
+    track: sfx
+  bell_03:
+    file: bell_03.wav
+    track: sfx
+  swoosh_01:
+    file: swoosh_01.wav
+    track: sfx
+  swoosh_02:
+    file: swoosh_02.wav
+    track: sfx
+  swoosh_03:
+    file: swoosh_03.wav
+    track: sfx
+  swoosh_04:
+    file: swoosh_04.wav
+    track: sfx
+  swoosh_05:
+    file: swoosh_05.wav
+    track: sfx
+  swoosh_06:
+    file: swoosh_06.wav
+    track: sfx
+  laser_01:
+    file: laser_01.wav
+    track: sfx
+  laser_02:
+    file: laser_02.wav
+    track: sfx
+  laser_03:
+    file: laser_03.wav
+    track: sfx
+  laser_04:
+    file: laser_04.wav
+    track: sfx
+  laser_05:
+    file: laser_05.wav
+    track: sfx
+  laser_06:
+    file: laser_06.wav
+    track: sfx
+  laser_07:
+    file: laser_07.wav
+    track: sfx
+  mysterious_01:
+    file: mysterious_01.wav
+    track: sfx
+  mysterious_02:
+    file: mysterious_02.wav
+    track: sfx
+  mysterious_03:
+    file: mysterious_03.wav
+    track: sfx
+  mysterious_04:
+    file: mysterious_04.wav
+    track: sfx
+  hp_tune_01:
+    file: hp_tune_01.wav
+    track: sfx
+  hp_tune_02:
+    file: hp_tune_02.wav
+    track: sfx
+  hp_tune_03:
+    file: hp_tune_03.wav
+    track: sfx

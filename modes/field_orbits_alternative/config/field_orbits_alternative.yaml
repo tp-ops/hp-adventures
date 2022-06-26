@@ -90,3 +90,15 @@ event_player:
   sh_orbit_lane_left_alt_hit:
     - activate_div_castle
     - deactivate_div_castle|2s
+
+# Used this sound in modes that using these shot events
+# sound_player:
+#   sq_shot_orbit_small_right_alt_hit:
+#     mysterious_03:
+#       action: play
+#   sq_shot_orbit_small_left_alt_hit:
+#     mysterious_03:
+#       action: play
+#   sq_shot_orbit_big_left_alt_hit:
+#     mysterious_03:
+#       action: play

@@ -24,6 +24,11 @@ config:
 #     auto_launch: true
 #     balls_to_save: 1
 
+sound_player:
+  mode_base_started:
+    hp_tune_03:
+      action: play
+
 event_player:
   # Switch start button back to allow adding players again
   s_start_button_active:

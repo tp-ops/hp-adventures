@@ -243,3 +243,11 @@ show_player:
       show_tokens:
         led: l_ws2812_mis_order_of_the_phoenix
         color_name: (current_player.house_theme_led)
+
+sound_player:
+  drop_target_bank_dtb_ministry_mixed:
+    swoosh_pool:
+      action: play
+  drop_target_bank_dtb_ministry_down:  
+    swoosh_pool:
+      action: play
