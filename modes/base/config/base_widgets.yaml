@@ -64,7 +64,7 @@ widgets:
     - type: text
       text: (player|var_score)
       color: score_text_default
-      font_size: 100
+      font_size: 90
       font_name: harry-potter
       min_digits: 2
       number_grouping: true
@@ -75,14 +75,16 @@ widgets:
   # Small size active player's last score useer on score slide.
   widget_active_player_last_score:
     - type: text
-      text: (player|var_last_score)
+      text: +(player|var_last_score)
       color: score_text_default
-      font_size: 25
+      font_size: 40
       font_name: harry-potter
-      x: middle+150
-      y: middle-50
+      number_grouping: true
+      x: middle+250
+      y: middle-65
       anchor_x: right
       anchor_y: middle
+      expire: 1s
   # Big size active player's logo on score slide.
   # This has been replaced by logo embedded in different bachground images.
   # Still it maybe usable so it's only comment-out

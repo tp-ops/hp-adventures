@@ -54,6 +54,28 @@ variable_player:
       int: (change)
       action: set
 
+widget_player:
+  player_var_score{game.num_players==1}: 
+    widget_active_player_last_score:
+      slide: sl_score_one_player
+      widget_settings:
+        z: 100
+  player_var_score{game.num_players==2}: 
+    widget_active_player_last_score:
+      slide: sl_score_two_players
+      widget_settings:
+        z: 100
+  player_var_score{game.num_players==3}: 
+    widget_active_player_last_score:
+      slide: sl_score_tree_players
+      widget_settings:
+        z: 100
+  player_var_score{game.num_players==4}: 
+    widget_active_player_last_score:
+      slide: sl_score_four_players
+      widget_settings:
+        z: 100
+
 slide_player:
   # Show always a slide with only a background when no other slide is active
   mode_base_started: 
@@ -119,7 +141,6 @@ slides:
   sl_score_one_player:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
-    - widget: widget_active_player_last_score
     - widget: widget_player_1_title_logo_(players[0].house_theme_name)
     - widget: widget_player_1_title
     - widget: widget_player_1_score
@@ -129,7 +150,6 @@ slides:
   sl_score_two_players:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
-    - widget: widget_active_player_last_score
     - widget: widget_player_1_title_logo_(players[0].house_theme_name)
     - widget: widget_player_1_title
     - widget: widget_player_1_score
@@ -142,7 +162,6 @@ slides:
   sl_score_three_players:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
-    - widget: widget_active_player_last_score
     - widget: widget_player_1_title_logo_(players[0].house_theme_name)
     - widget: widget_player_1_title
     - widget: widget_player_1_score
@@ -158,7 +177,6 @@ slides:
   sl_score_four_players:
     - widget: widget_active_player_info
     - widget: widget_active_player_score
-    - widget: widget_active_player_last_score
     - widget: widget_player_1_title_logo_(players[0].house_theme_name)
     - widget: widget_player_1_title
     - widget: widget_player_1_score
