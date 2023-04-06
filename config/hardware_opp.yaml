@@ -15,8 +15,13 @@ opp:
 #| Use "allow_enable" or "default_bold_power" when coils needs to be on for a longer period of time. This will prevent them from burning out!
 #| Using "allow_enable: true" instead of default_pulse_power for flippers because these are dual-wounded coil so the power is controlled through coil wires.
 #| Using "default_hold_power" for all other coils that need to be on for a longer period time and set the desired power from 0 to 1 where 1 is 100%.
+#|========================================|#
+#| - MAGNET SAFETY - DO NOT ENABLE THEM - |#
+#|========================================|#
+#| NEVER full enable magnets, use short pulses + PWM instead!
+#| Using "default_hold_power" for magnets that need to be on for a longer period time and set the desired power from 0 to 1 where 1 is 100%. Do not use a higher value then 30% at max!
 
-# TODO
+#TODO
 # Playfield active switches (Not by shots, handled internaly)
 
 coils:
@@ -379,73 +384,78 @@ switches:
     
 lights:
   # OPP CHAIN 1 BOARD 0
-  l_pop_left:
+  l_dummy_1:
     platform: opp
     number: 1-0-16
     subtype: incand
     debug: true
-  l_pop_right:
+  l_pop_left:
     platform: opp
     number: 1-0-17
     subtype: incand
     debug: true
-  l_pop_bottom:
+  l_pop_right:
     platform: opp
     number: 1-0-18
     subtype: incand
     debug: true
-  l_flip_lane_left:
+  l_pop_bottom:
     platform: opp
     number: 1-0-19
     subtype: incand
     debug: true
-  l_flip_lane_right:
+  l_flip_lane_left:
     platform: opp
     number: 1-0-20
     subtype: incand
     debug: true
-  l_sling_left:
+  l_flip_lane_right:
     platform: opp
     number: 1-0-21
     subtype: incand
     debug: true
-  l_sling_right:
+  l_sling_left:
     platform: opp
     number: 1-0-22
     subtype: incand
     debug: true
-  l_spot_sling_left:
+  l_sling_right:
     platform: opp
     number: 1-0-23
     subtype: incand
     debug: true
-  l_spot_sling_right:
+  l_spot_sling_left:
     platform: opp
     number: 1-0-24
     subtype: incand
     debug: true
-  l_side_left:
+  l_spot_sling_right:
     platform: opp
     number: 1-0-25
     subtype: incand
     debug: true
-  l_side_right:
+  l_side_left:
     platform: opp
     number: 1-0-26
     subtype: incand
     debug: true
-  l_side_drain:
+  l_side_right:
     platform: opp
     number: 1-0-27
     subtype: incand
     debug: true
-  l_side_top_left:
+  l_side_drain:
     platform: opp
     number: 1-0-28
     subtype: incand
     debug: true
-  l_side_top_right:
+  l_side_top_left:
     platform: opp
     number: 1-0-29
+    subtype: incand
+    debug: true
+  l_side_top_right:
+    platform: opp
+    number: 1-0-30
     subtype: incand
     debug: true

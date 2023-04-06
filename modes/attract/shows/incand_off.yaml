@@ -1,0 +1,35 @@
+#show_version=5
+- time: 0
+  lights:
+    l_dummy_1: ff
+    l_side_drain: ff
+    l_side_top_right: ff
+    l_side_top_left: ff
+    l_side_right: ff
+    l_side_left: ff
+    l_spot_sling_right: ff
+    l_spot_sling_left: ff
+    l_sling_right: ff
+    l_sling_left: ff
+    l_flip_lane_right: ff
+    l_flip_lane_left: ff
+    l_pop_bottom: ff
+    l_pop_left: ff
+    l_pop_right: ff
+- time: +5
+  lights:
+    l_dummy_1: ff
+    l_side_drain: 0
+    l_side_top_right: 0
+    l_side_top_left: 0
+    l_side_right: 0
+    l_side_left: 0
+    l_spot_sling_right: 0
+    l_spot_sling_left: 0
+    l_sling_right: 0
+    l_sling_left: 0
+    l_flip_lane_right: 0
+    l_flip_lane_left: 0
+    l_pop_bottom: 0
+    l_pop_left: 0
+    l_pop_right: 0

@@ -12,36 +12,6 @@ keyboard:
     switch: s_drain
   p:
     switch: s_plunger_lane
-  t:
-    switch: s_tar_platform
-  g:
-    event: test_event
-  b:
-    switch: s_pop_left
-  1:
-    event: start_mode_field_orbits
-  2:
-    event: stop_mode_field_orbits
-  3:
-    event: activate_div_castle
-  4:
-    event: deactivate_div_castle
-  5:
-    event: enable_div_tower_pensieve
-  6:
-    event: disable_div_tower_pensieve
-  7:
-    event: activate_div_tower_pensieve
-  8:
-    switch: s_orbit_left
-  9:
-    switch: s_div_castle
-  0:
-    switch: s_orbit_right
-  n:
-    event: start_mode_field_clock_tower_entrance_hall
-  m:
-    event: stop_mode_field_clock_tower_entrance_hall
   e:
     switch: s_service_enter
   left:
