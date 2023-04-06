@@ -1,8 +1,19 @@
 #config_version=5
+
+# For Spell 1
+# * Make 10 Ramp Shots to lit the Spells Light Qualification
+# * Make another Ramp Shot to activate Spells Light Qualification and lit the Right Ramp Light (maybe later also Orbit Shot lights)
+# * A 10 seconds timer starts to complete Spells Light Qualification
+# - Before timer ends make another right ramp shot and collect bonus level
+# * State machine levels up when timer ends or when qualifying completes
+
 mode:           
   start_events: start_mode_field_spells_ramp
   stop_events: stop_mode_field_spells_ramp
   priority: 300
+
+config:
+  - field_spells_ramp_slides.yaml
 
 sequence_shots:
   sq_shot_spells_ramp:
@@ -27,7 +38,9 @@ shots:
     restart_events: 
       - timer_right_ramp_light_qualify_timer_complete
       - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
-    advance_events: lb_spells_light_qualify_counter_completed
+    advance_events: 
+      - lb_spells_light_qualify_counter_completed
+      - timer_right_ramp_light_qualify_timer_started
     profile: sp_spells_light
     show_tokens:
       led: l_ws2812_mis_spells
@@ -66,7 +79,7 @@ counters:
     restart_events: 
       - timer_right_ramp_light_qualify_timer_complete
       - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
-    events_when_complete: lb_spells_light_qualify_counter_completed
+    events_when_complete: lb_spells_light_qualify_counter_completed, test
 
 timers:
   right_ramp_light_qualify_timer:
@@ -82,36 +95,63 @@ timers:
 state_machines:
   sm_spells_level:
     persist_state: true
-    starting_state: level_1
+    starting_state: Spell 1
     states:
-      level_1:
+      Spell 1:
         label:
-      level_2:
+      Spell 2:
         label:
-      level_3:
+      Spell 3:
         label:
-      level_4:
+      Spell 4:
         label:
-      level_5:
+      Spell 5:
         label:
     transitions:
-      - source: level_1
-        target: level_2
+      - source: Spell 1
+        target: Spell 2
         events: 
           - timer_right_ramp_light_qualify_timer_complete
           - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
-      - source: level_2
-        target: level_3
+      - source: Spell 2
+        target: Spell 3
         events:  
           - timer_right_ramp_light_qualify_timer_complete
           - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
-      - source: level_3
-        target: level_4
+      - source: Spell 3
+        target: Spell 4
         events:  
           - timer_right_ramp_light_qualify_timer_complete
           - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
-      - source: level_4
-        target: level_5
+      - source: Spell 4
+        target: Spell 5
         events:  
           - timer_right_ramp_light_qualify_timer_complete
           - ball_drain{device.shots.sh_right_ramp_light.state_name == 'lit'}
+
+variable_player:
+  mode_field_spells_ramp_started:
+    var_qualify_spells_counter_target:
+      action: set
+      int: 10 # replace later with counter complet value setting
+    var_qualify_spell: # see also below 
+      action: set
+      string: (device.state_machines.sm_spells_level.state)
+  logicblock_lb_spells_light_qualify_counter_hit{device.shots.sh_spells_light.state_name == 'unlit'}:
+    # using for displaying
+    var_qualify_spells_counter: 
+      int: device.counters.lb_spells_light_qualify_counter.value
+      action: set
+  lb_spells_light_qualify_counter_completed:    # using for displaying
+    var_qualify_spells_counter: 
+      int: 10 #settings.x_counter
+      action: set
+    var_qualify_spell: # see also above
+      action: set
+      string: (device.state_machines.sm_spells_level.state)
+      
+slide_player:
+  # Give status of Spells level and Qualify counter on display
+  logicblock_lb_spells_light_qualify_counter_hit{device.shots.sh_spells_light.state_name == 'unlit'}:
+    sl_spells_light_qualify_counter:
+      expire: 3s
