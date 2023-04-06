@@ -67,3 +67,6 @@ sound_player:
   skill_shot_plunger_success:
     locomotive_01:
       action: play
+  skill_shot_plunger_failed:
+    referee_whistle_01:
+      action: play

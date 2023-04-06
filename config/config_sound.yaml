@@ -52,9 +52,7 @@ sounds:
     file: mystery_loop.wav
     track: music
 # SFX track
-  locomotive_01:
-    file: locomotive_01.wav
-    track: sfx
+  # Gongs
   gong_01:
     file: gong_01.wav
     track: sfx
@@ -67,6 +65,7 @@ sounds:
   gong_04:
     file: gong_04.wav
     track: sfx
+  # Bells
   bell_01:
     file: bell_01.wav
     track: sfx
@@ -76,6 +75,7 @@ sounds:
   bell_03:
     file: bell_03.wav
     track: sfx
+  # Swoosh
   swoosh_01:
     file: swoosh_01.wav
     track: sfx
@@ -94,6 +94,7 @@ sounds:
   swoosh_06:
     file: swoosh_06.wav
     track: sfx
+  # Laser
   laser_01:
     file: laser_01.wav
     track: sfx
@@ -115,6 +116,7 @@ sounds:
   laser_07:
     file: laser_07.wav
     track: sfx
+  # Mysterious
   mysterious_01:
     file: mysterious_01.wav
     track: sfx
@@ -127,6 +129,10 @@ sounds:
   mysterious_04:
     file: mysterious_04.wav
     track: sfx
+  # Others
+  locomotive_01:
+    file: locomotive_01.wav
+    track: sfx
   hp_tune_01:
     file: hp_tune_01.wav
     track: sfx
@@ -135,4 +141,82 @@ sounds:
     track: sfx
   hp_tune_03:
     file: hp_tune_03.wav
+    track: sfx
+  hp_tune_04:
+    file: hp_tune_04.wav
+    track: sfx
+  referee_whistle_01:
+    file: referee_whistle_01.wav
+    track: sfx
+  thunder_01:
+    file: thunder_01.wav
+    track: sfx
+  # Spells  
+  alohomora:
+    file: alohomora.wav
+    track: sfx
+  arania-exumai:
+    file: arania-exumai.wav
+    track: sfx
+  avada-kedavra:
+    file: avada-kedavra.wav
+    track: sfx
+  cistem-aperio:
+    file: cistem-aperio.wav
+    track: sfx
+  expelliarmus:
+    file: expelliarmus.wav
+    track: sfx
+  expulso:
+    file: expulso_mp3.wav
+    track: sfx
+  fera-verto:
+    file: fera-verto_mp3.wav
+    track: sfx
+  immobilus:
+    file: immobilus.wav
+    track: sfx
+  incendio:
+    file: incendio_mp3.wav
+    track: sfx
+  legilimens:
+    file: legilimens.wav
+    track: sfx
+  lumos:
+    file: lumos.wav
+    track: sfx
+  lumos-maxima:
+    file: lumos-maxima.wav
+    track: sfx
+  oppugno:
+    file: oppugno.wav
+    track: sfx
+  rictusempra:
+    file: rictusempra.wav
+    track: sfx
+  riddikulus:
+    file: riddikulus.wav
+    track: sfx
+  # Chimes
+  chime_01:
+    file: chime_01.wav
+    track: sfx
+  # Machinery
+  machinery_01:
+    file: machinery_01.wav
+    track: sfx
+  machinery_02:
+    file: machinery_02.wav
+    track: sfx
+  machinery_03:
+    file: machinery_03.wav
+    track: sfx
+  machinery_04:
+    file: machinery_04.wav
+    track: sfx
+  machinery_05:
+    file: machinery_05.wav
+    track: sfx
+  machinery_06:
+    file: machinery_06.wav
     track: sfx

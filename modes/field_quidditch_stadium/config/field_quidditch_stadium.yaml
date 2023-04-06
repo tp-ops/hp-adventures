@@ -176,6 +176,9 @@ show_player:
         color_name: white
 
 sound_player:
+  sg_quidditch_statium_qualify_hit:
+    pop_bumper_pool:
+      action: play
   sh_quidditch_stadium_hit:
     pop_bumper_pool:
       action: play
