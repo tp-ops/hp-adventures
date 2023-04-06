@@ -10,6 +10,7 @@ named_colors:
   slytherin_green: [13, 98, 23]       # 0D6217
   slytherin_silver: [170, 170, 170]   # AAAAAA
   # Custom colors used
+  flames: [232, 84, 18]
   score_text_default: [255, 255, 255] # White  
   gryffindor_led: [255, 0, 0]         # Red
   hufflepuff_led: [255, 255, 0]       # Yellow 
