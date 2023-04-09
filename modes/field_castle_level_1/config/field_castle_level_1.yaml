@@ -81,6 +81,7 @@ state_machines:
         events: level_1_part_completed, test_event
 
 slide_player:
+  # this shows a slide on mode start. This is for test purpuse.
   mode_field_castle_level_1_started{device.state_machines.sm_castle_level_1_progress.state == 'part_1'}: 
     sl_part_1:
       expire: 3s

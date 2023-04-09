@@ -25,9 +25,9 @@ mode:
 config:
   - field_spells_ramp_slides.yaml
 
-# -------------
-#  Mode Logics 
-# -------------
+# ------------
+#  Mode Logic 
+# ------------
 sequence_shots:
   sq_shot_spells_ramp:
     switch_sequence: s_spells_ramp_entry, s_right_wire_ramp_small

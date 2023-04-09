@@ -1,5 +1,6 @@
 from mpf.tests.MpfGameTestCase import MpfGameTestCase
 
+
 class test_house_theme_selection(MpfGameTestCase):
 
     def get_config_file(self):

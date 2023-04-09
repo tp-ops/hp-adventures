@@ -84,8 +84,10 @@ shot_profiles:
     states:
       - name: lit
         show: flash_normal
+        sync_ms: 500
       - name: hit
         show: light_on
+        sync_ms: 500
   sp_quidditch_stadium:
     advance_on_hit: false
     states:

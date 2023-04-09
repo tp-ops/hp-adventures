@@ -11,7 +11,7 @@ class test_game_logic(MpfGameTestCase):
     def get_platform(self):
         return 'smart_virtual'
 
-    def test_mode_field_diagon_alley(self):
+    def test_full_one_ball(self):
 
         self.get_options()
 
