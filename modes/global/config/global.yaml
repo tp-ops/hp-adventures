@@ -21,6 +21,7 @@ event_player:
     - start_mode_field_orbits
     - start_mode_field_castle_level_1
     - start_mode_field_chamber_of_secrets
+    - start_mode_field_deathly_hallows
     - start_mode_field_diagon_alley
     - start_mode_field_quidditch_stadium
     - start_mode_field_ministry_of_magic
@@ -33,6 +34,7 @@ event_player:
     - stop_mode_field_castle_level_1
     - stop_mode_skill_shots
     - stop_mode_field_chamber_of_secrets
+    - stop_mode_field_deathly_hallows
     - stop_mode_field_diagon_alley
     - stop_mode_field_quidditch_stadium
     - stop_mode_field_ministry_of_magic

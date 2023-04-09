@@ -1,69 +1,69 @@
 #config_version=5
-# -------------------------------------
-#  mission_deathly_hallows (this mode)
-# -------------------------------------
-# You have to shoot all three target, they are lit (flashing) and when hit they stay on. When all three hit the mission is completed.
-# NOTE - Most Logic names have _mm_ (mission mode) extionsion applied in this mode to keep them unique from the other mission_deathly_hallows mode.
-
-# ---------------------------------------
-#  field_deathly_hallows (not this mode)
-# ---------------------------------------
+# -----------------------------------
+#  field_deathly_hallows (this mode)
+# -----------------------------------
 # You can shoot the three targets anytime through a game. They light-up when hit. Everytime you complete, a multiplier will be applied and raised.
 # NOTE - Most Logic names have _fm_ (field mode) extionsion applied in this mode to keep them unique from the other mission_deathly_hallows mode.
+
+# -----------------------------------------
+#  mission_deathly_hallows (not this mode)
+# -----------------------------------------
+# You have to shoot all three target, they are lit (flashing) and when hit they stay on. When all three hit the mission is completed.
+# NOTE - Most Logic names have _mm_ (mission mode) extionsion applied in this mode to keep them unique from the other mission_deathly_hallows mode.
 
 # ---------------
 #  Mode Settings
 # ---------------
 mode:
-  start_events: start_mode_mission_deathly_hallows
-  stop_events: stop_mode_mission_deathly_hallows
-  priority: 400
+  start_events: start_mode_field_deathly_hallows
+  stop_events: stop_mode_field_deathly_hallows
+  priority: 300
 
 # ------------
 #  Mode Logic
 # ------------
 shot_groups:
-  sg_mm_deathly_hallows:
-    shots: sh_mm_elder_wand, sh_mm_invisibility_cloak, sh_mm_resurrection_stone
+  sg_fm_deathly_hallows:
+    shots: sh_fm_elder_wand, sh_fm_invisibility_cloak, sh_fm_resurrection_stone
     rotate_left_events: s_fl_left_a_active
     rotate_right_events: s_fl_right_a_active
 
 shots:
-  sh_mm_elder_wand:
+  sh_fm_elder_wand:
     hit_events: sh_core_tar_wand_hit
-    profile: sp_mm_deathly_hallows
+    profile: sp_fm_deathly_hallows
     show_tokens:
       led: l_ws2812_tar_wand
       color_name: red
-  sh_mm_invisibility_cloak:
+  sh_fm_invisibility_cloak:
     hit_events: sh_core_tar_cloak_hit
-    profile: sp_mm_deathly_hallows
+    profile: sp_fm_deathly_hallows
     show_tokens:
       led: l_ws2812_tar_cloak
       color_name: red
-  sh_mm_resurrection_stone:
+  sh_fm_resurrection_stone:
     hit_events: sh_core_tar_stone_hit
-    profile: sp_mm_deathly_hallows
+    profile: sp_fm_deathly_hallows
     show_tokens:
       led: l_ws2812_tar_stone
       color_name: red
 
 shot_profiles:
-  sp_mm_deathly_hallows:
+  sp_fm_deathly_hallows:
     loop: true
     states:
+      - name: unlit
+        show: light_off
       - name: lit
-        show: flash_normal
-      - name: hit
         show: light_on
 
 # ----------------
 #  Config Players 
 # ----------------
 sound_player:
-  sg_mm_deathly_hallows_hit:
+  sg_fm_deathly_hallows_hit:
     boing_01:
       action: play
-  sg_mm_deathly_hallows_complete:
+  sg_fm_deathly_hallows_complete:
     swoosh_pool:
       action: play
