@@ -75,6 +75,10 @@ sounds:
   bell_03:
     file: bell_03.wav
     track: sfx
+  # Boings
+  boing_01:
+    file: boing_01.wav
+    track: sfx
   # Swoosh
   swoosh_01:
     file: swoosh_01.wav
