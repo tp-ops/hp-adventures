@@ -18,7 +18,4 @@ This mode will let you learn spells. When you complete the last qualifying shot 
 ## Badges
 
 
-## Authors
-
-- [@TP-OPS](https://github.com/tp-ops)
 

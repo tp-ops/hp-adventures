@@ -1,16 +1,21 @@
 #config_version=5
+
+# Main slide center position is as follows;
+# x: left+575     # (x = 1250 - 100 = 1150)
+# y: top-315      # (y =  700 -  70 =  630)
+# anchor_x: middle
+# anchor_y: middle
+
+# ---------------
+# | Mode Slides |
+# ---------------
 slides:
-  # Main slide center position is as follows;
-  # x: left+575     # (x = 1250 - 100 = 1150)
-  # y: top-315      # (y =  700 -  70 =  630)
-  # anchor_x: middle
-  # anchor_y: middle
   sl_spells_light_qualify_counter:
     widgets:
     - type: text
       font_name: harry-potter
-      text: (var_qualify_spell)
-      font_size: 80
+      text: (var_qualify_spell_name)
+      font_size: 120
       color: score_text_default
       x: left+575
       y: top-100
@@ -19,19 +24,19 @@ slides:
     - type: text
       font_name: harry-potter
       text: Ramp Shots
-      font_size: 55
+      font_size: 80
       color: score_text_default
       x: left+575
-      y: top-200
+      y: top-280
       anchor_x: middle
       anchor_y: middle
     - type: text
       font_name: harry-potter
-      text: (var_qualify_spells_counter) of (var_qualify_spells_counter_target)
-      font_size: 100
+      text: (var_qualify_spells_counter_progress) of (var_qualify_spells_counter_target)
+      font_size: 50
       color: score_text_default
       x: left+575
-      y: top-350
+      y: top-375
       anchor_x: middle
       anchor_y: middle
     - widget: widget_main_back_(current_player.house_theme_name)
