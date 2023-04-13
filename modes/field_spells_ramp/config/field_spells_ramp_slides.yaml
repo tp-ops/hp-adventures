@@ -6,15 +6,15 @@
 # anchor_x: middle
 # anchor_y: middle
 
-# ---------------
-# | Mode Slides |
-# ---------------
+# -------------
+#  Mode Slides
+# -------------
 slides:
   sl_spells_light_qualify_counter:
     widgets:
     - type: text
       font_name: harry-potter
-      text: (var_qualify_spell_name)
+      text: (var_mc_qualify_spell_name)
       font_size: 120
       color: score_text_default
       x: left+575
@@ -32,7 +32,7 @@ slides:
       anchor_y: middle
     - type: text
       font_name: harry-potter
-      text: (var_qualify_spells_counter_progress) of (var_qualify_spells_counter_target)
+      text: (var_mc_qualify_spells_counter_progress) of (var_mc_qualify_spells_counter_target)
       font_size: 50
       color: score_text_default
       x: left+575

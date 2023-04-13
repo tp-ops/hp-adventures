@@ -1,14 +1,36 @@
 #config_version=5
+# ------------------
+#  Mode Description
+# ------------------
+# Step 1 - Shoot all three pop's once to complete the qualify group shot and lit accural shots (quiddich stadium and left orbit shot).
+# Step 2 - Make x quidditch stadium shots (pop bumper shots) and one left orbit shot to complete the accural shot.
+
+# Step X - When a ball drains when Spells Light is unlit - Persist counter state_value.
+# Step X - When a ball drains when Spells Light is lit - Persist Spells Light shot_state to lit.
+# Step X - When a ball drains when Spells Light is active - Reset both Light shots to unlit, reset counter, reset timer and
+#          advance state_machine to next level without a bonus.
+
+# ---------------
+#  Mode Settings
+# ---------------
 mode:           
   start_events: start_mode_field_quidditch_stadium
   stop_events: stop_mode_field_quidditch_stadium
   priority: 300
 
+config:
+  - field_quidditch_stadium_slides.yaml
+
+# ------------
+#  Mode Logic 
+# ------------
 shot_groups:
+  # Step 1 - Qualify group shot
   sg_quidditch_statium_qualify:
     shots: sh_pop_left_qualify, sh_pop_right_qualify, sh_pop_bottom_qualify
 
 shots:
+  # Step 1 - Qualify shot
   sh_pop_left_qualify:
     enable_events: mode_field_quidditch_stadium_started
     disable_events: sg_quidditch_statium_qualify_hit_complete
@@ -18,6 +40,7 @@ shots:
     show_tokens:
       led: l_pop_left
       color_name: white
+  # Step 1 - Qualify shot
   sh_pop_right_qualify:
     enable_events: mode_field_quidditch_stadium_started
     disable_events: sg_quidditch_statium_qualify_hit_complete
@@ -27,6 +50,7 @@ shots:
     show_tokens:
       led: l_pop_right
       color_name: white
+  # Step 1 - Qualify shot
   sh_pop_bottom_qualify:
     enable_events: mode_field_quidditch_stadium_started
     disable_events: sg_quidditch_statium_qualify_hit_complete
@@ -36,15 +60,19 @@ shots:
     show_tokens:
       led: l_pop_bottom
       color_name: white
+  # Pop bumper shot
   sh_pop_left:
     enable_events: sg_quidditch_statium_qualify_hit_complete
     hit_events: sh_core_pop_left_hit
+  # Pop bumper shot
   sh_pop_right:
     enable_events: sg_quidditch_statium_qualify_hit_complete
     hit_events: sh_core_pop_right_hit
+  # Pop bumper shot
   sh_pop_bottom:
     enable_events: sg_quidditch_statium_qualify_hit_complete
     hit_events: sh_core_pop_bottom_hit
+  # Step 2 - Quidditch Stadium shot (pop bumper shots)
   sh_quidditch_stadium:
     enable_events: sg_quidditch_statium_qualify_hit_complete
     disable_events: mode_field_quidditch_stadium_will_stop
@@ -59,12 +87,14 @@ shots:
     show_tokens:
       led: l_ws2812_shot_quidditch
       color_name: yellow
+  # Step 2 - One left orbit shot
   sh_quidditch_orbit:
     enable_events: sg_quidditch_statium_qualify_hit_complete
     disable_events: mode_field_quidditch_stadium_will_stop
     profile: sp_quidditch_orbit
     advance_events: sg_quidditch_statium_qualify_hit_complete{device.shots.sh_quidditch_orbit.state_name == 'unlit'}
     hit_events: 
+      # Events from env_orbit and env_orbit_alternative modes
       - sq_shot_orbit_big_left_hit
       - sq_shot_orbit_big_left_alt_hit
     show_tokens:
@@ -129,6 +159,7 @@ shot_profiles:
         sync_ms: 500
 
 accruals:
+  # Step 2 - Accural shot to complete
   lb_quidditch_accrual:
     enable_events: sg_quidditch_statium_qualify_hit_complete
     persist_state: true
@@ -139,6 +170,7 @@ accruals:
     events_when_complete: you_are_a_quidditch_player
 
 counters:
+  # Step 2 - Make x Quidditch Stadium shots (pop bumper shots)
   lb_quidditch_pop_bumper_counter:
     enable_events:
       - sg_quidditch_statium_qualify_hit_complete{device.shots.sh_quidditch_stadium.state_name == 'unlit'}
@@ -150,7 +182,16 @@ counters:
     disable_on_complete: true
     persist_state: true
     events_when_complete: quidditch_pop_bumper_count_completed
+    
+# Counter -> logic_block_timer (complete all counters within this time)
+# Counter ->  control_events:
+#              - event: add_five_event
+#                action: add
+#                value: 5
 
+# ----------------
+#  Config Players 
+# ----------------
 show_player:
   sh_pop_left_hit: 
     flash_normal:
@@ -188,85 +229,15 @@ sound_player:
     mysterious_03:
       action: play
 
-# Counter -> logic_block_timer (complete all counters within this time)
-# Counter ->  control_events:
-#              - event: add_five_event
-#                action: add
-#                value: 5
+# var_mc_ variables are used for mpf-mc for showing on slides.
+variable_player:
+  logicblock_lb_quidditch_pop_bumper_counter_hit:
+    var_score: 10
+    var_mc_quidditch_pop_bumper_count:
+      int: device.counters.lb_quidditch_pop_bumper_counter.value
+      action: set
 
-# # var_mc_ variables are used for mpf-mc for showing on slides.
-# variable_player:
-#   mode_field_quidditch_stadium_started:
-#     var_mc_max_debut_count:
-#       int: settings.quidditch_debut_count
-#       action: set
-#     var_mc_max_return_count:
-#       int: settings.quidditch_return_count
-#       action: set
-#   logicblock_lb_quidditch_debut_count_hit:
-#     var_score: 10
-#     var_mc_quidditch_debut_count:
-#       int: device.counters.lb_quidditch_debut_count.value
-#       action: set
-#   logicblock_lb_quidditch_return_count_hit:
-#     var_score: 100
-#     var_mc_quidditch_return_count:
-#       int: device.counters.lb_quidditch_return_count.value
-#       action: set
-
-# slide_player:
-#   logicblock_lb_quidditch_debut_count_hit: 
-#     sl_quidditch_debut_count:
-#       expire: 0.7s
-#   logicblock_lb_quidditch_return_count_hit: 
-#     sl_quidditch_return_count:
-#       expire: 0.7s
-
-
-# slides:
-#   # Main slide center position is as follows;
-#   # x: left+575     # (x = 1250 - 100 = 1150)
-#   # y: top-315      # (y =  700 -  70 =  630)
-#   # anchor_x: middle
-#   # anchor_y: middle
-#   sl_quidditch_debut_count:
-#     - type: text
-#       font_name: harry-potter
-#       text: Quidditch Debut
-#       font_size: 60
-#       color: score_text_default
-#       x: left+575
-#       y: top-280
-#       anchor_x: middle
-#       anchor_y: middle
-#     - type: text
-#       font_name: harry-potter
-#       text: (player|var_mc_quidditch_debut_count) of (player|var_mc_max_debut_count)
-#       font_size: 60
-#       color: score_text_default
-#       x: left+575
-#       y: top-350
-#       anchor_x: middle
-#       anchor_y: middle
-#     - widget: widget_main_back_(current_player.house_theme_name)
-#   sl_quidditch_return_count:
-#     - type: text
-#       font_name: harry-potter
-#       text: Quidditch Return
-#       font_size: 60
-#       color: score_text_default
-#       x: left+575
-#       y: top-280
-#       anchor_x: middle
-#       anchor_y: middle
-#     - type: text
-#       font_name: harry-potter
-#       text: (player|var_mc_quidditch_return_count) of (player|var_mc_max_return_count)
-#       font_size: 60
-#       color: score_text_default
-#       x: left+575
-#       y: top-350
-#       anchor_x: middle
-#       anchor_y: middle
-#     - widget: widget_main_back_(current_player.house_theme_name)
-
+slide_player:
+  logicblock_lb_quidditch_pop_bumper_counter_hit: 
+    sl_quidditch_pop_bumper_count:
+      expire: 0.7s

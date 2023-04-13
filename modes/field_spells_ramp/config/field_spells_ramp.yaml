@@ -2,17 +2,17 @@
 # ------------------
 #  Mode Description
 # ------------------
-# * Step 1 - Make 10 right Ramp Shots to complete qualify counter and advance the Spells Light to lit.
-# - Step 2 - Make another Right Ramp Shot to advance the Spells Light to active, advance the Right Ramp Light to lit and 
-#            start a qualifying timer.
-# - Step 3 - Make another Right Ramp Shot before the timer ends to complete the Spells Light qualification, reset and stop timer,
-#            reset both Light shots to unlit, advance the state_machine to next level and collect a bonus.
-# - Step X - When the timer ends - Reset both Light shots to unlit, reset timer and advance state_machine to next level
-#            without a bonus.
-# - Step X - When a ball drains when Spells Light is unlit - Persist counter state_value.
-# - Step X - When a ball drains when Spells Light is lit - Persist Spells Light shot_state to lit.
-# - Step X - When a ball drains when Spells Light is active - Reset both Light shots to unlit, reset counter, reset timer and
-#            advance state_machine to next level without a bonus.
+# Step 1 - Make 10 right Ramp Shots to complete qualify counter and advance the Spells Light to lit.
+# Step 2 - Make another Right Ramp Shot to advance the Spells Light to active, advance the Right Ramp Light to lit and 
+#          start a qualifying timer.
+# Step 3 - Make another Right Ramp Shot before the timer ends to complete the Spells Light qualification, reset and stop timer,
+#          reset both Light shots to unlit, advance the state_machine to next level and collect a bonus.
+# Step X - When the timer ends - Reset both Light shots to unlit, reset timer and advance state_machine to next level
+#          without a bonus.
+# Step X - When a ball drains when Spells Light is unlit - Persist counter state_value.
+# Step X - When a ball drains when Spells Light is lit - Persist Spells Light shot_state to lit.
+# Step X - When a ball drains when Spells Light is active - Reset both Light shots to unlit, reset counter, reset timer and
+#          advance state_machine to next level without a bonus.
 
 # ---------------
 #  Mode Settings
@@ -150,20 +150,20 @@ state_machines:
 # ----------------
 # Using custom events (ce_) for better mode pogress handling and reading (advance shots, state_machines, timers and counters).
 event_player:
-  # - Step 1 - Make 10 right Ramp Shots to complete qualify counter and advance the Spells Light to lit.
+  # Step 1 - Make 10 right Ramp Shots to complete qualify counter and advance the Spells Light to lit.
   sq_shot_spells_ramp_hit{device.shots.sh_spells_light.state_name == 'unlit'}: 
     - ce_counting_qualifying_shots
-  # - Step 1 - Custom complete event posted by qualify counter when completed.
+  # Step 1 - Custom complete event posted by qualify counter when completed.
   ce_lb_spells_light_qualify_counter_completed: 
     - ce_advance_spell_light_to_lit
-  # - Step 2 - Make another Right Ramp Shot to advance the Spells Light to active, advance the Right Ramp Light to lit and 
-  #            start a qualifying timer.
+  # Step 2 - Make another Right Ramp Shot to advance the Spells Light to active, advance the Right Ramp Light to lit and 
+  #          start a qualifying timer.
   sq_shot_spells_ramp_hit{device.shots.sh_spells_light.state_name == 'lit'}: 
     - ce_advance_spells_light_to_active
     - ce_advance_right_ramp_light_to_lit
     - ce_start_qualifying_timer
-  # - Step 3 - Make another Right Ramp Shot before the timer ends to complete the Spells Light qualification, reset and stop timer,  
-  #            reset both Light shots to unlit, advance the state_machine to next level and collect a bonus.
+  # Step 3 - Make another Right Ramp Shot before the timer ends to complete the Spells Light qualification, reset and stop timer,  
+  #          reset both Light shots to unlit, advance the state_machine to next level and collect a bonus.
   sq_shot_spells_ramp_hit{device.shots.sh_spells_light.state_name == 'active'}: 
     - ce_stop_qualifying_timer
     - ce_reset_qualifying_timer
@@ -173,16 +173,16 @@ event_player:
     - ce_reset_spells_light_qualify_counter
     - ce_advance_spells_level_sate_machine
     - ce_collect_bonus
-  # - Step X - When the timer ends - Reset both Light shots to unlit, reset timer and advance state_machine to next level
-  #            without a bonus.
+  # Step X - When the timer ends - Reset both Light shots to unlit, reset timer and advance state_machine to next level
+  #          without a bonus.
   timer_right_ramp_light_qualify_timer_complete:
     - ce_reset_spells_light_to_unlit
     - ce_reset_right_ramp_light_to_unlit
     - ce_reset_qualifying_timer
     - ce_reset_spells_light_qualify_counter
     - ce_advance_spells_level_sate_machine
-  # - Step X - When a ball drains when Spells Light is active - Reset both Light shots to unlit, reset counter, reset timer and
-  #            advance state_machine to next level without a bonus.
+  # Step X - When a ball drains when Spells Light is active - Reset both Light shots to unlit, reset counter, reset timer and
+  #          advance state_machine to next level without a bonus.
   ball_drain{device.shots.sh_spells_light.state_name == 'active'}:
     - ce_reset_spells_light_to_unlit
     - ce_reset_right_ramp_light_to_unlit
@@ -190,26 +190,27 @@ event_player:
     - ce_reset_qualifying_timer
     - ce_advance_spells_level_sate_machine
 
+# var_mc_ variables are used for mpf-mc for showing on slides.
 variable_player:
   mode_field_spells_ramp_started:
-    var_qualify_spells_counter_target:
+    var_mc_qualify_spells_counter_target:
       action: set
       int: 10 # replace later with counter complet value setting
-    var_qualify_spell_name: # see also below 
+    var_mc_qualify_spell_name: # see also below 
       action: set
       string: (device.state_machines.sm_spells_level.state)
   # Using logicblock hit_event for displaying status of counter, this way the count has been done already.
   logicblock_lb_spells_light_qualify_counter_hit{device.shots.sh_spells_light.state_name == 'unlit'}:
-    var_qualify_spell_name: # see also above
+    var_mc_qualify_spell_name: # see also above
       action: set
       string: (device.state_machines.sm_spells_level.state)
-    var_qualify_spells_counter_progress: 
+    var_mc_qualify_spells_counter_progress: 
       int: device.counters.lb_spells_light_qualify_counter.value
       action: set
     var_score: 10
   ce_lb_spells_light_qualify_counter_completed:
     # var_qualify_spells_counter_progress is used for displaying last 10 of 10 value, otherwise counter already reset to 0.
-    var_qualify_spells_counter_progress: 
+    var_mc_qualify_spells_counter_progress: 
       int: 10
       action: set
     var_score: 1500

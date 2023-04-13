@@ -18,9 +18,11 @@ mode:
 # Left orbit small
 # Right orbit small
 
-# My orbit sequence_shots can't be used to activate/deactivate diverter div_castle because both left/right sequence_shots using the same switches and you can not enable or disable these sequence_shots.
-# As a solution a normal shot for each orbit lane is created. These shots activates diverter div_castle (through event_player and shot_hit events) and disables each other orbit lane shot (through shot disable_events) so these do not activate the diverter again.
-# At the end the sequence_shot_hit or _timeout events deactivate diverter div_castle (through event_player and sequence_shot events) and enables each other orbit lane shots (through shot enable_events) again.
+# My orbit sequence_shots can't be used to activate/deactivate diverter div_castle because both left/right sequence_shots using the same switches
+# and you can not enable or disable these sequence_shots. As a solution a normal shot for each orbit lane is created. These shots activates diverter
+# div_castle (through event_player and shot_hit events) and disables each other orbit lane shot (through shot disable_events) so these do not 
+# activate the diverter again. At the end the sequence_shot_hit or _timeout events deactivate 
+# diverter div_castle (through event_player and sequence_shot events) and enables each other orbit lane shots (through shot enable_events) again.
 
 # Left-Right-Big      = sq_shot_orbit_big_left
 # Right-Left-Big      = sq_shot_orbit_big_right

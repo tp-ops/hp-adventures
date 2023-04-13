@@ -63,7 +63,7 @@ modes:
   - mission_quidditch
   - mission_deathly_hallows
   - mission_hagrids_place
-  - mission_spells
+  #- mission_spells
   #- house_gryffindor
   #- house_hufflepuf
   #- house_ravenclaw
