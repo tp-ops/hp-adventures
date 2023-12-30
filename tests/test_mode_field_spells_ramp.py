@@ -20,7 +20,7 @@ class test_mode_logic(MpfGameTestCase):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\TP-OPS\\Desktop\\Source Code\\hp-adventures'
+        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'
@@ -683,7 +683,7 @@ class test_mode_score(MpfGameTestCase):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\TP-OPS\\Desktop\\Source Code\\hp-adventures'
+        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'
@@ -776,7 +776,7 @@ class test_scenario(MpfGameTestCase):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\TP-OPS\\Desktop\\Source Code\\hp-adventures'
+        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'

@@ -6,7 +6,7 @@ class test_mode_attract(MpfGameTestCase):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\TP-OPS\\Desktop\\Source Code\\hp-adventures'
+        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'
