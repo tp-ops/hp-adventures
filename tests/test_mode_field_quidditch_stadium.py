@@ -6,7 +6,7 @@ class test_game_logic(MpfGameTestCase):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures\\hp-adventures'
+        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'
@@ -593,10 +593,10 @@ class test_game_logic(MpfGameTestCase):
 
         # Ensure that mode field_quidditch_statium is running
         self.assertModeRunning("field_quidditch_stadium")
-        self.assertModeRunning("field_orbits")
-        self.assertModeNotRunning("field_orbits_alternative")
+        self.assertModeRunning("field_orbits_long")
+        self.assertModeNotRunning("field_orbits_short")
 
-        # Mock events comming from mode field_orbits and field_orbits_alternative
+        # Mock events comming from mode field_orbits_long and field_orbits_short
         self.mock_event("sq_shot_orbit_big_left_hit")
         self.mock_event("sq_shot_orbit_big_left_alt_hit")
         
@@ -609,13 +609,13 @@ class test_game_logic(MpfGameTestCase):
         self.assertEventNotCalled("sq_shot_orbit_big_left_alt_hit")
         self.reset_mock_events()
 
-        # Change active field_orbits to field_orbits_alternative
-        self.stop_mode("field_orbits")
-        self.start_mode("field_orbits_alternative")
+        # Change active field_orbits_long to field_orbits_short
+        self.stop_mode("field_orbits_long")
+        self.start_mode("field_orbits_short")
 
         # Ensure that mode field_quidditch_statium is running
-        self.assertModeRunning("field_orbits_alternative")
-        self.assertModeNotRunning("field_orbits")
+        self.assertModeRunning("field_orbits_short")
+        self.assertModeNotRunning("field_orbits_long")
 
         # Mock events comming from mode field_orbits and field_orbits_alternative
         self.mock_event("sq_shot_orbit_big_left_hit")

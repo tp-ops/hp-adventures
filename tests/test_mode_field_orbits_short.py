@@ -6,7 +6,7 @@ class test_shots(MpfGameTestCase):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures\\hp-adventures'
+        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'
@@ -14,7 +14,7 @@ class test_shots(MpfGameTestCase):
     def test_auto_stop_mode(self):
 
         self.get_options()
-
+       
         # Hit 'Start' button to start a game
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
@@ -28,165 +28,34 @@ class test_shots(MpfGameTestCase):
         self.assertBallsOnPlayfield(1, playfield='playfield')
         self.advance_time_and_run(15)
 
-        # Ensure that mode field_orbits is running
-        self.assertModeRunning("field_orbits")
+        # Stop default running mode field_orbits_long
+        self.stop_mode("field_orbits_long")
+        self.assertModeNotRunning("field_orbits_long")
 
         # Start mode field_orbit_alternative
-        self.start_mode("field_orbits_alternative")
+        self.start_mode("field_orbits_short")
 
-        # Ensure that mode field_orbits_alternative is running and field_orbits is not running
-        self.assertModeRunning("field_orbits_alternative")
-        self.assertModeNotRunning("field_orbits")
+        # Ensure that mode field_orbits_short is running and field_orbits_long is not running
+        self.assertModeRunning("field_orbits_short")
+        self.assertModeNotRunning("field_orbits_long")
 
-    def test_orbit_big_left(self):
+        # Start mode field_orbit_long
+        self.start_mode("field_orbits_long")
 
-        self.get_options()
+        # Ensure that mode field_orbits is running and field_orbits_alternative is not running
+        self.assertModeRunning("field_orbits_long")
+        self.assertModeNotRunning("field_orbits_short")
 
-        # Mock events
-        self.mock_event("enable_div_castle")
-        self.mock_event("enable_div_forest")
-        self.mock_event("enable_sh_orbit_lane_left")
-        self.mock_event("enable_sh_orbit_lane_right")
-        self.mock_event("enable_sh_orbit_lane_castle")
-
-        # Hit 'Start' button to start a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Hit 'Start' button to select a theme
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Advance skillshot platform
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
-
-        # Ensure that mode field_orbits is running and that enable_events for diverter and lane shots are fired
-        self.assertModeRunning("field_orbits")
-        self.assertEventCalled("enable_div_castle")
-        self.assertEventCalled("enable_div_forest")
-        self.assertEventCalled("enable_sh_orbit_lane_left")
-        self.assertEventCalled("enable_sh_orbit_lane_right")
-        self.assertEventCalled("enable_sh_orbit_lane_castle")
-        self.reset_mock_events()
-
-        # Ensure that diverters and lane shots are enabled
-        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
-        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
-        self.assertEqual(False, self.machine.diverters.div_castle.active)
-        self.assertEqual(False, self.machine.diverters.div_forest.active)  
-        self.assertTrue(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_castle"].enabled)
-
-        # Test sequence time-out
-        # Hit s_orbit_left switch (left orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
-        self.mock_event("activate_div_castle")
-        self.hit_and_release_switch("s_orbit_left")
-        self.advance_time_and_run(1)
-        self.assertEventCalled("activate_div_castle")
-        self.reset_mock_events()
-        
-        # Other lanes shots will be disabled
-        self.assertTrue(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertFalse(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertFalse(self.machine.shots["sh_orbit_lane_castle"].enabled)
-
-        # Diverter forest still deactive and diverter castle will be active
-        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
-        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
-        self.assertEqual(True, self.machine.diverters.div_castle.active)
-        self.assertEqual(False, self.machine.diverters.div_forest.active)
-
-        # Advance for another second and diverter should be disactivated (2 seconds after lane shot is hit)
-        self.mock_event("deactivate_div_castle")
-        self.advance_time_and_run(1)
-        self.assertEventCalled("deactivate_div_castle")
-        self.reset_mock_events()
-
-        # Check diverter state
-        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
-        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
-        self.assertEqual(False, self.machine.diverters.div_castle.active)
-        self.assertEqual(False, self.machine.diverters.div_forest.active)
-
-        # Advance for another two seconds to test sequence time-out (3 seconds after lane shot is hit)
-        self.mock_event("sq_shot_orbit_big_left_timeout")
-        self.advance_time_and_run(2)
-        self.assertEventCalled("sq_shot_orbit_big_left_timeout")
-        self.reset_mock_events()
-
-        # Check lane shots states, should all be enabled again
-        self.assertTrue(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_castle"].enabled)
-
-        # Check diverter states
-        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
-        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
-        self.assertEqual(False, self.machine.diverters.div_castle.active)
-        self.assertEqual(False, self.machine.diverters.div_forest.active)
-        
-        # Test sequence hit
-        # Hit s_orbit_left switch (left orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
-        self.mock_event("activate_div_castle")
-        self.hit_and_release_switch("s_orbit_left")
-        self.advance_time_and_run(1)
-        self.assertEventCalled("activate_div_castle")
-        self.reset_mock_events()
-        
-        # Other lanes shots will be disabled
-        self.assertTrue(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertFalse(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertFalse(self.machine.shots["sh_orbit_lane_castle"].enabled)
-
-        # Diverter forest still deactive and diverter castle will be active
-        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
-        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
-        self.assertEqual(True, self.machine.diverters.div_castle.active)
-        self.assertEqual(False, self.machine.diverters.div_forest.active)
-
-        # Advance for another second and diverter should be disactivated (2 seconds after lane shot is hit)
-        self.mock_event("deactivate_div_castle")
-        self.advance_time_and_run(1)
-        self.assertEventCalled("deactivate_div_castle")
-        self.reset_mock_events()
-
-        # Check diverter state
-        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
-        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
-        self.assertEqual(False, self.machine.diverters.div_castle.active)
-        self.assertEqual(False, self.machine.diverters.div_forest.active)
-  
-        # Hit s_orbit_right switch to complete left_orbit_big sequence before sequence time-out is reached
-        self.mock_event("sq_shot_orbit_big_left_hit")
-        self.hit_and_release_switch("s_orbit_right")
-        self.advance_time_and_run(0.1)
-        self.assertEventCalled("sq_shot_orbit_big_left_hit")
-        self.reset_mock_events()
-
-        # Check lane shots states, should all be enabled again
-        self.assertTrue(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_castle"].enabled)
-
-        # Check diverter states
-        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
-        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
-        self.assertEqual(False, self.machine.diverters.div_castle.active)
-        self.assertEqual(False, self.machine.diverters.div_forest.active)
-
-    def test_orbit_big_right(self):
+    def test_orbit_big_left_alt(self):
 
         self.get_options()
 
         # Mock events
         self.mock_event("enable_div_castle")
         self.mock_event("enable_div_forest")
-        self.mock_event("enable_sh_orbit_lane_left")
-        self.mock_event("enable_sh_orbit_lane_right")
-        self.mock_event("enable_sh_orbit_lane_castle")
+        self.mock_event("enable_sh_orbit_lane_left_alt")
+        self.mock_event("enable_sh_orbit_lane_right_alt")
+        self.mock_event("enable_sh_orbit_lane_castle_alt")
        
         # Hit 'Start' button to start a game
         self.hit_and_release_switch("s_start_button")
@@ -201,13 +70,18 @@ class test_shots(MpfGameTestCase):
         self.assertBallsOnPlayfield(1, playfield='playfield')
         self.advance_time_and_run(15)
 
-        # Ensure that mode field_orbits is running and that enable_events for diverter and lane shots are fired
-        self.assertModeRunning("field_orbits")
+        # Stop mode field_orbits_long and start mode field_orbits_short
+        self.stop_mode("field_orbits_long")
+        self.advance_time_and_run(1)
+        self.start_mode("field_orbits_short")
+
+        # Ensure that mode field_orbits_short is running and that enable_events for diverter and lane shots are fired
+        self.assertModeRunning("field_orbits_short")
         self.assertEventCalled("enable_div_castle")
         self.assertEventCalled("enable_div_forest")
-        self.assertEventCalled("enable_sh_orbit_lane_left")
-        self.assertEventCalled("enable_sh_orbit_lane_right")
-        self.assertEventCalled("enable_sh_orbit_lane_castle")
+        self.assertEventCalled("enable_sh_orbit_lane_left_alt")
+        self.assertEventCalled("enable_sh_orbit_lane_right_alt")
+        self.assertEventCalled("enable_sh_orbit_lane_castle_alt")
         self.reset_mock_events()
 
         # Ensure that diverters and lane shots are enabled
@@ -215,22 +89,22 @@ class test_shots(MpfGameTestCase):
         self.assertEqual(True, self.machine.diverters.div_forest.enabled)
         self.assertEqual(False, self.machine.diverters.div_castle.active)
         self.assertEqual(False, self.machine.diverters.div_forest.active)  
-        self.assertTrue(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_castle"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
 
         # Test sequence time-out
-        # Hit s_orbit_right switch (right orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
+        # Hit s_orbit_left switch (left orbit lane alt) and advance for 1 second (sequence time-out is 3 seconds)
         self.mock_event("activate_div_castle")
-        self.hit_and_release_switch("s_orbit_right")
+        self.hit_and_release_switch("s_orbit_left")
         self.advance_time_and_run(1)
         self.assertEventCalled("activate_div_castle")
         self.reset_mock_events()
         
         # Other lanes shots will be disabled
-        self.assertFalse(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertFalse(self.machine.shots["sh_orbit_lane_castle"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertFalse(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertFalse(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
 
         # Diverter forest still deactive and diverter castle will be active
         self.assertEqual(True, self.machine.diverters.div_castle.enabled)
@@ -238,7 +112,7 @@ class test_shots(MpfGameTestCase):
         self.assertEqual(True, self.machine.diverters.div_castle.active)
         self.assertEqual(False, self.machine.diverters.div_forest.active)
 
-        # Advance for another second and diverter should be disactivated (2 seconds after lane shot is hit)
+        # Advance for another second and diverter should be deactivated (2 seconds after lane shot is hit)
         self.mock_event("deactivate_div_castle")
         self.advance_time_and_run(1)
         self.assertEventCalled("deactivate_div_castle")
@@ -251,15 +125,15 @@ class test_shots(MpfGameTestCase):
         self.assertEqual(False, self.machine.diverters.div_forest.active)
 
         # Advance for another two seconds to test sequence time-out (3 seconds after lane shot is hit)
-        self.mock_event("sq_shot_orbit_big_right_timeout")
+        self.mock_event("sq_shot_orbit_big_left_alt_timeout")
         self.advance_time_and_run(2)
-        self.assertEventCalled("sq_shot_orbit_big_right_timeout")
+        self.assertEventCalled("sq_shot_orbit_big_left_alt_timeout")
         self.reset_mock_events()
 
         # Check lane shots states, should all be enabled again
-        self.assertTrue(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_castle"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
 
         # Check diverter states
         self.assertEqual(True, self.machine.diverters.div_castle.enabled)
@@ -268,17 +142,17 @@ class test_shots(MpfGameTestCase):
         self.assertEqual(False, self.machine.diverters.div_forest.active)
         
         # Test sequence hit
-        # Hit s_orbit_right switch (right orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
+        # Hit s_orbit_left switch (left orbit lane alt) and advance for 1 second (sequence time-out is 3 seconds)
         self.mock_event("activate_div_castle")
-        self.hit_and_release_switch("s_orbit_right")
+        self.hit_and_release_switch("s_orbit_left")
         self.advance_time_and_run(1)
         self.assertEventCalled("activate_div_castle")
         self.reset_mock_events()
         
         # Other lanes shots will be disabled
-        self.assertFalse(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertFalse(self.machine.shots["sh_orbit_lane_castle"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertFalse(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertFalse(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
 
         # Diverter forest still deactive and diverter castle will be active
         self.assertEqual(True, self.machine.diverters.div_castle.enabled)
@@ -286,7 +160,7 @@ class test_shots(MpfGameTestCase):
         self.assertEqual(True, self.machine.diverters.div_castle.active)
         self.assertEqual(False, self.machine.diverters.div_forest.active)
 
-        # Advance for another second and diverter should be disactivated (2 seconds after lane shot is hit)
+        # Advance for another second and diverter should be deactivated (2 seconds after lane shot is hit)
         self.mock_event("deactivate_div_castle")
         self.advance_time_and_run(1)
         self.assertEventCalled("deactivate_div_castle")
@@ -298,17 +172,17 @@ class test_shots(MpfGameTestCase):
         self.assertEqual(False, self.machine.diverters.div_castle.active)
         self.assertEqual(False, self.machine.diverters.div_forest.active)
   
-        # Hit s_orbit_left switch to complete right_orbit_big sequence before sequence time-out is reached
-        self.mock_event("sq_shot_orbit_big_right_hit")
-        self.hit_and_release_switch("s_orbit_left")
+        # Hit s_orbit_right switch to complete left_orbit_big_alt sequence before sequence time-out is reached
+        self.mock_event("sq_shot_orbit_big_left_alt_hit")
+        self.hit_and_release_switch("s_orbit_right")
         self.advance_time_and_run(0.1)
-        self.assertEventCalled("sq_shot_orbit_big_right_hit")
+        self.assertEventCalled("sq_shot_orbit_big_left_alt_hit")
         self.reset_mock_events()
 
         # Check lane shots states, should all be enabled again
-        self.assertTrue(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_castle"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
 
         # Check diverter states
         self.assertEqual(True, self.machine.diverters.div_castle.enabled)
@@ -316,16 +190,16 @@ class test_shots(MpfGameTestCase):
         self.assertEqual(False, self.machine.diverters.div_castle.active)
         self.assertEqual(False, self.machine.diverters.div_forest.active)
 
-    def test_orbit_small_left(self):
+    def test_orbit_small_left_alt(self):
 
         self.get_options()
 
         # Mock events
         self.mock_event("enable_div_castle")
         self.mock_event("enable_div_forest")
-        self.mock_event("enable_sh_orbit_lane_left")
-        self.mock_event("enable_sh_orbit_lane_right")
-        self.mock_event("enable_sh_orbit_lane_castle")
+        self.mock_event("enable_sh_orbit_lane_left_alt")
+        self.mock_event("enable_sh_orbit_lane_right_alt")
+        self.mock_event("enable_sh_orbit_lane_castle_alt")
        
         # Hit 'Start' button to start a game
         self.hit_and_release_switch("s_start_button")
@@ -340,13 +214,18 @@ class test_shots(MpfGameTestCase):
         self.assertBallsOnPlayfield(1, playfield='playfield')
         self.advance_time_and_run(15)
 
-        # Ensure that mode field_orbits is running and that enable_events for diverter and lane shots are fired
-        self.assertModeRunning("field_orbits")
+        # Stop mode field_orbits_long and start mode field_orbits_short
+        self.stop_mode("field_orbits_long")
+        self.advance_time_and_run(1)
+        self.start_mode("field_orbits_short")
+
+        # Ensure that mode field_orbits_short is running and that enable_events for diverter and lane shots are fired
+        self.assertModeRunning("field_orbits_short")
         self.assertEventCalled("enable_div_castle")
         self.assertEventCalled("enable_div_forest")
-        self.assertEventCalled("enable_sh_orbit_lane_left")
-        self.assertEventCalled("enable_sh_orbit_lane_right")
-        self.assertEventCalled("enable_sh_orbit_lane_castle")
+        self.assertEventCalled("enable_sh_orbit_lane_left_alt")
+        self.assertEventCalled("enable_sh_orbit_lane_right_alt")
+        self.assertEventCalled("enable_sh_orbit_lane_castle_alt")
         self.reset_mock_events()
 
         # Ensure that diverters and lane shots are enabled
@@ -354,9 +233,9 @@ class test_shots(MpfGameTestCase):
         self.assertEqual(True, self.machine.diverters.div_forest.enabled)
         self.assertEqual(False, self.machine.diverters.div_castle.active)
         self.assertEqual(False, self.machine.diverters.div_forest.active)  
-        self.assertTrue(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_castle"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
 
         # Test sequence time-out
         # Hit s_div_castle switch (castle orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
@@ -367,26 +246,26 @@ class test_shots(MpfGameTestCase):
         self.reset_mock_events()
         
         # Other lanes shots will be disabled
-        self.assertFalse(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertFalse(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_castle"].enabled)
+        self.assertFalse(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertFalse(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
 
-        # Both diverters should be deactive
+        # Diverter forest still deactive and diverter castle will be active
         self.assertEqual(True, self.machine.diverters.div_castle.enabled)
         self.assertEqual(True, self.machine.diverters.div_forest.enabled)
         self.assertEqual(False, self.machine.diverters.div_castle.active)
         self.assertEqual(False, self.machine.diverters.div_forest.active)
 
         # Advance for another two seconds to test sequence time-out (3 seconds after lane shot is hit)
-        self.mock_event("sq_shot_orbit_small_left_timeout")
+        self.mock_event("sq_shot_orbit_small_left_alt_timeout")
         self.advance_time_and_run(2)
-        self.assertEventCalled("sq_shot_orbit_small_left_timeout")
+        self.assertEventCalled("sq_shot_orbit_small_left_alt_timeout")
         self.reset_mock_events()
 
         # Check lane shots states, should all be enabled again
-        self.assertTrue(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_castle"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
 
         # Check diverter states
         self.assertEqual(True, self.machine.diverters.div_castle.enabled)
@@ -403,27 +282,147 @@ class test_shots(MpfGameTestCase):
         self.reset_mock_events()
         
         # Other lanes shots will be disabled
-        self.assertFalse(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertFalse(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_castle"].enabled)
+        self.assertFalse(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertFalse(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
 
-        # Both diverters should be deactive
+        # Diverter forest still deactive and diverter castle will be active
         self.assertEqual(True, self.machine.diverters.div_castle.enabled)
         self.assertEqual(True, self.machine.diverters.div_forest.enabled)
         self.assertEqual(False, self.machine.diverters.div_castle.active)
         self.assertEqual(False, self.machine.diverters.div_forest.active)
 
         # Hit s_orbit_right switch to complete left_orbit_small sequence before sequence time-out is reached
-        self.mock_event("sq_shot_orbit_small_left_hit")
+        self.mock_event("sq_shot_orbit_small_left_alt_hit")
         self.hit_and_release_switch("s_orbit_right")
         self.advance_time_and_run(0.1)
-        self.assertEventCalled("sq_shot_orbit_small_left_hit")
+        self.assertEventCalled("sq_shot_orbit_small_left_alt_hit")
         self.reset_mock_events()
 
         # Check lane shots states, should all be enabled again
-        self.assertTrue(self.machine.shots["sh_orbit_lane_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_orbit_lane_castle"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
+
+        # Check diverter states
+        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
+        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
+        self.assertEqual(False, self.machine.diverters.div_castle.active)
+        self.assertEqual(False, self.machine.diverters.div_forest.active)
+
+    def test_orbit_small_right_alt(self):
+
+        self.get_options()
+
+        # Mock events
+        self.mock_event("enable_div_castle")
+        self.mock_event("enable_div_forest")
+        self.mock_event("enable_sh_orbit_lane_left_alt")
+        self.mock_event("enable_sh_orbit_lane_right_alt")
+        self.mock_event("enable_sh_orbit_lane_castle_alt")
+       
+        # Hit 'Start' button to start a game
+        self.hit_and_release_switch("s_start_button")
+        self.advance_time_and_run(1)
+
+        # Hit 'Start' button to select a theme
+        self.hit_and_release_switch("s_start_button")
+        self.advance_time_and_run(1)
+
+        # Advance skillshot platform
+        self.release_switch_and_run("s_plunger_lane", 11)
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+        self.advance_time_and_run(15)
+
+        # Stop mode field_orbits_long and start mode field_orbits_short
+        self.stop_mode("field_orbits_long")
+        self.advance_time_and_run(1)
+        self.start_mode("field_orbits_short")
+
+        # Ensure that mode field_orbits_short is running and that enable_events for diverter and lane shots are fired
+        self.assertModeRunning("field_orbits_short")
+        self.assertEventCalled("enable_div_castle")
+        self.assertEventCalled("enable_div_forest")
+        self.assertEventCalled("enable_sh_orbit_lane_left_alt")
+        self.assertEventCalled("enable_sh_orbit_lane_right_alt")
+        self.assertEventCalled("enable_sh_orbit_lane_castle_alt")
+        self.reset_mock_events()
+
+        # Ensure that diverters and lane shots are enabled
+        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
+        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
+        self.assertEqual(False, self.machine.diverters.div_castle.active)
+        self.assertEqual(False, self.machine.diverters.div_forest.active)  
+        self.assertTrue(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
+
+        # Test sequence time-out
+        # Hit s_orbit_right switch (right orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
+        self.mock_event("activate_div_castle")
+        self.hit_and_release_switch("s_orbit_right")
+        self.advance_time_and_run(1)
+        self.assertEventNotCalled("activate_div_castle")
+        self.reset_mock_events()
+        
+        # Other lanes shots will be disabled
+        self.assertFalse(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertFalse(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
+
+        # Both diverters should be deactive
+        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
+        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
+        self.assertEqual(False, self.machine.diverters.div_castle.active)
+        self.assertEqual(False, self.machine.diverters.div_forest.active)
+
+        # Advance for another two seconds to test sequence time-out (3 seconds after lane shot is hit)
+        self.mock_event("sq_shot_orbit_small_right_alt_timeout")
+        self.advance_time_and_run(2)
+        self.assertEventCalled("sq_shot_orbit_small_right_alt_timeout")
+        self.reset_mock_events()
+
+        # Check lane shots states, should all be enabled again
+        self.assertTrue(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
+
+        # Check diverter states
+        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
+        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
+        self.assertEqual(False, self.machine.diverters.div_castle.active)
+        self.assertEqual(False, self.machine.diverters.div_forest.active)
+        
+        # Test sequence hit
+        # Hit s_orbit_right switch (right orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
+        self.mock_event("activate_div_castle")
+        self.hit_and_release_switch("s_orbit_right")
+        self.advance_time_and_run(1)
+        self.assertEventNotCalled("activate_div_castle")
+        self.reset_mock_events()
+        
+        # Other lanes shots will be disabled
+        self.assertFalse(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertFalse(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
+
+        # Both diverters should be deactive
+        self.assertEqual(True, self.machine.diverters.div_castle.enabled)
+        self.assertEqual(True, self.machine.diverters.div_forest.enabled)
+        self.assertEqual(False, self.machine.diverters.div_castle.active)
+        self.assertEqual(False, self.machine.diverters.div_forest.active)
+
+        # Hit s_div_castle switch to complete right_orbit_small sequence before sequence time-out is reached
+        self.mock_event("sq_shot_orbit_small_right_alt_hit")
+        self.hit_and_release_switch("s_div_castle")
+        self.advance_time_and_run(0.1)
+        self.assertEventCalled("sq_shot_orbit_small_right_alt_hit")
+        self.reset_mock_events()
+
+        # Check lane shots states, should all be enabled again
+        self.assertTrue(self.machine.shots["sh_orbit_lane_left_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_right_alt"].enabled)
+        self.assertTrue(self.machine.shots["sh_orbit_lane_castle_alt"].enabled)
 
         # Check diverter states
         self.assertEqual(True, self.machine.diverters.div_castle.enabled)

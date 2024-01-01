@@ -44,13 +44,13 @@ modes:
   #|====================|#
   #| NOTE | Field modes |#
   #|====================|# 
-  - field_orbits
-  - field_orbits_alternative
+  - field_orbits_long
+  - field_orbits_short
   - field_chamber_of_secrets
   - field_clock_tower
   - field_diagon_alley
   - field_quidditch_stadium
-  - field_castle_level_1
+  - field_hogwarts_castle
   - field_ministry_of_magic
   - field_house_cup
   - field_platform_nine_three_quarters

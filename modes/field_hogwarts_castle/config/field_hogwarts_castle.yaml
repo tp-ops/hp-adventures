@@ -1,11 +1,11 @@
 #config_version=5
 mode:           
-  start_events: start_mode_field_castle_level_1
-  stop_events: stop_mode_field_castle_level_1
+  start_events: start_mode_field_hogwarts_castle
+  stop_events: stop_mode_field_hogwarts_castle
   priority: 300
 
 config:
-  - field_castle_level_1_slides.yaml
+  - field_hogwarts_castle_slides.yaml
 
 # hit door to lit
 # hit again and let magnet grap the ball
@@ -29,8 +29,6 @@ shots:
   sh_castle_part_2_forbidden_forest:
     advance_events: sh_core_castle_main_entrance_hit
     profile: sp_castle_part_2_ff
-
-
 
 shot_profiles:
   sp_castle_door:

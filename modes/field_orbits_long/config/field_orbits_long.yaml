@@ -1,7 +1,7 @@
 #config_version=5
 mode:
-  start_events: start_mode_field_orbits
-  stop_events: stop_mode_field_orbits, mode_field_orbits_alternative_started
+  start_events: start_mode_field_orbits_long
+  stop_events: stop_mode_field_orbits_long, mode_field_orbits_short_started
   priority: 300
 
 # DIV Castle MUST BE DEACTIVE WHEN DIV Forrest is ACTIVE
@@ -78,13 +78,13 @@ sequence_shots:
     sequence_timeout: 3s
 
 event_player:
-  mode_field_orbits_started:
+  mode_field_orbits_long_started:
     - enable_div_castle
     - enable_div_forest
     - enable_sh_orbit_lane_left
     - enable_sh_orbit_lane_right
     - enable_sh_orbit_lane_castle
-  stop_mode_field_orbits:
+  stop_mode_field_orbits_long:
     - deactivate_div_castle
     - deactivate_div_forest
     - disable_div_castle|0.1s
