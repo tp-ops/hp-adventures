@@ -75,10 +75,6 @@ sounds:
   bell_03:
     file: bell_03.wav
     track: sfx
-  # Boings
-  boing_01:
-    file: boing_01.wav
-    track: sfx
   # Swoosh
   swoosh_01:
     file: swoosh_01.wav
@@ -146,14 +142,8 @@ sounds:
   hp_tune_03:
     file: hp_tune_03.wav
     track: sfx
-  hp_tune_04:
-    file: hp_tune_04.wav
-    track: sfx
   referee_whistle_01:
     file: referee_whistle_01.wav
-    track: sfx
-  thunder_01:
-    file: thunder_01.wav
     track: sfx
   # Spells  
   alohomora:
@@ -200,27 +190,4 @@ sounds:
     track: sfx
   riddikulus:
     file: riddikulus.wav
-    track: sfx
-  # Chimes
-  chime_01:
-    file: chime_01.wav
-    track: sfx
-  # Machinery
-  machinery_01:
-    file: machinery_01.wav
-    track: sfx
-  machinery_02:
-    file: machinery_02.wav
-    track: sfx
-  machinery_03:
-    file: machinery_03.wav
-    track: sfx
-  machinery_04:
-    file: machinery_04.wav
-    track: sfx
-  machinery_05:
-    file: machinery_05.wav
-    track: sfx
-  machinery_06:
-    file: machinery_06.wav
     track: sfx
