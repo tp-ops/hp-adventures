@@ -16,7 +16,7 @@ This mode has three possible orbit shots, these are:<br />
 ## Mode description
 
 Below is a schematic drawings of the orbit lanes and the diverters.<br />
-Both diverters shown as "/" and are in DEACTIVE state.<br />
+Both diverters shown as "/" and are in <sup>DEACTIVE</sup> state.<br />
 The left diverter is div_forrest and the right diverter is div_castle.<br />
 
 <pre>
@@ -28,20 +28,20 @@ The left diverter is div_forrest and the right diverter is div_castle.<br />
 </pre>
 
 > [!CAUTION]
-> `div_forrest` and `div_castle` can't be ACTIVE at the same time.<br />
+> `div_forrest` and `div_castle` can't be <sup>active</sup> at the same time.<br />
 > This is by design and it's hardware limits.<br />
 
 > [!CAUTION]
-> When `div_forrest` is ACTIVATED, `div_castle` MUST BE DEACTIVE because the left orbit lane is now used by `mission_forbidden_forrest` and therefor you can't use the left long and right long orbits.<br />
-
-<pre>
-IMPORTANT - SO THIS OPTION BELOW IS PROHIBITED BY HARDWARE LIMITS AND DESIGN.
-IMPORTANT - Left diverter shown as "|" and the right diverter as "__".
-IMPORTANT -  | |_____________ 
-IMPORTANT -  | |___________  |
-IMPORTANT -  | |    | |    | |
-IMPORTANT -  | |           | |
-IMPORTANT -  | |           | |
+> When `div_forrest` is **activated**, `div_castle` must be **deactive** because the left orbit lane is now used by `mission_forbidden_forrest` and therefor you can't use the left long and right long orbits.<br />
+>
+> SO THIS OPTION BELOW IS PROHIBITED BY HARDWARE LIMITS AND DESIGN.<br />
+> Left diverter shown as "|" and the right diverter as "__".<br />
+> <pre>
+> | |_____________ 
+> | |___________  |
+> | |    | |    | |
+> | |           | |
+> | |           | |
 </pre>
 
 > [!TIP]
