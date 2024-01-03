@@ -41,17 +41,17 @@ The left diverter is div_forrest and the right diverter is div_castle.
 > Optional information to help a user be more successful.
 
 > [!IMPORTANT]  
-> Crucial information necessary for users to succeed.
+> 
 
 > [!WARNING]  
 > Critical content demanding immediate user attention due to potential risks.
 
 > [!CAUTION]
-> Negative potential consequences of an action.
+> `div_forrest` and `div_castle` can not be ACTIVE at the same time, this is by hardware limits and design.
+> When `div_forrest` is ACTIVATED, `div_castle` MUST BE DEACTIVE because the left orbit lane is now used by `mission_forbidden_forrest` and therefor you can't use the left long and right long orbits.
 
 
-IMPORTANT - div_forrest and div_castle CAN'T BE ACTIVE AT THE SAME TIME, THIS IS BY HARDWARE LIMITS AND DESIGN.
-IMPORTANT - When div_forrest is ACTIVATED, div_castle MUST BE DEACTIVE because the left orbit lane is now used by mission_forbidden_forrest and therefor you can't use the left long and right long orbits.
+
 <pre>
 IMPORTANT - SO THIS OPTION BELOW IS PROHIBITED BY HARDWARE LIMITS AND DESIGN.
 IMPORTANT - Left diverter shown as "|" and the right diverter as "__".
@@ -61,10 +61,12 @@ IMPORTANT -  | |    | |    | |
 IMPORTANT -  | |           | |
 IMPORTANT -  | |           | |
 </pre>
-DEPENDICE - Left long orbit     - div_forrest must be DEACTIVE and div_castle has to be ACTIVE
-DEPENDICE - Right long orbit    - div_forrest must be DEACTIVE and div_castle has to be ACTIVE
-DEPENDICE - Center short orbit  - div_forrest can be ACTIVE and div_castle has to be DEACTIVE
-DEPENDICE - Right short orbit   - div_forrest can be ACTIVE and div_castle has to be DEACTIVE
+
+> [!NOTE]
+> DEPENDICE - Left long orbit     - div_forrest must be DEACTIVE and div_castle has to be ACTIVE
+> DEPENDICE - Right long orbit    - div_forrest must be DEACTIVE and div_castle has to be ACTIVE
+> DEPENDICE - Center short orbit  - div_forrest can be ACTIVE and div_castle has to be DEACTIVE
+> DEPENDICE - Right short orbit   - div_forrest can be ACTIVE and div_castle has to be DEACTIVE
 
 For simplicity, readability and future expansions there are multiple field_orbits_option modes for either there own purpuse and dependencies.
   - field_orbits_option1 - Default mode                         - div_forrest DEACTIVE and div_castle will be ACTIVATED from left and right orbit lane
