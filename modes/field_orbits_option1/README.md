@@ -1,31 +1,24 @@
 
 # Field mode - Orbits option 1
 
-This mode will let you learn spells. When you complete the last qualifying shot in time you get a bonus
+This mode has three possible orbit shots, these are:<br />
+- Left long orbit shot<br />
+- Center short orbit shot<br />
+- Right long orbit shot<br />
 
+> [!NOTE]
+> This pinball machine has four possible orbit shots, these are:<br />
+> - Left long orbit    - Left lane to right lane (long orbit)<br />
+> - Right long orbit   - Right lane to left lane (long orbit)<br />
+> - Center short orbit - Center lane to right lane (short orbit)<br />
+> - Right short orbit  - Right lane to center lane (short orbit)<br />
 
 ## Mode description
 
-- **Step 1:** Make 10 right Ramp Shots to complete qualify counter and advance the Spells Light to lit.
-- **Step 2:** Make another Right Ramp Shot to advance the Spells Light to active, advance the Right Ramp Light to lit and start a qualifying timer.
-- **Step 2:** Make another Right Ramp Shot before the timer ends to complete the Spells Light qualification, reset both Light shots to unlit, advance the state_machine to next level and collect a bonus.
-- **Step X:** When the timer ends - Reset both Light shots to unlit, reset counter, reset timer and advance state_machine to next level without a bonus.
-- **Step X:** When a ball drains when Spells Light is unlit - Persist counter state_value.
-- **Step X:** When a ball drains when Spells Light is lit - Persist Spells Light shot_state to lit.
-- **Step X:** When a ball drains when Spells Light is active - Reset both Light shots to unlit, reset counter, reset timer and advance state_machine to next level without a bonus.
+Below is a schematic drawings of the orbit lanes and the diverters.<br />
+Both diverters shown as "/" and are in DEACTIVE state.<br />
+The left diverter is div_forrest and the right diverter is div_castle.<br />
 
-
-## Badges
-
-This pinball machine has for possible orbits, these are;
-  - Left long orbit    - Left lane to right lane (long orbit)
-  - Right long orbit   - Right lane to left lane (long orbit)
-  - Center short orbit - Center lane to right lane (short orbit)
-  - Right short orbit  - Right lane to center lane (short orbit)
-
-Below is a schematic drawings of the orbit lanes and the diverters.
-Both diverters shown as "/" and are in DEACTIVE state
-The left diverter is div_forrest and the right diverter is div_castle.
 <pre>
 | |______________
 |/ ____/  ____  |
@@ -34,23 +27,12 @@ The left diverter is div_forrest and the right diverter is div_castle.
 | |           | |
 </pre>
 
-> [!NOTE]  
-> Highlights information that users should take into account, even when skimming.
-
-> [!TIP]
-> Optional information to help a user be more successful.
-
-> [!IMPORTANT]  
-> 
-
-> [!WARNING]  
-> Critical content demanding immediate user attention due to potential risks.
+> [!CAUTION]
+> `div_forrest` and `div_castle` can't be ACTIVE at the same time.<br />
+> This is by design and it's hardware limits.<br />
 
 > [!CAUTION]
-> `div_forrest` and `div_castle` can not be ACTIVE at the same time, this is by hardware limits and design.
-> When `div_forrest` is ACTIVATED, `div_castle` MUST BE DEACTIVE because the left orbit lane is now used by `mission_forbidden_forrest` and therefor you can't use the left long and right long orbits.
-
-
+> When `div_forrest` is ACTIVATED, `div_castle` MUST BE DEACTIVE because the left orbit lane is now used by `mission_forbidden_forrest` and therefor you can't use the left long and right long orbits.<br />
 
 <pre>
 IMPORTANT - SO THIS OPTION BELOW IS PROHIBITED BY HARDWARE LIMITS AND DESIGN.
@@ -62,7 +44,7 @@ IMPORTANT -  | |           | |
 IMPORTANT -  | |           | |
 </pre>
 
-> [!NOTE]
+> [!TIP]
 > DEPENDICE - Left long orbit     - div_forrest must be DEACTIVE and div_castle has to be ACTIVE
 > DEPENDICE - Right long orbit    - div_forrest must be DEACTIVE and div_castle has to be ACTIVE
 > DEPENDICE - Center short orbit  - div_forrest can be ACTIVE and div_castle has to be DEACTIVE
@@ -77,6 +59,8 @@ Mode field_orbits_option1 - Default mode (Right long) - THIS MODE
   - Left long orbit    - sq_shot_orbit_left_long_opt1
   - Center short orbit - sq_shot_orbit_center_short_opt1
   - Right long orbit   - sq_shot_orbit_right_long_opt1
+
+# Other Orbit modes
 
 Mode field_orbits_option2 - Advanced mode, Gringotts Bank mode (Right short)
   - Left long orbit    - sq_shot_orbit_left_long_opt2
