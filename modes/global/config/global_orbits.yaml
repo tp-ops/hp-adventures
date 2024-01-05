@@ -2,7 +2,7 @@
 
 # Using a state_machine for remembering which orbit mode has to be started. Also this state_machine will sent the start event for these modes.
 state_machines:
-  sm_mode_orbits:
+  sm_orbits_option:
     starting_state: option1
     states:
       option1:
@@ -35,12 +35,21 @@ state_machines:
         events: ce_change_field_orbits_to_option2
 
 event_player:
-  # These 3 mode_global_started{..} events sent the ce_state_orbits_option_active event when mode_global is completly started. This ce_events are used to let the right option_mode start.
-  # The ce_state_orbits_option_active event, which is also sent by state_machine when mode is starting, is to early to catch for this mode self and to let the right option_mode start.
-  mode_global_started{device.state_machines.sm_mode_orbits.state=="option1"}: ce_state_orbits_option1_active
-  mode_global_started{device.state_machines.sm_mode_orbits.state=="option2"}: ce_state_orbits_option2_active
-  mode_global_started{device.state_machines.sm_mode_orbits.state=="option3"}: ce_state_orbits_option3_active
-  # Using the ce_state_orbits_option1_active event to stop the other field_orbits_option modes and start the right orbit mode half a second later.
+  # These 3 mode_global_started{..} handlers start the right option mode when mode_global is completly started at game startup.
+  # The ce_state_orbits_option_active event, which is sent by state_machine when global mode is starting is to early to catch for this mode self to let the right option_mode start.
+  mode_global_started{device.state_machines.sm_orbits_option.state=="option1"}: 
+    - stop_mode_field_orbits_option2
+    - stop_mode_field_orbits_option3
+    - start_mode_field_orbits_option1|0.5s
+  mode_global_started{device.state_machines.sm_orbits_option.state=="option2"}: 
+    - stop_mode_field_orbits_option1
+    - stop_mode_field_orbits_option3
+    - start_mode_field_orbits_option2|0.5s
+  mode_global_started{device.state_machines.sm_orbits_option.state=="option3"}: 
+    - stop_mode_field_orbits_option1
+    - stop_mode_field_orbits_option2
+    - start_mode_field_orbits_option3|0.5s
+  # When transistioning catch the ce_state_orbits_option_active events to stop the other field_orbits_option modes and start the right orbit mode half a second later.
   # The half second delay is here to prevent that the stopping modes disables the diverters after the starting mode had already enabled them.
   ce_state_orbits_option1_active:
     - stop_mode_field_orbits_option2
@@ -54,6 +63,10 @@ event_player:
     - stop_mode_field_orbits_option1
     - stop_mode_field_orbits_option2
     - start_mode_field_orbits_option3|0.5s
+  mode_global_will_stop:
+    - stop_mode_field_orbits_option1
+    - stop_mode_field_orbits_option2
+    - stop_mode_field_orbits_option3
 
 # When mode option3 is stopped the previously running mode, either default mode or advanced mode, has to be started. 
 # Setting var_prev_orbit_mode variable to later dettermine which was previously running.

@@ -1,15 +1,4 @@
 #config_version=5
-event_player:
-  start_field_modes{device.state_machines.sm_castle_main_progress.state == 'level_1'}:
-    - start_mode_field_castle_level_1
-  start_field_modes{device.state_machines.sm_castle_main_progress.state == 'level_2'}:
-    - start_mode_field_castle_level_2
-  start_field_modes{device.state_machines.sm_castle_main_progress.state == 'level_3'}:
-    - start_mode_field_castle_level_3
-  mode_global_will_stop:
-    - stop_mode_field_castle_level_1
-    - stop_mode_field_castle_level_2
-    - stop_mode_field_castle_level_3
 
 
 
@@ -18,25 +7,59 @@ event_player:
 # at some point you unlock level 2 - You know Who, you learn about voldermort
 # at some point you unlock level 3 - Dark Magic, you learn about some dark magic
 # at some point you unlock level 4 - Horcrux overview, you learn about horcruxes
+
+#for simplicity each level get its own mode. 
+#Eacht new level increase magnet difficulty, first level it done for you, second level you dont have to catch but shoot self, last level you have to catch also.
+
 state_machines:
-  sm_castle_main_progress:
-    starting_state: level_1
+  sm_hogwarts_castle_level:
+    starting_state: level1
     states:
-      level_1:
+      level1:
         label: Hogwarts school of Witchcraft and Wizardry
-      level_2:
+        events_when_started: ce_state_hogwarts_castle_level1_active
+      level2:
         label: Heir of Slytherin
-      level_3:
+        events_when_started: ce_state_hogwarts_castle_level2_active
+      level3:
         label: Dark Arts
-      level_4:
+        events_when_started: ce_state_hogwarts_castle_level3_active
+      level4:
         label: Horcrux Overview
+        events_when_started: ce_state_hogwarts_castle_level4_active
     transitions:
-      - source: level_1
-        target: level_2
-        events: sm_castle_start_completed
-      - source: level_2
-        target: level_3
-        events: sm_castle_level_2_completed
-      - source: level_3
-        target: level_4
-        events: sm_castle_level_3_completed
+      - source: level1
+        target: level2
+        events: ce_levelup_hogwarts_castle_to_level2
+      - source: level2
+        target: level3
+        events: ce_levelup_hogwarts_castle_to_level3
+      - source: level3
+        target: level4
+        events: ce_levelup_hogwarts_castle_to_level4
+
+event_player:
+  # These 3 mode_global_started{..} handlers start the right level mode when mode_global is completly started at game startup.
+  # The ce_state_hogwarts_castle_level event, which is sent by state_machine when global mode is starting is to early to catch for this mode self to let the right level_mode start.
+  mode_global_started{device.state_machines.sm_hogwarts_castle_level.state=="level1"}:
+    - start_mode_field_castle_level1
+  mode_global_started{device.state_machines.sm_hogwarts_castle_level.state=="level2"}:
+    - start_mode_field_castle_level2
+  mode_global_started{device.state_machines.sm_hogwarts_castle_level.state=="level3"}:
+    - start_mode_field_castle_level3
+  mode_global_started{device.state_machines.sm_hogwarts_castle_level.state=="level4"}:
+    - start_mode_field_castle_level4
+  # When transistioning catch the ce_state_hogwarts_castle_level events to start the right level mode.
+  ce_state_hogwarts_castle_level1_active:
+    - start_mode_field_castle_level1
+  ce_state_hogwarts_castle_level2_active:
+    - start_mode_field_castle_level2
+  ce_state_hogwarts_castle_level3_active:
+    - start_mode_field_castle_level3
+  ce_state_hogwarts_castle_level4_active:
+    - start_mode_field_castle_level4
+  mode_global_will_stop:
+    - stop_mode_field_castle_level1
+    - stop_mode_field_castle_level2
+    - stop_mode_field_castle_level3
+    - stop_mode_field_castle_level4

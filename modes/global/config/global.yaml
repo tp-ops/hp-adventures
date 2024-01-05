@@ -28,7 +28,7 @@ event_player:
     - start_mode_field_platform_nine_three_quarters
     - start_mode_field_clock_tower
     - start_mode_field_spells_ramp
-    - start_mode_field_hogwarts_castle
+    - start_mode_field_hogwarts_castle_level1
   mode_global_will_stop:
     - stop_mode_skill_shots
     - stop_mode_field_chamber_of_secrets
@@ -40,7 +40,7 @@ event_player:
     - stop_mode_field_platform_nine_three_quarters
     - stop_mode_field_clock_tower
     - stop_mode_field_spells_ramp
-    - stop_mode_field_hogwarts_castle
+    - stop_mode_field_hogwarts_castle_level1
 
     # - stop_missions
   # mode_type_mission_started:
