@@ -33,7 +33,7 @@ The left diverter is div_forrest and the right diverter is div_castle.<br />
 >
 > When `div_forrest` is <sup>ACTIVE</sup>, `div_castle` must be <sup>DEACTIVE</sup> because the left orbit lane is now used by `mission_forbidden_forrest` and therefor you can't use the left long and right long orbits.<br />
 >
-> SO THIS OPTION BELOW IS PROHIBITED BY HARDWARE LIMITS AND DESIGN. 
+> SO THIS OPTION BELOW IS PROHIBITED BY HARDWARE LIMITS AND DESIGN.<br />
 > Left diverter shown as "|" and the right diverter as "__".<br />
 > <pre>
 > | |_____________ 

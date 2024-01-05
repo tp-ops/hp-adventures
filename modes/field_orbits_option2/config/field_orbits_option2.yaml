@@ -1,0 +1,87 @@
+#config_version=5
+mode:
+  start_events: start_mode_field_orbits_option2
+  stop_events: stop_mode_field_orbits_option2
+  priority: 300
+
+shots:
+  # Because sequence_shots can't be used to activate/deactivate diverter div_castle because both left and right sequence_shots using the same switches and you can not enable or disable these sequence_shots.
+  # As a solution a normal shot for each orbit lane is created. These shots activates diverter div_castle (through event_player and shot_hit events) and disables each other orbit lane shot (through shot disable_events) so these do not activate the diverter again.
+  # At the end the sequence_shot_hit or _timeout events deactivate diverter div_castle (through event_player and sequence_shot events) and enables each other orbit lane shots (through shot enable_events) again.
+  sh_orbit_lane_left_opt2:
+    enable_events: 
+      - enable_sh_orbit_lane_left_opt2
+      - sq_shot_orbit_right_short_opt2_hit
+      - sq_shot_orbit_right_short_opt2_timeout
+      - sq_shot_orbit_center_short_opt2_hit
+      - sq_shot_orbit_center_short_opt2_timeout
+    disable_events: 
+      - sh_orbit_lane_right_opt2_hit
+      - sh_orbit_lane_center_opt2_hit
+    hit_events: 
+      - sh_core_orbit_lane_left_hit
+  sh_orbit_lane_right_opt2:
+    enable_events: 
+      - enable_sh_orbit_lane_right_opt2
+      - sq_shot_orbit_left_long_opt2_hit
+      - sq_shot_orbit_left_long_opt2_timeout
+      - sq_shot_orbit_center_short_opt2_hit
+      - sq_shot_orbit_center_short_opt2_timeout
+    disable_events: 
+      - sh_orbit_lane_left_opt2_hit
+      - sh_orbit_lane_center_opt2_hit
+    hit_events:
+      - sh_core_orbit_lane_right_hit
+  sh_orbit_lane_center_opt2:
+    enable_events: 
+      - enable_sh_orbit_lane_center_opt2
+      - sq_shot_orbit_left_long_opt2_hit
+      - sq_shot_orbit_left_long_opt2_timeout
+      - sq_shot_orbit_right_short_opt2_hit
+      - sq_shot_orbit_right_short_opt2_timeout
+    disable_events: 
+      - sh_orbit_lane_left_opt2_hit
+      - sh_orbit_lane_right_opt2_hit
+    hit_events:
+      - sh_core_orbit_lane_castle_hit
+    
+sequence_shots:
+  sq_shot_orbit_left_long_opt2:
+    switch_sequence: s_orbit_left, s_orbit_right
+    sequence_timeout: 3s
+  sq_shot_orbit_center_short_opt2:
+    switch_sequence: s_div_castle, s_orbit_right
+    sequence_timeout: 3s
+  sq_shot_orbit_right_short_opt2:
+    switch_sequence: s_orbit_right, s_div_castle
+    sequence_timeout: 3s
+
+event_player:
+  mode_field_orbits_option2_started:
+    - enable_div_castle
+    - enable_div_forest
+    - enable_sh_orbit_lane_left_opt2
+    - enable_sh_orbit_lane_right_opt2
+    - enable_sh_orbit_lane_center_opt2
+  stop_mode_field_orbits_option2:
+    - deactivate_div_castle
+    - deactivate_div_forest
+    - disable_div_castle|0.1s
+    - disable_div_forest|0.1s
+  sh_orbit_lane_left_opt2_hit:
+  # Activate div_castle when a ball enters the left lane so it can complete the orbit_left_long sequence_shot.
+  # This diverter is blocking the left lane when it is deactive or disabled.
+    - activate_div_castle
+    - deactivate_div_castle|2s
+
+# Used this sound in modes that using these shot events
+# sound_player:
+#   sq_shot_orbit_right_short_opt2_hit:
+#     mysterious_03:
+#       action: play
+#   sq_shot_orbit_center_short_opt2_hit:
+#     mysterious_03:
+#       action: play
+#   sq_shot_orbit_left_long_opt2_hit:
+#     mysterious_03:
+#       action: play

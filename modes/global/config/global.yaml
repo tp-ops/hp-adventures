@@ -19,7 +19,6 @@ event_player:
   mode_global_started:
     - start_mode_skill_shots
   start_field_modes:
-    - start_mode_field_orbits_long
     - start_mode_field_chamber_of_secrets
     - start_mode_field_deathly_hallows
     - start_mode_field_diagon_alley
@@ -31,7 +30,6 @@ event_player:
     - start_mode_field_spells_ramp
     - start_mode_field_hogwarts_castle
   mode_global_will_stop:
-    - stop_mode_field_orbits_long
     - stop_mode_skill_shots
     - stop_mode_field_chamber_of_secrets
     - stop_mode_field_deathly_hallows

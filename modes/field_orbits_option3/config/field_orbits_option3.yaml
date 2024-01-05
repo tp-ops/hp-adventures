@@ -1,0 +1,62 @@
+#config_version=5
+mode:
+  start_events: start_mode_field_orbits_option3
+  stop_events: stop_mode_field_orbits_option3
+  priority: 300
+
+shots:
+  # Because sequence_shots can't be used to activate/deactivate diverter div_castle because both left and right sequence_shots using the same switches and you can not enable or disable these sequence_shots.
+  # As a solution a normal shot for each orbit lane is created. These shots activates diverter div_castle (through event_player and shot_hit events) and disables each other orbit lane shot (through shot disable_events) so these do not activate the diverter again.
+  # At the end the sequence_shot_hit or _timeout events deactivate diverter div_castle (through event_player and sequence_shot events) and enables each other orbit lane shots (through shot enable_events) again.
+  # This mode contains no shot sh_orbit_lane_left_opt3 because the left lane is used by mode mission_forbidden_forrest which is active at the same time with this mode.
+  sh_orbit_lane_right_opt3:
+    enable_events: 
+      - enable_sh_orbit_lane_right_opt3
+      - sq_shot_orbit_center_short_opt3_hit
+      - sq_shot_orbit_center_short_opt3_timeout
+    disable_events: 
+      - sh_orbit_lane_center_opt3_hit
+    hit_events:
+      - sh_core_orbit_lane_right_hit
+  sh_orbit_lane_center_opt3:
+    enable_events: 
+      - enable_sh_orbit_lane_center_opt3
+      - sq_shot_orbit_right_short_opt3_hit
+      - sq_shot_orbit_right_short_opt3_timeout
+    disable_events: 
+      - sh_orbit_lane_right_opt3_hit
+    hit_events:
+      - sh_core_orbit_lane_castle_hit
+    
+sequence_shots:
+  # This mode contains no sq_shot_orbit_left_long_opt3 because the left lane is used by mode mission_forbidden_forrest which is active at the same time with this mode.
+  sq_shot_orbit_center_short_opt3:
+    switch_sequence: s_div_castle, s_orbit_right
+    sequence_timeout: 3s
+  sq_shot_orbit_right_short_opt3:
+    switch_sequence: s_orbit_right, s_div_castle
+    sequence_timeout: 3s
+
+event_player:
+  mode_field_orbits_option3_started:
+    - enable_div_castle
+    - enable_div_forest
+    - enable_sh_orbit_lane_right_opt3
+    - enable_sh_orbit_lane_center_opt3
+  stop_mode_field_orbits_option3:
+    - deactivate_div_castle
+    - deactivate_div_forest
+    - disable_div_castle|0.1s
+    - disable_div_forest|0.1s
+
+# Used this sound in modes that using these shot events
+# sound_player:
+#   sq_shot_orbit_right_short_opt3_hit:
+#     mysterious_03:
+#       action: play
+#   sq_shot_orbit_center_short_opt3_hit:
+#     mysterious_03:
+#       action: play
+#   sq_shot_orbit_left_long_opt3_hit:
+#     mysterious_03:
+#       action: play
