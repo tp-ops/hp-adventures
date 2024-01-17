@@ -1,7 +1,5 @@
 #config_version=5
 
-
-
 # first time in Hogwarts Castle you get intro about the greatest wizards (maybe at this point you have to choose a house)
 # after intro you get an overview of progress, this will be shown everytime afterwards
 # at some point you unlock level 2 - You know Who, you learn about voldermort
@@ -12,7 +10,7 @@
 #Eacht new level increase magnet difficulty, first level it done for you, second level you dont have to catch but shoot self, last level you have to catch also.
 
 state_machines:
-  sm_hogwarts_castle_level:
+  sm_hogwarts_castle:
     starting_state: level1
     states:
       level1:
@@ -41,25 +39,20 @@ state_machines:
 event_player:
   # These 3 mode_global_started{..} handlers start the right level mode when mode_global is completly started at game startup.
   # The ce_state_hogwarts_castle_level event, which is sent by state_machine when global mode is starting is to early to catch for this mode self to let the right level_mode start.
-  mode_global_started{device.state_machines.sm_hogwarts_castle_level.state=="level1"}:
-    - start_mode_field_castle_level1
-  mode_global_started{device.state_machines.sm_hogwarts_castle_level.state=="level2"}:
-    - start_mode_field_castle_level2
-  mode_global_started{device.state_machines.sm_hogwarts_castle_level.state=="level3"}:
-    - start_mode_field_castle_level3
-  mode_global_started{device.state_machines.sm_hogwarts_castle_level.state=="level4"}:
-    - start_mode_field_castle_level4
+  mode_global_started{device.state_machines.sm_hogwarts_castle.state=="level1"}:
+    - start_mode_field_hogwarts_castle_level1
+  mode_global_started{device.state_machines.sm_hogwarts_castle.state=="level2"}:
+    - start_mode_field_hogwarts_castle_level2
+  mode_global_started{device.state_machines.sm_hogwarts_castle.state=="level3"}:
+    - start_mode_field_hogwarts_castle_level3
   # When transistioning catch the ce_state_hogwarts_castle_level events to start the right level mode.
   ce_state_hogwarts_castle_level1_active:
-    - start_mode_field_castle_level1
+    - start_mode_field_hogwarts_castle_level1
   ce_state_hogwarts_castle_level2_active:
-    - start_mode_field_castle_level2
+    - start_mode_field_hogwarts_castle_level2
   ce_state_hogwarts_castle_level3_active:
-    - start_mode_field_castle_level3
-  ce_state_hogwarts_castle_level4_active:
-    - start_mode_field_castle_level4
+    - start_mode_field_hogwarts_castle_level3
   mode_global_will_stop:
-    - stop_mode_field_castle_level1
-    - stop_mode_field_castle_level2
-    - stop_mode_field_castle_level3
-    - stop_mode_field_castle_level4
+    - stop_mode_field_hogwarts_castle_level1
+    - stop_mode_field_hogwarts_castle_level2
+    - stop_mode_field_hogwarts_castle_level3

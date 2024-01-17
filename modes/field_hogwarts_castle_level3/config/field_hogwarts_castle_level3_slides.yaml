@@ -5,7 +5,7 @@ slides:
   # y: top-315      # (y =  700 -  70 =  630)
   # anchor_x: middle
   # anchor_y: middle
-  sl_level1_part1:
+  sl_level3_part1:
     widgets:
     - type: text
       font_name: harry-potter
@@ -35,7 +35,7 @@ slides:
       anchor_x: middle
       anchor_y: middle
     - widget: widget_main_back_(current_player.house_theme_name)
-  sl_level1_part2:
+  sl_level3_part2:
     widgets:
     - type: text
       font_name: harry-potter
@@ -65,7 +65,7 @@ slides:
       anchor_x: middle
       anchor_y: middle
     - widget: widget_main_back_(current_player.house_theme_name)
-  sl_level1_part3:
+  sl_level3_part3:
     widgets:
     - type: text
       font_name: harry-potter

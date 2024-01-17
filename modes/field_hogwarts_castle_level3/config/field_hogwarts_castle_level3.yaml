@@ -1,11 +1,11 @@
 #config_version=5
 mode:           
-  start_events: start_mode_field_hogwarts_castle_level1
-  stop_events: stop_mode_field_hogwarts_castle_level1
+  start_events: start_mode_field_hogwarts_castle_level3
+  stop_events: stop_mode_field_hogwarts_castle_level3
   priority: 300
 
 config:
-  - field_hogwarts_castle_level1_slides.yaml
+  - field_hogwarts_castle_level3_slides.yaml
 
 # first time in Hogwarts Castle you get intro about the greatest wizards (maybe at this point you have to choose a house)
 # after intro you get an overview of progress, this will be shown everytime afterwards
@@ -53,7 +53,7 @@ shot_profiles:
       - name: lit
 
 state_machines:
-  sm_hogwarts_castle_level1:
+  sm_hogwarts_castle_level3:
     starting_state: part1
     persist_state: true
     states:
@@ -73,12 +73,12 @@ state_machines:
 
 slide_player:
   # this shows a slide on mode start. This is for test purpuse.
-  mode_field_hogwarts_castle_level1_started{device.state_machines.sm_hogwarts_castle_level1.state == 'part1'}: 
-    sl_level1_part1:
+  mode_field_castle_level3_started{device.state_machines.sm_hogwarts_castle_level3.state == 'part1'}: 
+    sl_level3_part1:
       expire: 3s
-  mode_field_hogwarts_castle_level1_started{device.state_machines.sm_hogwarts_castle_level1.state == 'part2'}: 
-    sl_level1_part2:
+  mode_field_castle_level3_started{device.state_machines.sm_hogwarts_castle_level3.state == 'part2'}: 
+    sl_level3_part2:
       expire: 3s
-  mode_field_hogwarts_castle_level1_started{device.state_machines.sm_hogwarts_castle_level1.state == 'part3'}: 
-    sl_level1_part3:
+  mode_field_castle_level3_started{device.state_machines.sm_hogwarts_castle_level3.state == 'part3'}: 
+    sl_level3_part3:
       expire: 3s
