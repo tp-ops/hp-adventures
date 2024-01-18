@@ -10,54 +10,54 @@ flippers:
     main_coil: c_fl_left_power
     hold_coil: c_fl_left_hold
     activation_switch: s_fl_left_a
-    enable_events: ball_starting, flippers_on
-    disable_events: ball_ending, service_mode_entered, flippers_off, weak_flippers_on, flip_flippers_on
+    enable_events: ball_starting, normal_lower_flippers_on
+    disable_events: ball_ending, service_mode_entered, flippers_off, weak_lower_flippers_on, flip_lower_flippers_on
   right_flipper:
     main_coil: c_fl_right_power
     hold_coil: c_fl_right_hold
     activation_switch: s_fl_right_a
-    enable_events: ball_starting, flippers_on
-    disable_events: ball_ending, service_mode_entered, flippers_off, weak_flippers_on, flip_flippers_on
+    enable_events: ball_starting, normal_lower_flippers_on
+    disable_events: ball_ending, service_mode_entered, flippers_off, weak_lower_flippers_on, flip_lower_flippers_on
   left_top_flipper:
     main_coil: c_fl_top_left_power
     hold_coil: c_fl_top_left_hold
     activation_switch: s_fl_left_b
-    enable_events: ball_starting, flippers_on
-    disable_events: ball_ending, service_mode_entered, flippers_off, weak_flippers_on, flip_flippers_on
+    enable_events: enable_left_top_flipper
+    disable_events: disable_left_top_flipper, service_mode_entered
   right_top_flipper:
     main_coil: c_fl_top_right_power
     hold_coil: c_fl_top_right_hold
     activation_switch: s_fl_right_b
-    enable_events: ball_starting, flippers_on
-    disable_events: ball_ending, service_mode_entered, flippers_off, weak_flippers_on, flip_flippers_on
-  left_flipper_weak:
-    main_coil: c_fl_left_power
-    hold_coil: c_fl_left_hold
-    main_coil_overwrite:
-      pulse_power: 0.3
-    activation_switch: s_fl_left_a
-    enable_events: weak_flippers_on
-    disable_events: ball_ending, service_mode_entered, flippers_off, flippers_on, flip_flippers_on
-  right_flipper_weak:
-    main_coil: c_fl_right_power
-    hold_coil: c_fl_right_hold
-    main_coil_overwrite:
-      pulse_power: 0.3
-    activation_switch: s_fl_right_a
-    enable_events: weak_flippers_on
-    disable_events: ball_ending, service_mode_entered, flippers_off, flippers_on, flip_flippers_on
-  left_flipper_flip:
-    main_coil: c_fl_left_power
-    hold_coil: c_fl_left_hold
-    activation_switch: s_fl_right_a
-    enable_events: flip_flippers_on
-    disable_events: ball_ending, service_mode_entered, flippers_off, flippers_on, weak_flippers_on
-  right_flipper_flip:
-    main_coil: c_fl_right_power
-    hold_coil: c_fl_right_hold
-    activation_switch: s_fl_left_a
-    enable_events: flip_flippers_on
-    disable_events: ball_ending, service_mode_entered, flippers_off, flippers_on, weak_flippers_on
+    enable_events: enable_right_top_flipper
+    disable_events: disable_right_top_flipper, service_mode_entered
+  # left_flipper_weak:
+  #   main_coil: c_fl_left_power
+  #   hold_coil: c_fl_left_hold
+  #   main_coil_overwrite:
+  #     pulse_power: 0.3
+  #   activation_switch: s_fl_left_a
+  #   enable_events: weak_flippers_on
+  #   disable_events: ball_ending, service_mode_entered, flippers_off, flippers_on, flip_flippers_on
+  # right_flipper_weak:
+  #   main_coil: c_fl_right_power
+  #   hold_coil: c_fl_right_hold
+  #   main_coil_overwrite:
+  #     pulse_power: 0.3
+  #   activation_switch: s_fl_right_a
+  #   enable_events: weak_flippers_on
+  #   disable_events: ball_ending, service_mode_entered, flippers_off, flippers_on, flip_flippers_on
+  # left_flipper_flip:
+  #   main_coil: c_fl_left_power
+  #   hold_coil: c_fl_left_hold
+  #   activation_switch: s_fl_right_a
+  #   enable_events: flip_flippers_on
+  #   disable_events: ball_ending, service_mode_entered, flippers_off, flippers_on, weak_flippers_on
+  # right_flipper_flip:
+  #   main_coil: c_fl_right_power
+  #   hold_coil: c_fl_right_hold
+  #   activation_switch: s_fl_left_a
+  #   enable_events: flip_flippers_on
+  #   disable_events: ball_ending, service_mode_entered, flippers_off, flippers_on, weak_flippers_on
 
 ball_devices:
   bd_plunger:
@@ -212,18 +212,25 @@ magnets:
     grab_time: 1.5s # Default is 1.5s
     grab_ball_events: mag_hogwarts_castle_grab_ball
     fling_ball_events: mag_hogwarts_castle_fling_ball
+    fling_drop_time: 250ms # Default: 250ms
+    fling_regrab_time: 50ms # Default: 50ms
     release_ball_events: mag_all_release, mag_hogwarts_castle_release
   mag_playfield:
     magnet_coil: c_magnet_playfield
     grab_time: 1.5s # Default is 1.5s
     grab_ball_events: mag_playfield_grab_ball
     fling_ball_events: mag_playfield_fling_ball
+    fling_drop_time: 250ms # Default: 250ms
+    fling_regrab_time: 50ms # Default: 50ms
     release_ball_events: mag_all_release, mag_playfield_release
   mag_clock_tower:
     magnet_coil: c_magnet_clock_tower
-    grab_time: 1.5s # Default is 1.5s
     grab_ball_events: mag_clock_tower_grab_ball
+    grab_switch:
+    grab_time: 1.5s # Default is 1.5s
     fling_ball_events: mag_clock_tower_fling_ball
+    fling_drop_time: 250ms # Default: 250ms
+    fling_regrab_time: 50ms # Default: 50ms
     release_ball_events: mag_all_release, mag_clock_tower_release
 
 autofire_coils:

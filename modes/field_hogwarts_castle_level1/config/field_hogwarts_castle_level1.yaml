@@ -16,25 +16,51 @@ config:
 #for simplicity each level get its own mode. 
 #Eacht new level increase magnet difficulty, first level it done for you, second level you dont have to catch but shoot self, last level you have to catch also.
 
+# Level 1
 # hit door to lit
 # hit again and let magnet grap the ball
-# when grabbed open will be opened
+# when grabbed door (drop target) will be opened
+# magnet will fling ball by itself.
 # when shot is made the door will closed
-# when missed door will be left open until shot is made
+# when missed door will be left open until shot is made, less points when make the shot by flippers or after amount of time
 # reset shot
+
+# Level 2
+# hit door to lit
+# hit again and let magnet grap the ball
+# when grabbed door (drop target) will be opened
+# player has to make the fling shot
+# when shot is made the door will closed
+# when missed door will be left open until shot is made, less points when make the shot by flippers or after amount of time
+# reset shot
+
+# Level 3
+# hit door to lit
+# hit again and let magnet grap the ball
+# when grabbed door (drop target) will be opened
+# player has to make the fling shot
+# when shot is made the door will closed
+# when missed door will be closed, and less points
+# reset shot
+
+
 shots:
-  sh_castle_door:
-    advance_events: sh_core_castle_door_hit
-    profile: sp_castle_door
+  # This shot is actually a drop-target. The shot is here for controlling led light as drop targets have no light config.
+  sh_hogwarts_castle_door_lvl1:
+    enable_events: mode_field_hogwarts_castle_level1_started
+    disable_events: mode_field_hogwarts_castle_level1_will_stop
+    advance_events: ce_advance_sh_hogwarts_castle_door_lvl1
+    profile: sp_hogwarts_castle_door
     show_tokens:
       led: l_ws2812_castle_door
       color_name: flames
-  sh_castle_main_entrance:
+  # This shot is the shot after the drop target. Is goes into the subway_ball_device.
+  sh_hogwarts_castle_entrance_lvl1:
     advance_events: sh_core_castle_main_entrance_hit
     profile: sp_castle_main_entrance
 
 shot_profiles:
-  sp_castle_door:
+  sp_hogwarts_castle_door:
     advance_on_hit: false
     states:
       - name: unlit
@@ -70,6 +96,15 @@ state_machines:
       - source: part2
         target: part3
         events: level_1_part_completed, test_event
+
+event_player:
+  drop_target_bank_dtb_hogwarts_castle_down{device.shots.sh_hogwarts_castle_door_lvl1.state_name == 'unlit':
+    - ce_advance_sh_hogwarts_castle_door_lvl1
+    - reset_dropbank_hogwarts_castle
+  drop_target_bank_dtb_hogwarts_castle_down{device.shots.sh_hogwarts_castle_door_lvl1.state_name == 'lit':
+    - ce_advance_sh_hogwarts_castle_door_lvl1
+    - mag_hogwarts_castle_grab_ball
+  
 
 slide_player:
   # this shows a slide on mode start. This is for test purpuse.
