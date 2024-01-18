@@ -181,31 +181,50 @@ diverters:
     debug: true  
         
 drop_targets:
-  dt_gringotts:
+  dt_hogwarts_castle:
+    switch: s_castle_door
+  dt_gringotts_bank:
     switch: s_drop_1er
-  dt_ministry_1:
+  dt_ministry_of_magic_1:
     switch: s_drop_3er_1
-  dt_ministry_2:
+  dt_ministry_of_magic_2:
     switch: s_drop_3er_2
-  dt_ministry_3:
+  dt_ministry_of_magic_3:
     switch: s_drop_3er_3
 
 drop_target_banks:
-  dtb_gringotts:
-    drop_targets: dt_gringotts
+  dtb_hogwarts_castle:
+    drop_targets: dt_hogwarts_castle
+    reset_coils: c_div_castle_door
+    reset_events: machine_reset_phase_3, ball_starting, reset_dropbank_hogwarts_castle
+  dtb_gringotts_bank:
+    drop_targets: dt_gringotts_bank
     reset_coils: c_drop_1er
-    reset_events: machine_reset_phase_3, ball_starting, reset_dropbank_bank
-  dtb_ministry:
-    drop_targets: dt_ministry_1, dt_ministry_2, dt_ministry_3
+    reset_events: machine_reset_phase_3, ball_starting, reset_dropbank_gringotts_bank
+  dtb_ministry_of_magic:
+    drop_targets: dt_ministry_of_magic_1, dt_ministry_of_magic_2, dt_ministry_of_magic_3
     reset_coils: c_drop_3er
-    reset_events: machine_reset_phase_3, ball_starting, reset_dropbank_ministry
+    reset_events: machine_reset_phase_3, ball_starting, reset_dropbank_ministry_of_magic
 
 magnets:
+  mag_hogwarts_castle:
+    magnet_coil: c_magnet_hogwarts_castle
+    grab_time: 1.5s # Default is 1.5s
+    grab_ball_events: mag_hogwarts_castle_grab_ball
+    fling_ball_events: mag_hogwarts_castle_fling_ball
+    release_ball_events: mag_all_release, mag_hogwarts_castle_release
+  mag_playfield:
+    magnet_coil: c_magnet_playfield
+    grab_time: 1.5s # Default is 1.5s
+    grab_ball_events: mag_playfield_grab_ball
+    fling_ball_events: mag_playfield_fling_ball
+    release_ball_events: mag_all_release, mag_playfield_release
   mag_clock_tower:
-    magnet_coil: c_magnet_tower
+    magnet_coil: c_magnet_clock_tower
     grab_time: 1.5s # Default is 1.5s
     grab_ball_events: mag_clock_tower_grab_ball
-    release_ball_events: magnet_release
+    fling_ball_events: mag_clock_tower_fling_ball
+    release_ball_events: mag_all_release, mag_clock_tower_release
 
 autofire_coils:
   left_slingshot:

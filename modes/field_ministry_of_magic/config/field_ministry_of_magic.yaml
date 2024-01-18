@@ -18,9 +18,9 @@ shots:
 sequences:
   seq_ministry_1:
     events:
-      - drop_target_bank_dtb_ministry_mixed
+      - drop_target_bank_dtb_ministry_of_magic_mixed
       - sh_ministry_vuk_hit
-      - drop_target_bank_dtb_ministry_mixed
+      - drop_target_bank_dtb_ministry_of_magic_mixed
       - sh_ministry_vuk_hit
     enable_events: mode_field_ministry_of_magic_started
     events_when_complete: logicblock_seq_ministry_1_complete
@@ -28,9 +28,9 @@ sequences:
     reset_on_complete: false
   seq_ministry_2:
     events:
-      - drop_target_bank_dtb_ministry_down
+      - drop_target_bank_dtb_ministry_of_magic_down
       - sh_ministry_vuk_hit
-      - drop_target_bank_dtb_ministry_down
+      - drop_target_bank_dtb_ministry_of_magic_down
       - sh_ministry_vuk_hit
     enable_events: logicblock_seq_ministry_1_complete
     events_when_complete: logicblock_seq_ministry_2_complete
@@ -38,11 +38,11 @@ sequences:
     reset_on_complete: false
   seq_ministry_3:
     events:
-      - drop_target_bank_dtb_ministry_mixed
-      - drop_target_bank_dtb_ministry_down
+      - drop_target_bank_dtb_ministry_of_magic_mixed
+      - drop_target_bank_dtb_ministry_of_magic_down
       - sh_ministry_vuk_hit
-      - drop_target_bank_dtb_ministry_mixed
-      - drop_target_bank_dtb_ministry_down
+      - drop_target_bank_dtb_ministry_of_magic_mixed
+      - drop_target_bank_dtb_ministry_of_magic_down
       - sh_ministry_vuk_hit
     enable_events: logicblock_seq_ministry_2_complete
     events_when_complete: logicblock_seq_ministry_3_complete
@@ -50,11 +50,11 @@ sequences:
     reset_on_complete: false
   seq_ministry_4:
     events:
-      - drop_target_bank_dtb_ministry_mixed
-      - drop_target_bank_dtb_ministry_down
+      - drop_target_bank_dtb_ministry_of_magic_mixed
+      - drop_target_bank_dtb_ministry_of_magic_down
       - sh_ministry_vuk_hit
-      - drop_target_bank_dtb_ministry_mixed
-      - drop_target_bank_dtb_ministry_down
+      - drop_target_bank_dtb_ministry_of_magic_mixed
+      - drop_target_bank_dtb_ministry_of_magic_down
       - sh_ministry_vuk_hit
     enable_events: logicblock_seq_ministry_3_complete
     events_when_complete: logicblock_seq_ministry_4_complete
@@ -62,11 +62,11 @@ sequences:
     reset_on_complete: false
   seq_ministry_5:
     events:
-      - drop_target_bank_dtb_ministry_mixed
-      - drop_target_bank_dtb_ministry_down
+      - drop_target_bank_dtb_ministry_of_magic_mixed
+      - drop_target_bank_dtb_ministry_of_magic_down
       - sh_ministry_vuk_hit
-      - drop_target_bank_dtb_ministry_mixed
-      - drop_target_bank_dtb_ministry_down
+      - drop_target_bank_dtb_ministry_of_magic_mixed
+      - drop_target_bank_dtb_ministry_of_magic_down
       - sh_ministry_vuk_hit
     enable_events: logicblock_seq_ministry_4_complete
     events_when_complete: logicblock_seq_ministry_5_complete
@@ -245,9 +245,9 @@ show_player:
         color_name: (current_player.house_theme_led)
 
 sound_player:
-  drop_target_bank_dtb_ministry_mixed:
+  drop_target_bank_dtb_ministry_of_magic_mixed:
     swoosh_pool:
       action: play
-  drop_target_bank_dtb_ministry_down:  
+  drop_target_bank_dtb_ministry_of_magic_down:  
     swoosh_pool:
       action: play

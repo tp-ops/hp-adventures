@@ -19,7 +19,7 @@ opp:
 #| - MAGNET SAFETY - DO NOT ENABLE THEM - |#
 #|========================================|#
 #| NEVER full enable magnets, use short pulses + PWM instead!
-#| Using "default_hold_power" for magnets that need to be on for a longer period time and set the desired power from 0 to 1 where 1 is 100%. Do not use a higher value then 30% at max!
+#| Using "default_hold_power" for magnets that need to be on for a longer period time and set the desired power from 0 to 1 where 1 is 100%. Do not use a higher value then 30% at max instead!
 
 #TODO
 # Playfield active switches (Not by shots, handled internaly)
@@ -93,7 +93,8 @@ coils:
     number: 2-0-15
     default_pulse_ms: 15
   # OPP CHAIN 3 BOARD 0
-  c_magnet_castle:
+  # NEVER full enable magnets, see explanation above.
+  c_magnet_hogwarts_castle:
     platform: opp
     number: 3-0-8
     default_pulse_ms: 10
@@ -120,7 +121,8 @@ coils:
     platform: opp
     number: 3-0-13
     default_pulse_ms: 20
-  c_magnet_tower:
+  # NEVER full enable magnets, see explanation above.
+  c_magnet_clock_tower:
     platform: opp
     number: 3-0-14
     default_pulse_ms: 10
@@ -149,7 +151,8 @@ coils:
     number: 4-0-11
     default_pulse_ms: 25
     default_hold_power: 0.1
-  c_magnet_main:
+  # NEVER full enable magnets, see explanation above.
+  c_magnet_playfield:
     platform: opp
     number: 4-0-12
     default_pulse_ms: 10
