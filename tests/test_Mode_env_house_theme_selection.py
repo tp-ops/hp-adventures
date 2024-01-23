@@ -7,7 +7,7 @@ class test_house_theme_selection(MpfGameTestCase):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures\\hp-adventures'
+        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'
