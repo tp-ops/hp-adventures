@@ -196,15 +196,15 @@ drop_target_banks:
   dtb_hogwarts_castle:
     drop_targets: dt_hogwarts_castle
     reset_coils: c_div_castle_door
-    reset_events: machine_reset_phase_3, ball_starting, reset_dropbank_hogwarts_castle
+    reset_events: machine_reset_phase_3, reset_dropbank_hogwarts_castle
   dtb_gringotts_bank:
     drop_targets: dt_gringotts_bank
     reset_coils: c_drop_1er
-    reset_events: machine_reset_phase_3, ball_starting, reset_dropbank_gringotts_bank
+    reset_events: machine_reset_phase_3, reset_dropbank_gringotts_bank
   dtb_ministry_of_magic:
     drop_targets: dt_ministry_of_magic_1, dt_ministry_of_magic_2, dt_ministry_of_magic_3
     reset_coils: c_drop_3er
-    reset_events: machine_reset_phase_3, ball_starting, reset_dropbank_ministry_of_magic
+    reset_events: machine_reset_phase_3, reset_dropbank_ministry_of_magic
 
 magnets:
   mag_hogwarts_castle:

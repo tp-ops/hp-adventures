@@ -58,7 +58,7 @@ state_machines:
     persist_state: true
     states:
       part1:
-        label: Albus Dumbledore
+        label: You know who
       part2:
         label: Forbidden Forest
       part3:
@@ -73,12 +73,12 @@ state_machines:
 
 slide_player:
   # this shows a slide on mode start. This is for test purpuse.
-  mode_field_castle_level2_started{device.state_machines.sm_hogwarts_castle_level2.state == 'part1'}: 
+  mode_field_castle_level2_started{device.state_machines.sm_hogwarts_castle_level2.state=='part1'}: 
     sl_level2_part1:
       expire: 3s
-  mode_field_castle_level2_started{device.state_machines.sm_hogwarts_castle_level2.state == 'part2'}: 
+  mode_field_castle_level2_started{device.state_machines.sm_hogwarts_castle_level2.state=='part2'}: 
     sl_level2_part2:
       expire: 3s
-  mode_field_castle_level2_started{device.state_machines.sm_hogwarts_castle_level2.state == 'part3'}: 
+  mode_field_castle_level2_started{device.state_machines.sm_hogwarts_castle_level2.state=='part3'}: 
     sl_level2_part3:
       expire: 3s

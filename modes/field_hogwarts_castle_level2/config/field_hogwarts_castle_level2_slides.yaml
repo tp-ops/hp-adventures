@@ -5,36 +5,36 @@ slides:
   # y: top-315      # (y =  700 -  70 =  630)
   # anchor_x: middle
   # anchor_y: middle
-  sl_level2_part1:
-    widgets:
-    - type: text
-      font_name: harry-potter
-      text: LEVEL 1
-      font_size: 80
-      color: score_text_default
-      x: left+575
-      y: top-100
-      anchor_x: middle
-      anchor_y: middle
-    - type: text
-      font_name: harry-potter
-      text: Hogwarts School of Witchcraft and Wizardry
-      font_size: 55
-      color: score_text_default
-      x: left+575
-      y: top-200
-      anchor_x: middle
-      anchor_y: middle
-    - type: text
-      font_name: harry-potter
-      text: Albus Dumbledore
-      font_size: 100
-      color: score_text_default
-      x: left+575
-      y: top-350
-      anchor_x: middle
-      anchor_y: middle
-    - widget: widget_main_back_(current_player.house_theme_name)
+sl_level2_part1:
+  widgets:
+  - type: text
+    font_name: harry-potter
+    text: LEVEL 1
+    font_size: 80
+    color: score_text_default
+    x: left+575
+    y: top-100
+    anchor_x: middle
+    anchor_y: middle
+  - type: text
+    font_name: harry-potter
+    text: Hogwarts School of Witchcraft and Wizardry
+    font_size: 55
+    color: score_text_default
+    x: left+575
+    y: top-200
+    anchor_x: middle
+    anchor_y: middle
+  - type: text
+    font_name: harry-potter
+    text: Albus Dumbledore
+    font_size: 100
+    color: score_text_default
+    x: left+575
+    y: top-350
+    anchor_x: middle
+    anchor_y: middle
+  - widget: widget_main_back_(current_player.house_theme_name)
   sl_level2_part2:
     widgets:
     - type: text
