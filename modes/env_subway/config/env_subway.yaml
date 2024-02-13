@@ -16,14 +16,15 @@ state_machines:
     transitions:
       - source: left
         target: right
-        events: change_subway_vuk_selector_state, s_tar_c_right_active
+        events: test
       - source: right
         target: left
-        events: change_subway_vuk_selector_state, s_tar_c_left_active
+        events: test
+
 
 
 event_player:
-  balldevice_bd_subway_vuk_selector_ball_eject_success: change_subway_vuk_selector_state
-  balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="left"}: subway_vuk_selector_go_left    # Trough Conditional Events
-  balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="right"}: subway_vuk_selector_go_right  # Trough Conditional Events
+  # balldevice_bd_subway_vuk_selector_ball_eject_success: change_subway_vuk_selector_state
+  # balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="left"}: subway_vuk_selector_go_left    # Trough Conditional Events
+  # balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="right"}: subway_vuk_selector_go_right  # Trough Conditional Events
   # balldevice_bd_subway_vuk_selector_ejecting_ball: subway_vuk_selector_go_(device.state_machines.sm_subway_vuk_selector.state)  # Trough Dynamic Events

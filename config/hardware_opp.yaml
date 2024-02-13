@@ -184,6 +184,11 @@ coils:
   c_subway_vuk_selector:
     platform: virtual
     number:
+  c_subway_div_vuk_selector:
+    platform: virtual
+    number:
+    # used this otherwise get an error -> DriverLimitsError: Cannot enable driver with hold_power 0.0. But this is a dummy coil (servo) so can use this with safety
+    default_hold_power: 0.1
   c_clock_tower:
     platform: virtual
     number:

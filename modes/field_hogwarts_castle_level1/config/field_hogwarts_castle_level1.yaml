@@ -57,7 +57,7 @@ config:
 # Ball will be locked and you get a new ball
 # Castle still open to make it more difficult to get more multiball balls
 # When you lock a second ball in hogwarts castle a 2-ball multiball will be started. But you can make this a 3 or 4-ball multiball 
-# Locking another ball either in hagrids place and/or in daigon alley before the second in hogwarts caslte
+# Locking another ball either in clock_tower and/or in daigon alley before the second in hogwarts caslte
 
 # Level 2 (3-ball multiball)
 # Get inside hogwarts castle (without magnet grab and fling support)
@@ -155,24 +155,45 @@ shot_profiles:
 
 
 multiball_locks:
-  mbl_hogwarts_castle_level1_2ball:
-    balls_to_lock: 2
-    lock_devices: bd_subway_vuk_left, bd_subway_vuk_right
-  # enable these when 2ball right vuk lock is set
-  mbl_hogwarts_castle_level1_hagrids_place:
+  mbl_hogwarts_castle_level1_left_vuk:
+    enable_events: test_event1
+    disable_events: mode_field_hogwarts_castle_level1_will_stop
     balls_to_lock: 1
-    lock_devices: bd_subway_vuk_right_buffer
-  mbl_hogwarts_castle_level1_diagon_alley:
+    locked_ball_counting_strategy: no_virtual
+    lock_devices: bd_subway_vuk_left
+  mbl_hogwarts_castle_level1_right_vuk:
+    enable_events: test_event1
+    disable_events: mode_field_hogwarts_castle_level1_will_stop
     balls_to_lock: 1
-    lock_devices: bd_diagon_alley_vuk
+    locked_ball_counting_strategy: no_virtual
+    lock_devices: bd_subway_vuk_right
+    
+  # # enable these when 2ball right vuk lock is set
+  # mbl_hogwarts_castle_level1_hagrids_place:
+  #   balls_to_lock: 1
+  #   locked_ball_counting_strategy: no_virtual
+  #   lock_devices: bd_subway_vuk_right_buffer
+  # mbl_hogwarts_castle_level1_diagon_alley:
+  #   balls_to_lock: 1
+  #   lock_devices: bd_diagon_alley_vuk
 
 multiballs:
-  mb_hogwarts_calste_level1_2ball-multiball:
-    ball_count: 2
-  mb_hogwarts_calste_level1_3ball-multiball:
+  mb_hogwarts_calste_level1_2ball:
+    enable_events: test_event1
+    disable_events: mode_field_hogwarts_castle_level1_will_stop
+    reset_events: reset_mb_hogwarts_calste_level1_2ball
+    start_events: test_event2
     ball_count: 3
-  mb_hogwarts_calste_level1_4ball-multiball:
-    ball_count: 4
+    ball_count_type: total
+    ball_locks: bd_subway_vuk_left, bd_subway_vuk_right
+    shoot_again: 1s
+
+  # mb_hogwarts_calste_level1_3ball-multiball:
+  #   ball_count: 3
+  #   ball_count_type: total
+  # mb_hogwarts_calste_level1_4ball-multiball:
+  #   ball_count: 4
+  #   ball_count_type: total
 
 event_player:
   # First hit door to lit shot, reset bank for next step
@@ -183,8 +204,9 @@ event_player:
   drop_target_bank_dtb_hogwarts_castle_down{device.shots.sh_hogwarts_castle_door_lvl1.state_name=='lit'}:
     - ce_advance_sh_hogwarts_castle_door_lvl1
     - mag_hogwarts_castle_grab_ball
-  
-
   sh_hogwarts_castle_entrance_lvl1{device.shots.sh_hogwarts_castle_door_lvl1.state_name=='open'}:
     - ce_restart_sh_hogwarts_castle_door_lvl1
-
+  multiball_lock_mbl_hogwarts_castle_level1_full:
+    - start_mb_hogwarts_calste_level1_2ball
+#multiball_lock(name)_locked_ball.total_balls_locked of iets
+#multiball_lock(name)_full

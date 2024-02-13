@@ -20,5 +20,20 @@ keyboard:
     switch: s_service_up
   down:
     switch: s_service_down
-  t:
-    event: test_event
+  1:
+    event: test_event1
+  2:
+    event: test_event2
+  5:
+    event: activate_div_vuk_selector
+  6:
+    event: deactivate_div_vuk_selector
+  8:
+    event: request_ball_left
+  9:
+    event: ball_right
+
+
+
+
+    
