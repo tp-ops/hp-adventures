@@ -7,99 +7,29 @@ mode:
 config:
   - field_hogwarts_castle_level1_slides.yaml
 
-# first time in Hogwarts Castle you get intro about the greatest wizards (maybe at this point you have to choose a house)
-# after intro you get an overview of progress, this will be shown everytime afterwards
-# at some point you unlock level 2 - You know Who, you learn about voldermort
-# at some point you unlock level 3 - Dark Magic, you learn about some dark magic
-# at some point you unlock level 4 - Horcrux overview, you learn about horcruxes
 
+
+
+# Subway ball_devices setup (not implemented at the moment)
 #
-# 1. Greatest wizard and witches (achievement - get multipliers, deze wil je hebben ivm punten) (eerste keer in kasteel - right top flipper werkt nu) - na missie een 2 ball multiball
+#                                               hogwarts_castle     hagrids_place
+#                                                      ↓                 ↓                
+#   playfield ←-- left_vuk ←-- left_vuk_buffer ←-- center_div --→ right_vuk_buffer --→ right_vuk --→ playfield
 #
-#  lock ball and get new ball and start first castle mode
-#  make all shots to hogwart places
-#     - sorting head (choose a house)
-#     - rubues hagrid
-#     - quiditch statium hits (10)
-#     - dumbledore's office of librairy
-#     - daigon ally shot for schoolstuff
-#   - shoot castle again and get a 2 ball multiball (2x uit castle)
-# 2. You know who (achievement - get multipliers, deze wil je hebben ivm punten) - Left top flipper werkt nu en chamber is lit - Na missie een 3 ball multiball
-#   lock ball and get new ball
-#     - meet voldemort (flying magnet)
-#         - win and get extra ball
-#         - lose get no extra ball
-#     - forbidden forest
-#     - chamber of secrets
-#     - pensieve ?
-#   - shoot castle again and get a 3 ball multiball (2x uit castle, 1x uit plunger)
-#   hierna werken ook de lightning bolts
-# 3. Dark Magic (achievement - get multipliers)  pensieve lit / horcruxes lit? - Na missie een 4 ball multiball
-#   lock ball and get new ball
-#   - lock another 3 balls and get information of dark magic
-#      lock ball in ministry and get new ball
-#      lock ball in daigon ally and get new ball
-#      lock ball in forbidden forrest
-#   - get information of dark magic, pensieve werkt nu voor het eerst (led light top)
-#   - get 4 ball multiball
-#   - pensieve mission is nu lit, na deze weet je van horcruxes
-# 4. Horcruxes overzicht als pensieve mission zelf is voltooid, anders punten en melding over pensieve, pensieve lit
+# Subway ball_devices setup (implemented)
 #
-  
+#                                            hogwarts_castle  hagrids_place
+#                                                   ↓              ↓                
+#   playfield ←-- left_vuk | left_vuk_buffer | center_div | right_vuk_buffer | right_vuk --→ playfield
+#
+# when 2 ball multiball is started we want from both left and right vuk's a ball.
+# one possiblility for a 3 or 4 ball multiball is hagrids_place shot, by which the ball will end straight-on in right_vuk_buffer.
+# so to make this all possible we need to make sure that when the first ball is lock in hogwarts castle, trough the center_div, will be routed to the right vuk.
+# only then we can enable hagrids_place lock. when we do this earlier and thus the right_vuk_buffer can have already a locked ball, we can never reach the right_vuk anymore.
 
-
-
-#for simplicity each level get its own mode. 
-#Eacht new level increase magnet difficulty, first level it done for you, second level you dont have to catch but shoot self, last level you have to catch also.
-
-# Level 1 (2, 3 or 4-ball multiball)
-# Get inside hogwarts castle (with magnet grab and fling support)
-# Ball will be locked and you get a new ball
-# Castle still open to make it more difficult to get more multiball balls
-# When you lock a second ball in hogwarts castle a 2-ball multiball will be started. But you can make this a 3 or 4-ball multiball 
-# Locking another ball either in clock_tower and/or in daigon alley before the second in hogwarts caslte
-
-# Level 2 (3-ball multiball)
-# Get inside hogwarts castle (without magnet grab and fling support)
-# Ball will not be locked and will be returned
-# Lock one ball in chamber of secrets
-# Lock one ball in forbidden forrest
-# Get inside hogwarts castle (without magnet grab and fling support)
-# This will give a 3-ball multiball (left and right subway and forbidden forrest) and wil start mission mode x
-
-# Level 3 (4-ball multiball)
-# Get inside hogwarts castle (without magnet grab and fling support)
-# Ball will not be locked and will be returned
-# Lock one ball in pensieve
-# Lock one ball in gringotts bank
-# Lock one ball in ministry of magic
-# Get inside hogwarts castle (without magnet grab and fling support)
-# This will give a 4-ball multiball (left and right subway, pensieve and ministry of magic) and wil start mission mode x
-
-# Level 1 - Get inside castle (with magnet grab and fling support - door left open when missed, less points)
-# hit hogwarts castle door (unlit), advance shot to lit, reset drop target
-# hit hogwarts castle door again (lit), advance shot to open, left drop target down
-# let magnet grap the ball for you, when grabbed, let the magnet fling the ball for you into entrance shot
-#   - when shot is made with magnet fling, adward points
-#   - when shot is missed, left door open until shot is made with flippers
-#   - when shot is made with flippers, adward points butt less
-# lock first ball in subway
-# left hogwarts castle open to make it more difficult to get more multiball balls
-# You can know lock a ball in hagrids place for an extra multiball ball
-# You can know lock a ball in daigon alley for an extra multiball ball
-# after second lock in subway, restart hogwarts castle door shot to unlit, reset drop target
-# start multiball
-
-# Level 2 - Get inside castle (without magnet grab and fling support - door left open when missed, less points)
-# hit hogwarts castle door (unlit), advance shot to lit, reset drop target
-# hit hogwarts castle door again (lit), advance shot to open, left drop target down
-# grap the ball with left flipper, when grabbed, fling the ball with left flipper into entrance shot
-#   - when shot is made with magnet fling, adward points
-#   - when shot is missed, left door open until shot is made with flippers
-#   - when shot is made with flippers, adward points butt less
-# restart hogwarts castle door shot to unlit, reset drop target
-
-# Level 3 - Get inside castle (without magnet grab and fling support - door will be closed when missed, each new try is less points)
+# so the first ball in hogwarts needs to be routed to the right_vuk
+# then enable both hagrids_place and diagon_alley lock
+# second ball in hogwarts (which will start the 2-ball multiball) needs to be router to the left_vuk
 
 
 shots:
@@ -136,22 +66,6 @@ shot_profiles:
     states:
       - name: unlit
       - name: lit
-
-# Subway ball_devices setup
-#
-#                                               hogwarts_castle     hagrids_place
-#                                                      ↓                 ↓                
-#   playfield ←-- left_vuk ←-- left_vuk_buffer ←-- center_div --→ right_vuk_buffer --→ right_vuk --→ playfield
-#
-# when 2 ball multiball is started we want from both left and right vuk's a ball.
-# one possiblility for a 3 or 4 ball multiball is hagrids_place shot, by which the ball will end straight-on in right_vuk_buffer.
-# so to make this all possible we need to make sure that when the first ball is lock in hogwarts castle, trough the center_div, will be routed to the right vuk.
-# only then we can enable hagrids_place lock. when we do this earlier and thus the right_vuk_buffer can have already a locked ball, we can never reach the right_vuk anymore.
-
-# so the first ball in hogwarts needs to be routed to the right_vuk
-# then enable both hagrids_place and diagon_alley lock
-# second ball in hogwarts (which will start the 2-ball multiball) needs to be router to the left_vuk
-
 
 
 multiball_locks:

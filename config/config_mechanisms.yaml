@@ -82,14 +82,14 @@ ball_devices:
     ball_switches: s_subway_vuk_left_buffer_1, s_subway_vuk_left_buffer_2
     # Used a dummy coil and the ball_device events to position the servo (see servo config in hardware_pololu.yaml) instead of the event_ejector class.
     eject_coil: c_subway_vuk_left_buffer
-    eject_targets: bd_subway_vuk_left
+    #eject_targets: bd_subway_vuk_left
     confirm_eject_type: target
     debug: true
   bd_subway_vuk_left_buffer_chamber:
     ball_switches: s_subway_vuk_left_buffer_chamber
     # Used a dummy coil and the ball_device events to position the servo (see servo config in hardware_pololu.yaml) instead of the event_ejector class.
     eject_coil: c_subway_vuk_left_buffer_chamber
-    eject_targets: bd_subway_vuk_left
+    #eject_targets: bd_subway_vuk_left
     confirm_eject_type: target
     debug: true
   bd_subway_vuk_right_buffer:
@@ -98,16 +98,16 @@ ball_devices:
       - s_subway_vuk_right_buffer_2
     # Used a dummy coil and the ball_device events to position the servo (see servo config in hardware_pololu.yaml) instead of the event_ejector class.
     eject_coil: c_subway_vuk_right_buffer
-    eject_targets: bd_subway_vuk_right
+    #eject_targets: bd_subway_vuk_right
     confirm_eject_type: target
     debug: true
   bd_subway_vuk_selector:
     ball_switches: s_subway_vuk_selector
     # Used a dummy coil and the ball_device events to transistion the state machine (mode env_subway) instead of the event_ejector class.
     eject_coil: c_subway_vuk_selector
-    eject_targets: 
-      - bd_subway_vuk_left_buffer
-      - bd_subway_vuk_right_buffer
+    #eject_targets: 
+    #  - bd_subway_vuk_left_buffer
+    #  - bd_subway_vuk_right_buffer
     confirm_eject_type: target
     debug: true
   bd_subway_vuk_left:
@@ -184,24 +184,17 @@ diverters:
     activate_events: activate_div_forest
     deactivate_events: deactivate_div_forest
     debug: false
-  div_castle_door:
-    enable_events: ball_started
-    disable_events: ball_ended
-    activation_coil: c_div_castle_door
-    activate_events: test_div_castle_door_active
-    deactivate_events: test_div_castle_door_deactive
-    debug: false  
   div_vuk_selector:
-    enable_events: ball_started
-    disable_events: ball_ended
+    enable_events: enable_div_vuk_selector
+    disable_events: disable_div_vuk_selector
     # Used a dummy coil and the diverter + ball_device events to position the servo (see servo config in hardware_pololu.yaml)
     activation_coil: c_subway_div_vuk_selector
-    # activate_events: activate_div_vuk_selector
-    # deactivate_events: deactivate_div_vuk_selector
-    feeder_devices: bd_subway_vuk_selector
-    targets_when_active: bd_subway_vuk_left_buffer
-    targets_when_inactive: bd_subway_vuk_right_buffer
-    debug: true  
+    activate_events: activate_div_vuk_selector
+    deactivate_events: deactivate_div_vuk_selector
+    #feeder_devices: bd_subway_vuk_selector
+    #targets_when_active: bd_subway_vuk_left_buffer
+    #targets_when_inactive: bd_subway_vuk_right_buffer
+    debug: true
         
 drop_targets:
   dt_hogwarts_castle:
