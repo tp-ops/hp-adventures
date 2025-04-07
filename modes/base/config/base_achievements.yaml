@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 achievements:
   # Note # Hit the pop bumpers 100 times to make your quidditch debut. Quidditch mode will start. To start Quidditch mode again on next ball you only have to hit the pop bumpers 25 times.
   achv_quidditch_debut:

@@ -1,4 +1,4 @@
-#show_version=5
+#show_version=6
 - time: 0
   lights:
     l_dummy_1: ff
@@ -16,7 +16,7 @@
     l_pop_bottom: ff
     l_pop_left: ff
     l_pop_right: ff
-- time: +5
+- time: "+5"
   lights:
     l_dummy_1: ff
     l_side_drain: 0

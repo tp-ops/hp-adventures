@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 shows:
 
   flash_slow:
@@ -64,7 +64,7 @@ shows:
         (led):
           color: (color_name)
           fade: 0.25
-    - time: +1
+    - time: "+1"
       lights:
         (led):
           color: stop

@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 shots:
   sh_core_pop_left:
     switches: s_pop_left

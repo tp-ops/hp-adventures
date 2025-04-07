@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 event_player:
   s_start_button_active: sw_add_player
   mode_attract_started: mode_attract_started_lights_off

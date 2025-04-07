@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 
 # HARDWARE MECHANISM LIMITATIONS
 # div_tower_entry (div 1) AND div_tower_pensieve (div 2) ARE ENABLED WHEN MODE field_clock_tower STARTS

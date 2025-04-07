@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 opp:
   ports: /dev/ttyOPP-0, /dev/ttyOPP-1, /dev/ttyOPP-2, /dev/ttyOPP-3, /dev/ttyOPP-4
   chains:

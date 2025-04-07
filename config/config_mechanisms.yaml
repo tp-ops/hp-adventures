@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 
 # HARDWARE MECHANISM LIMITATIONS
 # div_tower_entry (div 1) CAN ONLY BE DEACTIVATED WHEN div_tower_pensieve (div 2) IS DEACTIVE

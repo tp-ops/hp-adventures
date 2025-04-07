@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 config:
   #- hardware_accelerometer.yaml
   - hardware_opp.yaml

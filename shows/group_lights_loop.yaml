@@ -1,4 +1,4 @@
-#show_version=5
+#show_version=6
 - time: 0
   lights:
     shot_lights: 
@@ -10,7 +10,7 @@
       color: off
     horcrux_lights:
       color: off
-- time: +1
+- time: "+1"
   lights:
     shot_lights: 
       color: off
@@ -22,7 +22,7 @@
       color: off
     horcrux_lights:
       color: off
-- time: +1
+- time: "+1"
   lights:
     shot_lights:
       color: off
@@ -34,7 +34,7 @@
       fade: 200ms
     horcrux_lights:
       color: off
-- time: +1
+- time: "+1"
   lights:
     shot_lights:
       color: off
@@ -46,7 +46,7 @@
     horcrux_lights:
       color: white
       fade: 200ms
-- time: +1
+- time: "+1"
   duration: 0.2
   lights:
     shot_lights:

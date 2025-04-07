@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 
 # Using a state_machine for remembering which orbit mode has to be started. Also this state_machine will sent the start event for these modes.
 state_machines:

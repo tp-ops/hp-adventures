@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 named_colors:
   # Original colors for the four houses
   gryffindor_red: [127, 9, 9]         # 7F0909

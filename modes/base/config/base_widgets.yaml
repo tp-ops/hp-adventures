@@ -1,4 +1,4 @@
-#config_version=5
+#config_version=6
 widgets:
   # Backgrounds for main window slides. Each theme has its own widget. Wich one will be used is determined by the varirable house_theme
   widget_main_back_gryffindor:
