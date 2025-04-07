@@ -6,7 +6,7 @@ class test_global_hogwarts_castle(MpfGameTestCase):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures'
+        return 'D:\\Coding\\Source code\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'
@@ -21,7 +21,7 @@ class test_global_orbits(MpfGameTestCase):
         return 'config.yaml'
 
     def get_machine_path(self):
-        return 'C:\\Users\\TomHuizePenningsnet\\Desktop\\Source code\\hp-adventures'
+        return 'D:\\Coding\\Source code\\hp-adventures'
 
     def get_platform(self):
         return 'smart_virtual'
