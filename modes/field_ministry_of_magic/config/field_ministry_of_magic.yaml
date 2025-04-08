@@ -207,7 +207,8 @@ show_player:
         color_name: (current_player.house_theme_led)
   
   # Note # Mission lights
-  field_ministry_of_magic_carousel_item_ministry_1_highlighted:
+  item_highlighted{carousel="field_ministry_of_magic", item="carousel_item_ministry_1"}:
+  #field_ministry_of_magic_carousel_item_ministry_1_highlighted:
     flash_normal:
       action: play
       key: flash_normal_ministry
@@ -216,7 +217,8 @@ show_player:
       show_tokens:
         led: l_ws2812_mis_triwizard_tournament
         color_name: (current_player.house_theme_led)
-  field_ministry_of_magic_carousel_item_ministry_2_highlighted:
+  item_highlighted{carousel="field_ministry_of_magic", item="carousel_item_ministry_2"}:
+  #field_ministry_of_magic_carousel_item_ministry_2_highlighted:
     flash_normal:
       action: play
       key: flash_normal_ministry
@@ -225,7 +227,8 @@ show_player:
       show_tokens:
         led: l_ws2812_mis_unforgivable_cursus
         color_name: (current_player.house_theme_led)
-  field_ministry_of_magic_carousel_item_ministry_3_highlighted:
+  item_highlighted{carousel="field_ministry_of_magic", item="carousel_item_ministry_3"}:
+  #field_ministry_of_magic_carousel_item_ministry_3_highlighted:
     flash_normal:
       action: play
       key: flash_normal_ministry
@@ -234,7 +237,8 @@ show_player:
       show_tokens:
         led: l_ws2812_mis_hall_of_prophecy
         color_name: (current_player.house_theme_led)
-  field_ministry_of_magic_carousel_item_ministry_4_highlighted:
+  item_highlighted{carousel="field_ministry_of_magic", item="carousel_item_ministry_4"}:
+  #field_ministry_of_magic_carousel_item_ministry_4_highlighted:
     flash_normal:
       action: play
       key: flash_normal_ministry

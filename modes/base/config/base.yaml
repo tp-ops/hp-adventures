@@ -8,7 +8,6 @@ config:
   - base_achievements.yaml
   - base_shots.yaml
   - base_shows.yaml
-  - base_widgets.yaml
 
 # ball_saves:
 #   default:
@@ -54,27 +53,27 @@ variable_player:
       int: (change)
       action: set
 
-widget_player:
-  player_var_score{game.num_players==1}: 
-    widget_active_player_last_score:
-      slide: sl_score_one_player
-      widget_settings:
-        z: 100
-  player_var_score{game.num_players==2}: 
-    widget_active_player_last_score:
-      slide: sl_score_two_players
-      widget_settings:
-        z: 100
-  player_var_score{game.num_players==3}: 
-    widget_active_player_last_score:
-      slide: sl_score_tree_players
-      widget_settings:
-        z: 100
-  player_var_score{game.num_players==4}: 
-    widget_active_player_last_score:
-      slide: sl_score_four_players
-      widget_settings:
-        z: 100
+# widget_player:
+#   player_var_score{game.num_players==1}: 
+#     widget_active_player_last_score:
+#       slide: sl_score_one_player
+#       widget_settings:
+#         z: 100
+#   player_var_score{game.num_players==2}: 
+#     widget_active_player_last_score:
+#       slide: sl_score_two_players
+#       widget_settings:
+#         z: 100
+#   player_var_score{game.num_players==3}: 
+#     widget_active_player_last_score:
+#       slide: sl_score_tree_players
+#       widget_settings:
+#         z: 100
+#   player_var_score{game.num_players==4}: 
+#     widget_active_player_last_score:
+#       slide: sl_score_four_players
+#       widget_settings:
+#         z: 100
 
 slide_player:
   # Show always a slide with only a background when no other slide is active

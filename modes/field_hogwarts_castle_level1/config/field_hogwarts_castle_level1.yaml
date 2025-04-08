@@ -4,8 +4,8 @@ mode:
   stop_events: stop_mode_field_hogwarts_castle_level1
   priority: 300
 
-config:
-  - field_hogwarts_castle_level1_slides.yaml
+# config:
+#   - field_hogwarts_castle_level1_slides.yaml
 
 
 

@@ -27,33 +27,33 @@ displays:
     width: 1600
     height: 200
 
-slides:
-  window_slide_container:
-    widgets:
-      - type: display
-        source_display: lcd_main
-        width: 1250
-        height: 700
-        anchor_x: left
-        anchor_y: bottom
-        x: left
-        y: bottom+200
-      - type: display
-        source_display: lcd_side
-        width: 350
-        height: 700
-        anchor_x: left
-        anchor_y: bottom
-        x: left+1250
-        y: bottom+200
-      - type: display
-        source_display: lcd_score
-        width: 1600
-        height: 200
-        anchor_x: left
-        anchor_y: bottom
-        x: left
-        y: bottom
+# slides:
+#   window_slide_container:
+#     widgets:
+#       - type: display
+#         source_display: lcd_main
+#         width: 1250
+#         height: 700
+#         anchor_x: left
+#         anchor_y: bottom
+#         x: left
+#         y: bottom+200
+#       - type: display
+#         source_display: lcd_side
+#         width: 350
+#         height: 700
+#         anchor_x: left
+#         anchor_y: bottom
+#         x: left+1250
+#         y: bottom+200
+#       - type: display
+#         source_display: lcd_score
+#         width: 1600
+#         height: 200
+#         anchor_x: left
+#         anchor_y: bottom
+#         x: left
+#         y: bottom
 
 slide_player:
   init_done:
