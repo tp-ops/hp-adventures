@@ -2,7 +2,7 @@
 config:
   - config_assets.yaml
   - config_credits.yaml
-  - config_display.yaml
+  # - config_display.yaml
   - config_mechanisms.yaml
   - config_settings.yaml
   # - config_sound.yaml

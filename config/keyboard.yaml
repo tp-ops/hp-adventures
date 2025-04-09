@@ -1,37 +1,37 @@
-#config_version=6
-keyboard:
-  s:
-    switch: s_start_button
-  z:
-    switch: s_fl_left_a
-  /:
-    switch: s_fl_right_a
-  x:
-    switch: s_sling_left
-  d:
-    switch: s_drain
-  p:
-    switch: s_plunger_lane
-  e:
-    switch: s_service_enter
-  left:
-    switch: s_service_esc
-  up:
-    switch: s_service_up
-  down:
-    switch: s_service_down
-  1:
-    event: test_event1
-  2:
-    event: test_event2
-  5:
-    event: activate_div_vuk_selector
-  6:
-    event: deactivate_div_vuk_selector
-  8:
-    event: request_ball_left
-  9:
-    event: ball_right
+# #config_version=6
+# keyboard:
+#   s:
+#     switch: s_start_button
+#   z:
+#     switch: s_fl_left_a
+#   /:
+#     switch: s_fl_right_a
+#   x:
+#     switch: s_sling_left
+#   d:
+#     switch: s_drain
+#   p:
+#     switch: s_plunger_lane
+#   e:
+#     switch: s_service_enter
+#   left:
+#     switch: s_service_esc
+#   up:
+#     switch: s_service_up
+#   down:
+#     switch: s_service_down
+#   1:
+#     event: test_event1
+#   2:
+#     event: test_event2
+#   5:
+#     event: activate_div_vuk_selector
+#   6:
+#     event: deactivate_div_vuk_selector
+#   8:
+#     event: request_ball_left
+#   9:
+#     event: ball_right
 
 
 

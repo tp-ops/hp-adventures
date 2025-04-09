@@ -5,7 +5,7 @@ config:
   - hardware_fadecandy.yaml
   - hardware_pololu.yaml
   - hardware_rpi.yaml
-  - keyboard.yaml
+  # - keyboard.yaml
 
 hardware:
   platform: opp, fadecandy, pololu_maestro, rpi, virtual

@@ -1,7 +1,27 @@
 #config_version=6
+
+mode_settings:
+  selectable_items:
+    - title
+    - credits
+    - last_scores_1p{machine.player1_score and not machine.player2_score}
+    - last_scores_2p{machine.player2_score and not machine.player3_score}
+    - last_scores_3p{machine.player3_score and not machine.player4_score}
+    - last_scores_4p{machine.player4_score}
+    - logo
+  next_item_events: s_fl_right_a_active, timer_attract_carousel_timer_complete
+  previous_item_events: s_fl_left_a_active
+
 event_player:
   s_start_button_active: sw_add_player
-  mode_attract_started: mode_attract_started_lights_off
+
+slide_player:
+  mode_attract_started: attract
+
+sound_player:
+  mode_attract_started:
+    theme_song:
+      bus: music
 
 show_player:
   mode_attract_started: 
@@ -20,72 +40,15 @@ show_player:
     attract_light_loop:
       action: stop
 
-sound_player:
-  mode_attract_started:
-    theme_song:
-      action: play
-      loops: -1
-  mode_attract_will_stop:
-    theme_song:
-      action: stop
-
-
-# light_player:
-#   mode_attract_started:
-#     l_side_drain:
-#       color: on
-#     l_side_top_right:
-#       color: on
-#     l_side_top_left:
-#       color: on
-#     l_side_right:
-#       color: on
-#     l_side_left:
-#       color: on
-#     l_spot_sling_right:
-#       color: on
-#     l_spot_sling_left:
-#       color: on
-#     l_sling_right:
-#       color: on
-#     l_sling_left:
-#       color: on
-#     l_flip_lane_right:
-#       color: on
-#     l_flip_lane_left:
-#       color: on
-#     l_pop_bottom:
-#       color: on
-#     l_pop_left:
-#       color: on
-#     l_pop_right:
-#       color: on
-#   mode_attract_started_lights_off:
-#     l_side_drain:
-#       color: off
-#     l_side_top_right:
-#       color: off
-#     l_side_top_left:
-#       color: off
-#     l_side_right:
-#       color: off
-#     l_side_left:
-#       color: off
-#     l_spot_sling_right:
-#       color: off
-#     l_spot_sling_left:
-#       color: off
-#     l_sling_right:
-#       color: off
-#     l_sling_left:
-#       color: off
-#     l_flip_lane_right:
-#       color: off
-#     l_flip_lane_left:
-#       color: off
-#     l_pop_bottom:
-#       color: off
-#     l_pop_left:
-#       color: off
-#     l_pop_right:
-#       color: off
+timers:
+  attract_carousel_timer:
+    end_value: 1
+    tick_interval: 5s
+    start_running: true
+    control_events:
+      - event: item_highlighted
+        action: restart
+      - event: flipper_cradle
+        action: stop
+      - event: flipper_cradle_release
+        action: restart
