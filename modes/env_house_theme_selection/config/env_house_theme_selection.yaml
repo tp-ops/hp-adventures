@@ -82,20 +82,20 @@ event_player:
   env_house_theme_selection_hufflepuff_selected: stop_mode_env_house_theme_selection, start_mode_base
   env_house_theme_selection_ravenclaw_selected: stop_mode_env_house_theme_selection, start_mode_base
   env_house_theme_selection_slytherin_selected: stop_mode_env_house_theme_selection, start_mode_base
-   
+
+
 slide_player:
-  env_house_theme_selection_gryffindor_highlighted: 
-    sl_theme_gryffindor:
-      target: window
-  env_house_theme_selection_hufflepuff_highlighted: 
-    sl_theme_hufflepuff:
-      target: window
-  env_house_theme_selection_ravenclaw_highlighted:
-    sl_theme_ravenclaw:
-      target: window
-  env_house_theme_selection_slytherin_highlighted:
-    sl_theme_slytherin:
-      target: window
+  mode_env_house_theme_selection_started: house_theme_selection
+# slide_player:
+# Use this when profile is chosen, selected instead of highlighted ?   
+#   item_highlighted{carousel=="env_house_theme_selection" and item=="gryffindor"}: 
+#     theme_gryffindor
+#   item_highlighted{carousel=="env_house_theme_selection" and item=="hufflepuff"}: 
+#     theme_hufflepuff
+#   item_highlighted{carousel=="env_house_theme_selection" and item=="ravenclaw"}:
+#     theme_ravenclaw
+#   item_highlighted{carousel=="env_house_theme_selection" and item=="slytherin"}:
+#     theme_slytherin
 
 show_player:
   slide_sl_theme_gryffindor_active:
