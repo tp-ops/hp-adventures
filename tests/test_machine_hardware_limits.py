@@ -1,6 +1,6 @@
-from mpf.tests.MpfMachineTestCase import MpfMachineTestCase
+from mpf.tests.MpfGameTestCase import MpfGameTestCase
 
-class test_hardware_limits(MpfMachineTestCase):
+class test_mode_attract(MpfGameTestCase):
 
     def get_config_file(self):
         return 'config.yaml'
