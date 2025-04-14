@@ -1,6 +1,6 @@
 #config_version=6
 mode:
-  start_events: ball_starting{ball>1}, start_mode_base
+  start_events: ball_started
   stop_events: ball_ending
   priority: 100
   
@@ -23,11 +23,6 @@ config:
 #     auto_launch: true
 #     balls_to_save: 1
 
-sound_player:
-  mode_base_started:
-    hp_tune_03:
-      action: play
-
 event_player:
   # Switch start button back to allow adding players again
   s_start_button_active:
@@ -36,6 +31,8 @@ event_player:
     - flippers_on
     - start_mode_global
     - start_mode_env_subway
+    # Using a event with variable here to sent a start_theme_[house_theme_name] event, this is not working whithin slide_player itself.
+    - start_theme_(current_player.house_theme_name)
   mode_base_will_stop:
     - stop_mode_global
     - stop_mode_env_subway
@@ -52,9 +49,15 @@ variable_player:
     var_last_score:
       int: (change)
       action: set
+  s_tar_platform_active:
+    score: 1000
 
 slide_player:
-  mode_base_started: base
+  # Use the events send from house_theme_name variable in the event_player to start appropriate theme.
+  start_theme_gryffindor: theme_gryffindor
+  start_theme_hufflepuff: theme_hufflepuff
+  start_theme_ravenclaw: theme_ravenclaw
+  start_theme_slytherin: theme_slytherin
 
 # widget_player:
 #   player_var_score{game.num_players==1}: 

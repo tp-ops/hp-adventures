@@ -1,1 +1,6 @@
 #config_version=6
+queue_relay_player:
+  ball_starting{ball==1}:
+    post: start_mode_env_house_theme_selection
+    wait_for: stop_mode_env_house_theme_selection
+    

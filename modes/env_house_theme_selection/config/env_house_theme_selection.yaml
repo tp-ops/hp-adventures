@@ -1,9 +1,9 @@
 #config_version=6
 mode:
-  start_events: ball_starting{ball==1}
+  start_events: start_mode_env_house_theme_selection
   stop_events: stop_mode_env_house_theme_selection
   code: mpf.modes.carousel.code.carousel.Carousel
-  priority: 700
+  priority: 30
 
 mode_settings:
   selectable_items: gryffindor, hufflepuff, ravenclaw, slytherin
@@ -13,7 +13,6 @@ mode_settings:
 
 variable_player:
   item_highlighted{carousel=="env_house_theme_selection" and item=="gryffindor"}:
-  #env_house_theme_selection_gryffindor_highlighted:
     # using for displaying
     house_theme_title:
       action: set
@@ -29,7 +28,6 @@ variable_player:
       action: set
       string: gryffindor_led
   item_highlighted{carousel=="env_house_theme_selection" and item=="hufflepuff"}:
-  #env_house_theme_selection_hufflepuff_highlighted:
     # using for displaying
     house_theme_title:
       action: set
@@ -45,7 +43,6 @@ variable_player:
       action: set
       string: hufflepuff_led
   item_highlighted{carousel=="env_house_theme_selection" and item=="ravenclaw"}:
-  #env_house_theme_selection_ravenclaw_highlighted:
     # using for displaying
     house_theme_title:
       action: set
@@ -61,7 +58,6 @@ variable_player:
       action: set
       string: ravenclaw_led
   item_highlighted{carousel=="env_house_theme_selection" and item=="slytherin"}:
-  #env_house_theme_selection_slytherin_highlighted:
     # using for displaying
     house_theme_title:
       action: set
@@ -78,24 +74,14 @@ variable_player:
       string: slytherin_led
 
 event_player:
-  env_house_theme_selection_gryffindor_selected: stop_mode_env_house_theme_selection, start_mode_base
-  env_house_theme_selection_hufflepuff_selected: stop_mode_env_house_theme_selection, start_mode_base
-  env_house_theme_selection_ravenclaw_selected: stop_mode_env_house_theme_selection, start_mode_base
-  env_house_theme_selection_slytherin_selected: stop_mode_env_house_theme_selection, start_mode_base
+  env_house_theme_selection_item_selected.1: stop_mode_env_house_theme_selection
 
 
 slide_player:
   mode_env_house_theme_selection_started: house_theme_selection
-# slide_player:
-# Use this when profile is chosen, selected instead of highlighted ?   
-#   item_highlighted{carousel=="env_house_theme_selection" and item=="gryffindor"}: 
-#     theme_gryffindor
-#   item_highlighted{carousel=="env_house_theme_selection" and item=="hufflepuff"}: 
-#     theme_hufflepuff
-#   item_highlighted{carousel=="env_house_theme_selection" and item=="ravenclaw"}:
-#     theme_ravenclaw
-#   item_highlighted{carousel=="env_house_theme_selection" and item=="slytherin"}:
-#     theme_slytherin
+  env_house_theme_selection_item_selected.2:
+    house_theme_selection:
+      action: remove
 
 show_player:
   slide_sl_theme_gryffindor_active:
