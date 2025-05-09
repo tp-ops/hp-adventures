@@ -1,6 +1,6 @@
 from mpf.tests.MpfGameTestCase import MpfGameTestCase
 
-class test_game_logic(MpfGameTestCase):
+class test_mode_logic(MpfGameTestCase):
 
     def get_config_file(self):
         return 'config.yaml'
@@ -10,6 +10,60 @@ class test_game_logic(MpfGameTestCase):
 
     def get_platform(self):
         return 'smart_virtual'
+
+    def test_mode_start(self):
+
+        self.get_options()
+
+        # Hit 'Start' button to start a game
+        self.hit_and_release_switch("s_start_button")
+        self.advance_time_and_run(1)
+
+        # Hit 'Start' button to select a theme
+        self.hit_and_release_switch("s_start_button")
+        self.advance_time_and_run(1)
+
+        # Advance skillshot platform
+        self.release_switch_and_run("s_plunger_lane", 11)
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+        self.advance_time_and_run(15)
+
+        # Ensure that mode field_diagon_alley is running
+        self.assertModeRunning("field_diagon_alley")
+
+    def test_lit_light(self):
+
+        self.get_options()
+        self.assertModeRunning("attract")
+        self.assertModeNotRunning("game")
+        self.assertGameIsNotRunning()
+        
+
+        self.start_game()
+        self.advance_time_and_run(1)
+
+        self.assertModeNotRunning("attract")
+        self.assertModeRunning("game") 
+        self.assertModeRunning("env_house_theme_selection")
+        self.assertModeNotRunning("base")
+        self.assertGameIsRunning()
+
+        self.stop_game()
+        self.advance_time_and_run(1)
+
+        self.assertModeRunning("attract")
+        self.assertModeNotRunning("game")
+        self.assertModeNotRunning("env_house_theme_selection")
+        self.assertModeNotRunning("base")
+        self.assertGameIsNotRunning()
+
+    def test_complete_shot(self):
+
+        self.get_options()
+
+    def test_relit_light(self):
+
+        self.get_options()
 
     def test_full_one_ball(self):
 

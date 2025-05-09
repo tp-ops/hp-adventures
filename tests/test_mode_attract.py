@@ -28,6 +28,13 @@ class test_mode_attract(MpfGameTestCase):
         self.assertModeNotRunning("base")
         self.assertGameIsRunning()
 
+        # Start
+        self.hit_and_release_switch("s_start_button")
+        self.advance_time_and_run(1)
+        self.release_switch_and_run("s_plunger_lane", 11)
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+        self.advance_time_and_run(15)
+
         self.stop_game()
         self.advance_time_and_run(1)
 

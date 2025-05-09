@@ -203,3 +203,15 @@ class test_player_system(MpfGameTestCase):
         self.assertModeRunning("attract")
         self.assertModeNotRunning("game")
         self.assertGameIsNotRunning()
+
+    def test_two_player_game(self):
+
+        self.get_options()
+
+    def test_three_player_game(self):
+
+        self.get_options()
+
+    def test_four_player_game(self):
+
+        self.get_options()

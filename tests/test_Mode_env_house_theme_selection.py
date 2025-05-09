@@ -12,7 +12,7 @@ class test_house_theme_selection(MpfGameTestCase):
     def get_platform(self):
         return 'smart_virtual'
 
-    def test_carousel_and_player_vars(self):
+    def test_carousel_player_vars(self):
 
         self.get_options()
         
@@ -127,3 +127,19 @@ class test_house_theme_selection(MpfGameTestCase):
         self.assertModeRunning("attract")
         self.assertModeNotRunning("game")
         self.assertGameIsNotRunning()
+
+    def test_select_gryffindor(self):
+
+        self.get_options()
+
+    def test_select_hufflepuff(self):
+
+        self.get_options()
+
+    def test_select_ravenclaw(self):
+
+        self.get_options()
+
+    def test_select_slytherin(self):
+
+        self.get_options()

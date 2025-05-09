@@ -42,18 +42,32 @@ event_player:
     - start_mode_global
 
 variable_player:
-  # Create a new variable 'var_last_score' to show this on a slide to show the last score scored.
-  # So when a player scores some points, the 'change' value from 'var_score' will be set to this variable.
-  # One score slides there's a widget showing this value.
-  player_var_score:
-    var_last_score:
+  # Create a new variable 'last_score' to show this on a slide to show the last score scored.
+  # So when a player scores some points, the 'change' value from 'score' will be set to this variable.
+  player_score.2:
+    last_score:
+      int: 0
+      action: set
+  player_score.1:
+    last_score: 
       int: (change)
       action: set
   s_tar_platform_active:
     score: 1000
+  test_score:
+    score: 100
+
+widget_player:
+  player_score: 
+    last_score_widget:
+      action: play
+      expire: 0.7s
 
 slide_player:
   # Use the events send from house_theme_name variable in the event_player to start appropriate theme.
+  mode_base_started: 
+    base:
+      priority: 101
   start_theme_gryffindor: theme_gryffindor
   start_theme_hufflepuff: theme_hufflepuff
   start_theme_ravenclaw: theme_ravenclaw
