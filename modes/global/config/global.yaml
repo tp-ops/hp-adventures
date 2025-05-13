@@ -19,6 +19,7 @@ event_player:
   mode_global_started:
     - start_mode_skill_shots
   start_field_modes:
+    - stop_mode_skill_shots
     - start_mode_field_chamber_of_secrets
     - start_mode_field_deathly_hallows
     - start_mode_field_diagon_alley

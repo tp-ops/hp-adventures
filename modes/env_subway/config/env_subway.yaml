@@ -4,27 +4,62 @@ mode:
   stop_events: stop_mode_env_subway
   priority: 700
 
+
+# State_machine state is used to determine where to route ball when a ball enters bd_subway_vuk_selector ball_device and ejects it.
+# Default start state (and servo position) will be center, only in this state the ball_device VUK selector can receive a ball.
+
+# When a ball entered the ball devices, it will try to eject it en post bd_ejecting_ball event.
+# This mode will watch for these ejecting_ball events and post coresponding srv_sub_vuk_pos_ events through event_player state_machine.state conditional events
+# Doing it this way the servo will not change position before the ball devices tries to eject the ball.
+
+# You can set state_machine to left or right by custom ce_events, this can be done in any other mode.
+# When no custom state is set, the flippers will determine the coresponding state.
+# But when a custom state is set, the flippers can not override this anymore.
+# After the shot is made and a ball is ejected success from the ball devices, the position goes back to center.
+# Now flippers will determine the posititon again until a new custom state is set.
+
+# center        >   flipper_left, flipper_right, custom_left, custom_right
+# custom_left   >   center, custom_right
+# custom_right  >   center, custom_left
+# flipper_left  >   center, flipper_right, custom_left, custom_right
+# flipper_right >   center, flipper_left, custom_left, custom_right
+
 state_machines:
-  # used balldevice_bd_subway_vuk_selector_ball_eject_success to reset the server again (center position), see hardware_pololu.yaml
   sm_subway_vuk_selector:
-    starting_state: left
+    starting_state: center
     states:
-      left:
+      custom_left:
         label:
-      right:
+      flipper_left:
+        label:
+      custom_right:
+        label:
+      flipper_right:
+        label:
+      center:
         label:
     transitions:
-      - source: left
-        target: right
-        events: test
-      - source: right
-        target: left
-        events: test
-
-
-
+      - source: center, flipper_left
+        target: flipper_right
+        events: s_fl_right_a_active
+      - source: center, flipper_right
+        target: flipper_left
+        events: s_fl_left_a_active
+      - source: center, custom_right, flipper_left, flipper_right
+        target: custom_left
+        events: ce_sm_subway_vuk_selector_set_custom_left
+      - source: center, custom_left, flipper_left, flipper_right
+        target: custom_right
+        events: ce_sm_subway_vuk_selector_set_custom_right
+      - source: custom_left, custom_right, flipper_left, flipper_right
+        target: center
+        events: balldevice_bd_subway_vuk_selector_ball_eject_success, test_event_back_to_center # test_event_back_to_center is used for unittest
+        
 event_player:
-  # balldevice_bd_subway_vuk_selector_ball_eject_success: change_subway_vuk_selector_state
-  # balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="left"}: subway_vuk_selector_go_left    # Trough Conditional Events
-  # balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="right"}: subway_vuk_selector_go_right  # Trough Conditional Events
-  # balldevice_bd_subway_vuk_selector_ejecting_ball: subway_vuk_selector_go_(device.state_machines.sm_subway_vuk_selector.state)  # Trough Dynamic Events
+  # Only change servo position when a ball is in the balldevice and not every time the state_machine changes
+  balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="custom_left"}: srv_subway_vuk_selector_pos_left
+  balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="flipper_left"}: srv_subway_vuk_selector_pos_left
+  balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="custom_right"}: srv_subway_vuk_selector_pos_right
+  balldevice_bd_subway_vuk_selector_ejecting_ball{device.state_machines.sm_subway_vuk_selector.state=="flipper_right"}: srv_subway_vuk_selector_pos_right
+  # Also used balldevice_bd_subway_vuk_selector_ball_eject_success event to reset the server again (reset position), see reset_events option in hardware_opp_servo.yaml
+  balldevice_bd_subway_vuk_selector_ball_eject_success: srv_subway_vuk_selector_pos_center

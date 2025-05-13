@@ -40,7 +40,8 @@ timers:
       - action: start
         event: balldevice_bd_plunger_ball_eject_success
 
-
+slide_player:
+  mode_skill_shots_started: skill_shots
 # Skill vairable for score multiplier
 
 

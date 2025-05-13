@@ -46,8 +46,12 @@ shot_profiles:
         sync_ms: 500
 
 variable_player:
+  sh_light_diagon_alley_sp_light_diagon_alley_unlit_hit:
+    score: 10
+  sh_light_diagon_alley_sp_light_diagon_alley_lit_hit:
+    score: 1000
   sq_shot_diagon_alley_hit:
-    var_gold: 100
+    score: 10000
 
 sound_player:
   sh_diagon_alley_sp_diagon_alley_lit_hit:

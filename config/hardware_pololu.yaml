@@ -22,8 +22,10 @@ servos:
     reset_position: 0.5
     reset_events: machine_reset_phase_3, ball_starting, ball_will_end, service_mode_entered, reset_subway_servos, reset_servo_subway_vuk_selector, balldevice_bd_subway_vuk_selector_ball_eject_success
     positions:
-      0.0: subway_vuk_selector_go_left
-      1.0: subway_vuk_selector_go_right
+      # These events will be post by mode env_subway
+      0.0: srv_subway_vuk_selector_pos_left
+      0.5: srv_subway_vuk_selector_pos_center
+      1.0: srv_subway_vuk_selector_pos_right
     debug: false
   servo_subway_right_vuk_buffer:
     platform: pololu_maestro

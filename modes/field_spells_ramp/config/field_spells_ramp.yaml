@@ -207,15 +207,15 @@ variable_player:
     var_mc_qualify_spells_counter_progress: 
       int: device.counters.lb_spells_light_qualify_counter.value
       action: set
-    var_score: 10
+    score: 10
   ce_lb_spells_light_qualify_counter_completed:
     # var_qualify_spells_counter_progress is used for displaying last 10 of 10 value, otherwise counter already reset to 0.
     var_mc_qualify_spells_counter_progress: 
       int: 10
       action: set
-    var_score: 1500
+    score: 5000
   sq_shot_spells_ramp_hit{device.shots.sh_spells_light.state_name == 'active'}:
-    var_score: 25000
+    score: 100000
 
 slide_player:
   # Using logicblock hit_event for displaying status of counter, this way the count has been done already.
