@@ -1,0 +1,197 @@
+#config_version=6
+switches:
+  # OPP CHAIN 0 BOARD 0
+  s_drain:
+    platform: opp
+    number: 0-0-0
+  s_trough_1:
+    platform: opp
+    number: 0-0-1
+  s_trough_2:
+    platform: opp
+    number: 0-0-2
+  s_trough_3:
+    platform: opp
+    number: 0-0-3
+  s_trough_4:
+    platform: opp
+    number: 0-0-4
+  s_plunger_lane:
+    platform: opp
+    number: 0-0-5
+  s_trough_5:
+    platform: opp
+    number: 0-0-6
+  s_lane_fl_right:
+    platform: opp
+    number: 0-0-8
+    tags: playfield_active
+  s_lane_dr_right:
+    platform: opp
+    number: 0-0-9
+    tags: playfield_active
+  s_lane_fl_left:
+    platform: opp
+    number: 0-0-10
+    tags: playfield_active
+  s_lane_dr_left:
+    platform: opp
+    number: 0-0-11
+    tags: playfield_active
+  s_fl_left_a:
+    platform: opp
+    number: 0-0-16
+    tags: flipper_left
+  s_fl_right_a:
+    platform: opp
+    number: 0-0-18
+    tags: flipper_right
+  s_sling_right:
+    platform: opp
+    number: 0-0-26
+  s_sling_left:
+    platform: opp
+    number: 0-0-27
+  # OPP CHAIN 2 BOARD 0
+  s_tar_nimbus:
+    platform: opp
+    number: 2-0-0
+    tags: playfield_active
+  s_tar_light_diagon_alley:
+    platform: opp
+    number: 2-0-1
+  s_tar_sword:
+    platform: opp
+    number: 2-0-2
+  s_tar_platform:
+    platform: opp
+    number: 2-0-3
+  #s_spinner:
+  #  platform: opp
+  #  number: 0-2-20
+  s_drop_3er_1:
+    platform: opp
+    number: 2-0-8
+    type: 'NC'
+  s_drop_3er_3:
+    platform: opp
+    number: 2-0-9
+    type: 'NC'
+  s_drop_3er_2:
+    platform: opp
+    number: 2-0-10
+    type: 'NC'
+  s_vuk_bottom:
+    platform: opp
+    number: 2-0-11
+  s_left_wire_ramp:
+    platform: opp
+    number: 2-0-12
+  s_right_wire_ramp_small:
+    platform: opp
+    number: 2-0-14
+  s_hagrid:
+    platform: opp
+    number: 2-0-15
+  s_fl_right_b:
+    platform: opp
+    number: 2-0-16
+  s_pop_right:
+    platform: opp
+    number: 2-0-24
+  s_pop_bottom:
+    platform: opp
+    number: 2-0-26
+  s_pop_left:
+    platform: opp
+    number: 2-0-27
+  # OPP CHAIN 3 BOARD 0
+  s_subway_vuk_selector:
+    platform: opp
+    number: 3-0-0
+  s_subway_vuk_right_buffer_2:
+    platform: opp
+    number: 3-0-1 
+  s_subway_vuk_right_buffer_1:
+    platform: opp
+    number: 3-0-2
+  s_subway_vuk_right:
+    platform: opp
+    number: 3-0-3
+  s_subway_vuk_left_buffer_1:
+    platform: opp
+    number: 3-0-4
+  s_subway_vuk_left_buffer_2:
+    platform: opp
+    number: 3-0-5
+  s_subway_vuk_left_buffer_chamber:
+    platform: opp
+    number: 3-0-6
+  s_subway_vuk_left:
+    platform: opp
+    number: 3-0-7
+  s_tar_c_left:
+    platform: opp
+    number: 3-0-8
+    tags: playfield_active
+  s_captive_ball:
+    platform: opp
+    number: 3-0-9
+  s_tar_wand:
+    platform: opp
+    number: 3-0-10
+  s_tar_stone:
+    platform: opp
+    number: 3-0-11
+  s_tar_cloak:
+    platform: opp
+    number: 3-0-12
+  s_drop_1er:
+    platform: opp
+    number: 3-0-13
+  s_spells_ramp_entry:
+    platform: opp
+    number: 3-0-14
+  s_tower_ramp_entry:
+    platform: opp
+    number: 3-0-15
+  s_fl_left_b:
+    platform: opp
+    number: 3-0-18
+  s_vuk_top:
+    platform: opp
+    number: 3-0-25
+  s_tower:
+    platform: opp
+    number: 3-0-26
+  # OPP CHAIN 4 BOARD 0
+  s_diagon_alley:
+    platform: opp
+    number: 4-0-2
+    tags: playfield_active
+  s_div_castle:
+    platform: opp
+    number: 4-0-3
+    tags: playfield_active
+  s_right_wire_ramp_big_1:
+    platform: opp
+    number: 4-0-4
+  s_castle_door:
+    platform: opp
+    number: 4-0-5
+  s_right_wire_ramp_big_2:
+    platform: opp
+    number: 4-0-6
+  s_tar_c_right:
+    platform: opp
+    number: 4-0-7
+    tags: playfield_active
+  s_forest_kicker:
+    platform: opp
+    number: 4-0-17
+  s_orbit_right:
+    platform: opp
+    number: 4-0-18
+  s_orbit_left:
+    platform: opp
+    number: 4-0-27

@@ -53,7 +53,7 @@ state_machines:
         events: ce_sm_subway_vuk_selector_set_custom_right
       - source: custom_left, custom_right, flipper_left, flipper_right
         target: center
-        events: balldevice_bd_subway_vuk_selector_ball_eject_success, test_event_back_to_center # test_event_back_to_center is used for unittest
+        events: balldevice_bd_subway_vuk_selector_ball_eject_success, unittest_event_back_to_center # test_event_back_to_center is used for unittest
         
 event_player:
   # Only change servo position when a ball is in the balldevice and not every time the state_machine changes

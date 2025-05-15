@@ -184,17 +184,6 @@ diverters:
     activate_events: activate_div_forest
     deactivate_events: deactivate_div_forest
     debug: false
-  div_vuk_selector:
-    enable_events: enable_div_vuk_selector
-    disable_events: disable_div_vuk_selector
-    # Used a dummy coil and the diverter + ball_device events to position the servo (see servo config in hardware_pololu.yaml)
-    activation_coil: c_subway_div_vuk_selector
-    activate_events: activate_div_vuk_selector
-    deactivate_events: deactivate_div_vuk_selector
-    #feeder_devices: bd_subway_vuk_selector
-    #targets_when_active: bd_subway_vuk_left_buffer
-    #targets_when_inactive: bd_subway_vuk_right_buffer
-    debug: true
         
 drop_targets:
   dt_hogwarts_castle:
@@ -223,22 +212,6 @@ drop_target_banks:
     reset_events: machine_reset_phase_3, reset_dropbank_ministry_of_magic
 
 magnets:
-  mag_hogwarts_castle:
-    magnet_coil: c_magnet_hogwarts_castle
-    grab_time: 1.5s # Default is 1.5s
-    grab_ball_events: mag_hogwarts_castle_grab_ball
-    fling_ball_events: mag_hogwarts_castle_fling_ball
-    fling_drop_time: 250ms # Default: 250ms
-    fling_regrab_time: 50ms # Default: 50ms
-    release_ball_events: mag_all_release, mag_hogwarts_castle_release
-  mag_playfield:
-    magnet_coil: c_magnet_playfield
-    grab_time: 1.5s # Default is 1.5s
-    grab_ball_events: mag_playfield_grab_ball
-    fling_ball_events: mag_playfield_fling_ball
-    fling_drop_time: 250ms # Default: 250ms
-    fling_regrab_time: 50ms # Default: 50ms
-    release_ball_events: mag_all_release, mag_playfield_release
   mag_clock_tower:
     magnet_coil: c_magnet_clock_tower
     grab_ball_events: mag_clock_tower_grab_ball

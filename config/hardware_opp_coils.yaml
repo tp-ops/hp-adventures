@@ -1,0 +1,184 @@
+#config_version=6
+#|====================================|#
+#| - COIL SAFETY - DO NOT BURN THEM - |#
+#|====================================|#
+#| Use "allow_enable" or "default_hold_power" when coils needs to be on for a longer period of time. This will prevent them from burning out!
+#| Using "allow_enable: true" instead of default_pulse_power for flippers because these are dual-wounded coil so the power is controlled through coil wires.
+#| Using "default_hold_power" for all other coils that need to be on for a longer period time and set the desired power from 0 to 1 where 1 is 100%.
+#|========================================|#
+#| - MAGNET SAFETY - DO NOT ENABLE THEM - |#
+#|========================================|#
+#| NEVER full enable magnets, use short pulses + PWM instead!
+#| Using "default_hold_power" for magnets that need to be on for a longer period time and set the desired power from 0 to 1 where 1 is 100%. Do not use a higher value then 30% at max instead!
+
+#TODO
+# Playfield active switches (Not by shots, handled internaly)
+
+coils:
+  # OPP CHAIN 0 BOARD 0
+  c_fl_left_power:
+    platform: opp
+    number: 0-0-8
+    default_pulse_ms: 45
+  c_fl_left_hold:
+    platform: opp
+    number: 0-0-9
+    allow_enable: true
+  c_fl_right_power:
+    platform: opp
+    number: 0-0-10
+    default_pulse_ms: 45
+  c_fl_right_hold:
+    platform: opp
+    number: 0-0-11
+    allow_enable: true
+  c_drain_eject:
+    platform: opp
+    number: 0-0-12
+    default_pulse_ms: 15
+  c_auto_plunger:
+    platform: opp
+    number: 0-0-13
+    default_pulse_ms: 30
+  c_sling_right:
+    platform: opp
+    number: 0-0-14
+    default_pulse_ms: 5
+  c_sling_left:
+    platform: opp
+    number: 0-0-15
+    default_pulse_ms: 5
+  # OPP CHAIN 2 BOARD 0
+  c_fl_top_right_power:
+    platform: opp
+    number: 2-0-8
+    default_pulse_ms: 25
+  c_fl_top_right_hold:
+    platform: opp
+    number: 2-0-9
+    default_pulse_ms: 10
+    allow_enable: true  
+  c_drop_3er:
+    platform: opp
+    number: 2-0-10
+    default_pulse_ms: 25
+  c_trough_release:
+    platform: opp
+    number: 2-0-11
+    default_pulse_ms: 15
+  c_pop_right:
+    platform: opp
+    number: 2-0-12
+    default_pulse_ms: 15
+  c_vuk_bottom:
+    platform: opp
+    number: 2-0-13
+    default_pulse_ms: 30
+  c_pop_bottom:
+    platform: opp
+    number: 2-0-14
+    default_pulse_ms: 15
+  c_pop_left:
+    platform: opp
+    number: 2-0-15
+    default_pulse_ms: 15
+  # OPP CHAIN 3 BOARD 0
+  # NEVER full enable magnets, see explanation above.
+  c_magnet_hogwarts_castle:
+    platform: opp
+    number: 3-0-8
+    default_pulse_ms: 10
+    default_hold_power: 0.1
+  c_drop_1er:
+    platform: opp
+    number: 3-0-9
+    default_pulse_ms: 25
+  c_fl_top_left_power:
+    platform: opp
+    number: 3-0-10
+    default_pulse_ms: 25
+  c_fl_top_left_hold:
+    platform: opp
+    number: 3-0-11
+    default_pulse_ms: 10
+    allow_enable: true
+  c_div_castle_door:
+    platform: opp
+    number: 3-0-12
+    default_pulse_ms: 55
+    default_hold_power: 0.2
+  c_vuk_top:
+    platform: opp
+    number: 3-0-13
+    default_pulse_ms: 20
+  # NEVER full enable magnets, see explanation above.
+  c_magnet_clock_tower:
+    platform: opp
+    number: 3-0-14
+    default_pulse_ms: 10
+    default_hold_power: 0.1
+  c_subway_vuk_right:
+    platform: opp
+    number: 3-0-15
+    default_pulse_ms: 125
+  # OPP CHAIN 4 BOARD 0
+  c_subway_vuk_left:
+    platform: opp
+    number: 4-0-8
+    default_pulse_ms: 100
+  c_div_forest:
+    platform: opp
+    number: 4-0-9
+    default_pulse_ms: 4
+    default_hold_power: 0.1
+  c_div_castle:
+    platform: opp
+    number: 4-0-10
+    default_pulse_ms: 4
+    default_hold_power: 0.1
+  c_div_hagrid:
+    platform: opp
+    number: 4-0-11
+    default_pulse_ms: 25
+    default_hold_power: 0.1
+  # NEVER full enable magnets, see explanation above.
+  c_magnet_playfield:
+    platform: opp
+    number: 4-0-12
+    default_pulse_ms: 10
+    default_hold_power: 0.1
+  c_div_tower_2:
+    platform: opp
+    number: 4-0-13
+    default_pulse_ms: 4
+    default_hold_power: 0.1
+  c_div_tower_1:
+    platform: opp
+    number: 4-0-14
+    default_pulse_ms: 4
+    default_hold_power: 0.1
+  c_forest_kicker:
+    platform: opp
+    number: 4-0-15
+    default_pulse_ms: 100
+  # Dummy coils for ball_devices with a servo.
+  c_subway_vuk_left_buffer:
+    platform: virtual
+    number:
+  c_subway_vuk_left_buffer_chamber:
+    platform: virtual
+    number:
+  c_subway_vuk_right_buffer:
+    platform: virtual
+    number:
+  c_subway_vuk_selector:
+    platform: virtual
+    number:
+  c_subway_div_vuk_selector:
+    platform: virtual
+    number:
+    # used this otherwise get an error -> DriverLimitsError: Cannot enable driver with hold_power 0.0. But this is a dummy coil (servo) so can use this with safety
+    default_hold_power: 0.1
+  c_clock_tower:
+    platform: virtual
+    number:

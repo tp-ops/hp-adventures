@@ -6,7 +6,6 @@ config:
   - config_mechanisms.yaml
   - config_settings.yaml
   # - config_sound.yaml
-  # - config_widget_styles.yaml
   - hardware.yaml
     
 virtual_platform_start_active_switches:
