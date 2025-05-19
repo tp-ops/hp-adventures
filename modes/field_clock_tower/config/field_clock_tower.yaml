@@ -19,6 +19,11 @@
 # is div 2 deactive when bd_tower ejects the ball then div 1 will be deactivated when s_wire_ramp_left is active (tower now open)
 # is div 2 active when bd_tower ejects the ball (pensieve_open) then div 2 will be deactivated when s_wire_ramp_right_2 is active (pensieve now closed)
 
+# tower_open    > tower_closed
+# tower_closed  > tower_open, pensieve_enabled
+# pensieve_enabled  > pensieve_disabled
+# pensieve_disabled > tower_open
+
 mode:           
   start_events: start_mode_field_clock_tower
   stop_events: reset_clock_tower_completed
@@ -57,29 +62,26 @@ state_machines:
         label:
       tower_closed:
         label:
-      pensieve_open:
+      pensieve_enabled:
         label:
-      pensieve_closed:
+      pensieve_disabled:
         label:
     transitions:
       - source: tower_open
         target: tower_closed
         events: diverter_div_tower_entry_activating
       - source: tower_closed
-        target: pensieve_closed
-        events: diverter_div_tower_pensieve_enabling
-      - source: pensieve_closed
-        target: pensieve_open
-        events: diverter_div_tower_pensieve_activating
-      - source: pensieve_open
-        target: pensieve_closed
-        events: diverter_div_tower_pensieve_deactivating
-      - source: pensieve_closed
-        target: tower_closed
-        events: diverter_div_tower_pensieve_disabling
-      - source: tower_closed
         target: tower_open
         events: diverter_div_tower_entry_deactivating
+      - source: tower_closed
+        target: pensieve_enabled
+        events: diverter_div_tower_pensieve_enabling
+      - source: pensieve_enabled
+        target: pensieve_disabled
+        events: diverter_div_tower_pensieve_activating
+      - source: pensieve_disabled
+        target: tower_open
+        events: diverter_div_tower_pensieve_deactivating
 
 event_player:
   sh_clock_tower_entry_sp_clock_tower_entry_lit_hit: mag_clock_tower_grab_ball

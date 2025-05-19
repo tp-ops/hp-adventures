@@ -25,9 +25,6 @@ sound_player:
 
 show_player:
   mode_attract_started: 
-    incand_off:
-      action: play
-      loops: -1
     attract_display_loop:
       action: play
       loops: -1

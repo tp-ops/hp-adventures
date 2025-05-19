@@ -23,6 +23,24 @@ game:
   balls_per_game: settings.balls_per_game
   max_players: 4
   add_player_switch_tag: add_player
+  
+named_colors:
+  # Original colors for the four houses
+  gryffindor_red: [127, 9, 9]         # 7F0909
+  gryffindor_gold: [255, 197, 0]      # FFC500
+  hufflepuff_yellow: [238, 225, 23]   # EEE117 
+  hufflepuff_black: [0, 0, 0]         # 000000
+  ravenclaw_blue: [0, 10, 144]        # 000A90
+  ravenclaw_bronze: [148, 107, 45]    # 946B2D
+  slytherin_green: [13, 98, 23]       # 0D6217
+  slytherin_silver: [170, 170, 170]   # AAAAAA
+  # Custom colors used
+  flames: [232, 84, 18]
+  score_text_default: [255, 255, 255] # White  
+  gryffindor_led: [255, 0, 0]         # Red
+  hufflepuff_led: [255, 255, 0]       # Yellow 
+  ravenclaw_led: [0, 0, 255]          # Blue
+  slytherin_led: [0, 153, 76]         # Green
 
 modes:
   #|==========================|#
