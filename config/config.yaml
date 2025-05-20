@@ -2,11 +2,31 @@
 config:
   - config_assets.yaml
   - config_credits.yaml
-  # - config_display.yaml
   - config_mechanisms.yaml
   - config_settings.yaml
   # - config_sound.yaml
-  - hardware.yaml
+  - hardware_opp_coils.yaml
+  - hardware_opp_lights_neo0.yaml
+  - hardware_opp_lights_neo1.yaml
+  - hardware_servos.yaml
+  - hardware_switches.yaml
+  - hardware_rpi.yaml
+
+hardware:
+  platform: opp, rpi, virtual
+  # OPP board revision
+  driverboards: gen2
+  lights: opp
+
+opp:
+  ports: /dev/ttyOPP-0, /dev/ttyOPP-1, /dev/ttyOPP-2, /dev/ttyOPP-3, /dev/ttyOPP-4
+  chains:
+    0: /dev/ttyOPP-0
+    1: /dev/ttyOPP-1
+    2: /dev/ttyOPP-2
+    3: /dev/ttyOPP-3
+    4: /dev/ttyOPP-4
+  debug: true
     
 virtual_platform_start_active_switches:
   - s_trough_1
