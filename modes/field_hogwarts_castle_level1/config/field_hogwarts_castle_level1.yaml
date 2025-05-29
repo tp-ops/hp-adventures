@@ -4,12 +4,6 @@ mode:
   stop_events: stop_mode_field_hogwarts_castle_level1
   priority: 300
 
-# config:
-#   - field_hogwarts_castle_level1_slides.yaml
-
-
-
-
 # Subway ball_devices setup (not implemented at the moment)
 #
 #                                               hogwarts_castle     hagrids_place
