@@ -1,0 +1,5 @@
+#config_version=6
+lights:
+  l_spots:
+    number: c_gi_spots
+    platform: drivers

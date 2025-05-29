@@ -50,10 +50,10 @@ sequence_shots:
     switch_sequence: s_orbit_left, s_orbit_right
     sequence_timeout: 3s
   sq_shot_orbit_center_short_opt2:
-    switch_sequence: s_div_castle, s_orbit_right
+    switch_sequence: s_spinner_short_orbit, s_orbit_right
     sequence_timeout: 3s
   sq_shot_orbit_right_short_opt2:
-    switch_sequence: s_orbit_right, s_div_castle
+    switch_sequence: s_orbit_right, s_spinner_short_orbit
     sequence_timeout: 3s
 
 event_player:

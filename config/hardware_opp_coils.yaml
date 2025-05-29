@@ -15,152 +15,148 @@
 # Playfield active switches (Not by shots, handled internaly)
 
 coils:
-  # OPP CHAIN 0 BOARD 0
+  # Flipper main left
   c_fl_left_power:
     platform: opp
-    number: 0-0-8
-    default_pulse_ms: 45
+    number: 0-0-6
+    default_pulse_ms: 10
   c_fl_left_hold:
     platform: opp
-    number: 0-0-9
+    number: 0-0-5
     allow_enable: true
+  # Flipper main right
   c_fl_right_power:
     platform: opp
     number: 0-0-10
-    default_pulse_ms: 45
+    default_pulse_ms: 10
   c_fl_right_hold:
     platform: opp
     number: 0-0-11
     allow_enable: true
-  c_drain_eject:
+  # Flipper top left
+  c_fl_top_left_power:
     platform: opp
-    number: 0-0-12
-    default_pulse_ms: 15
-  c_auto_plunger:
+    number: 0-0-8
+    default_pulse_ms: 10
+  c_fl_top_left_hold:
+    platform: opp
+    number: 0-0-9
+    allow_enable: true
+  # Flipper top right
+  c_fl_top_right_power:
+    platform: opp
+    number: 0-0-15
+    default_pulse_ms: 10
+  c_fl_top_right_hold:
+    platform: opp
+    number: 0-0-7
+    allow_enable: true
+  # Sling shots
+  c_sling_left:
     platform: opp
     number: 0-0-13
-    default_pulse_ms: 30
+    default_pulse_ms: 10
   c_sling_right:
     platform: opp
     number: 0-0-14
-    default_pulse_ms: 5
-  c_sling_left:
-    platform: opp
-    number: 0-0-15
-    default_pulse_ms: 5
-  # OPP CHAIN 2 BOARD 0
-  c_fl_top_right_power:
-    platform: opp
-    number: 2-0-8
-    default_pulse_ms: 25
-  c_fl_top_right_hold:
-    platform: opp
-    number: 2-0-9
     default_pulse_ms: 10
-    allow_enable: true  
-  c_drop_3er:
-    platform: opp
-    number: 2-0-10
-    default_pulse_ms: 25
-  c_trough_release:
-    platform: opp
-    number: 2-0-11
-    default_pulse_ms: 15
+  # Pop bumpers
   c_pop_right:
     platform: opp
-    number: 2-0-12
-    default_pulse_ms: 15
-  c_vuk_bottom:
-    platform: opp
-    number: 2-0-13
-    default_pulse_ms: 30
+    number: 1-0-3
+    default_pulse_ms: 10
   c_pop_bottom:
     platform: opp
-    number: 2-0-14
-    default_pulse_ms: 15
+    number: 1-0-2
+    default_pulse_ms: 10
   c_pop_left:
     platform: opp
-    number: 2-0-15
-    default_pulse_ms: 15
-  # OPP CHAIN 3 BOARD 0
-  # NEVER full enable magnets, see explanation above.
-  c_magnet_hogwarts_castle:
-    platform: opp
-    number: 3-0-8
+    number: 1-0-1
     default_pulse_ms: 10
-    default_hold_power: 0.1
-  c_drop_1er:
+  # Drop targets
+  c_drop1_castle_door:
     platform: opp
-    number: 3-0-9
-    default_pulse_ms: 25
-  c_fl_top_left_power:
-    platform: opp
-    number: 3-0-10
-    default_pulse_ms: 25
-  c_fl_top_left_hold:
-    platform: opp
-    number: 3-0-11
+    number: 0-0-0
     default_pulse_ms: 10
-    allow_enable: true
-  c_div_castle_door:
+  c_drop1_gringotts:
     platform: opp
-    number: 3-0-12
-    default_pulse_ms: 55
-    default_hold_power: 0.2
-  c_vuk_top:
-    platform: opp
-    number: 3-0-13
-    default_pulse_ms: 20
-  # NEVER full enable magnets, see explanation above.
-  c_magnet_clock_tower:
-    platform: opp
-    number: 3-0-14
+    number: 3-0-5
     default_pulse_ms: 10
-    default_hold_power: 0.1
+  c_drop3_ministry:
+    platform: opp
+    number: 3-0-4
+    default_pulse_ms: 10
+  # VUK's
   c_subway_vuk_right:
     platform: opp
-    number: 3-0-15
-    default_pulse_ms: 125
-  # OPP CHAIN 4 BOARD 0
+    number: 1-0-6
+    default_pulse_ms: 10
   c_subway_vuk_left:
     platform: opp
-    number: 4-0-8
-    default_pulse_ms: 100
-  c_div_forest:
+    number: 1-0-5
+    default_pulse_ms: 10
+  c_vuk_forrest:
     platform: opp
-    number: 4-0-9
-    default_pulse_ms: 4
-    default_hold_power: 0.1
-  c_div_castle:
+    number: 0-0-12
+    default_pulse_ms: 10
+  c_vuk_ministry:
     platform: opp
-    number: 4-0-10
-    default_pulse_ms: 4
-    default_hold_power: 0.1
-  c_div_hagrid:
+    number: 3-0-3
+    default_pulse_ms: 10
+  c_vuk_diagon_alley:
     platform: opp
-    number: 4-0-11
-    default_pulse_ms: 25
-    default_hold_power: 0.1
-  # NEVER full enable magnets, see explanation above.
-  c_magnet_playfield:
+    number: 3-0-2
+    default_pulse_ms: 10
+  # Diverters
+  c_div_orbit_forrest:
     platform: opp
-    number: 4-0-12
+    number: 1-0-0
     default_pulse_ms: 10
     default_hold_power: 0.1
-  c_div_tower_2:
+  c_div_orbit_long:
     platform: opp
-    number: 4-0-13
-    default_pulse_ms: 4
+    number: 0-0-2
+    default_pulse_ms: 10
     default_hold_power: 0.1
-  c_div_tower_1:
+  c_div_spell_ramp_hagrid:
     platform: opp
-    number: 4-0-14
-    default_pulse_ms: 4
+    number: 1-0-7
+    default_pulse_ms: 10
     default_hold_power: 0.1
-  c_forest_kicker:
+  c_div_tower_exit_normal:
     platform: opp
-    number: 4-0-15
-    default_pulse_ms: 100
+    number: 0-0-4
+    default_pulse_ms: 10
+    default_hold_power: 0.1
+  c_div_tower_exit_pensieve:
+    platform: opp
+    number: 0-0-3
+    default_pulse_ms: 10
+    default_hold_power: 0.1
+  # Magnets - NEVER full enable magnets, see explanation above.
+  c_magnet_clock_tower:
+    platform: opp
+    number: 1-0-4
+    default_pulse_ms: 10
+    default_hold_power: 0.1
+  # Drain, Trough, Plunger
+  c_drain_eject:
+    platform: opp
+    number: 3-0-0
+    default_pulse_ms: 10
+  c_trough_release:
+    platform: opp
+    number: 3-0-7
+    default_pulse_ms: 10
+  c_auto_plunger:
+    platform: opp
+    number: 3-0-6
+    default_pulse_ms: 10
+  # GI Spots
+  c_gi_spots:
+    platform: opp
+    number: 3-0-1
+    allow_enable: true
   # Dummy coils for ball_devices with a servo.
   c_subway_vuk_left_buffer:
     platform: virtual
@@ -174,11 +170,6 @@ coils:
   c_subway_vuk_selector:
     platform: virtual
     number:
-  c_subway_div_vuk_selector:
-    platform: virtual
-    number:
-    # used this otherwise get an error -> DriverLimitsError: Cannot enable driver with hold_power 0.0. But this is a dummy coil (servo) so can use this with safety
-    default_hold_power: 0.1
   c_clock_tower:
     platform: virtual
     number:

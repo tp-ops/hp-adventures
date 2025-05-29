@@ -102,9 +102,9 @@ class test_mode_logic(MpfGameTestCase):
 
         # When shot sh_diagon_alley is made ensure that it state change to "unlit" and that sh_light_diagon_alley state is advance to "lit"
         self.mock_event("sh_diagon_alley_lit_hit")
-        self.hit_and_release_switch("s_diagon_alley")
+        self.hit_and_release_switch("s_spinner_diagon_alley")
         self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_vuk_top")
+        self.hit_and_release_switch("s_vuk_diagon_alley")
         self.advance_time_and_run(1)
         self.assertEventCalled("sh_diagon_alley_lit_hit")
         self.assertEqual("lit", self.machine.shots["sh_light_diagon_alley"].state_name)
@@ -113,9 +113,9 @@ class test_mode_logic(MpfGameTestCase):
 
         # When shot sh_diagon_alley is made ensure that it stays "unlit" and that sh_light_diagon_alley stays "lit"
         self.mock_event("sh_diagon_alley_unlit_hit")
-        self.hit_and_release_switch("s_diagon_alley")
+        self.hit_and_release_switch("s_spinner_diagon_alley")
         self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_vuk_top")
+        self.hit_and_release_switch("s_vuk_diagon_alley")
         self.advance_time_and_run(1)
         self.assertEventCalled("sh_diagon_alley_unlit_hit")
         self.assertEqual("lit", self.machine.shots["sh_light_diagon_alley"].state_name)

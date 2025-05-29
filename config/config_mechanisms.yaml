@@ -21,13 +21,13 @@ flippers:
   left_top_flipper:
     main_coil: c_fl_top_left_power
     hold_coil: c_fl_top_left_hold
-    activation_switch: s_fl_left_b
+    activation_switch: s_fl_left_a
     enable_events: enable_left_top_flipper
     disable_events: disable_left_top_flipper, service_mode_entered
   right_top_flipper:
     main_coil: c_fl_top_right_power
     hold_coil: c_fl_top_right_hold
-    activation_switch: s_fl_right_b
+    activation_switch: s_fl_right_a
     enable_events: enable_right_top_flipper
     disable_events: disable_right_top_flipper, service_mode_entered
   # left_flipper_weak:
@@ -124,22 +124,22 @@ ball_devices:
     request_ball_events: ball_right
     debug: true
   bd_diagon_alley_vuk:
-    ball_switches: s_vuk_top
-    eject_coil: c_vuk_top
+    ball_switches: s_vuk_diagon_alley
+    eject_coil: c_vuk_diagon_alley
     eject_targets: playfield
     confirm_eject_type: target
   bd_ministry_vuk:
-    ball_switches: s_vuk_bottom
-    eject_coil: c_vuk_bottom
+    ball_switches: s_vuk_ministry
+    eject_coil: c_vuk_ministry
     eject_targets: playfield
     confirm_eject_type: target
-  bd_forest_kicker:
-    ball_switches: s_forest_kicker
-    eject_coil: c_forest_kicker
+  bd_vuk_forrest:
+    ball_switches: s_vuk_forrest
+    eject_coil: c_vuk_forrest
     eject_targets: playfield
     confirm_eject_type: target
   bd_clock_tower:
-    ball_switches: s_tower
+    ball_switches: s_tower_pensieve
     # Used a dummy coil
     eject_coil: c_clock_tower
     eject_targets: playfield
@@ -151,64 +151,64 @@ diverters:
     enable_events: mode_mission_hagrids_place_started
     disable_events: mode_mission_hagrids_place_stopped
     activation_switches: s_spells_ramp_entry
-    deactivation_switches: s_hagrid
-    activation_coil: c_div_hagrid
+    deactivation_switches: s_spells_ramp_hagrid_exit
+    activation_coil: c_div_spell_ramp_hagrid
     activation_time: 3s
     cool_down_time: 10s
     debug: false
   div_tower_entry:
     enable_events: enable_div_tower_entry
     disable_events: disable_div_tower_entry{device.diverters.div_tower_entry.active==False}
-    activation_coil: c_div_tower_1
+    activation_coil: c_div_tower_exit_normal
     activate_events: activate_div_tower_entry
     deactivate_events: deactivate_div_tower_entry{device.diverters.div_tower_pensieve.active==False}
     debug: false
   div_tower_pensieve:
     enable_events: enable_div_tower_pensieve
     disable_events: disable_div_tower_pensieve{device.diverters.div_tower_pensieve.active==False}
-    activation_coil: c_div_tower_2
+    activation_coil: c_div_tower_exit_pensieve
     activate_events: activate_div_tower_pensieve{device.diverters.div_tower_entry.active==True}
     deactivate_events: deactivate_div_tower_pensieve{device.diverters.div_tower_entry.active==True}
     debug: false
   div_castle:
     enable_events: enable_div_castle
     disable_events: disable_div_castle
-    activation_coil: c_div_castle
+    activation_coil: c_div_orbit_long
     activate_events: activate_div_castle
     deactivate_events: deactivate_div_castle
     debug: false
   div_forest:
     enable_events: enable_div_forest
     disable_events: disable_div_forest
-    activation_coil: c_div_forest
+    activation_coil: c_div_orbit_forrest
     activate_events: activate_div_forest
     deactivate_events: deactivate_div_forest
     debug: false
         
 drop_targets:
   dt_hogwarts_castle:
-    switch: s_castle_door
+    switch: s_drop1_castle_door
   dt_gringotts_bank:
-    switch: s_drop_1er
+    switch: s_drop1_gringotts
   dt_ministry_of_magic_1:
-    switch: s_drop_3er_1
+    switch: s_drop3_ministry_1
   dt_ministry_of_magic_2:
-    switch: s_drop_3er_2
+    switch: s_drop3_ministry_2
   dt_ministry_of_magic_3:
-    switch: s_drop_3er_3
+    switch: s_drop3_ministry_3
 
 drop_target_banks:
   dtb_hogwarts_castle:
     drop_targets: dt_hogwarts_castle
-    reset_coils: c_div_castle_door
+    reset_coils: c_drop1_castle_door
     reset_events: machine_reset_phase_3, reset_dropbank_hogwarts_castle
   dtb_gringotts_bank:
     drop_targets: dt_gringotts_bank
-    reset_coils: c_drop_1er
+    reset_coils: c_drop1_gringotts
     reset_events: machine_reset_phase_3, reset_dropbank_gringotts_bank
   dtb_ministry_of_magic:
     drop_targets: dt_ministry_of_magic_1, dt_ministry_of_magic_2, dt_ministry_of_magic_3
-    reset_coils: c_drop_3er
+    reset_coils: c_drop3_ministry
     reset_events: machine_reset_phase_3, reset_dropbank_ministry_of_magic
 
 magnets:

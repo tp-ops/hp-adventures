@@ -1,0 +1,53 @@
+#config_version=6
+lights:
+  # OPP Main board NEO3 - Playfield
+  l_playfield_left:
+    number: 3-0-0
+    subtype: led
+    type: grb
+    tags: playfield_left
+  l_sling_left_1:
+    number: 3-0-1
+    subtype: led
+    type: grb
+    tags: sling_left
+  l_sling_left_2:
+    number: 3-0-2
+    subtype: led
+    type: grb
+    tags: sling_left
+  l_lane_left_1:
+    number: 3-0-3
+    subtype: led
+    type: grb
+    tags: lane_left
+  l_lane_left_2:
+    number: 3-0-4
+    subtype: led
+    type: grb
+    tags: lane_left
+  l_lane_right_1:
+    number: 3-0-5
+    subtype: led
+    type: grb
+    tags: lane_right
+  l_lane_right_2:
+    number: 3-0-6
+    subtype: led
+    type: grb
+    tags: lane_right
+  l_sling_right_1:
+    number: 3-0-7
+    subtype: led
+    type: grb
+    tags: sling_right
+  l_sling_right_2:
+    number: 3-0-8
+    subtype: led
+    type: grb
+    tags: sling_right
+  l_playfield_right:
+    number: 3-0-9
+    subtype: led
+    type: grb
+    tags: playfield_right

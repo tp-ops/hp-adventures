@@ -76,11 +76,6 @@
       fade: 200ms
 - time: '+0.2'
   lights:
-    l_ws2812_clock_tower:
-      color: white
-      fade: 200ms
-- time: '+0.2'
-  lights:
     l_ws2812_mis_basilisk:
       color: white
       fade: 200ms

@@ -18,9 +18,6 @@ mode:
   stop_events: stop_mode_field_quidditch_stadium
   priority: 300
 
-# config:
-#   - field_quidditch_stadium_slides.yaml
-
 # ------------
 #  Mode Logic 
 # ------------

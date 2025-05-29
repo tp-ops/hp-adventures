@@ -22,15 +22,12 @@ mode:
   stop_events: stop_mode_field_spells_ramp
   priority: 300
 
-# config:
-#   - field_spells_ramp_slides.yaml
-
 # ------------
 #  Mode Logic 
 # ------------
 sequence_shots:
   sq_shot_spells_ramp:
-    switch_sequence: s_spells_ramp_entry, s_right_wire_ramp_small
+    switch_sequence: s_spells_ramp_entry, s_spells_ramp_wire_exit
     sequence_timeout: 3s
 
 shots:

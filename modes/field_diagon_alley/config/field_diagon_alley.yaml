@@ -6,7 +6,7 @@ mode:
 
 sequence_shots:
   sq_shot_diagon_alley:
-    switch_sequence: s_diagon_alley, s_vuk_top
+    switch_sequence: s_spinner_diagon_alley, s_vuk_diagon_alley
     sequence_timeout: 2s
 
 shots:

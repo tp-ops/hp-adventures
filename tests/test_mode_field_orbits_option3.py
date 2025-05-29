@@ -72,7 +72,7 @@ class test_mode_logic(MpfGameTestCase):
 
         # Hit s_orbit_left switch to complete right_orbit_big sequence before sequence time-out is reached
         self.mock_event("sq_shot_orbit_right_short_opt3_hit")
-        self.hit_and_release_switch("s_div_castle")
+        self.hit_and_release_switch("s_spinner_short_orbit")
         self.advance_time_and_run(0.1)
         self.assertEventCalled("sq_shot_orbit_right_short_opt3_hit")
         self.reset_mock_events()
@@ -105,8 +105,8 @@ class test_mode_logic(MpfGameTestCase):
         # Advance for another second and diverter should be disactivated (2 seconds after lane shot is hit)
         self.advance_time_and_run(1)
   
-        # Hit s_div_castle switch to complete orbit_right_short sequence before sequence time-out is reached
-        self.hit_and_release_switch("s_div_castle")
+        # Hit s_spinner_short_orbit switch to complete orbit_right_short sequence before sequence time-out is reached
+        self.hit_and_release_switch("s_spinner_short_orbit")
         self.advance_time_and_run(0.1)
 
         # Check lane shots states, should all be enabled again
@@ -156,7 +156,7 @@ class test_mode_logic(MpfGameTestCase):
         self.assertEqual(False, self.machine.diverters.div_forest.active)
   
         # Hit s_orbit_left switch to complete right_orbit_big sequence before sequence time-out is reached
-        self.hit_and_release_switch("s_div_castle")
+        self.hit_and_release_switch("s_spinner_short_orbit")
         self.advance_time_and_run(0.1)
 
         # Check diverter states
@@ -292,8 +292,8 @@ class test_mode_logic(MpfGameTestCase):
         self.post_event("ce_change_field_orbits_to_option3")
         self.advance_time_and_run(1)
         
-        # Hit s_div_castle switch (castle orbit lane) and advance for 2 seconds (sequence time-out is 3 seconds)
-        self.hit_and_release_switch("s_div_castle")
+        # Hit s_spinner_short_orbit switch (castle orbit lane) and advance for 2 seconds (sequence time-out is 3 seconds)
+        self.hit_and_release_switch("s_spinner_short_orbit")
         self.advance_time_and_run(2)
 
         # Hit s_orbit_right switch to complete left_orbit_small sequence before sequence time-out is reached
@@ -320,8 +320,8 @@ class test_mode_logic(MpfGameTestCase):
         self.post_event("ce_change_field_orbits_to_option3")
         self.advance_time_and_run(1)
 
-        # Hit s_div_castle switch (castle orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
-        self.hit_and_release_switch("s_div_castle")
+        # Hit s_spinner_short_orbit switch (castle orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
+        self.hit_and_release_switch("s_spinner_short_orbit")
         self.advance_time_and_run(1)
         
         # Other lanes shots will be disabled
@@ -356,9 +356,9 @@ class test_mode_logic(MpfGameTestCase):
         self.post_event("ce_change_field_orbits_to_option3")
         self.advance_time_and_run(1)
 
-        # Hit s_div_castle switch (castle orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
+        # Hit s_spinner_short_orbit switch (castle orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
         self.mock_event("activate_div_castle")
-        self.hit_and_release_switch("s_div_castle")
+        self.hit_and_release_switch("s_spinner_short_orbit")
         self.advance_time_and_run(1)
         self.assertEventNotCalled("activate_div_castle")
         self.reset_mock_events()
@@ -396,8 +396,8 @@ class test_mode_logic(MpfGameTestCase):
         self.post_event("ce_change_field_orbits_to_option3")
         self.advance_time_and_run(1)
 
-        # Hit s_div_castle switch (castle orbit lane) and advance for 2 seconds (sequence time-out is 3 seconds)
-        self.hit_and_release_switch("s_div_castle")
+        # Hit s_spinner_short_orbit switch (castle orbit lane) and advance for 2 seconds (sequence time-out is 3 seconds)
+        self.hit_and_release_switch("s_spinner_short_orbit")
         self.advance_time_and_run(2)
 
         # Advance for another two seconds to test sequence time-out (3 seconds after lane shot is hit)
@@ -423,8 +423,8 @@ class test_mode_logic(MpfGameTestCase):
         self.post_event("ce_change_field_orbits_to_option3")
         self.advance_time_and_run(1)
 
-        # Hit s_div_castle switch (castle orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
-        self.hit_and_release_switch("s_div_castle")
+        # Hit s_spinner_short_orbit switch (castle orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
+        self.hit_and_release_switch("s_spinner_short_orbit")
         self.advance_time_and_run(1)
         
         # Other lanes shots will be disabled
@@ -455,9 +455,9 @@ class test_mode_logic(MpfGameTestCase):
         self.post_event("ce_change_field_orbits_to_option3")
         self.advance_time_and_run(1)
 
-        # Hit s_div_castle switch (castle orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
+        # Hit s_spinner_short_orbit switch (castle orbit lane) and advance for 1 second (sequence time-out is 3 seconds)
         self.mock_event("activate_div_castle")
-        self.hit_and_release_switch("s_div_castle")
+        self.hit_and_release_switch("s_spinner_short_orbit")
         self.advance_time_and_run(1)
         self.assertEventNotCalled("activate_div_castle")
         self.reset_mock_events()

@@ -25,7 +25,7 @@ shots:
     enable_events: mode_base_started
     profile: sp_core_shots
   sh_core_clock_tower_bell:
-    switches: s_tower
+    switches: s_tower_pensieve
     enable_events: mode_base_started
     profile: sp_core_shots
   sh_core_orbit_lane_left:
@@ -37,11 +37,11 @@ shots:
     enable_events: mode_base_started
     profile: sp_core_shots
   sh_core_orbit_lane_castle:
-    switches: s_div_castle
+    switches: s_spinner_short_orbit
     enable_events: mode_base_started
     profile: sp_core_shots
   sh_core_castle_door:
-    switches: s_castle_door
+    switches: s_drop1_castle_door
     enable_events: mode_base_started
     profile: sp_core_shots
   sh_core_castle_main_entrance:
@@ -57,7 +57,7 @@ shots:
     enable_events: mode_base_started
   
   sh_core_vuk_bottom:
-    switches: s_vuk_bottom
+    switches: s_vuk_ministry
     enable_events: mode_base_started
 
 

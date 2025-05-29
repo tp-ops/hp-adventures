@@ -303,40 +303,9 @@ lights:
     subtype: led
     type: grb
     tags: lane_lights
-
   # Overig
   l_ws2812_castle_door:
     number: 0-0-60
-    subtype: led
-    type: grb
-    tags: target_lights
-  l_ws2812_clock_tower:
-    number: 0-0-61
-    subtype: led
-    type: grb
-    tags: target_lights
-  l_sling_right:
-    number: 0-0-62
-    subtype: led
-    type: grb
-    tags: target_lights
-  l_sling_left:
-    number: 0-0-63
-    subtype: led
-    type: grb
-    tags: target_lights
-  l_pop_bottom:
-    number: 0-0-64
-    subtype: led
-    type: grb
-    tags: target_lights
-  l_pop_right:
-    number: 0-0-65
-    subtype: led
-    type: grb
-    tags: target_lights
-  l_pop_left:
-    number: 0-0-66
     subtype: led
     type: grb
     tags: target_lights

@@ -103,7 +103,7 @@ class test_mode_logic(MpfGameTestCase):
         self.hit_and_release_switch("s_spells_ramp_entry")
         self.advance_time_and_run(1)
         self.hit_and_release_switch("s_spells_ramp_entry")
-        self.hit_and_release_switch("s_right_wire_ramp_small")
+        self.hit_and_release_switch("s_spells_ramp_wire_exit")
         self.assertEventNotCalled("sq_shot_spells_ramp_timeout")
         self.assertEventCalled("sq_shot_spells_ramp_hit")
         self.reset_mock_events()

@@ -1,11 +1,6 @@
 #show_version=6
 - time: 0
   lights:
-    l_pop_bottom: "0000FF%25"
-    l_pop_left: "9B53EC%25"
-    l_pop_right: "9B53EC%25"
-    l_sling_left: "00A2E8%25"
-    l_sling_right: "22B14C%25"
     l_ws2812_castle_door: "F40BCC%25"
     l_ws2812_hor_book: "00A2E8%25"
     l_ws2812_hor_book_destroy: "00A2E8%25"
@@ -70,8 +65,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_left: "0000FF%25"
-    l_sling_right: "FFF200%25"
     l_ws2812_hor_harry: "22B14C%25"
     l_ws2812_lightning_bottom: "F40BCC%25"
     l_ws2812_lightning_left: "9B53EC%25"
@@ -85,7 +78,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_right: "0000FF%25"
     l_ws2812_hor_book: "0CA7B3%25"
     l_ws2812_hor_book_destroy: "22B14C%25"
     l_ws2812_hor_neckles: "22B14C%25"
@@ -101,8 +93,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_bottom: "00A2E8%25"
-    l_sling_left: "22B14C%25"
     l_ws2812_castle_door: "9B53EC%25"
     l_ws2812_hor_book: "22B14C%25"
     l_ws2812_hor_cup: "E0E90B%25"
@@ -154,7 +144,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_left: "00A2E8%25"
     l_ws2812_hor_nagini: "FFF200%25"
     l_ws2812_hor_nagini_destroy: "FFF200%25"
     l_ws2812_hor_ring: "FFF200%25"
@@ -174,8 +163,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_right: "00A2E8%25"
-    l_sling_right: "FF7F27%25"
     l_ws2812_hor_book_destroy: "6AC633%25"
     l_ws2812_hor_harry: "FFF200%25"
     l_ws2812_hor_harry_destroy: "FFF200%25"
@@ -192,7 +179,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_bottom: "22B14C%25"
     l_ws2812_castle_door: "0000FF%25"
     l_ws2812_hor_book: "FFF200%25"
     l_ws2812_hor_book_destroy: "FFF200%25"
@@ -218,7 +204,6 @@
     
 - time: "+0.05"
   lights:
-    l_sling_left: "FFF200%25"
     l_ws2812_hor_cup: "FF7F27%25"
     l_ws2812_hor_cup_destroy: "FF7F27%25"
     l_ws2812_hor_diadeem: "FF7F27%25"
@@ -261,9 +246,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_left: "22B14C%25"
-    l_pop_right: "22B14E%25"
-    l_sling_right: "FE0101%25"
     l_ws2812_hor_harry: "FF7F27%25"
     l_ws2812_hor_harry_destroy: "FF7F27%25"
     l_ws2812_lightning_bottom: "00A2E8%25"
@@ -278,8 +260,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_bottom: "3CB943%25"
-    l_pop_right: "22B14C%25"
     l_ws2812_castle_door: "00A2E8%25"
     l_ws2812_hor_book: "FFA31B%25"
     l_ws2812_hor_book_destroy: "FF7F27%25"
@@ -304,8 +284,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_bottom: "FFF200%25"
-    l_sling_left: "FF7F27%25"
     l_ws2812_hor_book: "FF7F27%25"
     l_ws2812_hor_cup: "FE0101%25"
     l_ws2812_hor_cup_destroy: "FE0101%25"
@@ -349,8 +327,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_left: "FFF200%25"
-    l_sling_right: "F40BCC%25"
     l_ws2812_hor_harry: "FE0101%25"
     l_ws2812_hor_harry_destroy: "FE0101%25"
     l_ws2812_lightning_bottom: "0BA7B5%25"
@@ -364,7 +340,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_right: "FFF200%25"
     l_ws2812_castle_door: "22B14C%25"
     l_ws2812_hor_book: "FF5D1D%25"
     l_ws2812_hor_book_destroy: "FE0101%25"
@@ -390,8 +365,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_bottom: "FF7F27%25"
-    l_sling_left: "FE0101%25"
     l_ws2812_hor_book: "FE0101%25"
     l_ws2812_hor_cup: "F40BCC%25"
     l_ws2812_hor_cup_destroy: "F40BCC%25"
@@ -435,8 +408,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_left: "FF7F27%25"
-    l_sling_right: "9B53EC%25"
     l_ws2812_hor_harry: "F40BCC%25"
     l_ws2812_hor_harry_destroy: "F40BCC%25"
     l_ws2812_lightning_left: "FFF200%25"
@@ -450,7 +421,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_right: "FF7F27%25"
     l_ws2812_hor_book: "FC032F%25"
     l_ws2812_hor_book_destroy: "F40BCC%25"
     l_ws2812_hor_neckles: "F40BCC%25"
@@ -473,8 +443,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_bottom: "FE0101%25"
-    l_sling_left: "F40BCC%25"
     l_ws2812_castle_door: "FFF200%25"
     l_ws2812_hor_book: "F40BCC%25"
     l_ws2812_hor_cup: "9B53EC%25"
@@ -521,8 +489,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_left: "FE0101%25"
-    l_sling_right: "0000FF%25"
     l_ws2812_hor_harry: "9B53EC%25"
     l_ws2812_hor_harry_destroy: "9B53EC%25"
     l_ws2812_lightning_left: "FF7F27%25"
@@ -537,7 +503,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_right: "FE0803%25"
     l_ws2812_hor_book: "9B53EC%25"
     l_ws2812_hor_book_destroy: "9B53EC%25"
     l_ws2812_hor_neckles: "9B53EC%25"
@@ -556,9 +521,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_bottom: "F40BCC%25"
-    l_pop_right: "FE0101%25"
-    l_sling_left: "9B53EC%25"
     l_ws2812_castle_door: "FF7F27%25"
     l_ws2812_hor_cup: "0000FF%25"
     l_ws2812_hor_cup_destroy: "0000FF%25"
@@ -614,8 +576,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_left: "F40BCC%25"
-    l_sling_right: "00A2E8%25"
     l_ws2812_hor_harry: "0000FF%25"
     l_ws2812_hor_harry_destroy: "0000FF%25"
     l_ws2812_lightning_bottom: "FF7F27%25"
@@ -631,7 +591,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_right: "F40BCC%25"
     l_ws2812_hor_book: "0000FF%25"
     l_ws2812_hor_book_destroy: "0000FF%25"
     l_ws2812_hor_neckles: "0000FF%25"
@@ -648,8 +607,6 @@
     
 - time: "+0.05"
   lights:
-    l_pop_bottom: "9B53EC%25"
-    l_sling_left: "0000FF%25"
     l_ws2812_castle_door: "FE0101%25"
     l_ws2812_hor_cup: "00A2E8%25"
     l_ws2812_hor_cup_destroy: "00A2E8%25"
@@ -705,8 +662,6 @@
 - time: "+0.05"
   duration: 0.05
   lights:
-    l_pop_left: "9B53EC%25"
-    l_sling_right: "22B14C%25"
     l_ws2812_hor_harry: "00A2E8%25"
     l_ws2812_hor_harry_destroy: "00A2E8%25"
     l_ws2812_lightning_bottom: "FE0E05%25"

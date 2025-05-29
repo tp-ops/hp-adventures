@@ -6,5 +6,5 @@ mode:
 
 sequence_shots:
   sq_shot_hagrids_place:
-    switch_sequence: s_spells_ramp_entry, s_hagrid
+    switch_sequence: s_spells_ramp_entry, s_spells_ramp_hagrid_exit
     sequence_timeout: 3s

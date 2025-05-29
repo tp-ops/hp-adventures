@@ -1,7 +1,6 @@
 #show_version=6
 - time: 0
   lights:
-    l_pop_left: 'B00000'
     l_ws2812_lane_dr_left: '880000'
     l_ws2812_lane_fl_left: 'F00000'
     l_ws2812_mis_forrest: 'B80000'
@@ -10,9 +9,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: 'AB0000'
-    l_pop_left: '330000'
-    l_sling_left: 'C90000'
     l_ws2812_lane_dr_left: '140000'
     l_ws2812_lane_fl_left: '800000'
     l_ws2812_mis_forrest: '3B0000'
@@ -23,10 +19,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '2E0000'
-    l_pop_left: '000000'
-    l_pop_right: 'E90000'
-    l_sling_left: '4C0000'
     l_ws2812_lane_dr_left: '000000'
     l_ws2812_lane_fl_left: '0E0000'
     l_ws2812_mis_forrest: '000000'
@@ -40,9 +32,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '000000'
-    l_pop_right: '740000'
-    l_sling_left: '000000'
     l_ws2812_hor_book: 'F30000'
     l_ws2812_hor_book_destroy: 'F50000'
     l_ws2812_hor_harry: 'E20000'
@@ -61,7 +50,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_right: '0B0000'
     l_ws2812_castle_door: 'C50000'
     l_ws2812_hor_book: '880000'
     l_ws2812_hor_book_destroy: '8C0000'
@@ -87,7 +75,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_right: '000000'
     l_ws2812_castle_door: '470000'
     l_ws2812_hor_book: '150000'
     l_ws2812_hor_book_destroy: '170000'
@@ -157,7 +144,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_right: 'D80000'
     l_ws2812_hor_cup: '070000'
     l_ws2812_hor_cup_destroy: '0A0000'
     l_ws2812_hor_diadeem: '000000'
@@ -186,7 +172,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_right: '610000'
     l_ws2812_hor_cup: '000000'
     l_ws2812_hor_cup_destroy: '000000'
     l_ws2812_lane_fl_right: 'B60000'
@@ -212,7 +197,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_right: '000000'
     l_ws2812_lane_dr_right: 'AE0000'
     l_ws2812_lane_fl_right: '390000'
     l_ws2812_lightning_right: '060000'
@@ -320,8 +304,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_left: '008900'
-    l_pop_right: '00A700'
     l_ws2812_lightning_left: '004500'
     l_ws2812_lightning_right: '009F00'
     l_ws2812_mis_dumbledores_office: '000000'
@@ -342,8 +324,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_left: '000000'
-    l_pop_right: '001400'
     l_ws2812_lightning_bottom: '006B00'
     l_ws2812_lightning_left: '000000'
     l_ws2812_lightning_right: '000E00'
@@ -360,8 +340,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '003600'
-    l_pop_right: '000000'
     l_ws2812_lightning_bottom: '000000'
     l_ws2812_lightning_right: '000000'
     l_ws2812_mis_goldensnitch: '007200'
@@ -376,7 +354,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '000000'
     l_ws2812_hor_book: '004800'
     l_ws2812_hor_book_destroy: '007500'
     l_ws2812_hor_cup: '009C00'
@@ -400,8 +377,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_left: '006500'
-    l_sling_right: '006500'
     l_ws2812_hor_book: '000000'
     l_ws2812_hor_book_destroy: '000000'
     l_ws2812_hor_cup: '001E00'
@@ -427,8 +402,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_left: '000000'
-    l_sling_right: '000000'
     l_ws2812_hor_cup: '000000'
     l_ws2812_hor_cup_destroy: '000000'
     l_ws2812_hor_diadeem: '000300'
@@ -484,7 +457,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_right: '0000C4'
     l_ws2812_lane_dr_right: '00000B'
     l_ws2812_lane_fl_right: '000071'
     l_ws2812_lightning_right: '0000B7'
@@ -505,7 +477,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_right: '00003F'
     l_ws2812_lane_dr_right: '000000'
     l_ws2812_lane_fl_right: '000000'
     l_ws2812_lightning_right: '000033'
@@ -528,7 +499,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_right: '000000'
     l_ws2812_hor_cup: '0000A0'
     l_ws2812_hor_cup_destroy: '00009C'
     l_ws2812_hor_diadeem: '0000C8'
@@ -590,7 +560,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_right: '0000F6'
     l_ws2812_castle_door: '00003D'
     l_ws2812_hor_book: '000079'
     l_ws2812_hor_book_destroy: '000075'
@@ -627,7 +596,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_right: '000081'
     l_ws2812_castle_door: '000000'
     l_ws2812_hor_book: '000006'
     l_ws2812_hor_book_destroy: '000005'
@@ -653,9 +621,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '0000BF'
-    l_pop_right: '00000B'
-    l_sling_left: '0000A0'
     l_ws2812_hor_book: '000000'
     l_ws2812_hor_book_destroy: '000000'
     l_ws2812_hor_harry: '000000'
@@ -674,10 +639,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '00003B'
-    l_pop_left: '0000B3'
-    l_pop_right: '000000'
-    l_sling_left: '000020'
     l_ws2812_lane_dr_left: '0000D6'
     l_ws2812_lane_fl_left: '000064'
     l_ws2812_mis_forrest: '0000AA'
@@ -691,9 +652,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '000000'
-    l_pop_left: '00002F'
-    l_sling_left: '000000'
     l_ws2812_lane_dr_left: '000053'
     l_ws2812_lane_fl_left: '000000'
     l_ws2812_mis_forrest: '000028'
@@ -704,7 +662,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_left: '000000'
     l_ws2812_lane_dr_left: '000000'
     l_ws2812_mis_forrest: '000000'
     l_ws2812_shot_forrest: '000000'
@@ -728,8 +685,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_left: '680068'
-    l_sling_right: '660066'
     l_ws2812_hor_cup: 'D500D5'
     l_ws2812_hor_cup_destroy: '960096'
     l_ws2812_hor_diadeem: '4D004D'
@@ -748,8 +703,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_left: '000000'
-    l_sling_right: '000000'
     l_ws2812_hor_book: '9F009F'
     l_ws2812_hor_book_destroy: '5A005A'
     l_ws2812_hor_cup: '1E001E'
@@ -775,7 +728,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: 'BC00BC'
     l_ws2812_hor_book: '000000'
     l_ws2812_hor_book_destroy: '000000'
     l_ws2812_hor_cup: '000000'
@@ -799,8 +751,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '080008'
-    l_pop_right: 'EB00EB'
     l_ws2812_lightning_bottom: '780078'
     l_ws2812_lightning_right: 'F300F3'
     l_ws2812_mis_goldensnitch: '000000'
@@ -816,9 +766,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '000000'
-    l_pop_left: '5B005B'
-    l_pop_right: '330033'
     l_ws2812_lightning_bottom: '000000'
     l_ws2812_lightning_left: 'B300B3'
     l_ws2812_lightning_right: '3D003D'
@@ -836,8 +783,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_left: '000000'
-    l_pop_right: '000000'
     l_ws2812_lightning_left: '040004'
     l_ws2812_lightning_right: '000000'
     l_ws2812_mis_dumbledores_office: '890089'
@@ -943,7 +888,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_left: 'A8A800'
     l_ws2812_mis_basilisk: '9A9A00'
     l_ws2812_mis_chamber: '656500'
     l_ws2812_mis_forrest: '000000'
@@ -960,8 +904,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_left: '070700'
-    l_pop_right: 'DDDD00'
     l_ws2812_lightning_left: 'E0E000'
     l_ws2812_mis_basilisk: '000000'
     l_ws2812_mis_chamber: '000000'
@@ -980,9 +922,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '777700'
-    l_pop_left: '000000'
-    l_pop_right: '353500'
     l_ws2812_lightning_left: '373700'
     l_ws2812_mis_dumbledores_office: '000000'
     l_ws2812_mis_gringotts_bank: 'B1B100'
@@ -1003,8 +942,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '000000'
-    l_pop_right: '000000'
     l_ws2812_lane_dr_left: 'C5C500'
     l_ws2812_lane_fl_left: 'CCCC00'
     l_ws2812_lightning_bottom: 'B8B800'
@@ -1027,7 +964,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_left: '949400'
     l_ws2812_hor_book: '9B9B00'
     l_ws2812_hor_book_destroy: 'CFCF00'
     l_ws2812_hor_neckles: 'D1D100'
@@ -1052,7 +988,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_left: '000000'
     l_ws2812_hor_book: '000000'
     l_ws2812_hor_book_destroy: '232300'
     l_ws2812_hor_cup: 'DEDE00'
@@ -1104,7 +1039,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_right: '686800'
     l_ws2812_hor_cup: '000000'
     l_ws2812_hor_cup_destroy: '000000'
     l_ws2812_hor_diadeem: '000000'
@@ -1124,7 +1058,6 @@
     
 - time: '+0.04'
   lights:
-    l_sling_right: '000000'
     l_ws2812_hor_diadeem_destroy: '000000'
     l_ws2812_hor_nagini_destroy: '000000'
     l_ws2812_lane_dr_right: '393900'
@@ -1148,14 +1081,12 @@
     
 - time: '+0.04'
   lights:
-    l_sling_left: '00C2C2'
     l_ws2812_lane_dr_left: '004B4B'
     l_ws2812_lane_fl_left: '00D6D6'
     l_ws2812_shoot_again: '006565'
     
 - time: '+0.04'
   lights:
-    l_sling_left: '000C0D'
     l_ws2812_hor_diadeem_destroy: '00E7E8'
     l_ws2812_hor_harry: '009F9F'
     l_ws2812_hor_harry_destroy: '006A6A'
@@ -1170,8 +1101,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '009090'
-    l_sling_left: '000000'
     l_ws2812_hor_book: '00BCBC'
     l_ws2812_hor_book_destroy: '008B8B'
     l_ws2812_hor_cup: '00E2E2'
@@ -1193,10 +1122,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_bottom: '000000'
-    l_pop_left: '005C5C'
-    l_pop_right: '00F7F7'
-    l_sling_right: '005C5C'
     l_ws2812_hor_book: '000606'
     l_ws2812_hor_book_destroy: '000000'
     l_ws2812_hor_cup: '002424'
@@ -1221,9 +1146,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_left: '000000'
-    l_pop_right: '004343'
-    l_sling_right: '000000'
     l_ws2812_hor_book: '000000'
     l_ws2812_hor_cup: '000000'
     l_ws2812_hor_cup_destroy: '000000'
@@ -1250,7 +1172,6 @@
     
 - time: '+0.04'
   lights:
-    l_pop_right: '000000'
     l_ws2812_lane_dr_right: '000000'
     l_ws2812_lane_fl_right: '000000'
     l_ws2812_lightning_bottom: '000909'
