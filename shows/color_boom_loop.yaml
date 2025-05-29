@@ -63,7 +63,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right_1: '680000'
     l_ws2812_hor_book: '6D0000'
     l_ws2812_hor_book_destroy: '6D0000'
     l_ws2812_hor_cup: '6D0000'
@@ -82,7 +81,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right_1: '720000'
     l_ws2812_hor_book: '720000'
     l_ws2812_hor_book_destroy: '720000'
     l_ws2812_hor_cup: '720000'
@@ -103,8 +101,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left_1: '740000'
-    l_sling_right_1: '780000'
     l_ws2812_hor_book: '780000'
     l_ws2812_hor_book_destroy: '780000'
     l_ws2812_hor_cup: '780000'
@@ -128,8 +124,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left_1: '7E0000'
-    l_sling_right_1: '7E0000'
     l_ws2812_hor_book: '7E0000'
     l_ws2812_hor_book_destroy: '7E0000'
     l_ws2812_hor_cup: '7E0000'
@@ -159,8 +153,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left_1: '840000'
-    l_sling_right_1: '840000'
     l_ws2812_hor_book: '840000'
     l_ws2812_hor_book_destroy: '840000'
     l_ws2812_hor_cup: '840000'
@@ -192,9 +184,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom_1: '890101'
-    l_sling_left_1: '890101'
-    l_sling_right_1: '890101'
     l_ws2812_hor_book: '890101'
     l_ws2812_hor_book_destroy: '890101'
     l_ws2812_hor_cup: '890101'
@@ -228,10 +217,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom_1: '8F0101'
-    l_pop_right_1: '8F0101'
-    l_sling_left_1: '8F0101'
-    l_sling_right_1: '8F0101'
     l_ws2812_hor_book: '8F0101'
     l_ws2812_hor_book_destroy: '8F0101'
     l_ws2812_hor_cup: '8F0101'
@@ -266,10 +251,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom_1: '950101'
-    l_pop_right_1: '950101'
-    l_sling_left_1: '950101'
-    l_sling_right_1: '950101'
     l_ws2812_hor_book: '950101'
     l_ws2812_hor_book_destroy: '950101'
     l_ws2812_hor_cup: '950101'
@@ -307,10 +288,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom_1: '9A0101'
-    l_pop_right_1: '9A0101'
-    l_sling_left_1: '9A0101'
-    l_sling_right_1: '9A0101'
     l_ws2812_hor_book: '9A0101'
     l_ws2812_hor_book_destroy: '9A0101'
     l_ws2812_hor_cup: '9A0101'
@@ -352,11 +329,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_left_1: 'A00101'
-    l_pop_bottom_1: 'A00101'
-    l_pop_right_1: 'A00101'
-    l_sling_left_1: 'A00101'
-    l_sling_right_1: 'A00101'
     l_ws2812_hor_book: 'A00101'
     l_ws2812_hor_book_destroy: 'A00101'
     l_ws2812_hor_cup: 'A00101'
@@ -404,11 +376,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_left_1: 'A00101'
-    l_pop_bottom_1: 'A00101'
-    l_pop_right_1: 'A00101'
-    l_sling_left_1: 'A00101'
-    l_sling_right_1: 'A00101'
     l_ws2812_hor_book: 'A60101'
     l_ws2812_hor_book_destroy: 'A60101'
     l_ws2812_hor_cup: 'A60101'
@@ -459,11 +426,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_left_1: 'A00101'
-    l_pop_bottom_1: 'A00101'
-    l_pop_right_1: 'A00101'
-    l_sling_left_1: 'A00101'
-    l_sling_right_1: 'A00101'
     l_ws2812_hor_book: 'AC0101'
     l_ws2812_hor_book_destroy: 'AC0101'
     l_ws2812_hor_cup: 'AC0101'
@@ -516,11 +478,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_left_1: 'A00101'
-    l_pop_bottom_1: 'A00101'
-    l_pop_right_1: 'A00101'
-    l_sling_left_1: 'A00101'
-    l_sling_right_1: 'A00101'
     l_ws2812_hor_book: 'B10101'
     l_ws2812_hor_book_destroy: 'B10101'
     l_ws2812_hor_cup: 'B10101'
@@ -575,11 +532,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_left_1: 'A00101'
-    l_pop_bottom_1: 'A00101'
-    l_pop_right_1: 'A00101'
-    l_sling_left_1: 'A00101'
-    l_sling_right_1: 'A00101'
     l_ws2812_hor_book: 'B70101'
     l_ws2812_hor_book_destroy: 'B70101'
     l_ws2812_hor_cup: 'B70101'
@@ -636,11 +588,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_left_1: 'A00101'
-    l_pop_bottom_1: 'A00101'
-    l_pop_right_1: 'A00101'
-    l_sling_left_1: 'A00101'
-    l_sling_right_1: 'A00101'
     l_ws2812_hor_book: 'BD0101'
     l_ws2812_hor_book_destroy: 'BD0101'
     l_ws2812_hor_cup: 'BD0101'
@@ -699,11 +646,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_left_1: 'A00101'
-    l_pop_bottom_1: 'A00101'
-    l_pop_right_1: 'A00101'
-    l_sling_left_1: 'A00101'
-    l_sling_right_1: 'A00101'
     l_ws2812_hor_book: 'C20202'
     l_ws2812_hor_book_destroy: 'C20202'
     l_ws2812_hor_cup: 'C20202'
@@ -764,11 +706,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_left_1: 'A00101'
-    l_pop_bottom_1: 'A00101'
-    l_pop_right_1: 'A00101'
-    l_sling_left_1: 'A00101'
-    l_sling_right_1: 'A00101'
     l_ws2812_hor_book: 'C80202'
     l_ws2812_hor_book_destroy: 'C80202'
     l_ws2812_hor_cup: 'C80202'
@@ -830,11 +767,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_left_1: 'A00101'
-    l_pop_bottom_1: 'A00101'
-    l_pop_right_1: 'A00101'
-    l_sling_left_1: 'A00101'
-    l_sling_right_1: 'A00101'
     l_ws2812_hor_book: 'CE0202'
     l_ws2812_hor_book_destroy: 'CE0202'
     l_ws2812_hor_cup: 'CE0202'
@@ -898,11 +830,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_left_1: 'A00101'
-    l_pop_bottom_1: 'A00101'
-    l_pop_right_1: 'A00101'
-    l_sling_left_1: 'A00101'
-    l_sling_right_1: 'A00101'
     l_ws2812_castle_door: 'D40202'
     l_ws2812_hor_book: 'D40202'
     l_ws2812_hor_book_destroy: 'D40202'
@@ -967,11 +894,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_left_1: 'A00101'
-    l_pop_bottom_1: 'A00101'
-    l_pop_right_1: 'A00101'
-    l_sling_left_1: 'A00101'
-    l_sling_right_1: 'A00101'
     l_ws2812_castle_door: 'D90202'
     l_ws2812_hor_book: 'D90202'
     l_ws2812_hor_book_destroy: 'D90202'
@@ -1036,11 +958,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'DF0202'
-    l_pop_left: 'DF0202'
-    l_pop_right: 'DF0202'
-    l_sling_left: 'DF0202'
-    l_sling_right: 'DF0202'
     l_ws2812_castle_door: 'DF0202'
     l_ws2812_hor_book: 'DF0202'
     l_ws2812_hor_book_destroy: 'DF0202'
@@ -1105,11 +1022,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'E50202'
-    l_pop_left: 'E50202'
-    l_pop_right: 'E50202'
-    l_sling_left: 'E50202'
-    l_sling_right: 'E50202'
     l_ws2812_castle_door: 'E50202'
     l_ws2812_hor_book: 'E50202'
     l_ws2812_hor_book_destroy: 'E50202'
@@ -1174,11 +1086,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'EA0202'
-    l_pop_left: 'EA0202'
-    l_pop_right: 'EA0202'
-    l_sling_left: 'EA0202'
-    l_sling_right: 'EA0202'
     l_ws2812_castle_door: 'EA0202'
     l_ws2812_hor_book: 'EA0202'
     l_ws2812_hor_book_destroy: 'EA0202'
@@ -1243,11 +1150,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'F00202'
-    l_pop_left: 'F00202'
-    l_pop_right: 'F00202'
-    l_sling_left: 'F00202'
-    l_sling_right: 'F00202'
     l_ws2812_castle_door: 'F00202'
     l_ws2812_hor_book: 'F00202'
     l_ws2812_hor_book_destroy: 'F00202'
@@ -1312,11 +1214,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'F60202'
-    l_pop_left: 'F60202'
-    l_pop_right: 'F60202'
-    l_sling_left: 'F60202'
-    l_sling_right: 'F60202'
     l_ws2812_castle_door: 'F60202'
     l_ws2812_hor_book: 'F60202'
     l_ws2812_hor_book_destroy: 'F60202'
@@ -1381,11 +1278,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'FB0202'
-    l_pop_left: 'FB0202'
-    l_pop_right: 'FB0202'
-    l_sling_left: 'FB0202'
-    l_sling_right: 'FB0202'
     l_ws2812_castle_door: 'FB0202'
     l_ws2812_hor_book: 'FB0202'
     l_ws2812_hor_book_destroy: 'FB0202'
@@ -1450,11 +1342,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '000000'
-    l_pop_left: '000000'
-    l_pop_right: '000000'
-    l_sling_left: '000000'
-    l_sling_right: '000000'
     l_ws2812_castle_door: '000000'
     l_ws2812_hor_book: '000000'
     l_ws2812_hor_book_destroy: '000000'
@@ -1575,7 +1462,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '763735'
     l_ws2812_hor_book: '7F3C3A'
     l_ws2812_hor_book_destroy: '7F3C3A'
     l_ws2812_hor_cup: '7F3C3A'
@@ -1594,7 +1480,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '843F3D'
     l_ws2812_hor_book: '843F3D'
     l_ws2812_hor_book_destroy: '843F3D'
     l_ws2812_hor_cup: '843F3D'
@@ -1615,8 +1500,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '89413F'
-    l_sling_right: '89413F'
     l_ws2812_hor_book: '89413F'
     l_ws2812_hor_book_destroy: '89413F'
     l_ws2812_hor_cup: '89413F'
@@ -1640,8 +1523,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '8E4442'
-    l_sling_right: '8E4442'
     l_ws2812_hor_book: '8E4442'
     l_ws2812_hor_book_destroy: '8E4442'
     l_ws2812_hor_cup: '8E4442'
@@ -1671,8 +1552,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '934745'
-    l_sling_right: '934745'
     l_ws2812_hor_book: '934745'
     l_ws2812_hor_book_destroy: '934745'
     l_ws2812_hor_cup: '934745'
@@ -1704,9 +1583,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '994948'
-    l_sling_left: '994948'
-    l_sling_right: '994948'
     l_ws2812_hor_book: '994948'
     l_ws2812_hor_book_destroy: '994948'
     l_ws2812_hor_cup: '994948'
@@ -1740,10 +1616,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '9E4C4B'
-    l_pop_right: '9E4C4B'
-    l_sling_left: '9E4C4B'
-    l_sling_right: '9E4C4B'
     l_ws2812_hor_book: '9E4C4B'
     l_ws2812_hor_book_destroy: '9E4C4B'
     l_ws2812_hor_cup: '9E4C4B'
@@ -1778,10 +1650,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'A34F4E'
-    l_pop_right: 'A34F4E'
-    l_sling_left: 'A34F4E'
-    l_sling_right: 'A34F4E'
     l_ws2812_hor_book: 'A34F4E'
     l_ws2812_hor_book_destroy: 'A34F4E'
     l_ws2812_hor_cup: 'A34F4E'
@@ -1819,10 +1687,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'A85251'
-    l_pop_right: 'A85251'
-    l_sling_left: 'A85251'
-    l_sling_right: 'A85251'
     l_ws2812_hor_book: 'A85251'
     l_ws2812_hor_book_destroy: 'A85251'
     l_ws2812_hor_cup: 'A85251'
@@ -1864,11 +1728,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'AD5554'
-    l_pop_left: 'AD5554'
-    l_pop_right: 'AD5554'
-    l_sling_left: 'AD5554'
-    l_sling_right: 'AD5554'
     l_ws2812_hor_book: 'AD5554'
     l_ws2812_hor_book_destroy: 'AD5554'
     l_ws2812_hor_cup: 'AD5554'
@@ -1916,11 +1775,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'B25756'
-    l_pop_left: 'B25756'
-    l_pop_right: 'B25756'
-    l_sling_left: 'B25756'
-    l_sling_right: 'B25756'
     l_ws2812_hor_book: 'B25756'
     l_ws2812_hor_book_destroy: 'B25756'
     l_ws2812_hor_cup: 'B25756'
@@ -1972,11 +1826,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'B75A59'
-    l_pop_left: 'B75A59'
-    l_pop_right: 'B75A59'
-    l_sling_left: 'B75A59'
-    l_sling_right: 'B75A59'
     l_ws2812_hor_book: 'B75A59'
     l_ws2812_hor_book_destroy: 'B75A59'
     l_ws2812_hor_cup: 'B75A59'
@@ -2029,11 +1878,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'BC5D5C'
-    l_pop_left: 'BC5D5C'
-    l_pop_right: 'BC5D5C'
-    l_sling_left: 'BC5D5C'
-    l_sling_right: 'BC5D5C'
     l_ws2812_hor_book: 'BC5D5C'
     l_ws2812_hor_book_destroy: 'BC5D5C'
     l_ws2812_hor_cup: 'BC5D5C'
@@ -2088,11 +1932,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'C1605F'
-    l_pop_left: 'C1605F'
-    l_pop_right: 'C1605F'
-    l_sling_left: 'C1605F'
-    l_sling_right: 'C1605F'
     l_ws2812_hor_book: 'C1605F'
     l_ws2812_hor_book_destroy: 'C1605F'
     l_ws2812_hor_cup: 'C1605F'
@@ -2149,11 +1988,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'C66362'
-    l_pop_left: 'C66362'
-    l_pop_right: 'C66362'
-    l_sling_left: 'C66362'
-    l_sling_right: 'C66362'
     l_ws2812_hor_book: 'C66362'
     l_ws2812_hor_book_destroy: 'C66362'
     l_ws2812_hor_cup: 'C66362'
@@ -2212,11 +2046,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'CC6565'
-    l_pop_left: 'CC6565'
-    l_pop_right: 'CC6565'
-    l_sling_left: 'CC6565'
-    l_sling_right: 'CC6565'
     l_ws2812_hor_book: 'CC6565'
     l_ws2812_hor_book_destroy: 'CC6565'
     l_ws2812_hor_cup: 'CC6565'
@@ -2277,11 +2106,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'D16868'
-    l_pop_left: 'D16868'
-    l_pop_right: 'D16868'
-    l_sling_left: 'D16868'
-    l_sling_right: 'D16868'
     l_ws2812_hor_book: 'D16868'
     l_ws2812_hor_book_destroy: 'D16868'
     l_ws2812_hor_cup: 'D16868'
@@ -2343,11 +2167,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'D66B6B'
-    l_pop_left: 'D66B6B'
-    l_pop_right: 'D66B6B'
-    l_sling_left: 'D66B6B'
-    l_sling_right: 'D66B6B'
     l_ws2812_hor_book: 'D66B6B'
     l_ws2812_hor_book_destroy: 'D66B6B'
     l_ws2812_hor_cup: 'D66B6B'
@@ -2411,11 +2230,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'DB6E6E'
-    l_pop_left: 'DB6E6E'
-    l_pop_right: 'DB6E6E'
-    l_sling_left: 'DB6E6E'
-    l_sling_right: 'DB6E6E'
     l_ws2812_castle_door: 'DB6E6E'
     l_ws2812_hor_book: 'DB6E6E'
     l_ws2812_hor_book_destroy: 'DB6E6E'
@@ -2480,11 +2294,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'E07171'
-    l_pop_left: 'E07171'
-    l_pop_right: 'E07171'
-    l_sling_left: 'E07171'
-    l_sling_right: 'E07171'
     l_ws2812_castle_door: 'E07171'
     l_ws2812_hor_book: 'E07171'
     l_ws2812_hor_book_destroy: 'E07171'
@@ -2549,11 +2358,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'E57374'
-    l_pop_left: 'E57374'
-    l_pop_right: 'E57374'
-    l_sling_left: 'E57374'
-    l_sling_right: 'E57374'
     l_ws2812_castle_door: 'E57374'
     l_ws2812_hor_book: 'E57374'
     l_ws2812_hor_book_destroy: 'E57374'
@@ -2618,11 +2422,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'EA7677'
-    l_pop_left: 'EA7677'
-    l_pop_right: 'EA7677'
-    l_sling_left: 'EA7677'
-    l_sling_right: 'EA7677'
     l_ws2812_castle_door: 'EA7677'
     l_ws2812_hor_book: 'EA7677'
     l_ws2812_hor_book_destroy: 'EA7677'
@@ -2687,11 +2486,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'EF797A'
-    l_pop_left: 'EF797A'
-    l_pop_right: 'EF797A'
-    l_sling_left: 'EF797A'
-    l_sling_right: 'EF797A'
     l_ws2812_castle_door: 'EF797A'
     l_ws2812_hor_book: 'EF797A'
     l_ws2812_hor_book_destroy: 'EF797A'
@@ -2756,11 +2550,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'F47C7D'
-    l_pop_left: 'F47C7D'
-    l_pop_right: 'F47C7D'
-    l_sling_left: 'F47C7D'
-    l_sling_right: 'F47C7D'
     l_ws2812_castle_door: 'F47C7D'
     l_ws2812_hor_book: 'F47C7D'
     l_ws2812_hor_book_destroy: 'F47C7D'
@@ -2825,11 +2614,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'F97F80'
-    l_pop_left: 'F97F80'
-    l_pop_right: 'F97F80'
-    l_sling_left: 'F97F80'
-    l_sling_right: 'F97F80'
     l_ws2812_castle_door: 'F97F80'
     l_ws2812_hor_book: 'F97F80'
     l_ws2812_hor_book_destroy: 'F97F80'
@@ -2894,11 +2678,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'FE8183'
-    l_pop_left: 'FE8183'
-    l_pop_right: 'FE8183'
-    l_sling_left: 'FE8183'
-    l_sling_right: 'FE8183'
     l_ws2812_castle_door: 'FE8183'
     l_ws2812_hor_book: 'FE8183'
     l_ws2812_hor_book_destroy: 'FE8183'
@@ -2963,11 +2742,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '000000'
-    l_pop_left: '000000'
-    l_pop_right: '000000'
-    l_sling_left: '000000'
-    l_sling_right: '000000'
     l_ws2812_castle_door: '000000'
     l_ws2812_hor_book: '000000'
     l_ws2812_hor_book_destroy: '000000'
@@ -3088,7 +2862,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '006007'
     l_ws2812_hor_book: '006808'
     l_ws2812_hor_book_destroy: '006808'
     l_ws2812_hor_cup: '006808'
@@ -3107,7 +2880,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '006D09'
     l_ws2812_hor_book: '006D09'
     l_ws2812_hor_book_destroy: '006D09'
     l_ws2812_hor_cup: '006D09'
@@ -3128,8 +2900,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '00710A'
-    l_sling_right: '00710A'
     l_ws2812_hor_book: '00710A'
     l_ws2812_hor_book_destroy: '00710A'
     l_ws2812_hor_cup: '00710A'
@@ -3153,8 +2923,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '00760C'
-    l_sling_right: '00760C'
     l_ws2812_hor_book: '00760C'
     l_ws2812_hor_book_destroy: '00760C'
     l_ws2812_hor_cup: '00760C'
@@ -3184,8 +2952,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '007A0D'
-    l_sling_right: '007A0D'
     l_ws2812_hor_book: '007A0D'
     l_ws2812_hor_book_destroy: '007A0D'
     l_ws2812_hor_cup: '007A0D'
@@ -3217,9 +2983,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '007E0E'
-    l_sling_left: '007E0E'
-    l_sling_right: '007E0E'
     l_ws2812_hor_book: '007E0E'
     l_ws2812_hor_book_destroy: '007E0E'
     l_ws2812_hor_cup: '007E0E'
@@ -3253,10 +3016,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '008310'
-    l_pop_right: '008310'
-    l_sling_left: '008310'
-    l_sling_right: '008310'
     l_ws2812_hor_book: '008310'
     l_ws2812_hor_book_destroy: '008310'
     l_ws2812_hor_cup: '008310'
@@ -3291,10 +3050,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '008711'
-    l_pop_right: '008711'
-    l_sling_left: '008711'
-    l_sling_right: '008711'
     l_ws2812_hor_book: '008711'
     l_ws2812_hor_book_destroy: '008711'
     l_ws2812_hor_cup: '008711'
@@ -3332,10 +3087,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '008C12'
-    l_pop_right: '008C12'
-    l_sling_left: '008C12'
-    l_sling_right: '008C12'
     l_ws2812_hor_book: '008C12'
     l_ws2812_hor_book_destroy: '008C12'
     l_ws2812_hor_cup: '008C12'
@@ -3377,11 +3128,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '009014'
-    l_pop_left: '009014'
-    l_pop_right: '009014'
-    l_sling_left: '009014'
-    l_sling_right: '009014'
     l_ws2812_hor_book: '009014'
     l_ws2812_hor_book_destroy: '009014'
     l_ws2812_hor_cup: '009014'
@@ -3429,11 +3175,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '009515'
-    l_pop_left: '009515'
-    l_pop_right: '009515'
-    l_sling_left: '009515'
-    l_sling_right: '009515'
     l_ws2812_hor_book: '009515'
     l_ws2812_hor_book_destroy: '009515'
     l_ws2812_hor_cup: '009515'
@@ -3485,11 +3226,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '009917'
-    l_pop_left: '009917'
-    l_pop_right: '009917'
-    l_sling_left: '009917'
-    l_sling_right: '009917'
     l_ws2812_hor_book: '009917'
     l_ws2812_hor_book_destroy: '009917'
     l_ws2812_hor_cup: '009917'
@@ -3542,11 +3278,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '009E18'
-    l_pop_left: '009E18'
-    l_pop_right: '009E18'
-    l_sling_left: '009E18'
-    l_sling_right: '009E18'
     l_ws2812_hor_book: '009E18'
     l_ws2812_hor_book_destroy: '009E18'
     l_ws2812_hor_cup: '009E18'
@@ -3601,11 +3332,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00A219'
-    l_pop_left: '00A219'
-    l_pop_right: '00A219'
-    l_sling_left: '00A219'
-    l_sling_right: '00A219'
     l_ws2812_hor_book: '00A219'
     l_ws2812_hor_book_destroy: '00A219'
     l_ws2812_hor_cup: '00A219'
@@ -3662,11 +3388,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00A71B'
-    l_pop_left: '00A71B'
-    l_pop_right: '00A71B'
-    l_sling_left: '00A71B'
-    l_sling_right: '00A71B'
     l_ws2812_hor_book: '00A71B'
     l_ws2812_hor_book_destroy: '00A71B'
     l_ws2812_hor_cup: '00A71B'
@@ -3725,11 +3446,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00AB1C'
-    l_pop_left: '00AB1C'
-    l_pop_right: '00AB1C'
-    l_sling_left: '00AB1C'
-    l_sling_right: '00AB1C'
     l_ws2812_hor_book: '00AB1C'
     l_ws2812_hor_book_destroy: '00AB1C'
     l_ws2812_hor_cup: '00AB1C'
@@ -3790,11 +3506,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00AF1D'
-    l_pop_left: '00AF1D'
-    l_pop_right: '00AF1D'
-    l_sling_left: '00AF1D'
-    l_sling_right: '00AF1D'
     l_ws2812_hor_book: '00AF1D'
     l_ws2812_hor_book_destroy: '00AF1D'
     l_ws2812_hor_cup: '00AF1D'
@@ -3856,11 +3567,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00B41F'
-    l_pop_left: '00B41F'
-    l_pop_right: '00B41F'
-    l_sling_left: '00B41F'
-    l_sling_right: '00B41F'
     l_ws2812_hor_book: '00B41F'
     l_ws2812_hor_book_destroy: '00B41F'
     l_ws2812_hor_cup: '00B41F'
@@ -3924,11 +3630,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00B820'
-    l_pop_left: '00B820'
-    l_pop_right: '00B820'
-    l_sling_left: '00B820'
-    l_sling_right: '00B820'
     l_ws2812_castle_door: '00B820'
     l_ws2812_hor_book: '00B820'
     l_ws2812_hor_book_destroy: '00B820'
@@ -3993,11 +3694,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00BC21'
-    l_pop_left: '00BC21'
-    l_pop_right: '00BC21'
-    l_sling_left: '00BC21'
-    l_sling_right: '00BC21'
     l_ws2812_castle_door: '00BC21'
     l_ws2812_hor_book: '00BC21'
     l_ws2812_hor_book_destroy: '00BC21'
@@ -4062,11 +3758,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00C023'
-    l_pop_left: '00C023'
-    l_pop_right: '00C023'
-    l_sling_left: '00C023'
-    l_sling_right: '00C023'
     l_ws2812_castle_door: '00C023'
     l_ws2812_hor_book: '00C023'
     l_ws2812_hor_book_destroy: '00C023'
@@ -4131,11 +3822,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00C524'
-    l_pop_left: '00C524'
-    l_pop_right: '00C524'
-    l_sling_left: '00C524'
-    l_sling_right: '00C524'
     l_ws2812_castle_door: '00C524'
     l_ws2812_hor_book: '00C524'
     l_ws2812_hor_book_destroy: '00C524'
@@ -4200,11 +3886,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00C925'
-    l_pop_left: '00C925'
-    l_pop_right: '00C925'
-    l_sling_left: '00C925'
-    l_sling_right: '00C925'
     l_ws2812_castle_door: '00C925'
     l_ws2812_hor_book: '00C925'
     l_ws2812_hor_book_destroy: '00C925'
@@ -4269,11 +3950,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00CE27'
-    l_pop_left: '00CE27'
-    l_pop_right: '00CE27'
-    l_sling_left: '00CE27'
-    l_sling_right: '00CE27'
     l_ws2812_castle_door: '00CE27'
     l_ws2812_hor_book: '00CE27'
     l_ws2812_hor_book_destroy: '00CE27'
@@ -4338,11 +4014,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00D228'
-    l_pop_left: '00D228'
-    l_pop_right: '00D228'
-    l_sling_left: '00D228'
-    l_sling_right: '00D228'
     l_ws2812_castle_door: '00D228'
     l_ws2812_hor_book: '00D228'
     l_ws2812_hor_book_destroy: '00D228'
@@ -4407,11 +4078,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '00D72A'
-    l_pop_left: '00D72A'
-    l_pop_right: '00D72A'
-    l_sling_left: '00D72A'
-    l_sling_right: '00D72A'
     l_ws2812_castle_door: '00D72A'
     l_ws2812_hor_book: '00D72A'
     l_ws2812_hor_book_destroy: '00D72A'
@@ -4476,11 +4142,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '000000'
-    l_pop_left: '000000'
-    l_pop_right: '000000'
-    l_sling_left: '000000'
-    l_sling_right: '000000'
     l_ws2812_castle_door: '000000'
     l_ws2812_hor_book: '000000'
     l_ws2812_hor_book_destroy: '000000'
@@ -4601,7 +4262,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '4C0780'
     l_ws2812_hor_book: '52088A'
     l_ws2812_hor_book_destroy: '52088A'
     l_ws2812_hor_cup: '52088A'
@@ -4620,7 +4280,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '560A8E'
     l_ws2812_hor_book: '560A8E'
     l_ws2812_hor_book_destroy: '560A8E'
     l_ws2812_hor_cup: '560A8E'
@@ -4641,8 +4300,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '590B93'
-    l_sling_right: '590B93'
     l_ws2812_hor_book: '590B93'
     l_ws2812_hor_book_destroy: '590B93'
     l_ws2812_hor_cup: '590B93'
@@ -4666,8 +4323,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '5D0D97'
-    l_sling_right: '5D0D97'
     l_ws2812_hor_book: '5D0D97'
     l_ws2812_hor_book_destroy: '5D0D97'
     l_ws2812_hor_cup: '5D0D97'
@@ -4697,8 +4352,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '610E9C'
-    l_sling_right: '610E9C'
     l_ws2812_hor_book: '610E9C'
     l_ws2812_hor_book_destroy: '610E9C'
     l_ws2812_hor_cup: '610E9C'
@@ -4730,9 +4383,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '6510A1'
-    l_sling_left: '6510A1'
-    l_sling_right: '6510A1'
     l_ws2812_hor_book: '6510A1'
     l_ws2812_hor_book_destroy: '6510A1'
     l_ws2812_hor_cup: '6510A1'
@@ -4766,10 +4416,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '6911A5'
-    l_pop_right: '6911A5'
-    l_sling_left: '6911A5'
-    l_sling_right: '6911A5'
     l_ws2812_hor_book: '6911A5'
     l_ws2812_hor_book_destroy: '6911A5'
     l_ws2812_hor_cup: '6911A5'
@@ -4804,10 +4450,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '6D13AA'
-    l_pop_right: '6D13AA'
-    l_sling_left: '6D13AA'
-    l_sling_right: '6D13AA'
     l_ws2812_hor_book: '6D13AA'
     l_ws2812_hor_book_destroy: '6D13AA'
     l_ws2812_hor_cup: '6D13AA'
@@ -4845,10 +4487,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '7114AE'
-    l_pop_right: '7114AE'
-    l_sling_left: '7114AE'
-    l_sling_right: '7114AE'
     l_ws2812_hor_book: '7114AE'
     l_ws2812_hor_book_destroy: '7114AE'
     l_ws2812_hor_cup: '7114AE'
@@ -4890,11 +4528,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '7516B3'
-    l_pop_left: '7516B3'
-    l_pop_right: '7516B3'
-    l_sling_left: '7516B3'
-    l_sling_right: '7516B3'
     l_ws2812_hor_book: '7516B3'
     l_ws2812_hor_book_destroy: '7516B3'
     l_ws2812_hor_cup: '7516B3'
@@ -4942,11 +4575,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '7817B7'
-    l_pop_left: '7817B7'
-    l_pop_right: '7817B7'
-    l_sling_left: '7817B7'
-    l_sling_right: '7817B7'
     l_ws2812_hor_book: '7817B7'
     l_ws2812_hor_book_destroy: '7817B7'
     l_ws2812_hor_cup: '7817B7'
@@ -4998,11 +4626,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '7C19BC'
-    l_pop_left: '7C19BC'
-    l_pop_right: '7C19BC'
-    l_sling_left: '7C19BC'
-    l_sling_right: '7C19BC'
     l_ws2812_hor_book: '7C19BC'
     l_ws2812_hor_book_destroy: '7C19BC'
     l_ws2812_hor_cup: '7C19BC'
@@ -5055,11 +4678,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '801ABF'
-    l_pop_left: '801ABF'
-    l_pop_right: '801ABF'
-    l_sling_left: '801ABF'
-    l_sling_right: '801ABF'
     l_ws2812_hor_book: '801ABF'
     l_ws2812_hor_book_destroy: '801ABF'
     l_ws2812_hor_cup: '801ABF'
@@ -5114,11 +4732,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '841CC4'
-    l_pop_left: '841CC4'
-    l_pop_right: '841CC4'
-    l_sling_left: '841CC4'
-    l_sling_right: '841CC4'
     l_ws2812_hor_book: '841CC4'
     l_ws2812_hor_book_destroy: '841CC4'
     l_ws2812_hor_cup: '841CC4'
@@ -5175,11 +4788,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '881DC8'
-    l_pop_left: '881DC8'
-    l_pop_right: '881DC8'
-    l_sling_left: '881DC8'
-    l_sling_right: '881DC8'
     l_ws2812_hor_book: '881DC8'
     l_ws2812_hor_book_destroy: '881DC8'
     l_ws2812_hor_cup: '881DC8'
@@ -5238,11 +4846,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '8C1FCD'
-    l_pop_left: '8C1FCD'
-    l_pop_right: '8C1FCD'
-    l_sling_left: '8C1FCD'
-    l_sling_right: '8C1FCD'
     l_ws2812_hor_book: '8C1FCD'
     l_ws2812_hor_book_destroy: '8C1FCD'
     l_ws2812_hor_cup: '8C1FCD'
@@ -5303,11 +4906,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '9020D2'
-    l_pop_left: '9020D2'
-    l_pop_right: '9020D2'
-    l_sling_left: '9020D2'
-    l_sling_right: '9020D2'
     l_ws2812_hor_book: '9020D2'
     l_ws2812_hor_book_destroy: '9020D2'
     l_ws2812_hor_cup: '9020D2'
@@ -5369,11 +4967,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '9422D6'
-    l_pop_left: '9422D6'
-    l_pop_right: '9422D6'
-    l_sling_left: '9422D6'
-    l_sling_right: '9422D6'
     l_ws2812_hor_book: '9422D6'
     l_ws2812_hor_book_destroy: '9422D6'
     l_ws2812_hor_cup: '9422D6'
@@ -5437,11 +5030,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '9723DB'
-    l_pop_left: '9723DB'
-    l_pop_right: '9723DB'
-    l_sling_left: '9723DB'
-    l_sling_right: '9723DB'
     l_ws2812_castle_door: '9723DB'
     l_ws2812_hor_book: '9723DB'
     l_ws2812_hor_book_destroy: '9723DB'
@@ -5506,11 +5094,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '9B25DF'
-    l_pop_left: '9B25DF'
-    l_pop_right: '9B25DF'
-    l_sling_left: '9B25DF'
-    l_sling_right: '9B25DF'
     l_ws2812_castle_door: '9B25DF'
     l_ws2812_hor_book: '9B25DF'
     l_ws2812_hor_book_destroy: '9B25DF'
@@ -5575,11 +5158,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '9F26E4'
-    l_pop_left: '9F26E4'
-    l_pop_right: '9F26E4'
-    l_sling_left: '9F26E4'
-    l_sling_right: '9F26E4'
     l_ws2812_castle_door: '9F26E4'
     l_ws2812_hor_book: '9F26E4'
     l_ws2812_hor_book_destroy: '9F26E4'
@@ -5644,11 +5222,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'A328E8'
-    l_pop_left: 'A328E8'
-    l_pop_right: 'A328E8'
-    l_sling_left: 'A328E8'
-    l_sling_right: 'A328E8'
     l_ws2812_castle_door: 'A328E8'
     l_ws2812_hor_book: 'A328E8'
     l_ws2812_hor_book_destroy: 'A328E8'
@@ -5713,11 +5286,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'A729ED'
-    l_pop_left: 'A729ED'
-    l_pop_right: 'A729ED'
-    l_sling_left: 'A729ED'
-    l_sling_right: 'A729ED'
     l_ws2812_castle_door: 'A729ED'
     l_ws2812_hor_book: 'A729ED'
     l_ws2812_hor_book_destroy: 'A729ED'
@@ -5782,11 +5350,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'AB2BF1'
-    l_pop_left: 'AB2BF1'
-    l_pop_right: 'AB2BF1'
-    l_sling_left: 'AB2BF1'
-    l_sling_right: 'AB2BF1'
     l_ws2812_castle_door: 'AB2BF1'
     l_ws2812_hor_book: 'AB2BF1'
     l_ws2812_hor_book_destroy: 'AB2BF1'
@@ -5851,11 +5414,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'AF2CF6'
-    l_pop_left: 'AF2CF6'
-    l_pop_right: 'AF2CF6'
-    l_sling_left: 'AF2CF6'
-    l_sling_right: 'AF2CF6'
     l_ws2812_castle_door: 'AF2CF6'
     l_ws2812_hor_book: 'AF2CF6'
     l_ws2812_hor_book_destroy: 'AF2CF6'
@@ -5920,11 +5478,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'B32EFA'
-    l_pop_left: 'B32EFA'
-    l_pop_right: 'B32EFA'
-    l_sling_left: 'B32EFA'
-    l_sling_right: 'B32EFA'
     l_ws2812_castle_door: 'B32EFA'
     l_ws2812_hor_book: 'B32EFA'
     l_ws2812_hor_book_destroy: 'B32EFA'
@@ -5989,11 +5542,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '000000'
-    l_pop_left: '000000'
-    l_pop_right: '000000'
-    l_sling_left: '000000'
-    l_sling_right: '000000'
     l_ws2812_castle_door: '000000'
     l_ws2812_hor_book: '000000'
     l_ws2812_hor_book_destroy: '000000'
@@ -6114,7 +5662,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '030366'
     l_ws2812_hor_book: '03036E'
     l_ws2812_hor_book_destroy: '03036E'
     l_ws2812_hor_cup: '03036E'
@@ -6133,7 +5680,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '040473'
     l_ws2812_hor_book: '040473'
     l_ws2812_hor_book_destroy: '040473'
     l_ws2812_hor_cup: '040473'
@@ -6154,8 +5700,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '050577'
-    l_sling_right: '050577'
     l_ws2812_hor_book: '050577'
     l_ws2812_hor_book_destroy: '050577'
     l_ws2812_hor_cup: '050577'
@@ -6179,8 +5723,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '05057B'
-    l_sling_right: '05057B'
     l_ws2812_hor_book: '05057B'
     l_ws2812_hor_book_destroy: '05057B'
     l_ws2812_hor_cup: '05057B'
@@ -6210,8 +5752,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '06067F'
-    l_sling_right: '06067F'
     l_ws2812_hor_book: '06067F'
     l_ws2812_hor_book_destroy: '06067F'
     l_ws2812_hor_cup: '06067F'
@@ -6243,9 +5783,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '070784'
-    l_sling_left: '070784'
-    l_sling_right: '070784'
     l_ws2812_hor_book: '070784'
     l_ws2812_hor_book_destroy: '070784'
     l_ws2812_hor_cup: '070784'
@@ -6279,10 +5816,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '070788'
-    l_pop_right: '070788'
-    l_sling_left: '070788'
-    l_sling_right: '070788'
     l_ws2812_hor_book: '070788'
     l_ws2812_hor_book_destroy: '070788'
     l_ws2812_hor_cup: '070788'
@@ -6317,10 +5850,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '08088C'
-    l_pop_right: '08088C'
-    l_sling_left: '08088C'
-    l_sling_right: '08088C'
     l_ws2812_hor_book: '08088C'
     l_ws2812_hor_book_destroy: '08088C'
     l_ws2812_hor_cup: '08088C'
@@ -6358,10 +5887,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '090991'
-    l_pop_right: '090991'
-    l_sling_left: '090991'
-    l_sling_right: '090991'
     l_ws2812_hor_book: '090991'
     l_ws2812_hor_book_destroy: '090991'
     l_ws2812_hor_cup: '090991'
@@ -6403,11 +5928,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '090995'
-    l_pop_left: '090995'
-    l_pop_right: '090995'
-    l_sling_left: '090995'
-    l_sling_right: '090995'
     l_ws2812_hor_book: '090995'
     l_ws2812_hor_book_destroy: '090995'
     l_ws2812_hor_cup: '090995'
@@ -6455,11 +5975,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '0A0A99'
-    l_pop_left: '0A0A99'
-    l_pop_right: '0A0A99'
-    l_sling_left: '0A0A99'
-    l_sling_right: '0A0A99'
     l_ws2812_hor_book: '0A0A99'
     l_ws2812_hor_book_destroy: '0A0A99'
     l_ws2812_hor_cup: '0A0A99'
@@ -6511,11 +6026,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '0A0A9D'
-    l_pop_left: '0A0A9D'
-    l_pop_right: '0A0A9D'
-    l_sling_left: '0A0A9D'
-    l_sling_right: '0A0A9D'
     l_ws2812_hor_book: '0A0A9D'
     l_ws2812_hor_book_destroy: '0A0A9D'
     l_ws2812_hor_cup: '0A0A9D'
@@ -6568,11 +6078,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '0B0BA2'
-    l_pop_left: '0B0BA2'
-    l_pop_right: '0B0BA2'
-    l_sling_left: '0B0BA2'
-    l_sling_right: '0B0BA2'
     l_ws2812_hor_book: '0B0BA2'
     l_ws2812_hor_book_destroy: '0B0BA2'
     l_ws2812_hor_cup: '0B0BA2'
@@ -6627,11 +6132,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '0C0CA6'
-    l_pop_left: '0C0CA6'
-    l_pop_right: '0C0CA6'
-    l_sling_left: '0C0CA6'
-    l_sling_right: '0C0CA6'
     l_ws2812_hor_book: '0C0CA6'
     l_ws2812_hor_book_destroy: '0C0CA6'
     l_ws2812_hor_cup: '0C0CA6'
@@ -6688,11 +6188,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '0C0CAA'
-    l_pop_left: '0C0CAA'
-    l_pop_right: '0C0CAA'
-    l_sling_left: '0C0CAA'
-    l_sling_right: '0C0CAA'
     l_ws2812_hor_book: '0C0CAA'
     l_ws2812_hor_book_destroy: '0C0CAA'
     l_ws2812_hor_cup: '0C0CAA'
@@ -6751,11 +6246,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '0D0DAF'
-    l_pop_left: '0D0DAF'
-    l_pop_right: '0D0DAF'
-    l_sling_left: '0D0DAF'
-    l_sling_right: '0D0DAF'
     l_ws2812_hor_book: '0D0DAF'
     l_ws2812_hor_book_destroy: '0D0DAF'
     l_ws2812_hor_cup: '0D0DAF'
@@ -6816,11 +6306,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '0E0EB3'
-    l_pop_left: '0E0EB3'
-    l_pop_right: '0E0EB3'
-    l_sling_left: '0E0EB3'
-    l_sling_right: '0E0EB3'
     l_ws2812_hor_book: '0E0EB3'
     l_ws2812_hor_book_destroy: '0E0EB3'
     l_ws2812_hor_cup: '0E0EB3'
@@ -6882,11 +6367,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '0E0EB7'
-    l_pop_left: '0E0EB7'
-    l_pop_right: '0E0EB7'
-    l_sling_left: '0E0EB7'
-    l_sling_right: '0E0EB7'
     l_ws2812_hor_book: '0E0EB7'
     l_ws2812_hor_book_destroy: '0E0EB7'
     l_ws2812_hor_cup: '0E0EB7'
@@ -6950,11 +6430,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '0F0FBB'
-    l_pop_left: '0F0FBB'
-    l_pop_right: '0F0FBB'
-    l_sling_left: '0F0FBB'
-    l_sling_right: '0F0FBB'
     l_ws2812_castle_door: '0F0FBB'
     l_ws2812_hor_book: '0F0FBB'
     l_ws2812_hor_book_destroy: '0F0FBB'
@@ -7019,11 +6494,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '1010BF'
-    l_pop_left: '1010BF'
-    l_pop_right: '1010BF'
-    l_sling_left: '1010BF'
-    l_sling_right: '1010BF'
     l_ws2812_castle_door: '1010BF'
     l_ws2812_hor_book: '1010BF'
     l_ws2812_hor_book_destroy: '1010BF'
@@ -7088,11 +6558,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '1010C3'
-    l_pop_left: '1010C3'
-    l_pop_right: '1010C3'
-    l_sling_left: '1010C3'
-    l_sling_right: '1010C3'
     l_ws2812_castle_door: '1010C3'
     l_ws2812_hor_book: '1010C3'
     l_ws2812_hor_book_destroy: '1010C3'
@@ -7157,11 +6622,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '1111C7'
-    l_pop_left: '1111C7'
-    l_pop_right: '1111C7'
-    l_sling_left: '1111C7'
-    l_sling_right: '1111C7'
     l_ws2812_castle_door: '1111C7'
     l_ws2812_hor_book: '1111C7'
     l_ws2812_hor_book_destroy: '1111C7'
@@ -7226,11 +6686,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '1212CC'
-    l_pop_left: '1212CC'
-    l_pop_right: '1212CC'
-    l_sling_left: '1212CC'
-    l_sling_right: '1212CC'
     l_ws2812_castle_door: '1212CC'
     l_ws2812_hor_book: '1212CC'
     l_ws2812_hor_book_destroy: '1212CC'
@@ -7295,11 +6750,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '1212D0'
-    l_pop_left: '1212D0'
-    l_pop_right: '1212D0'
-    l_sling_left: '1212D0'
-    l_sling_right: '1212D0'
     l_ws2812_castle_door: '1212D0'
     l_ws2812_hor_book: '1212D0'
     l_ws2812_hor_book_destroy: '1212D0'
@@ -7364,11 +6814,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '1313D4'
-    l_pop_left: '1313D4'
-    l_pop_right: '1313D4'
-    l_sling_left: '1313D4'
-    l_sling_right: '1313D4'
     l_ws2812_castle_door: '1313D4'
     l_ws2812_hor_book: '1313D4'
     l_ws2812_hor_book_destroy: '1313D4'
@@ -7433,11 +6878,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '1313D9'
-    l_pop_left: '1313D9'
-    l_pop_right: '1313D9'
-    l_sling_left: '1313D9'
-    l_sling_right: '1313D9'
     l_ws2812_castle_door: '1313D9'
     l_ws2812_hor_book: '1313D9'
     l_ws2812_hor_book_destroy: '1313D9'
@@ -7502,11 +6942,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '000000'
-    l_pop_left: '000000'
-    l_pop_right: '000000'
-    l_sling_left: '000000'
-    l_sling_right: '000000'
     l_ws2812_castle_door: '000000'
     l_ws2812_hor_book: '000000'
     l_ws2812_hor_book_destroy: '000000'
@@ -7627,7 +7062,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '7B3300'
     l_ws2812_hor_book: '853800'
     l_ws2812_hor_book_destroy: '853800'
     l_ws2812_hor_cup: '853800'
@@ -7646,7 +7080,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '8A3B00'
     l_ws2812_hor_book: '8A3B00'
     l_ws2812_hor_book_destroy: '8A3B00'
     l_ws2812_hor_cup: '8A3B00'
@@ -7667,8 +7100,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '8E3E00'
-    l_sling_right: '8E3E00'
     l_ws2812_hor_book: '8E3E00'
     l_ws2812_hor_book_destroy: '8E3E00'
     l_ws2812_hor_cup: '8E3E00'
@@ -7692,8 +7123,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '934000'
-    l_sling_right: '934000'
     l_ws2812_hor_book: '934000'
     l_ws2812_hor_book_destroy: '934000'
     l_ws2812_hor_cup: '934000'
@@ -7723,8 +7152,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '984300'
-    l_sling_right: '984300'
     l_ws2812_hor_book: '984300'
     l_ws2812_hor_book_destroy: '984300'
     l_ws2812_hor_cup: '984300'
@@ -7756,9 +7183,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '9C4500'
-    l_sling_left: '9C4500'
-    l_sling_right: '9C4500'
     l_ws2812_hor_book: '9C4500'
     l_ws2812_hor_book_destroy: '9C4500'
     l_ws2812_hor_cup: '9C4500'
@@ -7792,10 +7216,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'A14800'
-    l_pop_right: 'A14800'
-    l_sling_left: 'A14800'
-    l_sling_right: 'A14800'
     l_ws2812_hor_book: 'A14800'
     l_ws2812_hor_book_destroy: 'A14800'
     l_ws2812_hor_cup: 'A14800'
@@ -7830,10 +7250,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'A54B00'
-    l_pop_right: 'A54B00'
-    l_sling_left: 'A54B00'
-    l_sling_right: 'A54B00'
     l_ws2812_hor_book: 'A54B00'
     l_ws2812_hor_book_destroy: 'A54B00'
     l_ws2812_hor_cup: 'A54B00'
@@ -7871,10 +7287,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'AA4E00'
-    l_pop_right: 'AA4E00'
-    l_sling_left: 'AA4E00'
-    l_sling_right: 'AA4E00'
     l_ws2812_hor_book: 'AA4E00'
     l_ws2812_hor_book_destroy: 'AA4E00'
     l_ws2812_hor_cup: 'AA4E00'
@@ -7916,11 +7328,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'AF5100'
-    l_pop_left: 'AF5100'
-    l_pop_right: 'AF5100'
-    l_sling_left: 'AF5100'
-    l_sling_right: 'AF5100'
     l_ws2812_hor_book: 'AF5100'
     l_ws2812_hor_book_destroy: 'AF5100'
     l_ws2812_hor_cup: 'AF5100'
@@ -7968,11 +7375,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'B35400'
-    l_pop_left: 'B35400'
-    l_pop_right: 'B35400'
-    l_sling_left: 'B35400'
-    l_sling_right: 'B35400'
     l_ws2812_hor_book: 'B35400'
     l_ws2812_hor_book_destroy: 'B35400'
     l_ws2812_hor_cup: 'B35400'
@@ -8024,11 +7426,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'B85700'
-    l_pop_left: 'B85700'
-    l_pop_right: 'B85700'
-    l_sling_left: 'B85700'
-    l_sling_right: 'B85700'
     l_ws2812_hor_book: 'B85700'
     l_ws2812_hor_book_destroy: 'B85700'
     l_ws2812_hor_cup: 'B85700'
@@ -8081,11 +7478,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'BD5A00'
-    l_pop_left: 'BD5A00'
-    l_pop_right: 'BD5A00'
-    l_sling_left: 'BD5A00'
-    l_sling_right: 'BD5A00'
     l_ws2812_hor_book: 'BD5A00'
     l_ws2812_hor_book_destroy: 'BD5A00'
     l_ws2812_hor_cup: 'BD5A00'
@@ -8140,11 +7532,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'C15D00'
-    l_pop_left: 'C15D00'
-    l_pop_right: 'C15D00'
-    l_sling_left: 'C15D00'
-    l_sling_right: 'C15D00'
     l_ws2812_hor_book: 'C15D00'
     l_ws2812_hor_book_destroy: 'C15D00'
     l_ws2812_hor_cup: 'C15D00'
@@ -8201,11 +7588,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'C66000'
-    l_pop_left: 'C66000'
-    l_pop_right: 'C66000'
-    l_sling_left: 'C66000'
-    l_sling_right: 'C66000'
     l_ws2812_hor_book: 'C66000'
     l_ws2812_hor_book_destroy: 'C66000'
     l_ws2812_hor_cup: 'C66000'
@@ -8264,11 +7646,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'CA6200'
-    l_pop_left: 'CA6200'
-    l_pop_right: 'CA6200'
-    l_sling_left: 'CA6200'
-    l_sling_right: 'CA6200'
     l_ws2812_hor_book: 'CA6200'
     l_ws2812_hor_book_destroy: 'CA6200'
     l_ws2812_hor_cup: 'CA6200'
@@ -8329,11 +7706,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'CF6500'
-    l_pop_left: 'CF6500'
-    l_pop_right: 'CF6500'
-    l_sling_left: 'CF6500'
-    l_sling_right: 'CF6500'
     l_ws2812_hor_book: 'CF6500'
     l_ws2812_hor_book_destroy: 'CF6500'
     l_ws2812_hor_cup: 'CF6500'
@@ -8395,11 +7767,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'D46800'
-    l_pop_left: 'D46800'
-    l_pop_right: 'D46800'
-    l_sling_left: 'D46800'
-    l_sling_right: 'D46800'
     l_ws2812_hor_book: 'D46800'
     l_ws2812_hor_book_destroy: 'D46800'
     l_ws2812_hor_cup: 'D46800'
@@ -8463,11 +7830,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'D86B00'
-    l_pop_left: 'D86B00'
-    l_pop_right: 'D86B00'
-    l_sling_left: 'D86B00'
-    l_sling_right: 'D86B00'
     l_ws2812_castle_door: 'D86B00'
     l_ws2812_hor_book: 'D86B00'
     l_ws2812_hor_book_destroy: 'D86B00'
@@ -8532,11 +7894,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'DD6E00'
-    l_pop_left: 'DD6E00'
-    l_pop_right: 'DD6E00'
-    l_sling_left: 'DD6E00'
-    l_sling_right: 'DD6E00'
     l_ws2812_castle_door: 'DD6E00'
     l_ws2812_hor_book: 'DD6E00'
     l_ws2812_hor_book_destroy: 'DD6E00'
@@ -8601,11 +7958,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'E17100'
-    l_pop_left: 'E17100'
-    l_pop_right: 'E17100'
-    l_sling_left: 'E17100'
-    l_sling_right: 'E17100'
     l_ws2812_castle_door: 'E17100'
     l_ws2812_hor_book: 'E17100'
     l_ws2812_hor_book_destroy: 'E17100'
@@ -8670,11 +8022,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'E67400'
-    l_pop_left: 'E67400'
-    l_pop_right: 'E67400'
-    l_sling_left: 'E67400'
-    l_sling_right: 'E67400'
     l_ws2812_castle_door: 'E67400'
     l_ws2812_hor_book: 'E67400'
     l_ws2812_hor_book_destroy: 'E67400'
@@ -8739,11 +8086,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'EB7700'
-    l_pop_left: 'EB7700'
-    l_pop_right: 'EB7700'
-    l_sling_left: 'EB7700'
-    l_sling_right: 'EB7700'
     l_ws2812_castle_door: 'EB7700'
     l_ws2812_hor_book: 'EB7700'
     l_ws2812_hor_book_destroy: 'EB7700'
@@ -8808,11 +8150,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'EF7A00'
-    l_pop_left: 'EF7A00'
-    l_pop_right: 'EF7A00'
-    l_sling_left: 'EF7A00'
-    l_sling_right: 'EF7A00'
     l_ws2812_castle_door: 'EF7A00'
     l_ws2812_hor_book: 'EF7A00'
     l_ws2812_hor_book_destroy: 'EF7A00'
@@ -8877,11 +8214,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'F47D00'
-    l_pop_left: 'F47D00'
-    l_pop_right: 'F47D00'
-    l_sling_left: 'F47D00'
-    l_sling_right: 'F47D00'
     l_ws2812_castle_door: 'F47D00'
     l_ws2812_hor_book: 'F47D00'
     l_ws2812_hor_book_destroy: 'F47D00'
@@ -8946,11 +8278,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'F88000'
-    l_pop_left: 'F88000'
-    l_pop_right: 'F88000'
-    l_sling_left: 'F88000'
-    l_sling_right: 'F88000'
     l_ws2812_castle_door: 'F88000'
     l_ws2812_hor_book: 'F88000'
     l_ws2812_hor_book_destroy: 'F88000'
@@ -9015,11 +8342,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '000000'
-    l_pop_left: '000000'
-    l_pop_right: '000000'
-    l_sling_left: '000000'
-    l_sling_right: '000000'
     l_ws2812_castle_door: '000000'
     l_ws2812_hor_book: '000000'
     l_ws2812_hor_book_destroy: '000000'
@@ -9140,7 +8462,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '7B7200'
     l_ws2812_hor_book: '7B7200'
     l_ws2812_hor_book_destroy: '7B7200'
     l_ws2812_hor_cup: '7B7200'
@@ -9159,7 +8480,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_right: '807800'
     l_ws2812_hor_book: '807800'
     l_ws2812_hor_book_destroy: '807800'
     l_ws2812_hor_cup: '807800'
@@ -9181,8 +8501,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '837A00'
-    l_sling_right: '867D00'
     l_ws2812_hor_book: '867D00'
     l_ws2812_hor_book_destroy: '867D00'
     l_ws2812_hor_cup: '867D00'
@@ -9206,8 +8524,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '8B8300'
-    l_sling_right: '8B8300'
     l_ws2812_hor_book: '8B8300'
     l_ws2812_hor_book_destroy: '8B8300'
     l_ws2812_hor_cup: '8B8300'
@@ -9237,8 +8553,6 @@
     
 - time: '+0.015'
   lights:
-    l_sling_left: '908800'
-    l_sling_right: '908800'
     l_ws2812_hor_book: '908800'
     l_ws2812_hor_book_destroy: '908800'
     l_ws2812_hor_cup: '908800'
@@ -9270,9 +8584,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '958E00'
-    l_sling_left: '958E00'
-    l_sling_right: '958E00'
     l_ws2812_hor_book: '958E00'
     l_ws2812_hor_book_destroy: '958E00'
     l_ws2812_hor_cup: '958E00'
@@ -9306,10 +8617,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: '9B9300'
-    l_pop_right: '9B9300'
-    l_sling_left: '9B9300'
-    l_sling_right: '9B9300'
     l_ws2812_hor_book: '9B9300'
     l_ws2812_hor_book_destroy: '9B9300'
     l_ws2812_hor_cup: '9B9300'
@@ -9344,10 +8651,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'A09900'
-    l_pop_right: 'A09900'
-    l_sling_left: 'A09900'
-    l_sling_right: 'A09900'
     l_ws2812_hor_book: 'A09900'
     l_ws2812_hor_book_destroy: 'A09900'
     l_ws2812_hor_cup: 'A09900'
@@ -9385,10 +8688,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'A59F00'
-    l_pop_right: 'A59F00'
-    l_sling_left: 'A59F00'
-    l_sling_right: 'A59F00'
     l_ws2812_hor_book: 'A59F00'
     l_ws2812_hor_book_destroy: 'A59F00'
     l_ws2812_hor_cup: 'A59F00'
@@ -9430,11 +8729,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'AAA400'
-    l_pop_left: '363400'
-    l_pop_right: 'AAA400'
-    l_sling_left: 'AAA400'
-    l_sling_right: 'AAA400'
     l_ws2812_hor_book: 'AAA400'
     l_ws2812_hor_book_destroy: 'AAA400'
     l_ws2812_hor_cup: 'AAA400'
@@ -9482,11 +8776,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'B0AA00'
-    l_pop_left: 'B0AA00'
-    l_pop_right: 'B0AA00'
-    l_sling_left: 'B0AA00'
-    l_sling_right: 'B0AA00'
     l_ws2812_hor_book: 'B0AA00'
     l_ws2812_hor_book_destroy: 'B0AA00'
     l_ws2812_hor_cup: 'B0AA00'
@@ -9537,11 +8826,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'B5AF00'
-    l_pop_left: 'B5AF00'
-    l_pop_right: 'B5AF00'
-    l_sling_left: 'B5AF00'
-    l_sling_right: 'B5AF00'
     l_ws2812_hor_book: 'B5AF00'
     l_ws2812_hor_book_destroy: 'B5AF00'
     l_ws2812_hor_cup: 'B5AF00'
@@ -9594,11 +8878,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'BAB500'
-    l_pop_left: 'BAB500'
-    l_pop_right: 'BAB500'
-    l_sling_left: 'BAB500'
-    l_sling_right: 'BAB500'
     l_ws2812_hor_book: 'BAB500'
     l_ws2812_hor_book_destroy: 'BAB500'
     l_ws2812_hor_cup: 'BAB500'
@@ -9653,11 +8932,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'BFBB00'
-    l_pop_left: 'BFBB00'
-    l_pop_right: 'BFBB00'
-    l_sling_left: 'BFBB00'
-    l_sling_right: 'BFBB00'
     l_ws2812_hor_book: 'BFBB00'
     l_ws2812_hor_book_destroy: 'BFBB00'
     l_ws2812_hor_cup: 'BFBB00'
@@ -9714,11 +8988,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'C5BF00'
-    l_pop_left: 'C5BF00'
-    l_pop_right: 'C5BF00'
-    l_sling_left: 'C5BF00'
-    l_sling_right: 'C5BF00'
     l_ws2812_hor_book: 'C5BF00'
     l_ws2812_hor_book_destroy: 'C5BF00'
     l_ws2812_hor_cup: 'C5BF00'
@@ -9777,11 +9046,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'CAC500'
-    l_pop_left: 'CAC500'
-    l_pop_right: 'CAC500'
-    l_sling_left: 'CAC500'
-    l_sling_right: 'CAC500'
     l_ws2812_hor_book: 'CAC500'
     l_ws2812_hor_book_destroy: 'CAC500'
     l_ws2812_hor_cup: 'CAC500'
@@ -9842,11 +9106,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'CFCA00'
-    l_pop_left: 'CFCA00'
-    l_pop_right: 'CFCA00'
-    l_sling_left: 'CFCA00'
-    l_sling_right: 'CFCA00'
     l_ws2812_hor_book: 'CFCA00'
     l_ws2812_hor_book_destroy: 'CFCA00'
     l_ws2812_hor_cup: 'CFCA00'
@@ -9907,11 +9166,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'D4D000'
-    l_pop_left: 'D4D000'
-    l_pop_right: 'D4D000'
-    l_sling_left: 'D4D000'
-    l_sling_right: 'D4D000'
     l_ws2812_hor_book: 'D4D000'
     l_ws2812_hor_book_destroy: 'D4D000'
     l_ws2812_hor_cup: 'D4D000'
@@ -9975,11 +9229,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'DAD500'
-    l_pop_left: 'DAD500'
-    l_pop_right: 'DAD500'
-    l_sling_left: 'DAD500'
-    l_sling_right: 'DAD500'
     l_ws2812_castle_door: 'DAD500'
     l_ws2812_hor_book: 'DAD500'
     l_ws2812_hor_book_destroy: 'DAD500'
@@ -10044,11 +9293,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'DFDB00'
-    l_pop_left: 'DFDB00'
-    l_pop_right: 'DFDB00'
-    l_sling_left: 'DFDB00'
-    l_sling_right: 'DFDB00'
     l_ws2812_castle_door: 'DFDB00'
     l_ws2812_hor_book: 'DFDB00'
     l_ws2812_hor_book_destroy: 'DFDB00'
@@ -10113,11 +9357,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'E4E100'
-    l_pop_left: 'E4E100'
-    l_pop_right: 'E4E100'
-    l_sling_left: 'E4E100'
-    l_sling_right: 'E4E100'
     l_ws2812_castle_door: 'E4E100'
     l_ws2812_hor_book: 'E4E100'
     l_ws2812_hor_book_destroy: 'E4E100'
@@ -10182,11 +9421,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'E9E600'
-    l_pop_left: 'E9E600'
-    l_pop_right: 'E9E600'
-    l_sling_left: 'E9E600'
-    l_sling_right: 'E9E600'
     l_ws2812_castle_door: 'E9E600'
     l_ws2812_hor_book: 'E9E600'
     l_ws2812_hor_book_destroy: 'E9E600'
@@ -10251,11 +9485,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'EFEC00'
-    l_pop_left: 'EFEC00'
-    l_pop_right: 'EFEC00'
-    l_sling_left: 'EFEC00'
-    l_sling_right: 'EFEC00'
     l_ws2812_castle_door: 'EFEC00'
     l_ws2812_hor_book: 'EFEC00'
     l_ws2812_hor_book_destroy: 'EFEC00'
@@ -10320,11 +9549,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'F4F100'
-    l_pop_left: 'F4F100'
-    l_pop_right: 'F4F100'
-    l_sling_left: 'F4F100'
-    l_sling_right: 'F4F100'
     l_ws2812_castle_door: 'F4F100'
     l_ws2812_hor_book: 'F4F100'
     l_ws2812_hor_book_destroy: 'F4F100'
@@ -10389,11 +9613,6 @@
     
 - time: '+0.015'
   lights:
-    l_pop_bottom: 'F9F700'
-    l_pop_left: 'F9F700'
-    l_pop_right: 'F9F700'
-    l_sling_left: 'F9F700'
-    l_sling_right: 'F9F700'
     l_ws2812_castle_door: 'F9F700'
     l_ws2812_hor_book: 'F9F700'
     l_ws2812_hor_book_destroy: 'F9F700'
@@ -10459,11 +9678,6 @@
 - time: '+0.015'
   duration: 0.015
   lights:
-    l_pop_bottom: 'FFFC00'
-    l_pop_left: 'FFFC00'
-    l_pop_right: 'FFFC00'
-    l_sling_left: 'FFFC00'
-    l_sling_right: 'FFFC00'
     l_ws2812_castle_door: 'FFFC00'
     l_ws2812_hor_book: 'FFFC00'
     l_ws2812_hor_book_destroy: 'FFFC00'
@@ -10525,4 +9739,3 @@
     l_ws2812_tar_sword: 'FFFC00'
     l_ws2812_tar_wand: 'FFFC00'
     l_ws2812_voldemort: 'FFFC00'
-    
