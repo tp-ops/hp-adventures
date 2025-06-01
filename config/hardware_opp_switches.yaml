@@ -12,41 +12,41 @@ switches:
   # Drain, Trough, Plunger
   s_drain:
     platform: opp
-    number: 3-0-24
+    number: 3-0-20
   s_trough_1:
     platform: opp
-    number: 3-0-25
+    number: 3-0-21
   s_trough_2:
     platform: opp
-    number: 3-0-26
+    number: 3-0-22
   s_trough_3:
     platform: opp
-    number: 3-0-27
+    number: 3-0-23
   s_trough_4:
     platform: opp
-    number: 3-0-28
+    number: 3-0-24
   s_trough_5:
     platform: opp
-    number: 3-0-29
+    number: 3-0-25
   s_plunger_lane:
     platform: opp
-    number: 3-0-30
+    number: 3-0-26
   # Lanes
   s_lane_dr_left:
     platform: opp
-    number: 3-0-20
+    number: 3-0-16
     tags: playfield_active
   s_lane_dr_right:
     platform: opp
-    number: 3-0-21
+    number: 3-0-17
     tags: playfield_active
   s_lane_fl_left:
     platform: opp
-    number: 3-0-22
+    number: 3-0-18
     tags: playfield_active
   s_lane_fl_right:
     platform: opp
-    number: 3-0-23
+    number: 3-0-19
     tags: playfield_active
   # Sling shots
   s_sling_right:
@@ -68,60 +68,60 @@ switches:
   # Targets
   s_tar_light_diagon_alley:
     platform: opp
-    number: 3-0-18
+    number: 1-0-28
   s_tar_nimbus:
     platform: opp
-    number: 3-0-19
+    number: 0-0-27
     tags: playfield_active
   s_tar_sword:
     platform: opp
-    number: 3-0-17
+    number: 0-0-26
   s_tar_platform:
     platform: opp
-    number: 3-0-16
+    number: 0-0-25
   s_tar_wand:
     platform: opp
-    number: 0-0-27
+    number: 3-0-11
   s_tar_stone:
     platform: opp
-    number: 0-0-26
+    number: 3-0-31
   s_tar_cloak:
     platform: opp
-    number: 0-0-25
-  s_tar_c_left:
+    number: 3-0-30
+  s_tar_castle_left:
     platform: opp
-    number: 0-0-3
+    number: 3-0-28
     tags: playfield_active
-  s_tar_c_right:
+  s_tar_castle_right:
     platform: opp
-    number: 1-0-28
+    number: 3-0-29
     tags: playfield_active
   s_captive_ball:
     platform: opp
-    number: 3-0-1
+    number: 3-0-9
   # Drop targets
   s_drop1_castle_door:
     platform: opp
     number: 0-0-9
   s_drop1_gringotts:
     platform: opp
-    number: 3-0-31
+    number: 3-0-10
   s_drop3_ministry_1:
     platform: opp
-    number: 3-0-11
+    number: 3-0-3
     type: 'NC'
   s_drop3_ministry_2:
     platform: opp
-    number: 3-0-10
+    number: 3-0-2
     type: 'NC'
   s_drop3_ministry_3:
     platform: opp
-    number: 3-0-9
+    number: 3-0-1
     type: 'NC'
   # VUK's
   s_vuk_diagon_alley:
     platform: opp
-    number: 3-0-2
+    number: 0-0-3
   s_vuk_forrest:
     platform: opp
     number: 0-0-8
@@ -137,7 +137,7 @@ switches:
     number: 1-0-24
   s_spinner_diagon_alley:
     platform: opp
-    number: 3-0-3
+    number: 0-0-2
     tags: playfield_active
   s_spinner_short_orbit:
     platform: opp
@@ -145,7 +145,7 @@ switches:
     tags: playfield_active
   s_spinner_right_orbit:
     platform: opp
-    number: 0-0-2
+    number: 3-0-27
     tags: playfield_active
   # Ramps & Wire ramps
   s_spells_ramp_entry:
