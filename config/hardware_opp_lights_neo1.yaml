@@ -1,466 +1,311 @@
 #config_version=6
 lights:
-  # OPP Main board NEO1 - Left Pop Bumper
-  l_pop_left_1:
+  # OPP Main board NEO1 - Playfield
+  # Backside above playfield
+  l_ws2812_castle_door:
     number: 1-0-0
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
-  l_pop_left_2:
+    tags: target_lights
+  # Right string
+  l_ws2812_shot_right_orbit:
     number: 1-0-1
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
-  l_pop_left_3:
+    tags: shot_lights
+  l_ws2812_mis_gringotts_bank:
     number: 1-0-2
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
-  l_pop_left_4:
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_ravenclaw:
     number: 1-0-3
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
-  l_pop_left_5:
+    tags: house_lights
+  l_ws2812_mis_gryffindor:
     number: 1-0-4
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
-  l_pop_left_6:
+    tags: house_lights
+  l_ws2812_mis_hufflepuff:
     number: 1-0-5
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
-  l_pop_left_7:
+    tags: house_lights
+  l_ws2812_mis_slytherin:
     number: 1-0-6
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
-  l_pop_left_8:
+    tags: house_lights
+  l_ws2812_lightning_right:
     number: 1-0-7
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_1
-  l_pop_left_9:
+    tags: lightning_lights
+  l_ws2812_mis_triwizard_tournament:
     number: 1-0-8
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_2
-  l_pop_left_10:
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_unforgivable_cursus:
     number: 1-0-9
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_3
-  l_pop_left_11:
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_hall_of_prophecy:
     number: 1-0-10
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_4
-  l_pop_left_12:
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_order_of_the_phoenix:
     number: 1-0-11
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_5
-  l_pop_left_13:
+    tags: mission_lights, theme_lights
+  l_ws2812_shot_ministry:
     number: 1-0-12
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_6
-  l_pop_left_14:
+    tags: shot_lights
+  l_ws2812_mis_ministry:
     number: 1-0-13
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_7
-  l_pop_left_15:
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_daily_prophet:
     number: 1-0-14
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_8
-  l_pop_left_16:
+    tags: mission_lights, theme_lights
+  l_ws2812_lane_fl_right:
     number: 1-0-15
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_9
-  l_pop_left_17:
+    tags: lane_lights
+  l_ws2812_lane_dr_right:
     number: 1-0-16
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_10
-  l_pop_left_18:
+    tags: lane_lights
+  l_ws2812_skillshot:
     number: 1-0-17
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_11
-  l_pop_left_19:
+    tags: skill_shot_lights
+  # Middle string 1
+  l_ws2812_tar_wand:
     number: 1-0-18
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_12
-  l_pop_left_20:
+    tags: target_lights
+  l_ws2812_shot_daigon:
     number: 1-0-19
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_13
-  l_pop_left_21:
+    tags: shot_lights
+  l_ws2812_shot_gringots:
     number: 1-0-20
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_14
-  l_pop_left_22:
+    tags: shot_lights
+  l_ws2812_tar_stone:
     number: 1-0-21
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_15
-  l_pop_left_23:
+    tags: target_lights
+  l_ws2812_tar_cloak:
     number: 1-0-22
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_16
-  # OPP Main board NEO1 - Right Pop Bumper
-  l_pop_right_1:
+    tags: target_lights
+  l_ws2812_mis_chamber:
     number: 1-0-23
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
-  l_pop_right_2:
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_basilisk:
     number: 1-0-24
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
-  l_pop_right_3:
+    tags: mission_lights, theme_lights
+  l_ws2812_shot_right_ramp:
     number: 1-0-25
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
-  l_pop_right_4:
+    tags: shot_lights
+  l_ws2812_mis_spells:
     number: 1-0-26
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
-  l_pop_right_5:
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_rubeus_hagrid:
     number: 1-0-27
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
-  l_pop_right_6:
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_tower:
     number: 1-0-28
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
-  l_pop_right_7:
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_dumbledores_office:
     number: 1-0-29
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
-  l_pop_right_8:
+    tags: mission_lights, theme_lights
+  l_ws2812_shot_left_ramp:
     number: 1-0-30
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_1
-  l_pop_right_9:
+    tags: shot_lights
+  l_ws2812_tar_platform:
     number: 1-0-31
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_2
-  l_pop_right_10:
+    tags: target_lights
+  l_ws2812_lightning_left:
     number: 1-0-32
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_3
-  l_pop_right_11:
+    tags: lightning_lights
+  l_ws2812_lightning_bottom:
     number: 1-0-33
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_4
-  l_pop_right_12:
+    tags: lightning_lights
+  l_ws2812_tar_nimbus:
     number: 1-0-34
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_5
-  l_pop_right_13:
+    tags: target_lights
+  # Middle string 2
+  l_ws2812_hor_book:
     number: 1-0-35
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_6
-  l_pop_right_14:
+    tags: horcrux_lights
+  l_ws2812_hor_ring:
     number: 1-0-36
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_7
-  l_pop_right_15:
+    tags: horcrux_lights
+  l_ws2812_hor_ring_destroy:
     number: 1-0-37
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_8
-  l_pop_right_16:
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_book_destroy:
     number: 1-0-38
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_9
-  l_pop_right_17:
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_neckles:
     number: 1-0-39
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_10
-  l_pop_right_18:
+    tags: horcrux_lights
+  l_ws2812_voldemort:
     number: 1-0-40
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_11
-  l_pop_right_19:
+  l_ws2812_hor_cup:
     number: 1-0-41
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_12
-  l_pop_right_20:
+    tags: horcrux_lights
+  l_ws2812_hor_cup_destroy:
     number: 1-0-42
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_13
-  l_pop_right_21:
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_neckles_destroy:
     number: 1-0-43
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_14
-  l_pop_right_22:
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_harry:
     number: 1-0-44
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_15
-  l_pop_right_23:
+    tags: horcrux_lights
+  l_ws2812_hor_diadeem:
     number: 1-0-45
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_16
-  # OPP Main board NEO1 - Bottom Pop Bumper
-  l_pop_bottom_1:
+    tags: horcrux_lights
+  l_ws2812_hor_diadeem_destroy:
     number: 1-0-46
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
-  l_pop_bottom_2:
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_harry_destroy:
     number: 1-0-47
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
-  l_pop_bottom_3:
+    tags: horcrux_destroy_lights
+  l_ws2812_hor_nagini:
     number: 1-0-48
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
-  l_pop_bottom_4:
+    tags: horcrux_lights
+  l_ws2812_hor_nagini_destroy:
     number: 1-0-49
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
-  l_pop_bottom_5:
+    tags: horcrux_destroy_lights
+  l_ws2812_shoot_again:
     number: 1-0-50
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
-  l_pop_bottom_6:
+  # Left string
+  l_ws2812_shot_forrest:
     number: 1-0-51
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
-  l_pop_bottom_7:
+    tags: shot_lights 
+  l_ws2812_mis_forrest:
     number: 1-0-52
     subtype: led
-    type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
-  l_pop_bottom_8:
+    type: grb 
+    tags: mission_lights, theme_lights
+  l_ws2812_shot_sword:
     number: 1-0-53
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_1
-  l_pop_bottom_9:
+    tags: shot_lights 
+  l_ws2812_tar_sword:
     number: 1-0-54
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_2
-  l_pop_bottom_10:
+    tags: target_lights
+  l_ws2812_shot_quidditch:
     number: 1-0-55
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_3
-  l_pop_bottom_11:
+    tags: shot_lights
+  l_ws2812_mis_quidditch:
     number: 1-0-56
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_4
-  l_pop_bottom_12:
+    tags: mission_lights, theme_lights
+  l_ws2812_mis_goldensnitch:
     number: 1-0-57
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_5
-  l_pop_bottom_13:
+    tags: mission_lights, theme_lights
+  l_ws2812_tar_light_diagon_alley:
     number: 1-0-58
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_6
-  l_pop_bottom_14:
+    tags: target_lights
+  l_ws2812_lane_fl_left:
     number: 1-0-59
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_7
-  l_pop_bottom_15:
+    tags: lane_lights
+  l_ws2812_lane_dr_left:
     number: 1-0-60
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_8
-  l_pop_bottom_16:
-    number: 1-0-61
-    subtype: led
-    type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_9
-  l_pop_bottom_17:
-    number: 1-0-62
-    subtype: led
-    type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_10
-  l_pop_bottom_18:
-    number: 1-0-63
-    subtype: led
-    type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_11
-  l_pop_bottom_19:
-    number: 1-0-64
-    subtype: led
-    type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_12
-  l_pop_bottom_20:
-    number: 1-0-65
-    subtype: led
-    type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_13
-  l_pop_bottom_21:
-    number: 1-0-66
-    subtype: led
-    type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_14
-  l_pop_bottom_22:
-    number: 1-0-67
-    subtype: led
-    type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_15
-  l_pop_bottom_23:
-    number: 1-0-68
-    subtype: led
-    type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_16
-  # OPP Main board NEO1 - Tower Cap
-  l_tower_cap_1:
-    number: 1-0-69
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_inner_ring
-  l_tower_cap_2:
-    number: 1-0-70
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_inner_ring
-  l_tower_cap_3:
-    number: 1-0-71
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_inner_ring
-  l_tower_cap_4:
-    number: 1-0-72
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_inner_ring
-  l_tower_cap_5:
-    number: 1-0-73
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_inner_ring
-  l_tower_cap_6:
-    number: 1-0-74
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_inner_ring
-  l_tower_cap_7:
-    number: 1-0-75
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_inner_ring
-  l_tower_cap_8:
-    number: 1-0-76
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_1
-  l_tower_cap_9:
-    number: 1-0-77
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_2
-  l_tower_cap_10:
-    number: 1-0-78
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_3
-  l_tower_cap_11:
-    number: 1-0-79
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_4
-  l_tower_cap_12:
-    number: 1-0-80
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_5
-  l_tower_cap_13:
-    number: 1-0-81
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_6
-  l_tower_cap_14:
-    number: 1-0-82
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_7
-  l_tower_cap_15:
-    number: 1-0-83
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_8
-  l_tower_cap_16:
-    number: 1-0-84
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_9
-  l_tower_cap_17:
-    number: 1-0-85
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_10
-  l_tower_cap_18:
-    number: 1-0-86
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_11
-  l_tower_cap_19:
-    number: 1-0-87
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_12
-  l_tower_cap_20:
-    number: 1-0-88
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_13
-  l_tower_cap_21:
-    number: 1-0-89
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_14
-  l_tower_cap_22:
-    number: 1-0-90
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_15
-  l_tower_cap_23:
-    number: 1-0-91
-    subtype: led
-    type: grb
-    tags: l_tower_cap, l_tower_cap_outer_ring, l_tower_cap_outer_ring_16
+    tags: lane_lights
