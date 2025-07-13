@@ -35,7 +35,7 @@ shots:
     hit_events: sh_core_pop_left_hit
     profile: sp_quidditch_qualify
     show_tokens:
-      led: l_pop_left
+      led: l_pop_left_inner_ring
       color_name: white
   # Step 1 - Qualify shot
   sh_pop_right_qualify:
@@ -45,7 +45,7 @@ shots:
     hit_events: sh_core_pop_right_hit
     profile: sp_quidditch_qualify
     show_tokens:
-      led: l_pop_right
+      led: l_pop_right_inner_ring
       color_name: white
   # Step 1 - Qualify shot
   sh_pop_bottom_qualify:
@@ -55,7 +55,7 @@ shots:
     hit_events: sh_core_pop_bottom_hit
     profile: sp_quidditch_qualify
     show_tokens:
-      led: l_pop_bottom
+      led: l_pop_bottom_inner_ring
       color_name: white
   # Pop bumper shot
   sh_pop_left:
@@ -196,7 +196,7 @@ show_player:
       action: play
       loops: 0
       show_tokens:
-        led: l_pop_left
+        led: l_pop_left_outer_ring
         color_name: white
   sh_pop_right_hit: 
     flash_normal:
@@ -204,7 +204,7 @@ show_player:
       action: play
       loops: 0
       show_tokens:
-        led: l_pop_right
+        led: l_pop_right_outer_ring
         color_name: white
   sh_pop_bottom_hit: 
     flash_normal:
@@ -212,7 +212,7 @@ show_player:
       action: play
       loops: 0
       show_tokens:
-        led: l_pop_bottom
+        led: l_pop_bottom_outer_ring
         color_name: white
 
 sound_player:
