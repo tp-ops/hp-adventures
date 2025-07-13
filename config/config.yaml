@@ -12,22 +12,16 @@ config:
   - hardware_opp_lights_spots.yaml
   - hardware_opp_servos.yaml
   - hardware_opp_switches.yaml
-  - hardware_rpi.yaml
+  # - hardware_rpi.yaml
 
 hardware:
-  platform: opp, rpi, virtual
+  platform: opp, virtual
   # OPP board revision
   driverboards: gen2
   lights: opp, drivers
 
 opp:
-  ports: /dev/ttyOPP-0, /dev/ttyOPP-1, /dev/ttyOPP-2, /dev/ttyOPP-3, /dev/ttyOPP-4
-  chains:
-    0: /dev/ttyOPP-0
-    1: /dev/ttyOPP-1
-    2: /dev/ttyOPP-2
-    3: /dev/ttyOPP-3
-    4: /dev/ttyOPP-4
+  ports: COM3, COM6, COM7, COM8
   debug: true
     
 virtual_platform_start_active_switches:
