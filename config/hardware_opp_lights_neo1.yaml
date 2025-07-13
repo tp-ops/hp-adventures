@@ -3,309 +3,309 @@ lights:
   # OPP Main board NEO1 - Playfield
   # Backside above playfield
   l_ws2812_castle_door:
-    number: 1-0-0
+    start_channel: 1-0-0
     subtype: led
     type: grb
     tags: target_lights
   # Right string
   l_ws2812_shot_right_orbit:
-    number: 1-0-1
+    previous: l_ws2812_castle_door
     subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_mis_gringotts_bank:
-    number: 1-0-2
+    previous: l_ws2812_shot_right_orbit
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_ravenclaw:
-    number: 1-0-3
+    previous: l_ws2812_mis_gringotts_bank
     subtype: led
     type: grb
     tags: house_lights
   l_ws2812_mis_gryffindor:
-    number: 1-0-4
+    previous: l_ws2812_mis_ravenclaw
     subtype: led
     type: grb
     tags: house_lights
   l_ws2812_mis_hufflepuff:
-    number: 1-0-5
+    previous: l_ws2812_mis_gryffindor
     subtype: led
     type: grb
     tags: house_lights
   l_ws2812_mis_slytherin:
-    number: 1-0-6
+    previous: l_ws2812_mis_hufflepuff
     subtype: led
     type: grb
     tags: house_lights
   l_ws2812_lightning_right:
-    number: 1-0-7
+    previous: l_ws2812_mis_slytherin
     subtype: led
     type: grb
     tags: lightning_lights
   l_ws2812_mis_triwizard_tournament:
-    number: 1-0-8
+    previous: l_ws2812_lightning_right
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_unforgivable_cursus:
-    number: 1-0-9
+    previous: l_ws2812_mis_triwizard_tournament
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_hall_of_prophecy:
-    number: 1-0-10
+    previous: l_ws2812_mis_unforgivable_cursus
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_order_of_the_phoenix:
-    number: 1-0-11
+    previous: l_ws2812_mis_hall_of_prophecy
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_shot_ministry:
-    number: 1-0-12
+    previous: l_ws2812_mis_order_of_the_phoenix
     subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_mis_ministry:
-    number: 1-0-13
+    previous: l_ws2812_shot_ministry
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_daily_prophet:
-    number: 1-0-14
+    previous: l_ws2812_mis_ministry
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_lane_fl_right:
-    number: 1-0-15
+    previous: l_ws2812_mis_daily_prophet
     subtype: led
     type: grb
     tags: lane_lights
   l_ws2812_lane_dr_right:
-    number: 1-0-16
+    previous: l_ws2812_lane_fl_right
     subtype: led
     type: grb
     tags: lane_lights
   l_ws2812_skillshot:
-    number: 1-0-17
+    previous: l_ws2812_lane_dr_right
     subtype: led
     type: grb
     tags: skill_shot_lights
   # Middle string 1
   l_ws2812_tar_wand:
-    number: 1-0-18
+    previous: l_ws2812_skillshot
     subtype: led
     type: grb
     tags: target_lights
   l_ws2812_shot_daigon:
-    number: 1-0-19
+    previous: l_ws2812_tar_wand
     subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_shot_gringots:
-    number: 1-0-20
+    previous: l_ws2812_shot_daigon
     subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_tar_stone:
-    number: 1-0-21
+    previous: l_ws2812_shot_gringots
     subtype: led
     type: grb
     tags: target_lights
   l_ws2812_tar_cloak:
-    number: 1-0-22
+    previous: l_ws2812_tar_stone
     subtype: led
     type: grb
     tags: target_lights
   l_ws2812_mis_chamber:
-    number: 1-0-23
+    previous: l_ws2812_tar_cloak
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_basilisk:
-    number: 1-0-24
+    previous: l_ws2812_mis_chamber
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_shot_right_ramp:
-    number: 1-0-25
+    previous: l_ws2812_mis_basilisk
     subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_mis_spells:
-    number: 1-0-26
+    previous: l_ws2812_shot_right_ramp
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_rubeus_hagrid:
-    number: 1-0-27
+    previous: l_ws2812_mis_spells
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_tower:
-    number: 1-0-28
+    previous: l_ws2812_mis_rubeus_hagrid
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_dumbledores_office:
-    number: 1-0-29
+    previous: l_ws2812_mis_tower
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_shot_left_ramp:
-    number: 1-0-30
+    previous: l_ws2812_mis_dumbledores_office
     subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_tar_platform:
-    number: 1-0-31
+    previous: l_ws2812_shot_left_ramp
     subtype: led
     type: grb
     tags: target_lights
   l_ws2812_lightning_left:
-    number: 1-0-32
+    previous: l_ws2812_tar_platform
     subtype: led
     type: grb
     tags: lightning_lights
   l_ws2812_lightning_bottom:
-    number: 1-0-33
+    previous: l_ws2812_lightning_left
     subtype: led
     type: grb
     tags: lightning_lights
   l_ws2812_tar_nimbus:
-    number: 1-0-34
+    previous: l_ws2812_lightning_bottom
     subtype: led
     type: grb
     tags: target_lights
   # Middle string 2
   l_ws2812_hor_book:
-    number: 1-0-35
+    previous: l_ws2812_tar_nimbus
     subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_ring:
-    number: 1-0-36
+    previous: l_ws2812_hor_book
     subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_ring_destroy:
-    number: 1-0-37
+    previous: l_ws2812_hor_ring
     subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_book_destroy:
-    number: 1-0-38
+    previous: l_ws2812_hor_ring_destroy
     subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_neckles:
-    number: 1-0-39
+    previous: l_ws2812_hor_book_destroy
     subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_voldemort:
-    number: 1-0-40
+    previous: l_ws2812_hor_neckles
     subtype: led
     type: grb
   l_ws2812_hor_cup:
-    number: 1-0-41
+    previous: l_ws2812_voldemort
     subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_cup_destroy:
-    number: 1-0-42
+    previous: l_ws2812_hor_cup
     subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_neckles_destroy:
-    number: 1-0-43
+    previous: l_ws2812_hor_cup_destroy
     subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_harry:
-    number: 1-0-44
+    previous: l_ws2812_hor_neckles_destroy
     subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_diadeem:
-    number: 1-0-45
+    previous: l_ws2812_hor_harry
     subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_diadeem_destroy:
-    number: 1-0-46
+    previous: l_ws2812_hor_diadeem
     subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_harry_destroy:
-    number: 1-0-47
+    previous: l_ws2812_hor_diadeem_destroy
     subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_hor_nagini:
-    number: 1-0-48
+    previous: l_ws2812_hor_harry_destroy
     subtype: led
     type: grb
     tags: horcrux_lights
   l_ws2812_hor_nagini_destroy:
-    number: 1-0-49
+    previous: l_ws2812_hor_nagini
     subtype: led
     type: grb
     tags: horcrux_destroy_lights
   l_ws2812_shoot_again:
-    number: 1-0-50
+    previous: l_ws2812_hor_nagini_destroy
     subtype: led
     type: grb
   # Left string
   l_ws2812_shot_forrest:
-    number: 1-0-51
+    previous: l_ws2812_shoot_again
     subtype: led
     type: grb
     tags: shot_lights 
   l_ws2812_mis_forrest:
-    number: 1-0-52
+    previous: l_ws2812_shot_forrest
     subtype: led
     type: grb 
     tags: mission_lights, theme_lights
   l_ws2812_shot_sword:
-    number: 1-0-53
+    previous: l_ws2812_mis_forrest
     subtype: led
     type: grb
     tags: shot_lights 
   l_ws2812_tar_sword:
-    number: 1-0-54
+    previous: l_ws2812_shot_sword
     subtype: led
     type: grb
     tags: target_lights
   l_ws2812_shot_quidditch:
-    number: 1-0-55
+    previous: l_ws2812_tar_sword
     subtype: led
     type: grb
     tags: shot_lights
   l_ws2812_mis_quidditch:
-    number: 1-0-56
+    previous: l_ws2812_shot_quidditch
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_mis_goldensnitch:
-    number: 1-0-57
+    previous: l_ws2812_mis_quidditch
     subtype: led
     type: grb
     tags: mission_lights, theme_lights
   l_ws2812_tar_light_diagon_alley:
-    number: 1-0-58
+    previous: l_ws2812_mis_goldensnitch
     subtype: led
     type: grb
     tags: target_lights
   l_ws2812_lane_fl_left:
-    number: 1-0-59
+    previous: l_ws2812_tar_light_diagon_alley
     subtype: led
     type: grb
     tags: lane_lights
   l_ws2812_lane_dr_left:
-    number: 1-0-60
+    previous: l_ws2812_lane_fl_left
     subtype: led
     type: grb
     tags: lane_lights
