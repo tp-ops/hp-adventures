@@ -67,7 +67,7 @@ lights:
     type: grb
     tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_6
   l_pop_right_14:
-    previous: l_pop_right_14
+    previous: l_pop_right_13
     subtype: led
     type: grb
     tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_7
