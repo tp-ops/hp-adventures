@@ -1,0 +1,11 @@
+#show_version=6
+- duration: 250ms
+  lights:
+    (led):
+      color: (color_name)
+      fade: 250ms
+- duration: 250ms
+  lights:
+    (led):
+      color: stop
+      fade: 250ms

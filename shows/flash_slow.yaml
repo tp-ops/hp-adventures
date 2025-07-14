@@ -1,0 +1,12 @@
+#show_version=6
+- duration: 0.5
+  lights:
+    (led):
+      color: (color_name)
+      fade: 0.5
+- duration: 0.5
+  lights:
+    (led):
+      color: stop
+      fade: 0.5
+          

@@ -1,29 +1,12 @@
 #config_version=6
 shows:
 
-  flash_slow:
-    - duration: 0.5
-      lights:
-        (led):
-          color: (color_name)
-          fade: 0.5
-    - duration: 0.5
-      lights:
-        (led):
-          color: stop
-          fade: 0.5
-              
-  flash_normal:
-    - duration: 0.25
-      lights:
-        (led):
-          color: (color_name)
-          fade: 0.25
-    - duration: 0.25
-      lights:
-        (led):
-          color: stop
-          fade: 0.25       
+#flashing 20-30ms
+#fading 60-100ms - 60 for inserts, 100 for GI
+
+
+
+    
 
   flash_heartbeat:
     - duration: 0.25
