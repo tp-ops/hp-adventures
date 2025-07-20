@@ -34,11 +34,11 @@ switches:
   # Flipper buttons
   s_fl_left_a:
     platform: opp
-    number: 1-0-31
+    number: 0-0-1
     tags: flipper_left
   s_fl_right_a:
-    platform: virtual
-    number: 
+    platform: opp
+    number: 0-0-2
     tags: flipper_right
   # Drain, Trough, Plunger
   s_drain:
@@ -211,20 +211,20 @@ switches:
     platform: opp
     number: 1-0-24
   s_subway_vuk_left_buffer_1:
-    platform: virtual
-    number: 
+    platform: opp
+    number: 1-0-31
   s_subway_vuk_left_buffer_2:
     platform: opp
-    number: 1-0-29
+    number: 1-0-25
   s_subway_vuk_right:
     platform: opp
     number: 1-0-30
   s_subway_vuk_right_buffer_1:
     platform: opp
-    number: 0-0-8
+    number: 1-0-27
   s_subway_vuk_right_buffer_2:
-    platform: virtual
-    number: 
+    platform: opp
+    number: 1-0-29
   s_subway_vuk_selector:
     platform: opp
     number: 1-0-28
