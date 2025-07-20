@@ -3,9 +3,9 @@ servos:
   servo_subway_vuk_selector:
     platform: opp
     number: 1-0-11
-    servo_min: 0.0
-    servo_max: 1.0
-    reset_position: 1.0
+    servo_min: 0.20
+    servo_max: 0.85
+    reset_position: 0.5
     reset_events: machine_reset_phase_3, ball_starting, ball_will_end, service_mode_entered, reset_subway_servos, reset_servo_subway_vuk_selector, balldevice_bd_subway_vuk_selector_ball_eject_success
     positions:
       # These events will be post by mode env_subway
@@ -14,9 +14,9 @@ servos:
       1.0: srv_subway_vuk_selector_pos_right
   servo_subway_left_vuk_buffer:
     platform: opp
-    number: 1-0-10
-    servo_min: 0.0
-    servo_max: 1.0
+    number: 1-0-9
+    servo_min: 0.30
+    servo_max: 0.72
     reset_position: 0.0
     reset_events: machine_reset_phase_3, ball_starting, ball_will_end, service_mode_entered, reset_subway_servos, reset_servo_subway_left_vuk_buffer
     positions:
@@ -24,10 +24,10 @@ servos:
       1.0: balldevice_bd_subway_vuk_left_buffer_ejecting_ball
   servo_subway_right_vuk_buffer:
     platform: opp
-    number: 1-0-9
-    servo_min: 0.0
-    servo_max: 1.0
-    reset_position: 0.0
+    number: 1-0-10
+    servo_min: 0.40
+    servo_max: 0.80
+    reset_position: 1.0
     reset_events: machine_reset_phase_3, ball_starting, ball_will_end, service_mode_entered, reset_subway_servos, reset_servo_subway_right_vuk_buffer
     positions:
       0.0: balldevice_bd_subway_vuk_right_buffer_ejecting_ball
@@ -35,9 +35,9 @@ servos:
   servo_subway_left_vuk_buffer_chamber:
     platform: opp
     number: 1-0-8
-    servo_min: 0.0
-    servo_max: 1.0
-    reset_position: 0.0
+    servo_min: 0.35
+    servo_max: 0.75
+    reset_position: 1.0
     reset_events: machine_reset_phase_3, ball_starting, ball_will_end, service_mode_entered, reset_subway_servos, reset_servo_subway_vuk_left_buffer_chamber
     positions:
       0.0: balldevice_bd_subway_vuk_left_buffer_chamber_ejecting_ball
