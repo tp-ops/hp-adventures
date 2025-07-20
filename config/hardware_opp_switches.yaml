@@ -34,16 +34,16 @@ switches:
   # Flipper buttons
   s_fl_left_a:
     platform: opp
-    number: 0-0-16
+    number: 1-0-31
     tags: flipper_left
   s_fl_right_a:
-    platform: opp
-    number: 0-0-17
+    platform: virtual
+    number: 
     tags: flipper_right
   # Drain, Trough, Plunger
   s_drain:
     platform: opp
-    number: 3-0-20
+    number: 3-0-23
   s_trough_1:
     platform: opp
     number: 3-0-21
@@ -52,24 +52,24 @@ switches:
     number: 3-0-22
   s_trough_3:
     platform: opp
-    number: 3-0-23
+    number: 3-0-17
   s_trough_4:
     platform: opp
-    number: 3-0-24
+    number: 3-0-26
   s_trough_5:
     platform: opp
     number: 3-0-25
   s_plunger_lane:
     platform: opp
-    number: 3-0-26
+    number: 3-0-19
   # Lanes
   s_lane_dr_left:
     platform: opp
-    number: 3-0-16
+    number: 3-0-2
     tags: playfield_active
   s_lane_dr_right:
     platform: opp
-    number: 3-0-17
+    number: 3-0-20
     tags: playfield_active
   s_lane_fl_left:
     platform: opp
@@ -77,73 +77,73 @@ switches:
     tags: playfield_active
   s_lane_fl_right:
     platform: opp
-    number: 3-0-19
+    number: 3-0-24
     tags: playfield_active
   # Sling shots
   s_sling_right:
     platform: opp
-    number: 0-0-18
+    number: 0-0-3
   s_sling_left:
     platform: opp
-    number: 0-0-19
+    number: 0-0-11
   # Pop bumpers
   s_pop_right:
     platform: opp
-    number: 1-0-3
+    number: 1-0-18
   s_pop_bottom:
     platform: opp
-    number: 1-0-2
+    number: 1-0-17
   s_pop_left:
     platform: opp
-    number: 1-0-1
+    number: 1-0-16
   # Targets
   s_tar_light_diagon_alley:
     platform: opp
-    number: 1-0-28
+    number: 1-0-19
   s_tar_nimbus:
     platform: opp
-    number: 0-0-27
+    number: 0-0-10
     tags: playfield_active
   s_tar_sword:
     platform: opp
-    number: 0-0-26
+    number: 0-0-27
   s_tar_platform:
     platform: opp
     number: 0-0-25
   s_tar_wand:
     platform: opp
-    number: 3-0-11
+    number: 3-0-10
   s_tar_stone:
     platform: opp
-    number: 3-0-31
+    number: 3-0-8
   s_tar_cloak:
     platform: opp
-    number: 3-0-30
+    number: 3-0-3
   s_tar_castle_left:
     platform: opp
-    number: 3-0-28
+    number: 3-0-9
     tags: playfield_active
   s_tar_castle_right:
     platform: opp
-    number: 3-0-29
+    number: 3-0-11
     tags: playfield_active
   s_captive_ball:
     platform: opp
-    number: 3-0-9
+    number: 3-0-29
   # Drop targets
   s_drop1_castle_door:
     platform: opp
     number: 0-0-9
   s_drop1_gringotts:
     platform: opp
-    number: 3-0-10
+    number: 3-0-30
   s_drop3_ministry_1:
     platform: opp
-    number: 3-0-3
+    number: 3-0-27
     type: 'NC'
   s_drop3_ministry_2:
     platform: opp
-    number: 3-0-2
+    number: 3-0-16
     type: 'NC'
   s_drop3_ministry_3:
     platform: opp
@@ -152,79 +152,79 @@ switches:
   # VUK's
   s_vuk_diagon_alley:
     platform: opp
-    number: 0-0-3
+    number: 0-0-18
   s_vuk_forrest:
     platform: opp
-    number: 0-0-8
+    number: 1-0-21
   s_vuk_ministry:
     platform: opp
-    number: 3-0-8
+    number: 3-0-31
   # Orbits & Spinners
   s_orbit_right:
-    platform: opp
-    number: 0-0-11
+    platform: virtual
+    number: 
   s_orbit_left:
     platform: opp
-    number: 1-0-24
+    number: 1-0-23
   s_spinner_diagon_alley:
     platform: opp
-    number: 0-0-2
+    number: 0-0-19
     tags: playfield_active
   s_spinner_short_orbit:
     platform: opp
-    number: 0-0-1
+    number: 0-0-17
     tags: playfield_active
   s_spinner_right_orbit:
     platform: opp
-    number: 3-0-27
+    number: 3-0-28
     tags: playfield_active
   # Ramps & Wire ramps
   s_spells_ramp_entry:
     platform: opp
-    number: 1-0-25
+    number: 1-0-1
   s_spells_ramp_wire_exit:
     platform: opp
-    number: 1-0-26
+    number: 0-0-16
   s_spells_ramp_hagrid_exit:
     platform: opp
-    number: 1-0-27
+    number: 1-0-3
   s_right_wire_ramp_vuk_exit:
     platform: opp
-    number: 1-0-29
+    number: 1-0-2
   s_tower_ramp_entry:
     platform: opp
-    number: 0-0-10
+    number: 0-0-26
   s_tower_pensieve:
     platform: opp
-    number: 1-0-31
+    number: 1-0-26
   s_tower_pensieve_exit:
     platform: opp
-    number: 1-0-30
+    number: 1-0-20
   s_left_wire_ramp_exit:
     platform: opp
     number: 0-0-24
   # Subway opto's
   s_subway_vuk_left:
     platform: opp
-    number: 1-0-16
+    number: 1-0-22
   s_subway_vuk_left_buffer_chamber:
     platform: opp
-    number: 1-0-17
+    number: 1-0-24
   s_subway_vuk_left_buffer_1:
-    platform: opp
-    number: 1-0-18
+    platform: virtual
+    number: 
   s_subway_vuk_left_buffer_2:
     platform: opp
-    number: 1-0-19
+    number: 1-0-29
   s_subway_vuk_right:
     platform: opp
-    number: 1-0-20
+    number: 1-0-30
   s_subway_vuk_right_buffer_1:
     platform: opp
-    number: 1-0-21
+    number: 0-0-8
   s_subway_vuk_right_buffer_2:
-    platform: opp
-    number: 1-0-22
+    platform: virtual
+    number: 
   s_subway_vuk_selector:
     platform: opp
-    number: 1-0-23
+    number: 1-0-28

@@ -5,7 +5,7 @@ servos:
     number: 1-0-11
     servo_min: 0.0
     servo_max: 1.0
-    reset_position: 0.5
+    reset_position: 1.0
     reset_events: machine_reset_phase_3, ball_starting, ball_will_end, service_mode_entered, reset_subway_servos, reset_servo_subway_vuk_selector, balldevice_bd_subway_vuk_selector_ball_eject_success
     positions:
       # These events will be post by mode env_subway
@@ -27,7 +27,7 @@ servos:
     number: 1-0-9
     servo_min: 0.0
     servo_max: 1.0
-    reset_position: 1.0
+    reset_position: 0.0
     reset_events: machine_reset_phase_3, ball_starting, ball_will_end, service_mode_entered, reset_subway_servos, reset_servo_subway_right_vuk_buffer
     positions:
       0.0: balldevice_bd_subway_vuk_right_buffer_ejecting_ball
