@@ -1,0 +1,19 @@
+#show_version=6
+- time: 0
+  shows:
+    pop_ring_left_loop:
+      action: play
+- time: "+1.6"
+  shows:
+    pop_ring_right_loop:
+      action: play
+- time: "+1.6"
+  shows: 
+    pop_ring_left_loop:
+      action: stop
+    pop_ring_bottom_loop:
+      action: play
+- time: "+1.6"
+  shows:
+    pop_ring_right_loop:
+      action: stop

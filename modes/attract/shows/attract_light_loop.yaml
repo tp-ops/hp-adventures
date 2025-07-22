@@ -3,9 +3,13 @@
   shows:
     all_lights_loop:
       action: play
+    pop_lights_loop:
+      action: play
 - duration: 8
   shows:
-    all_lights_loop: #all_lights_loop:
+    all_lights_loop:
+      action: stop
+    pop_lights_loop:
       action: stop
     group_lights_loop:
       action: play
