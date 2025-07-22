@@ -8,6 +8,8 @@
       color: off
     mission_lights:
       color: off
+    pop_lights:
+      color: off
     horcrux_lights:
       color: off
 - time: "+1"
@@ -19,6 +21,8 @@
       color: red
       fade: 200ms
     mission_lights:
+      color: off
+    pop_lights:
       color: off
     horcrux_lights:
       color: off
@@ -32,6 +36,8 @@
     mission_lights:
       color: blue
       fade: 200ms
+    pop_lights:
+      color: off
     horcrux_lights:
       color: off
 - time: "+1"
@@ -41,6 +47,22 @@
     target_lights:
       color: off
     mission_lights:
+      color: off
+      fade: 200ms
+    pop_lights:
+      color: white
+      fade: 200ms
+    horcrux_lights:
+      color: off
+- time: "+1"
+  lights:
+    shot_lights:
+      color: off
+    target_lights:
+      color: off
+    mission_lights:
+      color: off
+    pop_lights:
       color: off
       fade: 200ms
     horcrux_lights:
@@ -54,6 +76,8 @@
     target_lights:
       color: off
     mission_lights:
+      color: off
+    pop_lights:
       color: off
     horcrux_lights:
       color: off

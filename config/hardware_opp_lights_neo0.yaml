@@ -5,349 +5,349 @@ lights:
     number: 0-0-0
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
+    tags: l_pop_right, l_pop_right_inner_ring, pop_lights
   l_pop_right_2:
     previous: l_pop_right_1
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
+    tags: l_pop_right, l_pop_right_inner_ring, pop_lights
   l_pop_right_3:
     previous: l_pop_right_2
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
+    tags: l_pop_right, l_pop_right_inner_ring, pop_lights
   l_pop_right_4:
     previous: l_pop_right_3
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
+    tags: l_pop_right, l_pop_right_inner_ring, pop_lights
   l_pop_right_5:
     previous: l_pop_right_4
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
+    tags: l_pop_right, l_pop_right_inner_ring, pop_lights
   l_pop_right_6:
     previous: l_pop_right_5
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
+    tags: l_pop_right, l_pop_right_inner_ring, pop_lights
   l_pop_right_7:
     previous: l_pop_right_6
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_inner_ring
+    tags: l_pop_right, l_pop_right_inner_ring, pop_lights
   l_pop_right_8:
     previous: l_pop_right_7
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_1
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_1, pop_lights
   l_pop_right_9:
     previous: l_pop_right_8
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_2
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_2, pop_lights
   l_pop_right_10:
     previous: l_pop_right_9
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_3
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_3, pop_lights
   l_pop_right_11:
     previous: l_pop_right_10
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_4
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_4, pop_lights
   l_pop_right_12:
     previous: l_pop_right_11
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_5
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_5, pop_lights
   l_pop_right_13:
     previous: l_pop_right_12
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_6
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_6, pop_lights
   l_pop_right_14:
     previous: l_pop_right_13
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_7
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_7, pop_lights
   l_pop_right_15:
     previous: l_pop_right_14
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_8
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_8, pop_lights
   l_pop_right_16:
     previous: l_pop_right_15
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_9
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_9, pop_lights
   l_pop_right_17:
     previous: l_pop_right_16
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_10
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_10, pop_lights
   l_pop_right_18:
     previous: l_pop_right_17
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_11
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_11, pop_lights
   l_pop_right_19:
     previous: l_pop_right_18
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_12
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_12, pop_lights
   l_pop_right_20:
     previous: l_pop_right_19
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_13
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_13, pop_lights
   l_pop_right_21:
     previous: l_pop_right_20
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_14
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_14, pop_lights
   l_pop_right_22:
     previous: l_pop_right_21
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_15
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_15, pop_lights
   l_pop_right_23:
     previous: l_pop_right_22
     subtype: led
     type: grb
-    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_16
+    tags: l_pop_right, l_pop_right_outer_ring, l_pop_right_outer_ring_16, pop_lights
   # OPP Main board NEO0 - Bottom Pop Bumper
   l_pop_bottom_1:
     previous: l_pop_right_23
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
+    tags: l_pop_bottom, l_pop_bottom_inner_ring, pop_lights
   l_pop_bottom_2:
     previous: l_pop_bottom_1
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
+    tags: l_pop_bottom, l_pop_bottom_inner_ring, pop_lights
   l_pop_bottom_3:
     previous: l_pop_bottom_2
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
+    tags: l_pop_bottom, l_pop_bottom_inner_ring, pop_lights
   l_pop_bottom_4:
     previous: l_pop_bottom_3
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
+    tags: l_pop_bottom, l_pop_bottom_inner_ring, pop_lights
   l_pop_bottom_5:
     previous: l_pop_bottom_4
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
+    tags: l_pop_bottom, l_pop_bottom_inner_ring, pop_lights
   l_pop_bottom_6:
     previous: l_pop_bottom_5
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
+    tags: l_pop_bottom, l_pop_bottom_inner_ring, pop_lights
   l_pop_bottom_7:
     previous: l_pop_bottom_6
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_inner_ring
+    tags: l_pop_bottom, l_pop_bottom_inner_ring, pop_lights
   l_pop_bottom_8:
     previous: l_pop_bottom_7
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_1
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_1, pop_lights
   l_pop_bottom_9:
     previous: l_pop_bottom_8
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_2
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_2, pop_lights
   l_pop_bottom_10:
     previous: l_pop_bottom_9
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_3
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_3, pop_lights
   l_pop_bottom_11:
     previous: l_pop_bottom_10
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_4
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_4, pop_lights
   l_pop_bottom_12:
     previous: l_pop_bottom_11
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_5
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_5, pop_lights
   l_pop_bottom_13:
     previous: l_pop_bottom_12
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_6
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_6, pop_lights
   l_pop_bottom_14:
     previous: l_pop_bottom_13
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_7
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_7, pop_lights
   l_pop_bottom_15:
     previous: l_pop_bottom_14
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_8
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_8, pop_lights
   l_pop_bottom_16:
     previous: l_pop_bottom_15
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_9
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_9, pop_lights
   l_pop_bottom_17:
     previous: l_pop_bottom_16
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_10
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_10, pop_lights
   l_pop_bottom_18:
     previous: l_pop_bottom_17
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_11
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_11, pop_lights
   l_pop_bottom_19:
     previous: l_pop_bottom_18
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_12
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_12, pop_lights
   l_pop_bottom_20:
     previous: l_pop_bottom_19
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_13
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_13, pop_lights
   l_pop_bottom_21:
     previous: l_pop_bottom_20
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_14
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_14, pop_lights
   l_pop_bottom_22:
     previous: l_pop_bottom_21
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_15
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_15, pop_lights
   l_pop_bottom_23:
     previous: l_pop_bottom_22
     subtype: led
     type: grb
-    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_16
+    tags: l_pop_bottom, l_pop_bottom_outer_ring, l_pop_bottom_outer_ring_16, pop_lights
   # OPP Main board NEO0 - Left Pop Bumper
   l_pop_left_1:
     previous: l_pop_bottom_23
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
+    tags: l_pop_left, l_pop_left_inner_ring, pop_lights
   l_pop_left_2:
     previous: l_pop_left_1
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
+    tags: l_pop_left, l_pop_left_inner_ring, pop_lights
   l_pop_left_3:
     previous: l_pop_left_2
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
+    tags: l_pop_left, l_pop_left_inner_ring, pop_lights
   l_pop_left_4:
     previous: l_pop_left_3
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
+    tags: l_pop_left, l_pop_left_inner_ring, pop_lights
   l_pop_left_5:
     previous: l_pop_left_4
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
+    tags: l_pop_left, l_pop_left_inner_ring, pop_lights
   l_pop_left_6:
     previous: l_pop_left_5
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
+    tags: l_pop_left, l_pop_left_inner_ring, pop_lights
   l_pop_left_7:
     previous: l_pop_left_6
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_inner_ring
+    tags: l_pop_left, l_pop_left_inner_ring, pop_lights
   l_pop_left_8:
     previous: l_pop_left_7
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_1
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_1, pop_lights
   l_pop_left_9:
     previous: l_pop_left_8
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_2
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_2, pop_lights
   l_pop_left_10:
     previous: l_pop_left_9
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_3
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_3, pop_lights
   l_pop_left_11:
     previous: l_pop_left_10
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_4
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_4, pop_lights
   l_pop_left_12:
     previous: l_pop_left_11
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_5
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_5, pop_lights
   l_pop_left_13:
     previous: l_pop_left_12
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_6
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_6, pop_lights
   l_pop_left_14:
     previous: l_pop_left_13
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_7
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_7, pop_lights
   l_pop_left_15:
     previous: l_pop_left_14
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_8
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_8, pop_lights
   l_pop_left_16:
     previous: l_pop_left_15
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_9
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_9, pop_lights
   l_pop_left_17:
     previous: l_pop_left_16
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_10
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_10, pop_lights
   l_pop_left_18:
     previous: l_pop_left_17
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_11
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_11, pop_lights
   l_pop_left_19:
     previous: l_pop_left_18
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_12
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_12, pop_lights
   l_pop_left_20:
     previous: l_pop_left_19
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_13
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_13, pop_lights
   l_pop_left_21:
     previous: l_pop_left_20
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_14
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_14, pop_lights
   l_pop_left_22:
     previous: l_pop_left_21
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_15
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_15, pop_lights
   l_pop_left_23:
     previous: l_pop_left_22
     subtype: led
     type: grb
-    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_16
+    tags: l_pop_left, l_pop_left_outer_ring, l_pop_left_outer_ring_16, pop_lights
   # OPP Main board NEO0 - Tower Cap
   l_tower_cap_1:
     previous: l_pop_left_23

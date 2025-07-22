@@ -1,0 +1,164 @@
+#show_version=6
+- time: 0
+  lights:
+    l_pop_left_outer_ring_1: 
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_2: 
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_3:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_4:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_5:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_6:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_7:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_8:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_9:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_10:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_11:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_12:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_13:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_14:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_15:
+      color: white
+      fade: 200ms
+- time: '+0.2'
+  duration: 1
+  lights:
+    l_pop_left_outer_ring_16:
+      color: white
+      fade: 200ms
+# Back to Off
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_1: 
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_2: 
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_3:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_4:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_5:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_6:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_7:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_8:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_9:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_10:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_11:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_12:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_13:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_14:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  lights:
+    l_pop_left_outer_ring_15:
+      color: stop
+      fade: 200ms
+- time: '+0.2'
+  duration: 1
+  lights:
+    l_pop_left_outer_ring_16:
+      color: stop
+      fade: 200ms

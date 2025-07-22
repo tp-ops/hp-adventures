@@ -4,10 +4,6 @@ shows:
 #flashing 20-30ms
 #fading 60-100ms - 60 for inserts, 100 for GI
 
-
-
-    
-
   flash_heartbeat:
     - duration: 0.25
       lights:
