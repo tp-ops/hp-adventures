@@ -3,12 +3,12 @@
 mode_settings:
   selectable_items:
     - title
-    - credits
+    - coins
     - last_scores_1p{machine.player1_score and not machine.player2_score}
     - last_scores_2p{machine.player2_score and not machine.player3_score}
     - last_scores_3p{machine.player3_score and not machine.player4_score}
     - last_scores_4p{machine.player4_score}
-    - thanks_to
+    - credits
   next_item_events: s_fl_right_a_active, timer_attract_carousel_timer_complete
   previous_item_events: s_fl_left_a_active
 
