@@ -3,7 +3,7 @@ lights:
   # OPP Main board NEO1 - Playfield
   # Backside above playfield
   l_ws2812_castle_door:
-    start_channel: 1-0-0
+    number: 1-0-0
     subtype: led
     type: grb
     tags: target_lights
