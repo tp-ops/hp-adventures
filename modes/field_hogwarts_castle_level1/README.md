@@ -15,28 +15,24 @@ The four levels modes are;
 
 **level 1 - Greatest wizard and witches**
 
-1. Get inside `Hogwarts Castle` (**with** magnet grab and fling support).
+1. Get inside `Hogwarts Castle`.
 2. Ball will be **locked** and you get a **new ball**.
-3. `Hogwarts Castle` will be still open to make it more difficult to get more multiball balls.
-4. You can now lock another ball either in `clock tower` and/or in `daigon alley` to increase the multiball balls.
-    - You can now lock a ball in `clock tower` for an extra multiball ball.
-    - You can now lock a ball in `daigon alley` for an extra multiball ball.
-5. Get inside `Hogwarts Castle` (**with** magnet grab and fling support) to start a 2, 3 or 4-ball multiball.
+3. Get again inside `Hogwarts Castle`.
+4. Start 2-ball 'Multiball'
 
 Award: 2-ball multiball or 3 or 4-ball multiball mission mode x.
 
 > [!NOTE]
-> **level 1 - Get inside castle (with magnet grab and fling support - door left open when missed, less points).**<br />
+> **level 1 - Get inside castle.**
 > - `Hit` droptarget `hogwarts castle door` in `unlit` state.
 >   - Advance shot to `lit`.
 >   - Reset drop target.
 > - `Hit` droptarget `hogwarts castle door` in `lit` state.
 >   - Advance shot to `open`.
 >   - Left drop target down.
-> - Let magnet `grab` the ball for you, when grabbed, let the magnet `fling` the ball for you into entrance shot.
->   - When shot is made with magnet fling, adward points.
->   - When shot is missed, left door open until shot is made with flippers.
->   - When shot is made with flippers, adward points butt less.
+> - 'Shoot' ball inside hogwarts castle 
+    - lock ball 1
+    - show greatest wizard info
   
 **level 2 - You know who**
 
