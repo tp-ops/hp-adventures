@@ -4,7 +4,6 @@ config:
   - config_credits.yaml
   - config_mechanisms.yaml
   - config_settings.yaml
-  # - config_sound.yaml
   - hardware_opp_coils.yaml
   - hardware_opp_lights_neo0.yaml
   - hardware_opp_lights_neo1.yaml
@@ -12,7 +11,6 @@ config:
   - hardware_opp_lights_spots.yaml
   - hardware_opp_servos.yaml
   - hardware_opp_switches.yaml
-  # - hardware_rpi.yaml
 
 hardware:
   platform: opp, virtual

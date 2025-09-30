@@ -44,7 +44,7 @@ multiball_locks:
   # When used separate locks, if one ball is locked left and the other locked right, they will both replace 1 ball and thus have three balls in play.
   # When combined, if one ball is locked left and the other locked right, only the first ball will be replaced, the second ball will not be replaced.
   # Locking two balls in the left or right lock only is posible and also then only the first ball will be replaced, the second ball will not.
-  mbl_hogwarts_castle_lvl1_subway_buffer:
+  mbl_hogwarts_castle_lvl1_subway_left_and_right_buffers:
     enable_events: mode_field_hogwarts_castle_level1_started
     disable_events: mode_field_hogwarts_castle_level1_will_stop
     balls_to_lock: 2

@@ -19,7 +19,7 @@ coils:
   c_fl_left_power:
     platform: opp
     number: 0-0-6
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_fl_left_hold:
     platform: opp
     number: 0-0-5
@@ -28,7 +28,7 @@ coils:
   c_fl_right_power:
     platform: opp
     number: 0-0-10
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_fl_right_hold:
     platform: opp
     number: 0-0-11
@@ -37,7 +37,7 @@ coils:
   c_fl_top_left_power:
     platform: opp
     number: 0-0-8
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_fl_top_left_hold:
     platform: opp
     number: 0-0-9
@@ -46,7 +46,7 @@ coils:
   c_fl_top_right_power:
     platform: opp
     number: 0-0-15
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_fl_top_right_hold:
     platform: opp
     number: 0-0-7
@@ -55,103 +55,103 @@ coils:
   c_sling_left:
     platform: opp
     number: 0-0-13
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_sling_right:
     platform: opp
     number: 0-0-14
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   # Pop bumpers
   c_pop_right:
     platform: opp
     number: 1-0-6
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_pop_bottom:
     platform: opp
     number: 1-0-7
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_pop_left:
     platform: opp
     number: 1-0-3
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   # Drop targets
   c_drop1_castle_door:
     platform: opp
     number: 0-0-0
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_drop1_gringotts:
     platform: opp
     number: 3-0-5
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_drop3_ministry:
     platform: opp
     number: 3-0-0
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   # VUK's
   c_subway_vuk_right:
     platform: opp
     number: 1-0-1
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_subway_vuk_left:
     platform: opp
     number: 1-0-5
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_vuk_forrest:
     platform: opp
     number: 0-0-12
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_vuk_ministry:
     platform: opp
     number: 3-0-7
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_vuk_diagon_alley:
     platform: opp
     number: 3-0-6
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   # Diverters
   c_div_orbit_forrest:
     platform: opp
     number: 1-0-0
-    default_pulse_ms: 10
+    default_pulse_ms: 5
     default_hold_power: 0.1
   c_div_orbit_long:
     platform: opp
     number: 0-0-2
-    default_pulse_ms: 10
+    default_pulse_ms: 5
     default_hold_power: 0.1
   c_div_spell_ramp_hagrid:
     platform: opp
     number: 1-0-2
-    default_pulse_ms: 10
+    default_pulse_ms: 5
     default_hold_power: 0.1
   c_div_tower_exit_normal:
     platform: opp
     number: 0-0-4
-    default_pulse_ms: 10
+    default_pulse_ms: 5
     default_hold_power: 0.1
   c_div_tower_exit_pensieve:
     platform: opp
     number: 0-0-3
-    default_pulse_ms: 10
+    default_pulse_ms: 5
     default_hold_power: 0.1
   # Magnets - NEVER full enable magnets, see explanation above.
   c_magnet_clock_tower:
     platform: opp
     number: 1-0-4
-    default_pulse_ms: 10
+    default_pulse_ms: 5
     default_hold_power: 0.1
   # Drain, Trough, Plunger
   c_drain_eject:
     platform: opp
     number: 3-0-2
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_trough_release:
     platform: opp
     number: 3-0-3
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   c_auto_plunger:
     platform: opp
     number: 3-0-4
-    default_pulse_ms: 10
+    default_pulse_ms: 5
   # GI Spots
   c_gi_spots:
     platform: opp
