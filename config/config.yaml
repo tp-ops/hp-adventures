@@ -20,7 +20,7 @@ hardware:
 
 opp:
   ports: COM3, COM4, COM5, COM6
-  debug: true
+  debug: false
     
 virtual_platform_start_active_switches:
   - s_trough_1
