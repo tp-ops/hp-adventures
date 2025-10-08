@@ -34,11 +34,11 @@ switches:
   # Flipper buttons
   s_fl_left_a:
     platform: opp
-    number: 0-0-2
+    number: 0-0-1
     tags: flipper_left
   s_fl_right_a:
     platform: opp
-    number: 0-0-1
+    number: 0-0-2
     tags: flipper_right
   # Drain, Trough, Plunger
   s_drain:
