@@ -14,8 +14,6 @@ class test_house_theme_selection(MpfGameTestCase):
 
     def test_carousel_player_vars(self):
 
-        self.get_options()
-        
         # Ensure that Attract mode is running and game mode not
         self.assertModeRunning("attract")
         self.assertModeNotRunning("game")
@@ -42,7 +40,6 @@ class test_house_theme_selection(MpfGameTestCase):
         self.assertPlayerVarEqual("logo_gryffindor","house_theme_logo")
         self.assertPlayerVarEqual("gryffindor_led","house_theme_led")
         
-
         # Go right to hufflepuff
         self.hit_and_release_switch("s_fl_right_a")
         self.advance_time_and_run(1)

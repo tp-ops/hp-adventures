@@ -10,6 +10,15 @@ class test_mode_logic(MpfGameTestCase):
 
     def get_platform(self):
         return 'smart_virtual'
+    
+    def _start_game(self):
+        self.hit_and_release_switch("s_start_button")
+        self.advance_time_and_run(1)
+        self.hit_and_release_switch("s_start_button")
+        self.advance_time_and_run(1)
+        self.release_switch_and_run("s_plunger_lane", 11)
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+        self.advance_time_and_run(15)
 
     def test_mode_start_logic(self):
 
@@ -21,13 +30,7 @@ class test_mode_logic(MpfGameTestCase):
         self.mock_event("enable_sh_orbit_lane_center_opt1")
 
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -55,16 +58,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_left_long_hit(self):
 
-        self.get_options()
-
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -83,16 +78,8 @@ class test_mode_logic(MpfGameTestCase):
     
     def test_orbit_left_long_hit_lanes(self):
 
-        self.get_options()
-
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -118,16 +105,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_left_long_hit_diverters(self):
 
-        self.get_options()
-
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -170,16 +149,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_left_long_timeout(self):
 
-        self.get_options()
-
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -197,16 +168,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_left_long_timeout_lanes(self):
 
-        self.get_options()
-
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -231,16 +194,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_left_long_timeout_diverters(self):
 
-        self.get_options()
-
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -283,16 +238,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_right_long_hit(self):
 
-        self.get_options()
-
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -311,16 +258,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_right_long_hit_lanes(self):
 
-        self.get_options()
-               
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -346,16 +285,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_right_long_hit_diverters(self):
 
-        self.get_options()
-       
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -398,16 +329,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_right_long_timeout(self):
 
-        self.get_options()
-       
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -425,16 +348,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_right_long_timeout_lanes(self):
 
-        self.get_options()
-       
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -459,16 +374,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_right_long_timeout_diverters(self):
 
-        self.get_options()
-       
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -510,16 +417,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_center_short_hit(self):
 
-        self.get_options()
-       
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -538,16 +437,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_center_short_hit_lanes(self):
 
-        self.get_options()
-       
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -573,16 +464,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_center_short_hit_diverters(self):
 
-        self.get_options()
-       
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -613,16 +496,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_center_short_timeout(self):
 
-        self.get_options()
-       
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -640,16 +515,8 @@ class test_mode_logic(MpfGameTestCase):
         
     def test_orbit_center_short_timeout_lanes(self):
 
-        self.get_options()
-       
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")
@@ -674,16 +541,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_orbit_center_short_timeout_diverters(self):
 
-        self.get_options()
-       
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # Transition manually to mode option1
         self.post_event("ce_change_field_orbits_to_option1")

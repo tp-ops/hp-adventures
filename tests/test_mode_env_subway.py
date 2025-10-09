@@ -10,12 +10,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def get_platform(self):
         return 'smart_virtual'
-
-    def test_start_logic(self):
-
-        self.get_options()
-
-        # Starting a game
+    
+    def _start_game(self):
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
         self.hit_and_release_switch("s_start_button")
@@ -23,6 +19,12 @@ class test_mode_logic(MpfGameTestCase):
         self.release_switch_and_run("s_plunger_lane", 11)
         self.assertBallsOnPlayfield(1, playfield='playfield')
         self.advance_time_and_run(15)
+
+
+    def test_start_logic(self):
+
+        # Starting a game
+        self._start_game()
 
         # Center state and position
         self.assertModeRunning("env_subway")
@@ -30,20 +32,12 @@ class test_mode_logic(MpfGameTestCase):
         self.assertEqual(0.5, self.machine.servos["servo_subway_vuk_selector"]._position)
 
     def test_sm_center_to_flipper_state(self):
-
-        self.get_options()
         
         # Mock events
         self.mock_event("unittest_event_back_to_center")
 
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # center to flipper left
         self.hit_and_release_switch("s_fl_left_a")
@@ -69,16 +63,8 @@ class test_mode_logic(MpfGameTestCase):
     
     def test_sm_flipper_to_flipper_state(self):
 
-        self.get_options()
-
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # set to flipper left
         self.hit_and_release_switch("s_fl_left_a")
@@ -92,8 +78,6 @@ class test_mode_logic(MpfGameTestCase):
         self.assertEqual("flipper_right", self.machine.state_machines["sm_subway_vuk_selector"].state)
 
     def test_sm_flipper_to_custom_state(self):
-
-        self.get_options()
         
         # Mock events
         self.mock_event("unittest_event_back_to_center")
@@ -101,13 +85,7 @@ class test_mode_logic(MpfGameTestCase):
         self.mock_event("ce_sm_subway_vuk_selector_set_custom_right")
 
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # set to flipper left
         self.hit_and_release_switch("s_fl_left_a")
@@ -154,13 +132,7 @@ class test_mode_logic(MpfGameTestCase):
         self.mock_event("ce_sm_subway_vuk_selector_set_custom_right")
 
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # center to custom left
         self.post_event("ce_sm_subway_vuk_selector_set_custom_left", run_time=1)
@@ -191,13 +163,7 @@ class test_mode_logic(MpfGameTestCase):
         self.mock_event("ce_sm_subway_vuk_selector_set_custom_right")
 
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # set to custom left
         self.post_event("ce_sm_subway_vuk_selector_set_custom_left", run_time=1)
@@ -223,13 +189,7 @@ class test_mode_logic(MpfGameTestCase):
         self.mock_event("ce_sm_subway_vuk_selector_set_custom_right")
 
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # set to custom left
         self.post_event("ce_sm_subway_vuk_selector_set_custom_left", run_time=1)
@@ -259,8 +219,6 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_ball_eject_flipper_left(self):
 
-        self.get_options()
-
         # Mock events
         self.mock_event("srv_subway_vuk_selector_pos_left")
         self.mock_event("srv_subway_vuk_selector_pos_center")
@@ -268,13 +226,7 @@ class test_mode_logic(MpfGameTestCase):
         self.mock_event("balldevice_bd_subway_vuk_selector_ball_eject_success")
 
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # set to flipper left
         self.hit_and_release_switch("s_fl_left_a")
@@ -301,8 +253,6 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_ball_eject_flipper_right(self):
 
-        self.get_options()
-
         # Mock events
         self.mock_event("srv_subway_vuk_selector_pos_right")
         self.mock_event("srv_subway_vuk_selector_pos_center")
@@ -310,13 +260,7 @@ class test_mode_logic(MpfGameTestCase):
         self.mock_event("balldevice_bd_subway_vuk_selector_ball_eject_success")
 
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # set to flipper left
         self.hit_and_release_switch("s_fl_right_a")
@@ -343,8 +287,6 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_ball_eject_custom_left(self):
 
-        self.get_options()
-
         # Mock events
         self.mock_event("srv_subway_vuk_selector_pos_left")
         self.mock_event("srv_subway_vuk_selector_pos_center")
@@ -353,13 +295,7 @@ class test_mode_logic(MpfGameTestCase):
         self.mock_event("balldevice_bd_subway_vuk_selector_ball_eject_success")
 
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # set to custom left
         self.post_event("ce_sm_subway_vuk_selector_set_custom_left", run_time=1)
@@ -386,8 +322,6 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_ball_eject_custom_right(self):
 
-        self.get_options()
-
         # Mock events
         self.mock_event("srv_subway_vuk_selector_pos_right")
         self.mock_event("srv_subway_vuk_selector_pos_center")
@@ -396,13 +330,7 @@ class test_mode_logic(MpfGameTestCase):
         self.mock_event("balldevice_bd_subway_vuk_selector_ball_eject_success")
 
         # Starting a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        self._start_game()
 
         # set to custom left
         self.post_event("ce_sm_subway_vuk_selector_set_custom_right", run_time=1)

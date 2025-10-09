@@ -10,30 +10,25 @@ class test_mode_logic(MpfGameTestCase):
 
     def get_platform(self):
         return 'smart_virtual'
-
-    def test_mode_start(self):
-
-        self.get_options()
-
-        # Hit 'Start' button to start a game
+    
+    def _start_game(self):
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-
-        # Hit 'Start' button to select a theme
         self.hit_and_release_switch("s_start_button")
         self.advance_time_and_run(1)
-
-        # Advance skillshot platform
         self.release_switch_and_run("s_plunger_lane", 11)
         self.assertBallsOnPlayfield(1, playfield='playfield')
         self.advance_time_and_run(15)
+
+    def test_mode_start(self):
+
+        # Starting a game
+        self._start_game()
 
         # Ensure that mode field_diagon_alley is running
         self.assertModeRunning("field_diagon_alley")
 
     def test_lit_light(self):
-
-        self.get_options()
         self.assertModeRunning("attract")
         self.assertModeNotRunning("game")
         self.assertGameIsNotRunning()
@@ -67,20 +62,8 @@ class test_mode_logic(MpfGameTestCase):
 
     def test_full_one_ball(self):
 
-        self.get_options()
-
-        # Hit 'Start' button to start a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Hit 'Start' button to select a theme
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Advance skillshot platform
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
+        # Starting a game
+        self._start_game()
 
         # Ensure that mode field_diagon_alley is running
         self.assertModeRunning("field_diagon_alley")

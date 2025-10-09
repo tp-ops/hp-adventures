@@ -13,8 +13,6 @@ class test_mode_attract(MpfGameTestCase):
 
     def test_clock_tower_diverters(self):
 
-        self.get_options()
-
         self.mock_event("enable_div_tower_entry")
         self.mock_event("activate_div_tower_entry")
         self.mock_event("deactivate_div_tower_entry")

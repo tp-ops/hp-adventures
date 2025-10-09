@@ -13,11 +13,9 @@ class test_mode_attract(MpfGameTestCase):
 
     def test_mode_attract(self):
 
-        self.get_options()
         self.assertModeRunning("attract")
         self.assertModeNotRunning("game")
         self.assertGameIsNotRunning()
-        
 
         self.start_game()
         self.advance_time_and_run(1)
