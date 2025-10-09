@@ -83,6 +83,7 @@ modes:
   - field_diagon_alley
   - field_quidditch_stadium
   - field_hogwarts_castle_level1
+  - field_hogwarts_castle_level2
   - field_ministry_of_magic
   - field_house_cup
   - field_platform_nine_three_quarters
@@ -95,6 +96,7 @@ modes:
   - mission_quidditch
   - mission_deathly_hallows
   - mission_hagrids_place
+  - mission_hogwarts_castle_lvl1_mb
   #- mission_spells
   #- house_gryffindor
   #- house_hufflepuf

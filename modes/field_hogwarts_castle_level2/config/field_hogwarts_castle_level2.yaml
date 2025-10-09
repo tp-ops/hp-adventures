@@ -4,79 +4,48 @@ mode:
   stop_events: stop_mode_field_hogwarts_castle_level2
   priority: 300
 
-# first time in Hogwarts Castle you get intro about the greatest wizards (maybe at this point you have to choose a house)
-# after intro you get an overview of progress, this will be shown everytime afterwards
-# at some point you unlock level 2 - You know Who, you learn about voldermort
-# at some point you unlock level 3 - Dark Magic, you learn about some dark magic
-# at some point you unlock level 4 - Horcrux overview, you learn about horcruxes
-
-#for simplicity each level get its own mode. 
-#Eacht new level increase magnet difficulty, first level it done for you, second level you dont have to catch but shoot self, last level you have to catch also.
-
-# hit door to lit
-# hit again and let magnet grap the ball
-# when grabbed open will be opened
-# when shot is made the door will closed
-# when missed door will be left open until shot is made
-# reset shot
-
 shots:
-  sh_castle_door:
-    advance_events: sh_core_castle_door_hit
-    profile: sp_castle_door
+  # This shot is a drop-target. The shot is here for mode progression through shot_profiles_states. 
+  # Also the LED light is controlled through shot_profiles_states. A Drop-Target itself has no light config.
+  sh_drop1_castle_door_lvl2:
+    enable_events: mode_field_hogwarts_castle_level2_started
+    disable_events: mode_field_hogwarts_castle_level2_will_stop
+    restart_events: ce_restart_sh_drop1_castle_door_lvl2
+    advance_events: ce_advance_sh_drop1_castle_door_lvl2
+    profile: sp_drop1_castle_door_lvl2
     show_tokens:
       led: l_ws2812_castle_door
       color_name: flames
-  sh_castle_main_entrance:
-    advance_events: sh_core_castle_main_entrance_hit
-    profile: sp_castle_main_entrance
+  # This shot is the shot after the drop target. It goes into the subway_ball_device.
+  sh_hogwarts_castle_entrance_lvl2:
+    enable_events: mode_field_hogwarts_castle_level2_started
+    disable_events: mode_field_hogwarts_castle_level2_will_stop
+    hit_events: sh_core_castle_main_entrance_hit
+    profile: sp_castle_main_entrance_lvl2
 
 shot_profiles:
-  sp_castle_door:
+  sp_drop1_castle_door_lvl2:
     advance_on_hit: false
     states:
-      - name: unlit
+      - name: first_unlit
         show: flames
         sync_ms: 500
-      - name: lit
+      - name: last_unlit
+        show: flames
+        sync_ms: 500
+      - name: first_lit
+        show: flash_normal
+        sync_ms: 500
+      - name: last_unlit
         show: flash_normal
         sync_ms: 500
       - name: open
         show: flash_heartbeat
         sync_ms: 500
-  sp_castle_main_entrance:
+  sp_castle_main_entrance_lvl2:
     advance_on_hit: false
     states:
-      - name: unlit
       - name: lit
 
-state_machines:
-  sm_hogwarts_castle_level2:
-    starting_state: part1
-    persist_state: true
-    states:
-      part1:
-        label: You know who
-      part2:
-        label: Forbidden Forest
-      part3:
-        label: You know who
-    transitions:
-      - source: part1
-        target: part2
-        events: level_1_part_completed, test_event
-      - source: part2
-        target: part3
-        events: level_1_part_completed, test_event
-
-slide_player:
-  # this shows a slide on mode start. This is for test purpuse.
-  mode_field_castle_level2_started{device.state_machines.sm_hogwarts_castle_level2.state=='part1'}: 
-    sl_level2_part1:
-      expire: 3s
-  mode_field_castle_level2_started{device.state_machines.sm_hogwarts_castle_level2.state=='part2'}: 
-    sl_level2_part2:
-      expire: 3s
-  mode_field_castle_level2_started{device.state_machines.sm_hogwarts_castle_level2.state=='part3'}: 
-    sl_level2_part3:
-      expire: 3s
+# Multiball_locks and multiballs will be handeled by global_hogwarts_castle mode.
+# That way we can stop this mode and start a mission mode or the next hogwarts_castle_level mode.

@@ -5,23 +5,26 @@ mode:
   priority: 300
 
 shots:
-  # This shot is a drop-target. The shot is here for controlling led light as drop targets have no light config.
+  # This shot is a drop-target. The shot is here for mode progression through shot_profiles_states. 
+  # Also the LED light is controlled through shot_profiles_states. A Drop-Target itself has no light config.
   sh_drop1_castle_door_lvl1:
     enable_events: mode_field_hogwarts_castle_level1_started
     disable_events: mode_field_hogwarts_castle_level1_will_stop
     restart_events: ce_restart_sh_drop1_castle_door_lvl1
     advance_events: ce_advance_sh_drop1_castle_door_lvl1
-    profile: sp_drop1_castle_door
+    profile: sp_drop1_castle_door_lvl1
     show_tokens:
       led: l_ws2812_castle_door
       color_name: flames
   # This shot is the shot after the drop target. It goes into the subway_ball_device.
   sh_hogwarts_castle_entrance_lvl1:
-    advance_events: sh_core_castle_main_entrance_hit
-    profile: sp_castle_main_entrance
+    enable_events: mode_field_hogwarts_castle_level1_started
+    disable_events: mode_field_hogwarts_castle_level1_will_stop
+    hit_events: sh_core_castle_main_entrance_hit
+    profile: sp_castle_main_entrance_lvl1
 
 shot_profiles:
-  sp_drop1_castle_door:
+  sp_drop1_castle_door_lvl1:
     advance_on_hit: false
     states:
       - name: unlit
@@ -33,49 +36,51 @@ shot_profiles:
       - name: open
         show: flash_heartbeat
         sync_ms: 500
-  sp_castle_main_entrance:
+  sp_castle_main_entrance_lvl1:
     advance_on_hit: false
     states:
-      - name: unlit
       - name: lit
 
-multiball_locks:
-  # Combine left and right multiball_locks here to prevent a third ball in play.
-  # When used separate locks, if one ball is locked left and the other locked right, they will both replace 1 ball and thus have three balls in play.
-  # When combined, if one ball is locked left and the other locked right, only the first ball will be replaced, the second ball will not be replaced.
-  # Locking two balls in the left or right lock only is posible and also then only the first ball will be replaced, the second ball will not.
-  mbl_hogwarts_castle_lvl1_subway_left_and_right_buffers:
-    enable_events: mode_field_hogwarts_castle_level1_started
-    disable_events: mode_field_hogwarts_castle_level1_will_stop
-    balls_to_lock: 2
-    balls_to_replace: 1
-    locked_ball_counting_strategy: virtual_only
-    lock_devices: bd_subway_vuk_left_buffer, bd_subway_vuk_right_buffer
-
-multiballs:
-  mb_hogwarts_castle_lvl1_2ball:
-    enable_events: mode_field_hogwarts_castle_level1_started
-    disable_events: mode_field_hogwarts_castle_level1_will_stop
-    reset_events: reset_mb_hogwarts_castle_lvl1_2ball
-    start_events: start_mb_hogwarts_castle_lvl1_2ball
-    ball_count: 2
-    replace_balls_in_play: true
-    ball_count_type: total
-    ball_locks: bd_subway_vuk_left_buffer, bd_subway_vuk_right_buffer
+# Multiball_locks and multiballs will be handeled by global_hogwarts_castle mode.
+# That way we can stop this mode and start a mission mode or the next hogwarts_castle_level mode.
 
 event_player:
-  # First hit door to lit shot, reset dropbank for next step
-  drop_target_bank_dtb_hogwarts_castle_down{device.shots.sh_drop1_castle_door_lvl1.state_name=='unlit'}:
+  # Hit droptarget hogwarts castle door in unlit state with 0 locked_ball.
+  # -> Advance shot to lit
+  # -> Reset drop target bank
+  drop_target_bank_dtb_hogwarts_castle_down{device.shots.sh_drop1_castle_door_lvl1.state_name=='unlit' and device.multiball_locks.mbl_hogwarts_castle_lvl1_subway_left_and_right_buffers.locked_balls==0}:
     - ce_advance_sh_drop1_castle_door_lvl1
     - reset_dropbank_hogwarts_castle
-  # Hit door again, level 1 stays door open
-  drop_target_bank_dtb_hogwarts_castle_down{device.shots.sh_drop1_castle_door_lvl1.state_name=='lit'}:
+  # Hit droptarget hogwarts castle door in lit state with 0 locked_ball.
+  # -> Advance shot to open
+  # -> Drop target stays down (open), so no reset_dropbank event needed.
+  drop_target_bank_dtb_hogwarts_castle_down{device.shots.sh_drop1_castle_door_lvl1.state_name=='lit' and device.multiball_locks.mbl_hogwarts_castle_lvl1_subway_left_and_right_buffers.locked_balls==0}:
     - ce_advance_sh_drop1_castle_door_lvl1
-  # Get inside castle, lock the ball, reset dropbank, restart sh_drop1_castle_door_lvl1
-  sh_hogwarts_castle_entrance_lvl1{device.shots.sh_drop1_castle_door_lvl1.state_name=='open'}:
+  # Shoot ball inside hogwarts castle (ball will be locked and you get a new ball).
+  # -> Restart shot again (unlit state)
+  # -> Reset drop target bank
+  sh_hogwarts_castle_entrance_lvl1_hit{device.shots.sh_drop1_castle_door_lvl1.state_name=='open' and device.multiball_locks.mbl_hogwarts_castle_lvl1_subway_left_and_right_buffers.locked_balls==0}:
     - ce_restart_sh_drop1_castle_door_lvl1
     - reset_dropbank_hogwarts_castle
-  # multiball_lock_mbl_hogwarts_castle_level1_full:
-  #   - start_mb_hogwarts_calste_level1_2ball
-#multiball_lock(name)_locked_ball.total_balls_locked of iets
-#multiball_lock(name)_full
+    
+  # Hit droptarget hogwarts castle door in unlit state with 1 locked_ball.
+  # -> Advance shot to lit
+  # -> Reset drop target bank
+  drop_target_bank_dtb_hogwarts_castle_down{device.shots.sh_drop1_castle_door_lvl1.state_name=='unlit' and device.multiball_locks.mbl_hogwarts_castle_lvl1_subway_left_and_right_buffers.locked_balls==1}:
+    - ce_advance_sh_drop1_castle_door_lvl1
+    - reset_dropbank_hogwarts_castle
+  # Hit droptarget hogwarts castle door in lit state with 1 locked_ball.
+  # -> Advance shot to open
+  # -> Drop target stays down (open), so no reset_dropbank event needed.
+  drop_target_bank_dtb_hogwarts_castle_down{device.shots.sh_drop1_castle_door_lvl1.state_name=='lit' and device.multiball_locks.mbl_hogwarts_castle_lvl1_subway_left_and_right_buffers.locked_balls==1}:
+    - ce_advance_sh_drop1_castle_door_lvl1
+  # Shoot ball inside hogwarts castle (ball will be locked but you get no new ball).
+  # -> Restart shot again (unlit state)
+  # -> Reset drop target bank
+  sh_hogwarts_castle_entrance_lvl1_hit{device.shots.sh_drop1_castle_door_lvl1.state_name=='open' and device.multiball_locks.mbl_hogwarts_castle_lvl1_subway_left_and_right_buffers.locked_balls==1}:
+    - ce_restart_sh_drop1_castle_door_lvl1
+    - reset_dropbank_hogwarts_castle
+
+  # Start the 2-ball multiball when second ball is locked also and the lock is full.
+  # Multiball_locks and multiballs will be handeled by global_hogwarts_castle mode.
+  # That way we can stop this mode and start a mission mode or hogwarts_castle_level2 mode.

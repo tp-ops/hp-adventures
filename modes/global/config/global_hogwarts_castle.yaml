@@ -12,6 +12,7 @@
 state_machines:
   sm_hogwarts_castle:
     starting_state: level1
+    persist_state: true
     states:
       level1:
         label: Hogwarts school of Witchcraft and Wizardry
@@ -36,6 +37,37 @@ state_machines:
         target: level4
         events: ce_levelup_hogwarts_castle_to_level4
 
+
+# Multiball_locks and multiballs will be handeled by global_hogwarts_castle mode.
+# That way we can stop the field mode and start a mission mode or the next hogwarts_castle_level mode.
+multiball_locks:
+  # Combine left and right multiball_locks here to prevent a third ball in play.
+  # When used separate locks, if one ball is locked left and the other locked right, they will both replace 1 ball and thus have three balls in play.
+  # When combined, if one ball is locked left and the other locked right, only the first ball will be replaced, the second ball will not be replaced.
+  # Locking two balls in the left or right lock only is posible and also then only the first ball will be replaced, the second ball will not.
+  mbl_hogwarts_castle_lvl1_subway_left_and_right_buffers:
+    enable_events: mode_field_hogwarts_castle_level1_started
+    disable_events: mode_field_hogwarts_castle_level1_stopped
+    balls_to_lock: 2
+    # Usually balls_to_replace will be used in tandem with replace-balls-in-play from multiballs.
+    # Caution: an improperly configured setting can lead the player to a state where no balls are active on the playfield and the game becomes stuck.
+    balls_to_replace: 1
+    locked_ball_counting_strategy: virtual_only
+    lock_devices: bd_subway_vuk_left_buffer, bd_subway_vuk_right_buffer
+
+multiballs:
+  mb_hogwarts_castle_lvl1_2ball:
+    enable_events: mode_field_hogwarts_castle_level1_started
+    disable_events: mode_field_hogwarts_castle_level1_stopped
+    reset_events: reset_mb_hogwarts_castle_lvl1_2ball
+    start_events: start_mb_hogwarts_castle_lvl1_2ball
+    ball_count: 2
+    # Setting replace_balls_in_play should be used in tandem with balls_to_replace from multiball_locks to accurately populate the multiball when it starts.
+    # Caution: an improperly configured setting can lead the player to a state where no balls are active on the playfield and the game becomes stuck.
+    replace_balls_in_play: true
+    ball_count_type: total
+    ball_locks: bd_subway_vuk_left_buffer, bd_subway_vuk_right_buffer
+
 event_player:
   # These 3 mode_global_started{..} handlers start the right level mode when mode_global is completly started at game startup.
   # The ce_state_hogwarts_castle_level event, which is sent by state_machine when global mode is starting is to early to catch for this mode self to let the right level_mode start.
@@ -56,3 +88,17 @@ event_player:
     - stop_mode_field_hogwarts_castle_level1
     - stop_mode_field_hogwarts_castle_level2
     - stop_mode_field_hogwarts_castle_level3
+  
+  # Multiball_locks and multiballs will be handeled by global_hogwarts_castle mode.
+  # That way we can stop the field mode and start a mission mode or the hogwarts_castle_level mode.
+
+  # Start the 2-ball hogwarts_castle_lvl1_2ball multiball when second ball is locked also and the lock is full.
+  # Stop field_hogwarts_castle_level1 mode and levelup state_machine sm_hogwarts_castle to level2.
+  multiball_lock_mbl_hogwarts_castle_lvl1_subway_left_and_right_buffers_full:
+    - start_mb_hogwarts_castle_lvl1_2ball
+    - start_mode_mission_hogwarts_castle_lvl1_mb  
+    - stop_mode_field_hogwarts_castle_level1
+  multiball_mb_hogwarts_castle_lvl1_2ball_ended:
+  # multiball_mb_hogwarts_castle_lvl1_2ball_ball_lost
+    - stop_mode_mission_hogwarts_castle_lvl1_mb
+    - ce_levelup_hogwarts_castle_to_level2

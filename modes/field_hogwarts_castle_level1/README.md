@@ -6,7 +6,7 @@ After the intro you get an overview of your progress towards Hogwarts Castle, th
 There are four levels and for simplicity, readability and future expansions each level has its own `field_hogwarts_castle_level` mode for either there own purpuse and dependencies.
 The four levels modes are;
 
-- Mode `field_hogwarts_castle_level1` - Greatest wizard and witches
+- Mode `field_hogwarts_castle_level1` - Greatest wizard and witches (This mode)
 - Mode `field_hogwarts_castle_level2` - You know who
 - Mode `field_hogwarts_castle_level3` - Dark Magic
 - Mode `field_hogwarts_castle_level4` - Horcrux overview
@@ -17,63 +17,86 @@ The four levels modes are;
 
 1. Get inside `Hogwarts Castle`.
 2. Ball will be **locked** and you get a **new ball**.
-3. Get again inside `Hogwarts Castle`.
-4. Start 2-ball 'Multiball'
+3. Get inside `Hogwarts Castle`.
+4. Start 2-ball 'Multiball'.
 
-Award: 2-ball multiball or 3 or 4-ball multiball mission mode x.
+Award: 2-ball multiball.
 
 > [!NOTE]
-> **level 1 - Get inside castle.**
+> **level 1 - Detailed description.**
 > - `Hit` droptarget `hogwarts castle door` in `unlit` state.
->   - Advance shot to `lit`.
->   - Reset drop target.
+>   - Shot advanced to `lit`.
+>   - Drop target resets.
 > - `Hit` droptarget `hogwarts castle door` in `lit` state.
->   - Advance shot to `open`.
->   - Left drop target down.
+>   - Shot advanced to `open`.
+>   - Drop target stays down (open).
 > - 'Shoot' ball inside hogwarts castle 
-    - lock ball 1
-    - show greatest wizard info
+>   - Shot restarts
+>   - Drop target resets
+
   
 **level 2 - You know who**
 
-1. Get inside `Hogwarts Castle` (**without** magnet grab and fling support).
-2. Ball will **not** be **locked** and will be **returned**.
-3. Lock one ball in `chamber of secrets`.
-4. Lock one ball in `forbidden forrest`.
-5. Get inside `Hogwarts Castle` (**without** magnet grab and fling support) to start a 3-ball multiball.
+1. Get inside `Hogwarts Castle`.
+2. Ball will be **locked** and you get a **new ball**.
+3. Get inside `Hogwarts Castle`.
+4. Ball will be **locked** and you get a **new ball**.
+5. Get inside `Hogwarts Castle`.
+6. Ball will **not** be **locked** and will be **returned**.
+7. Lock one ball in `chamber of secrets`.
+8. Start a 3-ball multiball.
 
-Award: 3-ball multiball mission mode x.<br />
+Award: 3-ball multiball.
 
 > [!NOTE]
-> **Level 2 - Get inside castle (without magnet grab and fling support - door left open when missed, less points).**<br />
-> - `Hit` droptarget `hogwarts castle door` in `unlit` state.
->   - Advance shot to `lit`.
+> **Level 2 - Get inside castle.**
+> - `Hit` droptarget `hogwarts castle door` in `first_unlit` state.
+>   - Advance shot to `last_unlit`.
 >   - Reset drop target.
-> - `Hit` droptarget `hogwarts castle door` in `lit` state.
+> - `Hit` droptarget `hogwarts castle door` in `last_unlit` state.
+>   - Advance shot to `first_lit`.
+>   - Reset drop target.
+> - `Hit` droptarget `hogwarts castle door` in `first_lit` state.
+>   - Advance shot to `last_lit`.
+>   - Reset drop target.
+> - `Hit` droptarget `hogwarts castle door` in `last_lit` state.
 >   - Advance shot to `open`.
->   - Left drop target down.
-> - `Grap` the ball with `left flipper`.
-> - `Fling` the ball with `left flipper` into entrance shot.
->   - When shot is made with magnet fling, adward points.
->   - When shot is missed, left door open until shot is made with flippers.
->   - When shot is made with flippers, adward points butt less.
-> - Reset droptarget `hogwarts castle door` shot to `unlit`.
-> - Reset drop target.
+>   - Drop target stays down (open).
+> - 'Shoot' ball inside hogwarts castle 
+>   - Shot restarts
+>   - Drop target resets
 
-**level 3 - Dark Magic**<br />
+**level 3 - Dark Magic**
 
-1. Get inside `Hogwarts Castle` (**without** magnet grab and fling support).
-2. Ball will **not** be **locked** and will be **returned**.
-3. Lock one ball in `pensieve`.
-4. Lock one ball in `gringotts bank`.
-5. Lock one ball in `ministry of magic`.
-6. Get inside `Hogwarts Castle` (**without** magnet grab and fling support) to start a 3-ball multiball.
+1. Get inside `Hogwarts Castle`.
+2. Ball will be **locked** and you get a **new ball**.
+3. Get inside `Hogwarts Castle`.
+4. Ball will be **locked** and you get a **new ball**.
+5. Get inside `Hogwarts Castle`. (Now open for x seconds only)
+6. Ball will **not** be **locked** and will be **returned**.
+7. Lock one ball in `Forbidden Forrest`.
+8. Start a 3-ball multiball.
 
-Award: 4-ball multiball mission mode x.<br />
+Award: 3-ball multiball.
 
 > [!NOTE]
-> **Level 3 - Get inside castle (without magnet grab and fling support - door will be closed when missed, each new try is less points).**<br />
+> **Level 3 - Get inside castle.**
+> - `Hit` droptarget `hogwarts castle door` in `first_unlit` state.
+>   - Advance shot to `last_unlit`.
+>   - Reset drop target.
+> - `Hit` droptarget `hogwarts castle door` in `last_unlit` state.
+>   - Advance shot to `first_lit`.
+>   - Reset drop target.
+> - `Hit` droptarget `hogwarts castle door` in `first_lit` state.
+>   - Advance shot to `last_lit`.
+>   - Reset drop target.
+> - `Hit` droptarget `hogwarts castle door` in `last_lit` state.
+>   - Advance shot to `open`.
+>   - Drop target stays down (open for x seconds only).
+> - 'Shoot' ball inside hogwarts castle 
+>   - Shot restarts
+>   - Drop target resets
 
-**level 4 - Horcrux overview**<br />
+**level 4 - Horcrux overview**
 
-`Horcruxes` overview<br />
+`Horcruxes` overview
