@@ -51,7 +51,7 @@ Award: 2-ball multiball.
 
 Award: 3-ball multiball.
 
-[!NOTE]
+> [!NOTE]
 > **Level 2 - Get inside `Hogwarts Castle`.**
 > - `Hit` droptarget `hogwarts castle door` in `first_unlit` state.
 >   - Advance shot to `last_unlit`.
@@ -82,7 +82,8 @@ Award: 3-ball multiball.
 
 Award: 3-ball multiball.
 
-> [!NOTE] **Level 3 - Get inside `Hogwarts Castle`.**
+> [!NOTE]
+> **Level 3 - Get inside `Hogwarts Castle`.**
 > - `Hit` droptarget `hogwarts castle door` in `first_unlit` state.
 >   - Advance shot to `last_unlit`.
 >   - Reset drop target.
