@@ -1,6 +1,7 @@
 # Field mode - Hogwarts Castle
 
 ## Mode Description
+
 First time in Hogwarts Castle you get intro about the greatest wizards. (maybe at this point you have to choose a house).<br />
 After the intro you get an overview of your progress towards Hogwarts Castle, this will be shown everytime afterwards.<br />
 
@@ -12,7 +13,15 @@ The four levels modes are;
 - Mode `field_hogwarts_castle_level3` - Dark Magic
 - Mode `field_hogwarts_castle_level4` - Horcrux overview
 
+You have to lock ball in each of these levels. Once locked all the balls a multiball will be started.
+
+> [!NOTE]
+> Multiball_locks and multiballs will be handeled by global_hogwarts_castle mode.
+> That way we can stop this mode and start a mission mode or the next hogwarts_castle_level mode.
+
+
 ## Playfield position
+
 Hogwarts Castle is a combination of the 1-bank droptarget at the top of the playfield and the sinkhole behind the droptarget.<br />
 
 ## Detailed description
