@@ -3,10 +3,9 @@ switches:
   # Cabinet switches
   s_start_button:
     platform: opp
-    type: NC
-    number: 8-0-16
-    debounce: normal
-    ignore_window_ms: 500
+    number: 8-0-3
+    # debounce: normal
+    # ignore_window_ms: 500
     tags: start
   s_coin:
     platform: opp
