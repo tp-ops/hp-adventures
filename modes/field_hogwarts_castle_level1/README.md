@@ -26,7 +26,7 @@ Hogwarts Castle is a combination of the 1-bank droptarget at the top of the play
 
 Award: 2-ball multiball.
 
-> [!INFO] **Level 1 - Get inside `Hogwarts Castle`.**
+> [!NOTE] **Level 1 - Get inside `Hogwarts Castle`.**
 > - `Hit` droptarget `hogwarts castle door` in `unlit` state. 
 >   - Shot advanced to `lit`.
 >   - Drop target resets.
@@ -50,7 +50,7 @@ Award: 2-ball multiball.
 
 Award: 3-ball multiball.
 
-> [!INFO] **Level 2 - Get inside `Hogwarts Castle`.**
+> [!NOTE] **Level 2 - Get inside `Hogwarts Castle`.**
 > - `Hit` droptarget `hogwarts castle door` in `first_unlit` state.
 >   - Advance shot to `last_unlit`.
 >   - Reset drop target.
@@ -80,7 +80,7 @@ Award: 3-ball multiball.
 
 Award: 3-ball multiball.
 
-> [!INFO] **Level 3 - Get inside `Hogwarts Castle`.**
+> [!NOTE] **Level 3 - Get inside `Hogwarts Castle`.**
 > - `Hit` droptarget `hogwarts castle door` in `first_unlit` state.
 >   - Advance shot to `last_unlit`.
 >   - Reset drop target.
