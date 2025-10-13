@@ -1,5 +1,6 @@
-# Field - Hogwarts Castle
+# Field mode - Hogwarts Castle
 
+## Mode Description
 First time in Hogwarts Castle you get intro about the greatest wizards. (maybe at this point you have to choose a house).<br />
 After the intro you get an overview of your progress towards Hogwarts Castle, this will be shown everytime afterwards.<br />
 
@@ -11,9 +12,12 @@ The four levels modes are;
 - Mode `field_hogwarts_castle_level3` - Dark Magic
 - Mode `field_hogwarts_castle_level4` - Horcrux overview
 
-## Mode description
+## Playfield position
+Hogwarts Castle is a combination of the 1-bank droptarget at the top of the playfield and the sinkhole behind the droptarget.<br />
 
-**level 1 - Greatest wizard and witches**
+## Detailed description
+
+#### Level 1 - Greatest wizard and witches
 
 1. Get inside `Hogwarts Castle`.
 2. Ball will be **locked** and you get a **new ball**.
@@ -22,9 +26,8 @@ The four levels modes are;
 
 Award: 2-ball multiball.
 
-> [!NOTE]
-> **level 1 - Detailed description.**
-> - `Hit` droptarget `hogwarts castle door` in `unlit` state.
+> [!INFO] **Level 1 - Get inside `Hogwarts Castle`.**
+> - `Hit` droptarget `hogwarts castle door` in `unlit` state. 
 >   - Shot advanced to `lit`.
 >   - Drop target resets.
 > - `Hit` droptarget `hogwarts castle door` in `lit` state.
@@ -33,9 +36,8 @@ Award: 2-ball multiball.
 > - 'Shoot' ball inside hogwarts castle 
 >   - Shot restarts
 >   - Drop target resets
-
   
-**level 2 - You know who**
+#### Level 2 - You know who
 
 1. Get inside `Hogwarts Castle`.
 2. Ball will be **locked** and you get a **new ball**.
@@ -48,8 +50,7 @@ Award: 2-ball multiball.
 
 Award: 3-ball multiball.
 
-> [!NOTE]
-> **Level 2 - Get inside castle.**
+> [!INFO] **Level 2 - Get inside `Hogwarts Castle`.**
 > - `Hit` droptarget `hogwarts castle door` in `first_unlit` state.
 >   - Advance shot to `last_unlit`.
 >   - Reset drop target.
@@ -66,7 +67,7 @@ Award: 3-ball multiball.
 >   - Shot restarts
 >   - Drop target resets
 
-**level 3 - Dark Magic**
+#### Level 3 - Dark Magic
 
 1. Get inside `Hogwarts Castle`.
 2. Ball will be **locked** and you get a **new ball**.
@@ -79,8 +80,7 @@ Award: 3-ball multiball.
 
 Award: 3-ball multiball.
 
-> [!NOTE]
-> **Level 3 - Get inside castle.**
+> [!INFO] **Level 3 - Get inside `Hogwarts Castle`.**
 > - `Hit` droptarget `hogwarts castle door` in `first_unlit` state.
 >   - Advance shot to `last_unlit`.
 >   - Reset drop target.
@@ -97,6 +97,6 @@ Award: 3-ball multiball.
 >   - Shot restarts
 >   - Drop target resets
 
-**level 4 - Horcrux overview**
+#### Level 4 - Horcrux overview
 
 `Horcruxes` overview
