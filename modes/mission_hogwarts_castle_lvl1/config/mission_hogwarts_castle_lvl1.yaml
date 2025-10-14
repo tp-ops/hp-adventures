@@ -1,0 +1,5 @@
+#config_version=6
+mode:
+  start_events: start_mode_mission_hogwarts_castle_lvl1
+  stop_events: stop_mode_mission_hogwarts_castle_lvl1
+  priority: 600

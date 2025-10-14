@@ -96,9 +96,9 @@ event_player:
   # Stop field_hogwarts_castle_level1 mode and levelup state_machine sm_hogwarts_castle to level2.
   multiball_lock_mbl_hogwarts_castle_lvl1_subway_left_and_right_buffers_full:
     - start_mb_hogwarts_castle_lvl1_2ball
-    - start_mode_mission_hogwarts_castle_lvl1_mb  
+    - start_mode_mission_hogwarts_castle_lvl1
     - stop_mode_field_hogwarts_castle_level1
   multiball_mb_hogwarts_castle_lvl1_2ball_ended:
   # multiball_mb_hogwarts_castle_lvl1_2ball_ball_lost
-    - stop_mode_mission_hogwarts_castle_lvl1_mb
+    - stop_mode_mission_hogwarts_castle_lvl1
     - ce_levelup_hogwarts_castle_to_level2

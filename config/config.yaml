@@ -96,9 +96,8 @@ modes:
   - mission_quidditch
   - mission_deathly_hallows
   - mission_hagrids_place
-  - mission_hogwarts_castle_lvl1_mb
-  #- mission_spells
-  #- house_gryffindor
-  #- house_hufflepuf
-  #- house_ravenclaw
-  #- house_slydirin
+  - mission_hogwarts_castle_lvl1
+  - mission_house_cup_gryffindor
+  - mission_house_cup_hufflepuff
+  - mission_house_cup_ravenclaw
+  - mission_house_cup_slytherin

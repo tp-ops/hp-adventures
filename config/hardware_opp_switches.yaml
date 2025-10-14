@@ -3,7 +3,7 @@ switches:
   # Cabinet switches
   s_start_button:
     platform: opp
-    number: 8-0-3
+    number: 8-0-1
     # debounce: normal
     # ignore_window_ms: 500
     tags: start

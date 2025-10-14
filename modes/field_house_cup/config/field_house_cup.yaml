@@ -3,24 +3,13 @@ mode:
   start_events: start_mode_field_house_cup
   stop_events: stop_mode_field_house_cup
   priority: 300
-    
-shot_profiles:
-  sp_house_cup:
-    advance_on_hit: false
-    states:
-      - name: unlit
-        show: light_off
-        sync_ms: 500
-      - name: lit
-        show: flash_normal
-        sync_ms: 500
-      - name: active
-        show: flash_slow
-        sync_ms: 500
-      - name: played
-        show: light_on
-        sync_ms: 500
 
+# Mission Gryffindor  = Shoot ramps
+# Mission Ravenclaw   = Shoot orbits
+# Mission Hufflepuff  = Shoot targets
+# Mission Slytherin   = Shoot Forbidden Forrest + Ministry of Magic
+
+# Four houses, four LEDs, four shots.
 shots:
   sh_hc_godric_gryffindor:
     advance_events: advance_shot_godric_gryffindor
@@ -46,7 +35,28 @@ shots:
     show_tokens:
       led: l_ws2812_mis_slytherin
       color_name: slytherin_led
-            
+
+# Each shot has four states, these states are used for mode progression .
+shot_profiles:
+  sp_house_cup:
+    advance_on_hit: false
+    states:
+      - name: unlit
+        show: light_off
+        sync_ms: 500
+      - name: lit
+        show: flash_normal
+        sync_ms: 500
+      - name: active
+        show: flash_slow
+        sync_ms: 500
+      - name: played
+        show: light_on
+        sync_ms: 500
+
+# This counter is used to know wich shot has to advance at mode start.
+# Every time this mode is started, a new shot is lit.
+# See event_player where this counter value is used to lit the right shot.
 counters:
   lb_house_cup_to_lit_count:
     enable_events: mode_field_house_cup_started
@@ -59,20 +69,25 @@ counters:
     reset_on_complete: false
         
 event_player:
+  # Every time this mode is started, a new shot is lit.
+  # When this mode is started, the counter value and corresponding shot state determines which shot has to advance. Counter will be updated for next time.
   mode_field_house_cup_started.4{device.counters.lb_house_cup_to_lit_count.value==1 and current_player.shot_sh_hc_godric_gryffindor==0}: advance_shot_godric_gryffindor, update_hc_lit_count
   mode_field_house_cup_started.3{device.counters.lb_house_cup_to_lit_count.value==2 and current_player.shot_sh_hc_helga_hufflepuff==0}: advance_shot_helga_hufflepuff, update_hc_lit_count
   mode_field_house_cup_started.2{device.counters.lb_house_cup_to_lit_count.value==3 and current_player.shot_sh_hc_rowena_ravenclaw==0}: advance_shot_rowena_ravenclaw, update_hc_lit_count
   mode_field_house_cup_started.1{device.counters.lb_house_cup_to_lit_count.value==4 and current_player.shot_sh_hc_salazar_slytherin==0}: advance_shot_salazar_slytherin, update_hc_lit_count
   
+  # When you get the master_of_death event, a new shot will be lit. Again the counter value and corresponding shot state determines which shot has to advance. Counter will be updated for next time.
   master_of_death.3{device.counters.lb_house_cup_to_lit_count.value==2 and current_player.shot_sh_hc_helga_hufflepuff==0}: advance_shot_helga_hufflepuff, update_hc_lit_count
   master_of_death.2{device.counters.lb_house_cup_to_lit_count.value==3 and current_player.shot_sh_hc_rowena_ravenclaw==0}: advance_shot_rowena_ravenclaw, update_hc_lit_count
   master_of_death.1{device.counters.lb_house_cup_to_lit_count.value==4 and current_player.shot_sh_hc_salazar_slytherin==0}: advance_shot_salazar_slytherin, update_hc_lit_count
   
-  sh_core_captive_ball_hit.4{current_player.shot_sh_hc_godric_gryffindor==1}: advance_shot_godric_gryffindor
-  sh_core_captive_ball_hit.3{current_player.shot_sh_hc_helga_hufflepuff==1}: advance_shot_helga_hufflepuff
-  sh_core_captive_ball_hit.2{current_player.shot_sh_hc_rowena_ravenclaw==1}: advance_shot_rowena_ravenclaw
-  sh_core_captive_ball_hit.1{current_player.shot_sh_hc_salazar_slytherin==1}: advance_shot_salazar_slytherin
+  # When you hit the captibe ball, all shots which are lit will advance to active and a mission mode for these houses will be started.
+  sh_core_captive_ball_hit.4{current_player.shot_sh_hc_godric_gryffindor==1}: advance_shot_godric_gryffindor, start_mission_x
+  sh_core_captive_ball_hit.3{current_player.shot_sh_hc_helga_hufflepuff==1}: advance_shot_helga_hufflepuff, start_mission_x
+  sh_core_captive_ball_hit.2{current_player.shot_sh_hc_rowena_ravenclaw==1}: advance_shot_rowena_ravenclaw, start_mission_x
+  sh_core_captive_ball_hit.1{current_player.shot_sh_hc_salazar_slytherin==1}: advance_shot_salazar_slytherin, start_mission_x
   
+  # When this mode stop, all running mission modes are stopped also and the corresponding shot states will advance to played.
   mode_field_house_cup_will_stop.4{current_player.shot_sh_hc_godric_gryffindor==2}: advance_shot_godric_gryffindor
   mode_field_house_cup_will_stop.3{current_player.shot_sh_hc_helga_hufflepuff==2}: advance_shot_helga_hufflepuff
   mode_field_house_cup_will_stop.2{current_player.shot_sh_hc_rowena_ravenclaw==2}: advance_shot_rowena_ravenclaw

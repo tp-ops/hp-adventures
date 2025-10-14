@@ -1,0 +1,5 @@
+#config_version=6
+mode:
+  start_events: start_mode_mission_house_cup_gryffindor
+  stop_events: stop_mode_mission_house_cup_gryffindor
+  priority: 600
