@@ -10,86 +10,117 @@
 # Step X - When a ball drains when Spells Light is active - Reset both Light shots to unlit, reset counter, reset timer and
 #          advance state_machine to next level without a bonus.
 
-# ---------------
-#  Mode Settings
-# ---------------
 mode:           
   start_events: start_mode_field_quidditch_stadium
   stop_events: stop_mode_field_quidditch_stadium
   priority: 300
 
-# ------------
-#  Mode Logic 
-# ------------
-shot_groups:
-  # Step 1 - Qualify group shot
-  sg_quidditch_statium_qualify:
-    shots: sh_pop_left_qualify, sh_pop_right_qualify, sh_pop_bottom_qualify
+# Used accruals instead of shot_groups.
+# lb_quidditch_stadium_accrual has no shots to use with a shot_group. Counter logicblock events are used therefor an accrual necessary.
+# lb_quidditch_stadium_qualify_accrual is using an accrual also instead of a shot_group for simplicity and readability.
+accruals:
+  # Step 1 - Quidditch stadium qualify shots
+  lb_quidditch_statium_qualifying_accrual:
+    enable_events: mode_field_quidditch_stadium_started{device.shots.sh_quidditch_stadium.state_name == 'unlit'}
+    disable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
+    persist_state: true
+    events:
+      - sh_pop_left_qualify_hit
+      - sh_pop_right_qualify_hit
+      - sh_pop_bottom_qualify_hit
+
+  # Step 2 - Quidditch stadium shots
+  lb_quidditch_stadium_accrual:
+    enable_events: 
+      - logicblock_lb_quidditch_statium_qualifying_accrual_complete
+      - mode_field_quidditch_stadium_started{device.shots.sh_quidditch_stadium.state_name == 'lit'}
+    disable_events: mode_field_quidditch_stadium_will_stop
+    persist_state: true
+    events:
+      - logicblock_lb_pop_left_shot_counter_complete
+      - logicblock_lb_pop_right_shot_counter_complete
+      - logicblock_lb_pop_bottom_shot_counter_complete
+
+  # Step 2 - Accural shot to complete
+  lb_quidditch_accrual:
+    enable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
+    persist_state: true
+    events:
+      - logicblock_lb_quidditch_stadium_accrual_complete
+      - sh_quidditch_orbit_lit_hit
+    reset_on_complete: true
+    events_when_complete: you_are_a_quidditch_player
 
 shots:
-  # Step 1 - Qualify shot
+  # Step 1 - Qualify pop bumper shots at mode start when shot_state is qualifying.
+  # Hit every pop bumper once to complete sg_quidditch_statium_qualify shot_group.
   sh_pop_left_qualify:
-    enable_events: mode_field_quidditch_stadium_started
-    disable_events: sg_quidditch_statium_qualify_hit_complete
-    reset_events: mode_field_quidditch_stadium_will_stop
+    enable_events: mode_field_quidditch_stadium_started{device.shots.sh_pop_left_qualify.state_name == 'qualifying'}
+    disable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
     hit_events: sh_core_pop_left_hit
-    profile: sp_quidditch_qualify
+    profile: sp_pops_qualify
     show_tokens:
       led: l_pop_left_inner_ring
       color_name: white
-  # Step 1 - Qualify shot
   sh_pop_right_qualify:
-    enable_events: mode_field_quidditch_stadium_started
-    disable_events: sg_quidditch_statium_qualify_hit_complete
-    reset_events: mode_field_quidditch_stadium_will_stop
+    enable_events: mode_field_quidditch_stadium_started{device.shots.sh_pop_right_qualify.state_name == 'qualifying'}
+    disable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
     hit_events: sh_core_pop_right_hit
-    profile: sp_quidditch_qualify
+    profile: sp_pops_qualify
     show_tokens:
       led: l_pop_right_inner_ring
       color_name: white
-  # Step 1 - Qualify shot
   sh_pop_bottom_qualify:
-    enable_events: mode_field_quidditch_stadium_started
-    disable_events: sg_quidditch_statium_qualify_hit_complete
-    reset_events: mode_field_quidditch_stadium_will_stop
+    enable_events: mode_field_quidditch_stadium_started{device.shots.sh_pop_bottom_qualify.state_name == 'qualifying'}
+    disable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
     hit_events: sh_core_pop_bottom_hit
-    profile: sp_quidditch_qualify
+    profile: sp_pops_qualify
     show_tokens:
       led: l_pop_bottom_inner_ring
       color_name: white
-  # Pop bumper shot
+
+  # Step 2 - Pop bumper shots after qualified.
+  # Hit every pop bumper until corresponding outer ring is complete (16 shots per pop bumper).
+  # A counter is used for each pop_shot to determine which leds needs to go on which is controlled by show_player.
+  # These shots have no profile since pop bumper flash when hit (inner ring leds) is also controlled by show_player.
   sh_pop_left:
-    enable_events: sg_quidditch_statium_qualify_hit_complete
+    enable_events: 
+      - logicblock_lb_quidditch_statium_qualifying_accrual_complete
+      - mode_field_quidditch_stadium_started{device.shots.sh_quidditch_stadium.state_name == 'lit'}
     hit_events: sh_core_pop_left_hit
-  # Pop bumper shot
   sh_pop_right:
-    enable_events: sg_quidditch_statium_qualify_hit_complete
+    enable_events: 
+      - logicblock_lb_quidditch_statium_qualifying_accrual_complete
+      - mode_field_quidditch_stadium_started{device.shots.sh_quidditch_stadium.state_name == 'lit'}
     hit_events: sh_core_pop_right_hit
-  # Pop bumper shot
   sh_pop_bottom:
-    enable_events: sg_quidditch_statium_qualify_hit_complete
+    enable_events: 
+      - logicblock_lb_quidditch_statium_qualifying_accrual_complete
+      - mode_field_quidditch_stadium_started{device.shots.sh_quidditch_stadium.state_name == 'lit'}
     hit_events: sh_core_pop_bottom_hit
-  # Step 2 - Quidditch Stadium shot (pop bumper shots)
+  
+  # Step 2 - Quidditch statum led
+  # This shot is used to controle quidditch_statum shot led.
+  # Shot group for all three pop counters, when completed this shot is advanced
   sh_quidditch_stadium:
-    enable_events: sg_quidditch_statium_qualify_hit_complete
+    enable_events: 
+      - logicblock_lb_quidditch_statium_qualifying_accrual_complete
+      - mode_field_quidditch_stadium_started{device.shots.sh_quidditch_stadium.state_name == 'lit'}
     disable_events: mode_field_quidditch_stadium_will_stop
     profile: sp_quidditch_stadium
     advance_events:
-      - sg_quidditch_statium_qualify_hit_complete{device.shots.sh_quidditch_stadium.state_name == 'unlit'}
-      - quidditch_pop_bumper_count_completed
-    hit_events: 
-      - sh_pop_left_hit
-      - sh_pop_right_hit
-      - sh_pop_bottom_hit
+      - logicblock_lb_quidditch_statium_qualifying_accrual_complete
+      - sg_quidditch_statium_complete{device.shots.sh_quidditch_stadium.state_name == 'lit'}
     show_tokens:
       led: l_ws2812_shot_quidditch
       color_name: yellow
+
   # Step 2 - One left orbit shot
   sh_quidditch_orbit:
-    enable_events: sg_quidditch_statium_qualify_hit_complete
+    enable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
     disable_events: mode_field_quidditch_stadium_will_stop
     profile: sp_quidditch_orbit
-    advance_events: sg_quidditch_statium_qualify_hit_complete{device.shots.sh_quidditch_orbit.state_name == 'unlit'}
+    advance_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete{device.shots.sh_quidditch_orbit.state_name == 'unlit'}
     hit_events: 
       # Events from env_orbit and env_orbit_alternative modes
       - sq_shot_orbit_big_left_hit
@@ -97,24 +128,18 @@ shots:
     show_tokens:
       led: l_ws2812_shot_forrest
       color_name: yellow
-  sh_mis_quidditch:
-    profile: sp_mis_quidditch
-    persist_enable: true
-    advance_events:
-      - mode_field_quidditch_stadium_started{device.shots.sh_mis_quidditch.state_name == 'unlit'}
-    show_tokens:
-      led: l_ws2812_mis_quidditch
-      color_name: (current_player.house_theme_led)
 
 shot_profiles:
-  sp_quidditch_qualify:
+  # Control inner ring leds for pop_qualify shots when qualifying at mode start
+  sp_pops_qualify:
     states:
-      - name: lit
+      - name: qualifying
         show: flash_normal
         sync_ms: 500
-      - name: hit
+      - name: qualified
         show: light_on
         sync_ms: 500
+  # Control Quidditch Stadium led      
   sp_quidditch_stadium:
     advance_on_hit: false
     states:
@@ -123,9 +148,6 @@ shot_profiles:
         sync_ms: 500
       - name: lit
         show: flash_normal
-        sync_ms: 500
-      - name: hit
-        show: light_off
         sync_ms: 500
   sp_quidditch_orbit:
     advance_on_hit: true
@@ -139,102 +161,456 @@ shot_profiles:
       - name: hit
         show: light_off
         sync_ms: 500
-  sp_mis_quidditch:
-    advance_on_hit: false
-    states:
-      - name: unlit
-        show: light_off
-        sync_ms: 500
-      - name: lit
-        show: flash_normal
-        sync_ms: 500
-      - name: active
-        show: flash_slow
-        sync_ms: 500
-      - name: completed
-        show: on
-        sync_ms: 500
-
-accruals:
-  # Step 2 - Accural shot to complete
-  lb_quidditch_accrual:
-    enable_events: sg_quidditch_statium_qualify_hit_complete
-    persist_state: true
-    events:
-      - quidditch_pop_bumper_count_completed
-      - sh_quidditch_orbit_lit_hit
-    reset_on_complete: true
-    events_when_complete: you_are_a_quidditch_player
 
 counters:
-  # Step 2 - Make x Quidditch Stadium shots (pop bumper shots)
-  lb_quidditch_pop_bumper_counter:
-    enable_events:
-      - sg_quidditch_statium_qualify_hit_complete{device.shots.sh_quidditch_stadium.state_name == 'unlit'}
-      - sg_quidditch_statium_qualify_hit_complete{device.shots.sh_quidditch_stadium.state_name == 'lit'}
+  # Step 2 - Make 16 pop bumper shots to complete led outer ring per pop bumper.
+  # A counter for each pop_shot after qualified.
+  # Each pop bumper has a 16 led outer ring.
+  # At every count the corresponding led(s) will go on controlled by show_player.
+  lb_pop_left_shot_counter:
+    enable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
     disable_events: mode_field_quidditch_stadium_will_stop
-    count_events: sh_quidditch_stadium_hit
-    count_complete_value: 10
+    count_events: sh_pop_left_hit
+    # 16 leds outer ring thus 16 counts, started at 0 when enabled.
+    count_complete_value: 16
     start_enabled: false
     disable_on_complete: true
     persist_state: true
-    events_when_complete: quidditch_pop_bumper_count_completed
-    
-# Counter -> logic_block_timer (complete all counters within this time)
-# Counter ->  control_events:
-#              - event: add_five_event
-#                action: add
-#                value: 5
+  lb_pop_right_shot_counter:
+    enable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
+    disable_events: mode_field_quidditch_stadium_will_stop
+    count_events: sh_pop_right_hit
+    # 16 leds outer ring thus 16 counts, started at 0 when enabled.
+    count_complete_value: 16
+    start_enabled: false
+    disable_on_complete: true
+    persist_state: true
+  lb_pop_bottom_shot_counter:
+    enable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
+    disable_events: mode_field_quidditch_stadium_will_stop
+    count_events: sh_pop_bottom_hit
+    # 16 leds outer ring thus 16 counts, started at 0 when enabled.
+    count_complete_value: 16
+    start_enabled: false
+    disable_on_complete: true
+    persist_state: true
 
-# ----------------
-#  Config Players 
-# ----------------
 show_player:
+  # Inner ring flash when pop_shot is hit after qualified
   sh_pop_left_hit: 
     flash_normal:
-      key: pop_left
+      key: pop_left_flash
       action: play
       loops: 0
       show_tokens:
-        led: l_pop_left_outer_ring
+        led: l_pop_left_inner_ring
         color_name: white
   sh_pop_right_hit: 
     flash_normal:
-      key: pop_right
+      key: pop_right_flash
       action: play
       loops: 0
       show_tokens:
-        led: l_pop_right_outer_ring
+        led: l_pop_right_inner_ring
         color_name: white
   sh_pop_bottom_hit: 
     flash_normal:
-      key: pop_bottom
+      key: pop_bottom_flash
       action: play
       loops: 0
       show_tokens:
-        led: l_pop_bottom_outer_ring
+        led: l_pop_bottom_inner_ring
         color_name: white
 
-sound_player:
-  sg_quidditch_statium_qualify_hit:
-    pop_bumper_pool:
+  # Left outer ring progression based on correponding pop_shot_counter
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==1}:
+    light_on:
+      key: pop_left_on
       action: play
-  sh_quidditch_stadium_hit:
-    pop_bumper_pool:
+      show_tokens:
+        led: l_pop_left_outer_ring_1
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==2}:
+    light_on:
+      key: pop_left_on
       action: play
-  sh_quidditch_orbit_lit_hit:
-    mysterious_03:
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==3}:
+    light_on:
+      key: pop_left_on
       action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==4}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==5}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==6}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5,
+          l_pop_left_outer_ring_6
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==7}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5,
+          l_pop_left_outer_ring_6, l_pop_left_outer_ring_7
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==8}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5,
+          l_pop_left_outer_ring_6, l_pop_left_outer_ring_7, l_pop_left_outer_ring_8
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==9}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5,
+          l_pop_left_outer_ring_6, l_pop_left_outer_ring_7, l_pop_left_outer_ring_8, l_pop_left_outer_ring_9
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==10}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5,
+          l_pop_left_outer_ring_6, l_pop_left_outer_ring_7, l_pop_left_outer_ring_8, l_pop_left_outer_ring_9, l_pop_left_outer_ring_10
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==11}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5,
+          l_pop_left_outer_ring_6, l_pop_left_outer_ring_7, l_pop_left_outer_ring_8, l_pop_left_outer_ring_9, l_pop_left_outer_ring_10,
+          l_pop_left_outer_ring_11
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==12}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5,
+          l_pop_left_outer_ring_6, l_pop_left_outer_ring_7, l_pop_left_outer_ring_8, l_pop_left_outer_ring_9, l_pop_left_outer_ring_10,
+          l_pop_left_outer_ring_11, l_pop_left_outer_ring_12
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==13}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5,
+          l_pop_left_outer_ring_6, l_pop_left_outer_ring_7, l_pop_left_outer_ring_8, l_pop_left_outer_ring_9, l_pop_left_outer_ring_10,
+          l_pop_left_outer_ring_11, l_pop_left_outer_ring_12, l_pop_left_outer_ring_13
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==14}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5,
+          l_pop_left_outer_ring_6, l_pop_left_outer_ring_7, l_pop_left_outer_ring_8, l_pop_left_outer_ring_9, l_pop_left_outer_ring_10,
+          l_pop_left_outer_ring_11, l_pop_left_outer_ring_12, l_pop_left_outer_ring_13, l_pop_left_outer_ring_14
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==15}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5,
+          l_pop_left_outer_ring_6, l_pop_left_outer_ring_7, l_pop_left_outer_ring_8, l_pop_left_outer_ring_9, l_pop_left_outer_ring_10,
+          l_pop_left_outer_ring_11, l_pop_left_outer_ring_12, l_pop_left_outer_ring_13, l_pop_left_outer_ring_14, l_pop_left_outer_ring_15
+        color_name: white
+  logicblock_lb_pop_left_shot_counter_updated{device.counters.lb_pop_left_shot_counter.enabled==True and device.counters.lb_pop_left_shot_counter.value==16}:
+    light_on:
+      key: pop_left_on
+      action: play
+      show_tokens:
+        led: l_pop_left_outer_ring_1, l_pop_left_outer_ring_2, l_pop_left_outer_ring_3, l_pop_left_outer_ring_4, l_pop_left_outer_ring_5,
+          l_pop_left_outer_ring_6, l_pop_left_outer_ring_7, l_pop_left_outer_ring_8, l_pop_left_outer_ring_9, l_pop_left_outer_ring_10,
+          l_pop_left_outer_ring_11, l_pop_left_outer_ring_12, l_pop_left_outer_ring_13, l_pop_left_outer_ring_14, l_pop_left_outer_ring_15, l_pop_left_outer_ring_16
+        color_name: white
 
-# var_mc_ variables are used for mpf-mc for showing on slides.
-variable_player:
-  logicblock_lb_quidditch_pop_bumper_counter_hit:
-    var_score: 10
-    var_mc_quidditch_pop_bumper_count:
-      int: device.counters.lb_quidditch_pop_bumper_counter.value
-      action: set
+  # Right outer ring progression based on correponding pop_shot_counter
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==1}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==2}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==3}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==4}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==5}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==6}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5,
+          l_pop_right_outer_ring_6
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==7}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5,
+          l_pop_right_outer_ring_6, l_pop_right_outer_ring_7
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==8}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5,
+          l_pop_right_outer_ring_6, l_pop_right_outer_ring_7, l_pop_right_outer_ring_8
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==9}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5,
+          l_pop_right_outer_ring_6, l_pop_right_outer_ring_7, l_pop_right_outer_ring_8, l_pop_right_outer_ring_9
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==10}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5,
+          l_pop_right_outer_ring_6, l_pop_right_outer_ring_7, l_pop_right_outer_ring_8, l_pop_right_outer_ring_9, l_pop_right_outer_ring_10
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==11}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5,
+          l_pop_right_outer_ring_6, l_pop_right_outer_ring_7, l_pop_right_outer_ring_8, l_pop_right_outer_ring_9, l_pop_right_outer_ring_10,
+          l_pop_right_outer_ring_11
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==12}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5,
+          l_pop_right_outer_ring_6, l_pop_right_outer_ring_7, l_pop_right_outer_ring_8, l_pop_right_outer_ring_9, l_pop_right_outer_ring_10,
+          l_pop_right_outer_ring_11, l_pop_right_outer_ring_12
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==13}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5,
+          l_pop_right_outer_ring_6, l_pop_right_outer_ring_7, l_pop_right_outer_ring_8, l_pop_right_outer_ring_9, l_pop_right_outer_ring_10,
+          l_pop_right_outer_ring_11, l_pop_right_outer_ring_12, l_pop_right_outer_ring_13
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==14}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5,
+          l_pop_right_outer_ring_6, l_pop_right_outer_ring_7, l_pop_right_outer_ring_8, l_pop_right_outer_ring_9, l_pop_right_outer_ring_10,
+          l_pop_right_outer_ring_11, l_pop_right_outer_ring_12, l_pop_right_outer_ring_13, l_pop_right_outer_ring_14
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==15}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5,
+          l_pop_right_outer_ring_6, l_pop_right_outer_ring_7, l_pop_right_outer_ring_8, l_pop_right_outer_ring_9, l_pop_right_outer_ring_10,
+          l_pop_right_outer_ring_11, l_pop_right_outer_ring_12, l_pop_right_outer_ring_13, l_pop_right_outer_ring_14, l_pop_right_outer_ring_15
+        color_name: white
+  logicblock_lb_pop_right_shot_counter_updated{device.counters.lb_pop_right_shot_counter.enabled==True and device.counters.lb_pop_right_shot_counter.value==16}:
+    light_on:
+      key: pop_right_on
+      action: play
+      show_tokens:
+        led: l_pop_right_outer_ring_1, l_pop_right_outer_ring_2, l_pop_right_outer_ring_3, l_pop_right_outer_ring_4, l_pop_right_outer_ring_5,
+          l_pop_right_outer_ring_6, l_pop_right_outer_ring_7, l_pop_right_outer_ring_8, l_pop_right_outer_ring_9, l_pop_right_outer_ring_10,
+          l_pop_right_outer_ring_11, l_pop_right_outer_ring_12, l_pop_right_outer_ring_13, l_pop_right_outer_ring_14, l_pop_right_outer_ring_15, l_pop_right_outer_ring_16
+        color_name: white
 
-slide_player:
-  logicblock_lb_quidditch_pop_bumper_counter_hit: 
-    sl_quidditch_pop_bumper_count:
-      expire: 0.7s
+  # Bottom outer ring progression based on correponding pop_shot_counter
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==1}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==2}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==3}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==4}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==5}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==6}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5,
+          l_pop_bottom_outer_ring_6
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==7}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5,
+          l_pop_bottom_outer_ring_6, l_pop_bottom_outer_ring_7
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==8}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5,
+          l_pop_bottom_outer_ring_6, l_pop_bottom_outer_ring_7, l_pop_bottom_outer_ring_8
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==9}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5,
+          l_pop_bottom_outer_ring_6, l_pop_bottom_outer_ring_7, l_pop_bottom_outer_ring_8, l_pop_bottom_outer_ring_9
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==10}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5,
+          l_pop_bottom_outer_ring_6, l_pop_bottom_outer_ring_7, l_pop_bottom_outer_ring_8, l_pop_bottom_outer_ring_9, l_pop_bottom_outer_ring_10
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==11}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5,
+          l_pop_bottom_outer_ring_6, l_pop_bottom_outer_ring_7, l_pop_bottom_outer_ring_8, l_pop_bottom_outer_ring_9, l_pop_bottom_outer_ring_10,
+          l_pop_bottom_outer_ring_11
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==12}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5,
+          l_pop_bottom_outer_ring_6, l_pop_bottom_outer_ring_7, l_pop_bottom_outer_ring_8, l_pop_bottom_outer_ring_9, l_pop_bottom_outer_ring_10,
+          l_pop_bottom_outer_ring_11, l_pop_bottom_outer_ring_12
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==13}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5,
+          l_pop_bottom_outer_ring_6, l_pop_bottom_outer_ring_7, l_pop_bottom_outer_ring_8, l_pop_bottom_outer_ring_9, l_pop_bottom_outer_ring_10,
+          l_pop_bottom_outer_ring_11, l_pop_bottom_outer_ring_12, l_pop_bottom_outer_ring_13
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==14}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5,
+          l_pop_bottom_outer_ring_6, l_pop_bottom_outer_ring_7, l_pop_bottom_outer_ring_8, l_pop_bottom_outer_ring_9, l_pop_bottom_outer_ring_10,
+          l_pop_bottom_outer_ring_11, l_pop_bottom_outer_ring_12, l_pop_bottom_outer_ring_13, l_pop_bottom_outer_ring_14
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==15}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5,
+          l_pop_bottom_outer_ring_6, l_pop_bottom_outer_ring_7, l_pop_bottom_outer_ring_8, l_pop_bottom_outer_ring_9, l_pop_bottom_outer_ring_10,
+          l_pop_bottom_outer_ring_11, l_pop_bottom_outer_ring_12, l_pop_bottom_outer_ring_13, l_pop_bottom_outer_ring_14, l_pop_bottom_outer_ring_15
+        color_name: white
+  logicblock_lb_pop_bottom_shot_counter_updated{device.counters.lb_pop_bottom_shot_counter.enabled==True and device.counters.lb_pop_bottom_shot_counter.value==16}:
+    light_on:
+      key: pop_bottom_on
+      action: play
+      show_tokens:
+        led: l_pop_bottom_outer_ring_1, l_pop_bottom_outer_ring_2, l_pop_bottom_outer_ring_3, l_pop_bottom_outer_ring_4, l_pop_bottom_outer_ring_5,
+          l_pop_bottom_outer_ring_6, l_pop_bottom_outer_ring_7, l_pop_bottom_outer_ring_8, l_pop_bottom_outer_ring_9, l_pop_bottom_outer_ring_10,
+          l_pop_bottom_outer_ring_11, l_pop_bottom_outer_ring_12, l_pop_bottom_outer_ring_13, l_pop_bottom_outer_ring_14, l_pop_bottom_outer_ring_15, l_pop_bottom_outer_ring_16
+        color_name: white

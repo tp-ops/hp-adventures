@@ -1,0 +1,21 @@
+#config_version=6
+
+multiballs:
+  mb_quidditch_stadium_pop_left_add_ball:
+    enable_events: mode_field_quidditch_stadium_started
+    disable_events: mode_field_quidditch_stadium_stopped
+    start_events: logicblock_lb_pop_left_shot_counter_complete
+    ball_count: 1
+    ball_count_type: add
+  mb_quidditch_stadium_pop_right_add_ball:
+    enable_events: mode_field_quidditch_stadium_started
+    disable_events: mode_field_quidditch_stadium_stopped
+    start_events: logicblock_lb_pop_right_shot_counter_complete
+    ball_count: 1
+    ball_count_type: add
+
+event_player:
+  mode_global_started:
+    - start_mode_field_quidditch_stadium
+  mode_global_will_stop:
+    - stop_mode_field_quidditch_stadium
