@@ -168,7 +168,9 @@ counters:
   # Each pop bumper has a 16 led outer ring.
   # At every count the corresponding led(s) will go on controlled by show_player.
   lb_pop_left_shot_counter:
-    enable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
+    enable_events: 
+      - logicblock_lb_quidditch_statium_qualifying_accrual_complete
+      - mode_field_quidditch_stadium_started{device.shots.sh_quidditch_stadium.state_name == 'lit'}
     disable_events: mode_field_quidditch_stadium_will_stop
     count_events: sh_pop_left_hit
     # 16 leds outer ring thus 16 counts, started at 0 when enabled.
@@ -177,7 +179,9 @@ counters:
     disable_on_complete: true
     persist_state: true
   lb_pop_right_shot_counter:
-    enable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
+    enable_events: 
+      - logicblock_lb_quidditch_statium_qualifying_accrual_complete
+      - mode_field_quidditch_stadium_started{device.shots.sh_quidditch_stadium.state_name == 'lit'}
     disable_events: mode_field_quidditch_stadium_will_stop
     count_events: sh_pop_right_hit
     # 16 leds outer ring thus 16 counts, started at 0 when enabled.
@@ -186,7 +190,9 @@ counters:
     disable_on_complete: true
     persist_state: true
   lb_pop_bottom_shot_counter:
-    enable_events: logicblock_lb_quidditch_statium_qualifying_accrual_complete
+    enable_events: 
+      - logicblock_lb_quidditch_statium_qualifying_accrual_complete
+      - mode_field_quidditch_stadium_started{device.shots.sh_quidditch_stadium.state_name == 'lit'}
     disable_events: mode_field_quidditch_stadium_will_stop
     count_events: sh_pop_bottom_hit
     # 16 leds outer ring thus 16 counts, started at 0 when enabled.

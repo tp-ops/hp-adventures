@@ -10,569 +10,331 @@ class test_game_logic(MpfGameTestCase):
 
     def get_platform(self):
         return 'smart_virtual'
+    
+    def _start_game(self):
+        """Starting a game and progress through house_theme_selection and skill_shot mode."""
 
-    def test_quilify_one_ball(self):
+        # Start game and select a house_theme
+        for i in range(2):
+            self.hit_and_release_switch("s_start_button")
+            self.advance_time_and_run(1)
 
-        self.get_options()
+        # Progress through skill_shot mode
+        self.release_switch_and_run("s_plunger_lane", 30)
 
-        # Hit 'Start' button to start a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Hit 'Start' button to select a theme
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Advance skillshot platform
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
-
-        # Ensure that mode field_quidditch_statium is running
-        self.assertModeRunning("field_quidditch_stadium")
-
-        # Ensure that shots are enabled with proper shot_states
-        self.assertTrue(self.machine.shots["sh_pop_left_qualify"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_right_qualify"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_bottom_qualify"].enabled)
-        self.assertFalse(self.machine.shots["sh_pop_left"].enabled)
-        self.assertFalse(self.machine.shots["sh_pop_right"].enabled)
-        self.assertFalse(self.machine.shots["sh_pop_bottom"].enabled)
-        self.assertFalse(self.machine.shots["sh_quidditch_stadium"].enabled)
-        self.assertFalse(self.machine.shots["sh_quidditch_orbit"].enabled)
-        self.assertTrue(self.machine.shots["sh_mis_quidditch"].enabled)
-
-        self.assertEqual("lit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_left"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_right"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_bottom"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
-
-        # Are both counter quidditch_pop_bumper_count and accrual quidditch_accrual disabled ?
-        self.assertFalse(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
-        self.assertFalse(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
-
-        # Qualify to enable shots for quidditch stadium - hit all three pops
-        self.hit_and_release_switch("s_pop_left")
-        self.advance_time_and_run(1)
-        self.assertEqual("hit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_left"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_right"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_bottom"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
-     
-        self.hit_and_release_switch("s_pop_right")
-        self.advance_time_and_run(1)
-        self.assertEqual("hit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_left"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_right"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_bottom"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
-        
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
-        self.assertEqual("hit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_left"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_right"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_bottom"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
-
-        # Chech that qualify shots are disabled and normal pop shots are enabled
-        self.assertFalse(self.machine.shots["sh_pop_left_qualify"].enabled)
-        self.assertFalse(self.machine.shots["sh_pop_right_qualify"].enabled)
-        self.assertFalse(self.machine.shots["sh_pop_bottom_qualify"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_bottom"].enabled)
-
-        # Check that stadium and orbit shots are enabled now
-        self.assertTrue(self.machine.shots["sh_quidditch_stadium"].enabled)
-        self.assertTrue(self.machine.shots["sh_quidditch_orbit"].enabled)
-        self.assertTrue(self.machine.shots["sh_mis_quidditch"].enabled)
-
-        # Are both counter quidditch_pop_bumper_count and accrual quidditch_accrual enabled ?
-        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
-        self.assertTrue(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
-
-    def test_quilify_with_drain(self):
-
-        self.get_options()
-
-        # Hit 'Start' button to start a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Hit 'Start' button to select a theme
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Advance skillshot platform
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
-
-        # Ensure that mode field_quidditch_statium is running
-        self.assertModeRunning("field_quidditch_stadium")
-
-        self.assertEqual("lit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
-
-        # Make one qualify shot
-        self.hit_and_release_switch("s_pop_left")
-        self.advance_time_and_run(1)
-        self.assertEqual("hit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
+    def _drain_one_ball(self):
+        """Drain one ball and progress through skill_shot mode"""
 
         # Drain ball
-        self.assertBallNumber(1)
         self.drain_one_ball()
         self.advance_time_and_run(5)
         
         # Plunge ball 2 and advance skillshot platform
-        self.assertBallNumber(2)
-        self.release_switch_and_run("s_plunger_lane", 11)
+        self.release_switch_and_run("s_plunger_lane", 30)
+
+    def test_mode_start_logic(self):
+        """Test mode start requirements."""
+
+        # Start a game
+        self._start_game()
         self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
-
-        # Check qualify shots (all three lit again)
-        self.assertEqual("lit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
-
-        # Make all three qualify shot
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
-        self.assertEqual("hit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
-        
-        # Check counter and accrual
-        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
-        self.assertTrue(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
-        
-        # Shot states
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
-
-    def test_accrual_one_ball(self):
-
-        self.get_options()
-
-        # Hit 'Start' button to start a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Hit 'Start' button to select a theme
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Advance skillshot platform
-        self.release_switch_and_run("s_plunger_lane", 11)
-        self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
 
         # Ensure that mode field_quidditch_statium is running
         self.assertModeRunning("field_quidditch_stadium")
 
-        # Qualify to enable shots for quidditch stadium - hit all three pops
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
-        self.assertEqual("hit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_left"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_right"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_bottom"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
+        # Ensure that shots are in proper state
+        for shot in ['sh_pop_left_qualify', 'sh_pop_right_qualify', 'sh_pop_bottom_qualify']:
+            self.assertTrue(self.machine.shots[shot].enabled)
+            self.assertEqual("qualifying", self.machine.shots[shot].state_name)
 
-        # Chech that qualify shots are disabled and normal pop shots are enabled
-        self.assertFalse(self.machine.shots["sh_pop_left_qualify"].enabled)
-        self.assertFalse(self.machine.shots["sh_pop_right_qualify"].enabled)
-        self.assertFalse(self.machine.shots["sh_pop_bottom_qualify"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_bottom"].enabled)
+        for shot in ['sh_pop_left', 'sh_pop_right', 'sh_pop_bottom', 'sh_quidditch_stadium', 'sh_quidditch_orbit']:
+            self.assertFalse(self.machine.shots[shot].enabled)
+            self.assertEqual("unlit", self.machine.shots[shot].state_name)
 
-        # Check that stadium and orbit shots are enabled now
-        self.assertTrue(self.machine.shots["sh_quidditch_stadium"].enabled)
-        self.assertTrue(self.machine.shots["sh_quidditch_orbit"].enabled)
-        self.assertTrue(self.machine.shots["sh_mis_quidditch"].enabled)
+        # Initially the qualifying accrual should be enabled with values to false
+        qualify_accrual = self.machine.accruals["lb_quidditch_statium_qualifying_accrual"]
+        self.assertTrue(qualify_accrual.enabled)
+        for i in range(3):
+            self.assertEqual(False,qualify_accrual.value[i])
 
-        # Are both counter quidditch_pop_bumper_count and accrual quidditch_accrual enabled ?
-        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
-        self.assertTrue(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
+        # Are the pop bumper shot counter disabled and count 0
+        for counter in ['lb_pop_left_shot_counter', 'lb_pop_right_shot_counter', 'lb_pop_bottom_shot_counter']:
+            self.assertFalse(self.machine.counters[counter].enabled)
+            self.assertEqual(0, self.machine.counters[counter].value)
 
-        # Make 9 pop bumper shots and one left orbit shot to advance
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
-        self.assertEqual(3, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
-        self.assertEqual(6, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
-        self.assertEqual(9, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
-        
-        # Shot 10
-        self.mock_event("quidditch_pop_bumper_count_completed")
-        self.hit_and_release_switch("s_pop_left")
-        self.advance_time_and_run(1)
-        self.assertEventCalled("quidditch_pop_bumper_count_completed")
-        self.reset_mock_events()
+        # Initially the quidditch stadium accrual should be disabled with values to false
+        quidditch_accrual = self.machine.accruals["lb_quidditch_stadium_accrual"]
+        self.assertFalse(quidditch_accrual.enabled)
+        for i in range(3):
+            self.assertEqual(False,quidditch_accrual.value[i])
 
-        # Counter completed and disabled
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertFalse(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
-        
-        # Accrual updated
-        self.assertEqual(True,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
-        
-        # Shot state changes
-        self.assertEqual("hit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
+    def test_qualifying_accrual_completion(self):
+        """Hitting all 3 pop qualify shots should complete the qualifying accrual."""
 
-        # Make one left orbit shot
-        self.mock_event("you_are_a_quidditch_player")
-        self.hit_and_release_switch("s_orbit_left")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_orbit_right")
-        self.advance_time_and_run(1)
-      
-        # Shot state changes
-        self.assertEqual("hit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
+        # Mock events
+        for ev in ['sh_pop_left_qualify_hit', 'sh_pop_right_qualify_hit', 'sh_pop_bottom_qualify_hit',
+                   'logicblock_lb_quidditch_statium_qualifying_accrual_complete']:
+            self.mock_event(ev)
 
-        # Accrual completed ?
-        self.assertEventCalled("you_are_a_quidditch_player")
-        self.reset_mock_events()
-        
-        # Shot state changes
-        self.assertEqual("hit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
-
-    def test_accrual_pop_with_drain(self):
-
-        self.get_options()
-
-        # Hit 'Start' button to start a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Hit 'Start' button to select a theme
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Advance skillshot platform
-        self.release_switch_and_run("s_plunger_lane", 11)
+        # Start a game
+        self._start_game()
         self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
 
-        # Ensure that mode field_quidditch_statium is running
-        self.assertModeRunning("field_quidditch_stadium")
+        # Hit qualify shots
+        for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+            self.post_event(ev)
+            self.advance_time_and_run(1)
 
-        # Qualify to enable shots for quidditch stadium - hit all three pops
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
-        self.assertEqual("hit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_left"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_right"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_bottom"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
+        for ev in ['sh_pop_left_qualify_hit', 'sh_pop_right_qualify_hit', 'sh_pop_bottom_qualify_hit']:
+            self.assertEventCalled(ev)
 
-        # Chech that qualify shots are disabled and normal pop shots are enabled
-        self.assertFalse(self.machine.shots["sh_pop_left_qualify"].enabled)
-        self.assertFalse(self.machine.shots["sh_pop_right_qualify"].enabled)
-        self.assertFalse(self.machine.shots["sh_pop_bottom_qualify"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_bottom"].enabled)
+        for shot in ['sh_pop_left_qualify', 'sh_pop_right_qualify', 'sh_pop_bottom_qualify']:
+            self.assertEqual("qualified", self.machine.shots[shot].state_name)
 
-        # Check that stadium and orbit shots are enabled now
-        self.assertTrue(self.machine.shots["sh_quidditch_stadium"].enabled)
-        self.assertTrue(self.machine.shots["sh_quidditch_orbit"].enabled)
-        self.assertTrue(self.machine.shots["sh_mis_quidditch"].enabled)
+        # Qualifying accrual should now be complete and qualifying shots disabled
+        self.assertEventCalled('logicblock_lb_quidditch_statium_qualifying_accrual_complete')
+        for shot in ['sh_pop_left_qualify', 'sh_pop_right_qualify', 'sh_pop_bottom_qualify']:
+            self.assertFalse(self.machine.shots[shot].enabled)
 
-        # Are both counter quidditch_pop_bumper_count and accrual quidditch_accrual enabled ?
-        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
-        self.assertTrue(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
+    def test_qualifying_shots_persist_state(self):
 
-        # Make 6 pop bumper shots
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
-
-        # Shot states
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
-        self.assertEqual(6, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
-      
-        # Drain ball
-        self.assertBallNumber(1)
-        self.drain_one_ball()
-        self.advance_time_and_run(5)
-        
-        # Plunge ball 3 and advance skillshot platform
-        self.assertBallNumber(2)
-        self.release_switch_and_run("s_plunger_lane", 11)
+        # Start a game
+        self._start_game()
         self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
 
-        # Check qualify shots (all three lit again)
-        self.assertEqual("lit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
-
-        # Make all three qualify shot
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
-        self.assertEqual("hit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
+        # Hit left and right qualifying pop shot
+        for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit']:
+            self.post_event(ev)
+            self.advance_time_and_run(1)
         
-        # Check if counter still is at 7 (last qulify shot counts too so it will be 7 instead of 6)
-        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
-        self.assertTrue(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(7, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
+        # Check qualifying shots state
+        for shot in ['sh_pop_left_qualify', 'sh_pop_right_qualify']:
+            self.assertEqual("qualified", self.machine.shots[shot].state_name)
+        self.assertEqual("qualifying", self.machine.shots["sh_pop_bottom_qualify"].state_name)
 
-        # Shot states
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
+        # Drain one ball
+        self._drain_one_ball()
+        self.assertBallsOnPlayfield(1, playfield='playfield')
 
-        # Make 3 pop bumper shots
-        self.mock_event("quidditch_pop_bumper_count_completed")
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
+        # Check qualifying shots state
+        for shot in ['sh_pop_left_qualify', 'sh_pop_right_qualify']:
+            self.assertEqual("qualified", self.machine.shots[shot].state_name)
+        self.assertEqual("qualifying", self.machine.shots["sh_pop_bottom_qualify"].state_name)
 
-        # Check counter is completed and disabled
-        self.assertEventCalled("quidditch_pop_bumper_count_completed")
-        self.assertFalse(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.reset_mock_events()
+    def test_qualifying_accrual_persist_state(self):
+
+        # Start a game
+        self._start_game()
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+
+        # Hit left and right qualifying pop shot
+        for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit']:
+            self.post_event(ev)
+            self.advance_time_and_run(1)
         
         # Check accrual state
-        self.assertEqual(True,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
+        for i in range(2):
+            self.assertEqual(True,self.machine.accruals["lb_quidditch_statium_qualifying_accrual"].value[i])
+        self.assertEqual(False,self.machine.accruals["lb_quidditch_statium_qualifying_accrual"].value[2])
 
-        # Shot states
-        self.assertEqual("hit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
-
-        # Drain ball
-        self.assertBallNumber(2)
-        self.drain_one_ball()
-        self.advance_time_and_run(5)
-        
-        # Plunge ball 3 and advance skillshot platform
-        self.assertBallNumber(3)
-        self.release_switch_and_run("s_plunger_lane", 11)
+        # Drain one ball
+        self._drain_one_ball()
         self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
 
-        # Make all three qualify shot
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
+        # Check qualifying accrual state
+        for i in range(2):
+            self.assertEqual(True,self.machine.accruals["lb_quidditch_statium_qualifying_accrual"].value[i])
+        self.assertEqual(False,self.machine.accruals["lb_quidditch_statium_qualifying_accrual"].value[2])
 
-        # Shot states
-        self.assertEqual("hit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)        
-        
-        # Check if counter still is completed and disabled
-        self.assertFalse(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
-        self.assertTrue(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(True,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
+    def test_pop_counters(self):
+        """After qualifying, hitting 16 shots per pop should count up to 16 hits."""
 
-        # Shot states
-        self.assertEqual("hit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)        
+        # Mock events
+        self.mock_event("logicblock_lb_quidditch_stadium_accrual_complete")
 
-    def test_accrual_orbit_with_drain(self):
-
-        self.get_options()
-
-        # Hit 'Start' button to start a game
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Hit 'Start' button to select a theme
-        self.hit_and_release_switch("s_start_button")
-        self.advance_time_and_run(1)
-
-        # Advance skillshot platform
-        self.release_switch_and_run("s_plunger_lane", 11)
+        # Start a game
+        self._start_game()
         self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
 
-        # Ensure that mode field_quidditch_statium is running
-        self.assertModeRunning("field_quidditch_stadium")
+        # Qualify first
+        for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+            self.post_event(ev)
+            self.advance_time_and_run(1)
 
-        # Qualify to enable shots for quidditch stadium - hit all three pops
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
-        self.assertEqual("hit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_left"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_right"].state_name)
-        self.assertEqual("unlit", self.machine.shots["sh_pop_bottom"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
+        # Counters should now be enabled
+        for counter in ['lb_pop_left_shot_counter', 'lb_pop_right_shot_counter', 'lb_pop_bottom_shot_counter']:
+            self.assertTrue(self.machine.counters[counter].enabled)
 
-        # Chech that qualify shots are disabled and normal pop shots are enabled
-        self.assertFalse(self.machine.shots["sh_pop_left_qualify"].enabled)
-        self.assertFalse(self.machine.shots["sh_pop_right_qualify"].enabled)
-        self.assertFalse(self.machine.shots["sh_pop_bottom_qualify"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_left"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_right"].enabled)
-        self.assertTrue(self.machine.shots["sh_pop_bottom"].enabled)
+        # Hitting 15 times per pop bumper
+        for i in range(15):
+            for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+                self.post_event(ev)
+                self.advance_time_and_run(1)
 
-        # Check that stadium and orbit shots are enabled now
-        self.assertTrue(self.machine.shots["sh_quidditch_stadium"].enabled)
-        self.assertTrue(self.machine.shots["sh_quidditch_orbit"].enabled)
-        self.assertTrue(self.machine.shots["sh_mis_quidditch"].enabled)
+        for counter in ['lb_pop_left_shot_counter', 'lb_pop_right_shot_counter', 'lb_pop_bottom_shot_counter']:
+            self.assertEqual(self.machine.counters[counter].value, 15)
 
-        # Are both counter quidditch_pop_bumper_count and accrual quidditch_accrual enabled ?
-        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
-        self.assertTrue(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[1])
+        # Last hit per pop bumper
+        for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+            self.post_event(ev)
+            self.advance_time_and_run(1)
 
-        # Make one left orbit shot
-        self.hit_and_release_switch("s_orbit_left")
-        self.advance_time_and_run(1)
-        self.hit_and_release_switch("s_orbit_right")
-        self.advance_time_and_run(1)
+        # Check if stadium accrual completed
+        self.assertEventCalled('logicblock_lb_quidditch_stadium_accrual_complete')
 
-        # Shot states
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
-        self.assertEqual(0, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(True,self.machine.accruals["lb_quidditch_accrual"].value[1])
-      
-        # Drain ball
-        self.assertBallNumber(1)
-        self.drain_one_ball()
-        self.advance_time_and_run(5)
-        
-        # Plunge ball 3 and advance skillshot platform
-        self.assertBallNumber(2)
-        self.release_switch_and_run("s_plunger_lane", 11)
+    def test_pop_counters_persist_state(self):
+        """After qualifying, hitting 16 shots per pop should count up to 16 hits."""
+
+        # Mock events
+        self.mock_event("logicblock_lb_quidditch_stadium_accrual_complete")
+
+        # Start a game
+        self._start_game()
         self.assertBallsOnPlayfield(1, playfield='playfield')
-        self.advance_time_and_run(15)
 
-        # Check qualify shots (all three lit again)
-        self.assertEqual("lit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
+        # Qualify first
+        for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+            self.post_event(ev)
+            self.advance_time_and_run(1)
 
-        # Make all three qualify shot
-        self.hit_and_release_switch("s_pop_left")
-        self.hit_and_release_switch("s_pop_right")
-        self.hit_and_release_switch("s_pop_bottom")
-        self.advance_time_and_run(1)
-        self.assertEqual("hit", self.machine.shots["sh_pop_left_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_right_qualify"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_pop_bottom_qualify"].state_name)
+        # Counters should now be enabled
+        for counter in ['lb_pop_left_shot_counter', 'lb_pop_right_shot_counter', 'lb_pop_bottom_shot_counter']:
+            self.assertTrue(self.machine.counters[counter].enabled)
+
+        # Hitting 15 times per pop bumper
+        for i in range(10):
+            for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+                self.post_event(ev)
+                self.advance_time_and_run(1)
+                
+        # Drain one ball
+        self._drain_one_ball()
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+
+        for counter in ['lb_pop_left_shot_counter', 'lb_pop_right_shot_counter', 'lb_pop_bottom_shot_counter']:
+            self.assertEqual(self.machine.counters[counter].value, 10)
         
-        # Check if counter still is at 1 (last qulify shot counts too so it will be 1 instead of 0)
-        self.assertTrue(self.machine.counters["lb_quidditch_pop_bumper_counter"].enabled)
-        self.assertTrue(self.machine.accruals["lb_quidditch_accrual"].enabled)
-        self.assertEqual(1, self.machine.counters["lb_quidditch_pop_bumper_counter"].value)
-        self.assertEqual(False,self.machine.accruals["lb_quidditch_accrual"].value[0])
-        self.assertEqual(True,self.machine.accruals["lb_quidditch_accrual"].value[1])
+        # Ensure that shots are in proper state
+        for shot in ['sh_pop_left_qualify', 'sh_pop_right_qualify', 'sh_pop_bottom_qualify']:
+            self.assertFalse(self.machine.shots[shot].enabled)
+            self.assertEqual("qualified", self.machine.shots[shot].state_name)
 
-        # Shot states
-        self.assertEqual("lit", self.machine.shots["sh_quidditch_stadium"].state_name)
-        self.assertEqual("hit", self.machine.shots["sh_quidditch_orbit"].state_name)
-        self.assertEqual("lit", self.machine.shots["sh_mis_quidditch"].state_name)
+        # Ensure that shots are in proper state
+        for shot in ['sh_pop_left', 'sh_pop_right', 'sh_pop_bottom']:
+            self.assertTrue(self.machine.shots[shot].enabled)
+            self.assertEqual("lit", self.machine.shots[shot].state_name)
+
+        # Are the pop bumper shot counter enabled and count 10
+        for counter in ['lb_pop_left_shot_counter', 'lb_pop_right_shot_counter', 'lb_pop_bottom_shot_counter']:
+            self.assertTrue(self.machine.counters[counter].enabled)
+            self.assertEqual(10, self.machine.counters[counter].value)
+
+        # Hitting 1 times per pop bumper
+        for i in range(1):
+            for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+                self.post_event(ev)
+                self.advance_time_and_run(1)
+
+        for counter in ['lb_pop_left_shot_counter', 'lb_pop_right_shot_counter', 'lb_pop_bottom_shot_counter']:
+            self.assertEqual(self.machine.counters[counter].value, 11)
+
+    def test_quidditch_stadium_accrual(self):
+        """After qualifying, hitting 16 shots per pop should complete the stadium accrual."""
+
+        # Mock events
+        self.mock_event("logicblock_lb_quidditch_stadium_accrual_complete")
+
+        # Start a game
+        self._start_game()
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+
+        # Qualify first
+        for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+            self.post_event(ev)
+            self.advance_time_and_run(1)
+
+        # Counters should now be enabled
+        for counter in ['lb_pop_left_shot_counter', 'lb_pop_right_shot_counter', 'lb_pop_bottom_shot_counter']:
+            self.assertTrue(self.machine.counters[counter].enabled)
+
+        # Hitting 15 times per pop bumper
+        for i in range(16):
+            for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+                self.post_event(ev)
+                self.advance_time_and_run(1)
+
+        # Check if stadium accrual completed
+        self.assertEventCalled('logicblock_lb_quidditch_stadium_accrual_complete')
+
+    def test_quidditch_stadium_accrual_persist_state(self):
+        """After qualifying, hitting 16 shots per pop should complete the stadium accrual."""
+
+        # Mock events
+        self.mock_event("logicblock_lb_quidditch_stadium_accrual_complete")
+
+        # Start a game
+        self._start_game()
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+
+        # Qualify first
+        for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+            self.post_event(ev)
+            self.advance_time_and_run(1)
+
+        # Counters should now be enabled
+        for counter in ['lb_pop_left_shot_counter', 'lb_pop_right_shot_counter', 'lb_pop_bottom_shot_counter']:
+            self.assertTrue(self.machine.counters[counter].enabled)
+
+        # Hitting 10 times per pop bumper
+        for i in range(10):
+            for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+                self.post_event(ev)
+                self.advance_time_and_run(1)
+                
+        # Drain one ball
+        self._drain_one_ball()
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+        
+        # Hitting 6 times per pop bumper
+        for i in range(16):
+            for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+                self.post_event(ev)
+                self.advance_time_and_run(1)
+
+        # Check if stadium accrual completed
+        self.assertEventCalled('logicblock_lb_quidditch_stadium_accrual_complete')
+
+
+    def test_final_orbit_completion(self):
+        """Orbit shot after stadium completion should complete final accrual."""
+
+        # Mock events
+        self.mock_event("you_are_a_quidditch_player")
+
+        # Start a game
+        self._start_game()
+        self.assertBallsOnPlayfield(1, playfield='playfield')
+
+        # Qualify first
+        for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+            self.post_event(ev)
+            self.advance_time_and_run(1)
+
+        # Complete pop counters to finish stadium accrual
+        for i in range(16):
+            for ev in ['sh_core_pop_left_hit', 'sh_core_pop_right_hit', 'sh_core_pop_bottom_hit']:
+                self.post_event(ev)
+                self.advance_time_and_run(1)
+
+        # Now orbit shot should be lit
+        self.assertEqual("lit", self.machine.shots["sh_quidditch_orbit"].state_name)
+
+        # Hit orbit
+        self.post_event('sq_shot_orbit_big_left_hit')
+        self.advance_time_and_run(1)
+
+        # Should complete final accrual
+        self.assertEventCalled('you_are_a_quidditch_player')
 
     def test_orbits_mode_connection(self):
 

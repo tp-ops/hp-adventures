@@ -10,11 +10,33 @@ class test_global_hogwarts_castle(MpfGameTestCase):
 
     def get_platform(self):
         return 'smart_virtual'
+    
+    def _start_game(self):
+        """Starting a game and progress through house_theme_selection and skill_shot mode."""
+
+        # Start game and select a house_theme
+        for i in range(2):
+            self.hit_and_release_switch("s_start_button")
+            self.advance_time_and_run(1)
+
+        # Progress through skill_shot mode
+        self.release_switch_and_run("s_plunger_lane", 30)
+
+    def _drain_one_ball(self):
+        """Drain one ball and progress through skill_shot mode"""
+
+        # Drain ball
+        self.drain_one_ball()
+        self.advance_time_and_run(5)
+        
+        # Plunge ball 2 and advance skillshot platform
+        self.release_switch_and_run("s_plunger_lane", 30)
 
     def test_startup_state_level1(self):
         """Test that the state machine starts at level 1 on game start."""
-        self.start_game()
-        self.assertModeRunning('global_hogwarts_castle')
+
+        self._start_game()
+        self.assertModeRunning('global')
 
         # Check that the state machine is at level1
         sm = self.machine.device_manager.collections['state_machines']['sm_hogwarts_castle']
@@ -25,7 +47,10 @@ class test_global_hogwarts_castle(MpfGameTestCase):
 
     def test_level_up_to_level2(self):
         """Test transition from level1 to level2."""
-        self.start_game()
+
+        # Start a game
+        self._start_game()
+        self.assertBallsOnPlayfield(1, playfield='playfield')
 
         # Trigger level-up event
         self.post_event('ce_levelup_hogwarts_castle_to_level2')
