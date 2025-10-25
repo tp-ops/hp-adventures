@@ -77,15 +77,15 @@ coils:
   c_drop1_castle_door:
     platform: opp
     number: 0-0-0
-    default_pulse_ms: 5
+    default_pulse_ms: 15
   c_drop1_gringotts:
     platform: opp
     number: 3-0-5
-    default_pulse_ms: 5
+    default_pulse_ms: 15
   c_drop3_ministry:
     platform: opp
     number: 3-0-0
-    default_pulse_ms: 5
+    default_pulse_ms: 15
   # VUK's
   c_subway_vuk_right:
     platform: opp
